@@ -1,63 +1,47 @@
 <?php
 /**
+ * The Template for displaying all single posts.
+ *
  * @package WordPress
- * @subpackage HTML5_Boilerplate
+ * @subpackage Boilerplate
+ * @since Boilerplate 1.0
  */
 
 get_header(); ?>
-
-<div id="main" role="main">
-
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-  <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-    <header>
-      <h2><?php the_title(); ?></a></h2>
-    </header>
-    <?php the_content('Read the rest of this entry &raquo;'); ?>
-    <?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
-    <?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
-    <footer>
-      <p>This entry was posted by <?php the_author() ?>
-      on <time datetime="<?php the_time('Y-m-d')?>"><?php the_time('l, F jS, Y') ?></time>
-      at <time><?php the_time() ?></time>
-      and is filed under <?php the_category(', ') ?>.
-      You can follow any responses to this entry through the <?php post_comments_feed_link('RSS 2.0'); ?> feed.
-
-      <?php if ( comments_open() && pings_open() ) {
-        // Both Comments and Pings are open ?>
-        You can <a href="#respond">leave a response</a>, or <a href="<?php trackback_url(); ?>" rel="trackback">trackback</a> from your own site.
-
-      <?php } elseif ( !comments_open() && pings_open() ) {
-        // Only Pings are Open ?>
-        Responses are currently closed, but you can <a href="<?php trackback_url(); ?> " rel="trackback">trackback</a> from your own site.
-
-      <?php } elseif ( comments_open() && !pings_open() ) {
-        // Comments are open, Pings are not ?>
-        You can skip to the end and leave a response. Pinging is currently not allowed.
-
-      <?php } elseif ( !comments_open() && !pings_open() ) {
-        // Neither Comments, nor Pings are open ?>
-        Both comments and pings are currently closed.
-
-      <?php } edit_post_link('Edit this entry','','.'); ?>
-      </p>
-    </footer>
-    <nav>
-      <div><?php previous_post_link('&laquo; %link') ?></div>
-      <div><?php next_post_link('%link &raquo;') ?></div>
-    </nav>
-
-    <?php comments_template(); ?>
-
-  </article>
-
-<?php endwhile; else: ?>
-
-  <p>Sorry, no posts matched your criteria.</p>
-
+<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+				<nav id="nav-above" class="navigation">
+					<?php previous_post_link( '%link', '' . _x( '&larr;', 'Previous post link', 'boilerplate' ) . ' %title' ); ?>
+					<?php next_post_link( '%link', '%title ' . _x( '&rarr;', 'Next post link', 'boilerplate' ) . '' ); ?>
+				</nav><!-- #nav-above -->
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<h1><?php the_title(); ?></h1>
+					<div class="entry-meta">
+						<?php boilerplate_posted_on(); ?>
+					</div><!-- .entry-meta -->
+					<div class="entry-content">
+						<?php the_content(); ?>
+						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
+					</div><!-- .entry-content -->
+<?php if ( get_the_author_meta( 'description' ) ) : // If a user has filled out their description, show a bio on their entries  ?>
+					<footer id="entry-author-info">
+						<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'boilerplate_author_bio_avatar_size', 60 ) ); ?>
+						<h2><?php printf( esc_attr__( 'About %s', 'boilerplate' ), get_the_author() ); ?></h2>
+						<?php the_author_meta( 'description' ); ?>
+						<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+							<?php printf( __( 'View all posts by %s &rarr;', 'boilerplate' ), get_the_author() ); ?>
+						</a>
+					</footer><!-- #entry-author-info -->
 <?php endif; ?>
-
-</div>
-
+					<footer class="entry-utility">
+						<?php boilerplate_posted_in(); ?>
+						<?php edit_post_link( __( 'Edit', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>
+					</footer><!-- .entry-utility -->
+				</article><!-- #post-## -->
+				<nav id="nav-below" class="navigation">
+					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'boilerplate' ) . '</span> %title' ); ?></div>
+					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'boilerplate' ) . '</span>' ); ?></div>
+				</nav><!-- #nav-below -->
+				<?php comments_template( '', true ); ?>
+<?php endwhile; // end of the loop. ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

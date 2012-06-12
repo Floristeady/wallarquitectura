@@ -1,49 +1,32 @@
 <?php
 /**
+ * The template for displaying the footer.
+ *
+ * Contains the closing of the id=main div and all content
+ * after.  Calls sidebar-footer.php for bottom widgets.
+ *
  * @package WordPress
- * @subpackage HTML5_Boilerplate
+ * @subpackage Boilerplate
+ * @since Boilerplate 1.0
  */
 ?>
-
-  <footer>
-      <p>
-        <?php bloginfo('name'); ?> is proudly powered by
-        <a href="http://wordpress.org/">WordPress</a>, and built using the <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>.
-        <br /><a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a>
-        and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>.
-        <!-- <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds. -->
-      </p>
-  </footer>
-</div> <!--! end of #container -->
-
-  <!-- Javascript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script>!window.jQuery && document.write('<script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>html5-boilerplate/js/jquery-1.4.2.min.js"><\/script>')</script>
-
-
-  <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/plugins.js") ?>
-  <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/script.js") ?>
-
-
-  <!--[if lt IE 7 ]>
-    <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/dd_belatedpng.js") ?>
-  <![endif]-->
-
-
-  <!-- yui profiler and profileviewer - remove for production -->
-  <!-- <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/profiling/yahoo-profiling.min.js") ?>
-    <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/profiling/config.js") ?> -->
-  <!-- end profiling code -->
-
-
-  <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
-       change the UA-XXXXX-X to be your site's ID -->
-  <!-- WordPress does not allow Google Analytics code to be built into themes they host. 
-       Add this section from HTML Boilerplate manually (html5-boilerplate/index.html), or use a Google Analytics WordPress Plugin-->
-
-  <?php wp_footer(); ?>
-
-</body>
+		</section><!-- #main -->
+		<footer role="contentinfo">
+<?php
+	/* A sidebar in the footer? Yep. You can can customize
+	 * your footer with four columns of widgets.
+	 */
+	get_sidebar( 'footer' );
+?>
+			<a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress </a>
+		</footer><!-- footer -->
+<?php
+	/* Always have wp_footer() just before the closing </body>
+	 * tag of your theme, or you will break many plugins, which
+	 * generally use this hook to reference JavaScript files.
+	 */
+	wp_footer();
+?>
+	</body>
 </html>

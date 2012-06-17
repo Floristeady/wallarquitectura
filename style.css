@@ -454,6 +454,9 @@ a#skip { display: none;}
 /* =Content and Edit
 ----------------------------------------------- */
 
+
+/*----index.php----*/
+
 #container-slide #nav {
 	width: auto;
 	text-align: center;
@@ -486,17 +489,11 @@ a#skip { display: none;}
     box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3);     
 }
 
-#slideshow li {
-	display: none;
-}
+#slideshow li { display: none;}
 
 section#content {
 	clear: left;
 	float: left;
-}
-
-#slideshow li.slide a {
-	
 }
 
 #slideshow li .title {
@@ -524,6 +521,8 @@ section#content {
 	z-index: 10;
 }
 
+/*----entry----*/
+
 h2.entry-title a {
 	font-family: "museosans-300", "Helvetica Neue", Arial;
 	font-weight: normal;
@@ -538,6 +537,8 @@ h2.entry-title a {
 	margin: 0 0 4px;
 }
 
+/*----Single-proyectos.php----*/
+
 #single-proyectos .col_IZ {
 	float: left;
 	width: 246px;
@@ -550,12 +551,23 @@ h2.entry-title a {
 
 #single-proyectos .gallery {
 	position: relative;
+	display: block;
+    float: left;
+    min-height: 426px;
+    position: relative;
+    width: 714px;
 }
 
 #single-proyectos .gallery-item {
 	position: absolute;
 	height: 426px;
-	width: 716px;
+	width: 714px;
+}
+
+#single-proyectos .gallery-icon {
+	overflow: hidden;
+	height: 426px;
+	position: relative;
 }
 
 #single-proyectos #nav {
@@ -578,8 +590,7 @@ h2.entry-title a {
 }
 
 #single-proyectos .gallery-item img {
-	height: 426px;
-	width: 716px;
+	width: 714px;
 }
 
 #single-proyectos .entry-top  {
@@ -618,6 +629,39 @@ h2.entry-title a {
 	float: left;
 	clear: left;
 	margin-bottom: 10px;
+}
+
+/*----Category-proyectos.php----*/
+
+#projects li {
+	float: left;
+	margin-right: 12px;
+	margin-bottom: 12px;
+}
+
+#projects li:nth-child(3n+3) {
+	margin-right: 0px;
+}
+
+#projects li a {
+	position: relative;
+}
+
+
+#projects li a span.over_title {
+	background-image: url(images/repeat/hover_project.png);
+	height: 236px;
+	position: absolute;
+	width: 100%;
+}
+
+#projects li a span.over_title h4 {
+	color: #9ac247;
+	font-family: "museosans-700", "Helvetica Neue", Arial;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	padding-top: 110px;
 }
 
 

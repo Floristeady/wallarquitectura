@@ -8,7 +8,7 @@
  */
 ?>
 
-			<ul class="xoxo">
+	<ul class="widget-list">
 
 <?php
 	/* When we call the dynamic_sidebar() function, it'll spit out
@@ -18,34 +18,15 @@
 	 */
 	if ( ! dynamic_sidebar( 'primary-widget-area' ) ) : ?>
 	
-			<li>
-				<?php get_search_form(); ?>
-			</li>
-
-			<li>
-				<h3><?php _e( 'Archives', 'boilerplate' ); ?></h3>
-				<ul>
-					<?php wp_get_archives( 'type=monthly' ); ?>
-				</ul>
-			</li>
-
-			<li>
-				<h3><?php _e( 'Meta', 'boilerplate' ); ?></h3>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</li>
-
-		<?php endif; // end primary widget area ?>
-			</ul>
+	<?php endif; // end primary widget area ?>
+			
+	</ul>
 
 <?php
 	// A second sidebar for widgets, just because.
 	if ( is_active_sidebar( 'secondary-widget-area' ) ) : ?>
 
-			<ul class="xoxo">
+			<ul class="widget-list">
 				<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
 			</ul>
 

@@ -1,7 +1,7 @@
 /*
 	Theme Name: Theme for Wall Arquitectura & Diseno
 	Theme URI: https://github.com/Floristeady/wallarquitectura
-	Description: Based on the  Boilerplate by Aaron T. Grogg (<a href="http://aarontgrogg.com/">http://aarontgrogg.com/</a>), HTML5 Boilerplate (<a href="http://html5boilerplate.com/">http://html5boilerplate.com/</a>) and the Starkers theme.
+	Description: Based on Boilerplate Theme by Aaron T. Grogg (<a href="http://aarontgrogg.com/">http://aarontgrogg.com/</a>), HTML5 Boilerplate (<a href="http://html5boilerplate.com/">http://html5boilerplate.com/</a>) and the Starkers theme.
 		
 	Author: Florencia Rosenfeld
 	Author URI:http://floristeady.com
@@ -57,10 +57,10 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 /* Links
 ------------------------------------------------------------------------------ */
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
+a { color: #707070; text-decoration: none;}
+a:visited { color: #707070; }
+a:hover { color: #9ac247; }
+a:focus { outline: none; }
 
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
@@ -103,7 +103,7 @@ sub { bottom: -0.25em; }
 /* Lists
 ------------------------------------------------------------------------------ */
 
-ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+ul, ol { margin: 0em 0; padding: 0 0 0 0px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
@@ -239,53 +239,520 @@ Primary Styles
 /* =Structure
 ----------------------------------------------- */
 body {
-	background-color: fff;
-	
+	background-color: #fff;
+	background-image: url(images/repeat/backbody.png);
+	background-repeat: repeat;
 }
+
+#container {
+	width: 960px;
+	margin: auto;
+}
+
+#content {
+	margin-top: 50px;
+}
+
 
 /* =Typography
 ----------------------------------------------- */
 
 
-@font-face {
-  font-family: 'sanuk-medium';
-  src: url('sanuk-medium.eot?#iefix') format('embedded-opentype'), 
-       url('sanuk-medium.woff') format('woff'), 
-       url('sanuk-medium.ttf')  format('truetype'),
-       url('sanuk-medium.svg#svgFontName') format('svg');
-  }
+p  {
+	font-family: "Helvetica Neue", Arial, Helvetica;
+	font-size: 0.8em;
+	color: #333;
+}
 
+h1, h2, h3 , h4 {
+	font-weight: normal;
+	margin: 0px;
+}
+
+h1 {
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	color: #555555;
+	font-size: 1.9em;
+	line-height: 1.1em;
+}
+
+h2 {
+	font-family: 'museosans-300';
+	font-size: 1.1em;
+	color: #333;
+}
+
+h4 {
+	font-family: 'museosans-300';
+	color: #797979;
+	font-size: 0.9em;
+}
+
+@font-face {
+  font-family: 'museosans-300';
+  src: url('fonts/museosans-300.eot?#iefix') format('embedded-opentype'), 
+       url('fonts/museosans-300.woff') format('woff'), 
+       url('fonts/museosans-300.ttf')  format('truetype'),
+       url('fonts/museosans-300.svg#svgFontName') format('svg');
+  }
+  
+@font-face {
+	font-family: 'museosans-500';
+	src: url('fonts/museosans-500.eot?#iefix') format('embedded-opentype'), 
+	   url('fonts/museosans-500.woff') format('woff'), 
+	   url('fonts/museosans-500.ttf')  format('truetype'),
+	   url('fonts/museosans-500.svg#svgFontName') format('svg');
+}
+
+@font-face {
+	font-family: 'museosans-700';
+	src: url('fonts/museosans-700.eot?#iefix') format('embedded-opentype'), 
+	   url('fonts/museosans-700.woff') format('woff'), 
+	   url('fonts/museosans-700.ttf')  format('truetype'),
+	   url('fonts/museosans-700.svg#svgFontName') format('svg');
+}
+
+
+ul li {
+	list-style: none;
+}
 
 
 /* =Links
 ----------------------------------------------- */
 
+a.btn_info {
+	font-family: 'museosans-300';
+	font-size: 0.85em;
+	color: #9ac247;
+	display: block;
+	margin-top: 40px;
+}
 
+a.btn_info:hover {
+	text-decoration: underline;
+}
+
+
+input#submit {
+	background-color: #9ac247;
+	border: none;
+	color: #fff;
+	font-size: 0.9em;
+    padding: 10px 12px 7px;
+	text-transform: uppercase;
+	background: #a4c85a; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a4c85a 52%, #9ac247 53%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(52%,#a4c85a), color-stop(53%,#9ac247)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #a4c85a 52%,#9ac247 53%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #a4c85a 52%,#9ac247 53%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #a4c85a 52%,#9ac247 53%); /* IE10+ */
+	background: linear-gradient(top,  #a4c85a 52%,#9ac247 53%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4c85a', endColorstr='#9ac247',GradientType=0 ); /* IE6-9 */
+}
+
+input#submit:hover {
+	background: #9ac247; /* Old browsers */
+	background: -moz-linear-gradient(top,  #9ac247 51%, #95b252 51%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(51%,#9ac247), color-stop(51%,#95b252)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #9ac247 51%,#95b252 51%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #9ac247 51%,#95b252 51%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #9ac247 51%,#95b252 51%); /* IE10+ */
+	background: linear-gradient(top,  #9ac247 51%,#95b252 51%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ac247', endColorstr='#95b252',GradientType=0 ); /* IE6-9 */
+
+}
 
 /* =Header and Navigation
 ----------------------------------------------- */
 
+header {
+	border-top: 6px solid #333333;
+	width: 100%;
+	position: relative;
+}
+
+header hgroup h1 {
+	margin: 16px 0px 0px;
+}
+
+header hgroup h2 {display: none;}
+
+header hgroup { float: left;}
+
+a#logo {
+	background-image:url(images/CSS_sprite.png);
+	background-position: -100px -50px;
+	float: left;
+	height: 64px;
+	text-indent: -999px;
+	width: 176px;
+}
+
+a#skip { display: none;}
+
+#access {
+	left: 246px;
+	position: absolute;
+	top: 0px;
+}
+
+#access ul, #access li {
+	float: left;
+}
+
+#access a {
+	border-left: 1px dotted #acacac;
+	color: #707070;
+	float: left;
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	font-size: 0.90em;
+	text-transform: uppercase;
+	padding: 35px 20px 0;
+}
+
+#access a:hover, #menu-secondary li a:hover {color: #9ac247;}
+
+#menu-secondary {
+	float: right;
+}
+
+#menu-secondary li {
+	float: left;
+}
+
+#menu-secondary li a {
+	border-left: 1px dotted #acacac;
+	color: #707070;
+	float: left;
+	font-size: 0.85em;
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	padding: 35px 10px 0;
+}
+
+#breadcrumbs {
+	border-top: 1px solid #9ac247;
+	color: #959595;
+	font-size: 0.8em;
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	float: left;
+	padding-top: 8px;
+	text-transform: uppercase;
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+#breadcrumbs a {
+	color: #959595;
+}
+
+#breadcrumbs span {
+	color: #9ac247;
+}
 
 
 /* =Content and Edit
 ----------------------------------------------- */
 
+#container-slide #nav {
+	width: auto;
+	text-align: center;
+	margin-top: 10px;
+	float: left;
+	margin-left: 50%;
+}
+
+#container-slide #nav a {
+	background-image:url(images/CSS_sprite.png);
+	background-position: -250px -145px;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 20px;
+	text-indent: -99999px;
+	width: 20px;
+	margin-right: 5px;
+}
+
+#container-slide #nav a:hover, #container-slide #nav a.activeSlide {
+	background-position: -225px -145px;
+	outline: none;
+}
+
+#slideshow {
+	width: 960px;
+	position: relative;
+    -webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3);     
+}
+
+#slideshow li {
+	display: none;
+}
+
+section#content {
+	clear: left;
+	float: left;
+}
+
+#slideshow li.slide a {
+	
+}
+
+#slideshow li .title {
+	bottom: 10px;
+	font-family: "museosans-700", "Helvetica Neue", Arial;
+	font-size: 4.4em;
+	color: #3c3c3b;
+	opacity: 0.4;
+	left: 20px;
+	position: absolute;
+	text-transform: uppercase;
+	z-index: 10;
+}
+
+#slideshow li .text {
+	bottom: 70px;
+	font-family: "museosans-700", "Helvetica Neue", Arial;
+	letter-spacing: -0.02em;
+	font-size: 4.4em;
+	color: #3c3c3b;
+	opacity: 0.1;
+	left: 20px;
+	position: absolute;
+	text-transform: uppercase;
+	z-index: 10;
+}
+
+h2.entry-title a {
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	font-weight: normal;
+	color: #333333;
+}
+
+.entry-meta, footer.entry-utility {
+	font-size: 0.8em;
+}
+
+.entry-content p {
+	margin: 0 0 4px;
+}
+
+#single-proyectos .col_IZ {
+	float: left;
+	width: 246px;
+} 
+
+#single-proyectos .col_DE {
+	float: right;
+	width: 714px;
+}
+
+#single-proyectos .gallery {
+	position: relative;
+}
+
+#single-proyectos .gallery-item {
+	position: absolute;
+	height: 426px;
+	width: 716px;
+}
+
+#single-proyectos #nav {
+	float: left;
+	margin-top: 10px;
+}
+
+#single-proyectos #nav li {
+	margin-right: 10px;
+	float: left;
+	height: 112px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	width: 112px;
+}
+
+#single-proyectos #nav li:last-child {
+	margin-right: 0px;
+}
+
+#single-proyectos .gallery-item img {
+	height: 426px;
+	width: 716px;
+}
+
+#single-proyectos .entry-top  {
+	background-color: #fff;
+	-webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3); 
+    padding: 20px 15px;
+    width: 216px;
+}
+
+#single-proyectos .entry-content {
+	background-color: #eeeeee;
+	background-image: url(images/repeat/backtext.png);
+	background-repeat: repeat;
+	padding: 15px 15px;
+	width: 216px;
+	margin-top: 1px;
+}
+
+#single-proyectos article.post footer {
+	clear: left;
+	float: left;
+	margin-top: 20px;
+}
+
+.data span {
+	color: #333333;
+    font-family: "Helvetica Neue",Arial,Helvetica;
+    font-size: 0.8em;
+    float: left;
+    clear: left;
+}
+
+.data {
+	width: 100%;
+	float: left;
+	clear: left;
+	margin-bottom: 10px;
+}
 
 
 /* =Images and Gallery
 ----------------------------------------------- */
 
-
+.gallery-item {
+	margin: 0px;
+}
 
 /* =Comments
 ----------------------------------------------- */
 
+#comments {
+	float: left;
+	width: 100%;
+	margin-top: 30px;
+}
+
+#comments ol {
+	list-style: none;
+}
+
+#respond {
+	width: 100%;
+}
+
+h3#comments-title {
+	border-top: 1px dotted #bbbbbb;
+	font-size: 0.95em;	
+	padding-top: 10px;
+	margin: 20px 0px;
+}
+
+h3#reply-title {
+	border-top: 1px dotted #bbbbbb;
+	font-size: 1em;	
+	padding-top: 10px;
+	margin-top: 20px;
+}
+
+.comment-author a, .comment-meta {
+	font-size: 0.9em;
+}
+
+.comment-meta {
+	font-size: 0.75em;
+    margin-top: 15px;
+}
+
+.comment-body {
+	float: left;
+	clear: left;
+	width: 100%;
+}
+
+a.comment-reply-link {
+	font-size: 0.8em;
+	text-decoration: underline;
+}
+
+#commentform {
+    background-color: #F9F9F9;
+    float: left;
+    padding: 20px;
+}
+
+#commentform label {
+	float: left;
+	width: 110px;
+	text-align: right;
+	margin-right: 10px;
+}
+#commentform .required {
+	margin: 0px 2px 0px 0px;
+	float: right;
+}
+
+#respond input[type="text"] {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+#commentform input[type="text"], textarea {
+	border: 1px solid #BBBBBB;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    padding: 4px 0;
+}
+
+#commentform input[type="text"]:focus, textarea:focus {
+	border: 1px solid #989191;
+} 
+
+#commentform p {
+	clear: left;
+	float: left;
+	margin: 8px 0px;
+}
+
+#commentform .form-allowed-tags {
+	font-size: 0.7em;
+}
 
 
 /* =Footer
 ----------------------------------------------- */
 
+footer#footer {
+	border-top: 1px #898989 solid;
+	clear: left;
+	float: left;
+	margin-top: 30px;
+	padding: 6px 0px 10px;
+	width: 100%;
+}
 
+footer #first.widget-area {
+	float: left;
+	width: 348px;
+}
+
+footer .widget-area ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+footer#footer a {
+	color: #9ac247;
+}
+
+footer#footer a:hover {
+	text-decoration: underline;
+}
 
 /* =Plugins
 ----------------------------------------------- */
@@ -294,11 +761,33 @@ body {
 
 
 /* Media queries for responsive design
-------------------------------------------------------------*/
+--------------------------------------------- */
+
+/* --- iPad Landscape --- */
+@media screen and (max-width: 1024px) {
+/* --- General --- */
+
+}
+
+/* --- iPad Portrait --- */
+@media screen and (max-width: 880px) {
+
+
+}
+
+
+/* --- Smartphones and small Tablet PCs --- */
+@media screen and (max-width : 620px) { 
+	
+	  #slideshow {
+	  width: 480px;
+  }
+	
+}
 
 @media all and (orientation:portrait) { 
   /* Style adjustments for portrait mode goes here */
-  
+
 }
 
 @media all and (orientation:landscape) { 
@@ -309,8 +798,7 @@ body {
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
    Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 @media screen and (max-device-width: 480px) {
-  
-  
+
   /* Prevent iOS, WinMobile from adjusting font size */
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
 }
@@ -318,6 +806,12 @@ body {
 
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
+
+}
+
+/*Between 600px and 900px */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
 }
 
 
@@ -346,6 +840,9 @@ body {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
+
+.strong {font-weight: bold;}
+.alert { background:red; color:white; } /* 'alert' has a basic style, since it's useful to have it standing out for testing purposes.
 
 
 
@@ -387,78 +884,7 @@ body {
 /* div, ul, li { position:relative } This will save you having to declare each div / ul / li's position as 'relative' and allows you to absolutely position elements inside them
 br.clear { clear:both; display:block; height:1px; margin:-1px 0 0 0 } /* Use this br class to clear your floated columns */
 li#theme-switcher { background:#fff; border:10px solid red; padding:20px; position:fixed; top:0; right:0 } /* Use this if you have the Theme Switcher Reloaded plugin (http://themebot.com/webmaster-tools/1-wordpress-theme-switcher-reloaded) installed and want to make it nice and obvious */
-*/
-/* TYPOGRAPHY */
-/* ----------------------------------------- */
 
-h1, h2, h3, h4, h5, h6 { font-weight:bold } /* This helps to identify headings at the initial build stage, so I thought it'd be useful to have it */
-.alert { background:red; color:white } /* 'alert' has a basic style, since it's useful to have it standing out for testing purposes.
-
-
-
-/* Font stack options
-
-	The following represents a list of font stacks, as recommended by Nathan Ford in
-	http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
-
-	I've added inverted commas around the relevant family names to ensure compatibility.
-	p = balanced for paragraphs or body copy
-	t = balanced for headlines or titles
-
-	- - - -
-
-Arial, "Helvetica Neue", Helvetica, sans-serif - p, t
-
-Baskerville, "Times New Roman", Times, serif - p
-Baskerville, "Times, Times New Roman", serif - t
-
-Cambria, Georgia, Times, "Times New Roman", serif - p, t
-"Century Gothic", "Apple Gothic", sans-serif - p, t
-
-Consolas, "Lucida Console", Monaco, monospace - p, t
-
-"Copperplate Light", "Copperplate Gothic Light", serif - p, t
-
-"Courier New", Courier, monospace - p, t
-
-"Franklin Gothic Medium", "Arial Narrow Bold", Arial, sans-serif - p, t
-
-Futura, "Century Gothic", "Apple Gothic", sans-serif - p, t
-
-Garamond, "Hoefler Text", "Times New Roman", Times, serif - p
-Garamond, "Hoefler Text", Palatino, "Palatino Linotype", serif - t
-
-Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif - p
-Geneva, Verdana, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif - t
-
-Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif - p
-Georgia, Times, "Times New Roman", serif - t
-
-GillSans, Calibri, Trebuchet, sans-serif - p
-GillSans, Trebuchet, Calibri, sans-serif - t
-
-"Helvetica Neue", Arial, Helvetica, sans-serif - p
-Helvetica, "Helvetica Neue", Arial, sans-serif - t
-
-Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif - p, t
-
-"Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif - p, t
-
-Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif - p
-Palatino, "Palatino Linotype", "Hoefler Text", Times, "Times New Roman", serif - t
-
-Tahoma, Geneva, Verdana - p
-Tahoma, Verdana, Geneva - t
-
-Times, "Times New Roman", Georgia, serif - p, t
-
-Trebuchet, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif - p
-Trebuchet, Tahoma, Arial, sans-serif - t
-
-Verdana, Geneva, Tahoma, sans-serif - p
-Verdana, Tahoma, Geneva, sans-serif - t
-
-*/
 
 /** END Starkers CSS **/
 

@@ -74,6 +74,10 @@ if ( ! function_exists( 'boilerplate_setup' ) ):
  */
 function boilerplate_setup() {
 
+    // Add gallery custom 	
+	remove_shortcode('gallery');
+	add_shortcode('gallery', 'boilerplate_gallery_shortcode');
+	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 
@@ -95,6 +99,10 @@ function boilerplate_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', 'boilerplate' ),
+	) );
+	
+	register_nav_menus( array(
+		'secondary' => __( 'Secondary Navigation', 'boilerplate' ),
 	) );
 
 	// This theme allows users to set a custom background
@@ -135,6 +143,120 @@ function boilerplate_setup() {
 	) );
 }
 endif;
+
+// Iniciar galeria personalizada para el theme single-proyectos
+function boilerplate_gallery_shortcode($attr) {
+    global $post;
+ 
+    static $instance = 0;
+    $instance++;
+ 
+    // Allow plugins/themes to override the default gallery template.
+    $output = apply_filters('post_gallery', '', $attr);
+    if ( $output != '' )
+        return $output;
+ 
+    // We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+    if ( isset( $attr['orderby'] ) ) {
+        $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+        if ( !$attr['orderby'] )
+            unset( $attr['orderby'] );
+    }
+ 
+    extract(shortcode_atts(array(
+        'order'      => 'ASC',
+        'orderby'    => 'menu_order ID',
+        'id'         => $post->ID,
+        'itemtag'    => 'div',
+        'icontag'    => 'div',
+        'captiontag' => 'span',
+        'columns'    => 1,
+        'size'       => 'original',
+        'currentid'  => '0'
+    ), $attr));
+ 
+    $id = intval($id);
+    $attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+ 
+    if ( empty($attachments) )
+        return '';
+ 
+    if ( is_feed() ) {
+        $output = "\n";
+        foreach ( $attachments as $att_id => $attachment )
+            $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+        return $output;
+    }
+ 
+    $itemtag = tag_escape($itemtag);
+    $captiontag = tag_escape($captiontag);
+    $columns = intval($columns);
+    $itemwidth = $columns > 0 ? floor(100/$columns) : 100;
+ 
+    $selector = "gallery-{$instance}";
+ 
+    $output = apply_filters('gallery_style', "
+        <style type='text/css'>
+            #{$selector} {
+                margin: auto;
+            }
+            #{$selector} .gallery-item {
+                float: left;
+                margin-top: 10px;
+                text-align: center;
+                width: {$itemwidth}%;
+            }
+        </style>
+        <div id='$selector' class='gallery galleryid-{$id}'>");
+ 
+    $i = 0;
+    foreach ( $attachments as $id => $attachment ) {
+        $link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
+        $currentclass = ($id == $currentid) ? 'gallery-current' : 'gallery-item';
+ 
+        $output .= "<{$itemtag} class='$currentclass'>";
+        $output .= "
+            <{$icontag} class='gallery-icon'>
+                $link
+            </{$icontag}>";
+        if ( $captiontag && trim($attachment->post_excerpt) ) {
+            $output .= "
+                <{$captiontag} class='gallery-caption'>
+                " . wptexturize($attachment->post_excerpt) . "
+                </{$captiontag}>";
+        }
+        $output .= "</{$itemtag}>";
+        if ( $columns > 0 && ++$i % $columns == 0 )
+            $output .= '';
+    }
+ 
+    $output .= "
+        </div>\n";
+ 
+    return $output;
+}
+
+// Insertar Breadcrumb    
+function the_breadcrumb() {
+	if (!is_home()) {
+		echo '<a href="';
+		echo get_option('home');
+	        echo '">';
+		echo "Inicio";
+		echo "</a>    /   ";
+		if (is_category() || is_single()) {
+			the_category('   /   ', 'single');
+			if (is_single()) {
+				echo "   /   <span>";
+				the_title();
+				echo "</span> ";
+			}
+		} elseif (is_page()) {
+			the_title();
+		}
+	}
+}    
+// fin breadcrumb
 
 if ( ! function_exists( 'boilerplate_admin_header_style' ) ) :
 /**
@@ -405,27 +527,6 @@ function boilerplate_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 5, located in the footer. Empty by default.
-	register_sidebar( array(
-		'name' => __( 'Third Footer Widget Area', 'boilerplate' ),
-		'id' => 'third-footer-widget-area',
-		'description' => __( 'The third footer widget area', 'boilerplate' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	// Area 6, located in the footer. Empty by default.
-	register_sidebar( array(
-		'name' => __( 'Fourth Footer Widget Area', 'boilerplate' ),
-		'id' => 'fourth-footer-widget-area',
-		'description' => __( 'The fourth footer widget area', 'boilerplate' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
 }
 /** Register sidebars by running boilerplate_widgets_init() on the widgets_init hook. */
 add_action( 'widgets_init', 'boilerplate_widgets_init' );

@@ -72,6 +72,7 @@
 			add_settings_field('jquery_js', 'jQuery JS?:', 'jquery_js_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('plugins_js', 'jQuery Plug-ins JS?:', 'plugins_js_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('site_js', 'Site-specific JS?:', 'site_js_setting', 'boilerplate-admin', 'main_section');
+			add_settings_field('cycle_js', 'Cycle-JS?:', 'cycle_js_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('cache_buster', 'Cache-Buster?:', 'cache_buster_setting', 'boilerplate-admin', 'main_section');
 		}
 		add_action('admin_init', 'register_and_build_fields');
@@ -288,6 +289,19 @@
 			echo '<p>(The single quotes and no-longer-necessary attributes are from WP, would like to fix that... maybe next update...)</p>';
 		}
 	endif; // site_js_setting
+	
+	//	callback fn for cycle_js
+	if ( ! function_exists( 'cycle_js_setting' ) ):
+		function cycle_js_setting() {
+			$options = get_option('plugin_options');
+			$checked = (isset($options['cycle_js']) && $options['cycle_js']) ? 'checked="checked" ' : '';
+			echo '<input class="check-field" type="checkbox" name="plugin_options[cycle_js]" value="true" ' .$checked. '/>';
+			echo '<p>If you would like to add jQuery Cycle Plugin file, select this checkbox, this code will be add:</p>';
+			echo '<code>' .BP_THEME_URL. '/js/jquery.cycle.all.js</code>';
+		}
+		
+	endif; // cycle_js_setting
+
 
 	//	callback fn for cache_buster
 	if ( ! function_exists( 'cache_buster_setting' ) ):
@@ -418,6 +432,14 @@
 			echo '<script src="' .BP_THEME_URL. '/js/script.js'.$cache.'"></script>'.PHP_EOL;
 		}
 	endif; // add_site_script
+	
+	//	$options['cycle_js']
+	if ( ! function_exists( 'add_cycle_script' ) ):
+		function add_cycle_script() {
+			$cache = cache_buster();
+			echo '<script src="' .BP_THEME_URL. '/js/jquery.cycle.all.js'.$cache.'"></script>'.PHP_EOL;
+		}
+	endif; // add_site_script
 
 	//	$options['cache_buster']
 	if ( ! function_exists( 'cache_buster' ) ):
@@ -486,10 +508,17 @@
 				$hook = (isset($options['jquery_head']) && $options['jquery_head']) ? 'wp_print_styles' : 'wp_footer';
 				add_action($hook, 'add_plugin_script');
 			}
+			
+			if (isset($options['cycle_js']) && $options['cycle_js']) {
+				add_action('wp_footer', 'add_cycle_script');
+			}
+
 
 			if (isset($options['site_js']) && $options['site_js']) {
 				add_action('wp_footer', 'add_site_script');
 			}
+			
+		
 
 		} // if (!is_admin() )
 

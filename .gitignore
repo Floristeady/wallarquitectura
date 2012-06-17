@@ -1,2 +1,3 @@
 cache/**/*
+scripts/cache
 .DS_Store

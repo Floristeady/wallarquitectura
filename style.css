@@ -225,6 +225,7 @@ Primary Styles
 	#Header and Navigation
 	#Content and Edit
 	#Images and Gallery
+	#CSS3 Animations
 	#Comments
     #Footer
     #Plugins
@@ -329,10 +330,19 @@ a.btn_info {
 	margin-top: 40px;
 }
 
-a.btn_info:hover {
+a.btn_info:hover, a.btn_mapa:hover {
 	text-decoration: underline;
 }
 
+
+a.btn_mapa {
+	color: #9ac247;
+	clear: left;
+	float: left;
+	font-family: 'museosans-500';
+	font-size: 0.8em;
+	text-transform: uppercase;
+}
 
 input#submit {
 	background-color: #9ac247;
@@ -631,7 +641,95 @@ h2.entry-title a {
 	margin-bottom: 10px;
 }
 
+
+/*----Single-inmobiliaria.php----*/
+
+
+#single-inmobiliaria .col_IZ {
+	float: left;
+	width: 480px;
+	margin-right: 30px;
+} 
+
+#single-inmobiliaria .col_DE {
+	float: right;
+	width: 444px;
+}
+
+#single-inmobiliaria .gallery {
+	position: relative;
+	display: block;
+    float: left;
+    min-height: 314px;
+    position: relative;
+    width: 480px;
+}
+
+#single-inmobiliaria .gallery-item {
+	position: absolute;
+	height: 314px;
+	width: 480px;
+}
+
+#single-inmobiliaria .gallery-icon {
+	overflow: hidden;
+	height: 314px;
+	position: relative;
+}
+
+#single-inmobiliaria #nav {
+	float: left;
+	margin-top: 10px;
+}
+
+#single-inmobiliaria #nav li {
+	margin-right: 10px;
+	float: left;
+	height: 75px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	width: 75px;
+}
+
+#single-inmobiliaria .entry-top {
+	margin-bottom: 10px;
+}
+
+#single-inmobiliaria .data span {
+	color: #333333;
+    font-family:"museosans-300", "Helvetica Neue",Arial,Helvetica;
+    font-size: 0.85em;
+    float: left;
+    clear: left;
+}
+
+
 /*----Category-proyectos.php----*/
+
+.category .tag, .list-categories {
+	border-top:  1px solid #a1a1a1;
+	padding-top: 5px;
+	margin-bottom: 30px;
+	width: 960px;
+}
+
+.list-categories li {
+	list-style: none;
+	float: left;
+}
+
+.category .tag a, .list-categories a {
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	font-size: 0.85em;
+	color: #959595;
+	text-transform: uppercase;
+	margin-right: 20px;
+}
+
+.category .tag a.current {
+	color: #9ac247;
+}
 
 #projects li {
 	float: left;
@@ -645,25 +743,117 @@ h2.entry-title a {
 
 #projects li a {
 	position: relative;
+	height: 236px;
 }
 
-
-#projects li a span.over_title {
-	background-image: url(images/repeat/hover_project.png);
+#projects li a span.over_title_small {
 	height: 236px;
 	position: absolute;
-	width: 100%;
+	width: 236px;
+	display: none;
+	background-image: url(images/repeat/hover_project.png);
 }
 
-#projects li a span.over_title h4 {
+#projects li a:hover span.over_title_small {
+	display: block;
+	animation: proyecto_over 500ms ease-in-out;
+	-moz-animation: proyecto_over 500ms ease-in-out; /* Firefox */
+	-webkit-animation: proyecto_over 500ms ease-in-out; /* Safari and Chrome */
+}
+
+#projects li a span.over_title_large {
+	height:236px;
+	position: absolute;
+	width: 464px;
+	background-image: url(images/repeat/hover_project.png);
+	display: none;
+}
+
+#projects li a:hover span.over_title_large {
+	display: block;
+	animation: proyecto_over 500ms ease-in-out;
+	-moz-animation: proyecto_over 500ms ease-in-out; /* Firefox */
+	-webkit-animation: proyecto_over 500ms ease-in-out; /* Safari and Chrome */
+	
+}
+
+#projects li a span.over_title_small h4, #projects li a span.over_title_large h4  {
 	color: #9ac247;
 	font-family: "museosans-700", "Helvetica Neue", Arial;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
-	padding-top: 110px;
+	padding-top:110px;
 }
 
+/*----Category-inmobiliaria.php----*/
+
+#housing li {
+	float: left;
+	width: 462px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#housing li:nth-child(2n+2){
+	 margin-right: 0px;
+}
+
+#housing a {
+	background-image: url("images/repeat/backtext.png");
+    background-repeat: repeat;
+    float: left;
+    padding: 4px 4px;
+    width: 462px;
+}
+
+#housing li a:hover {
+	background-image: url("images/repeat/backoverhousing.png");
+	background-repeat: repeat;
+}
+
+#housing a:hover .h2, #housing a:hover .h4 {
+	color: #fff;
+}
+
+#housing li .info {
+	float: right;
+	width: 207px;
+	padding: 20px 10px 20px 15px;
+}
+
+#housing li .img {
+	float: left;
+	width: 230px;
+}
+
+#housing .info .h2 {
+	font-family: 'museosans-300';
+	font-size: 1.3em;
+	color: #333;
+	float: left;
+	clear: left;
+	line-height: 1.1em;
+	margin-bottom: 5px;
+}
+
+#housing .info .h4 {
+	font-family: 'museosans-300';
+	font-size: 0.9em;
+	color: #444444;
+	float: left;
+	clear: left;
+}
+
+#housing .info .btn_ver {
+	clear: left;
+	color: #669700;
+	float: left;
+	font-family: 'museosans-300';
+	font-size: 0.9em;
+	margin-top: 20px;
+	text-transform: uppercase;
+}
 
 /* =Images and Gallery
 ----------------------------------------------- */
@@ -671,6 +861,27 @@ h2.entry-title a {
 .gallery-item {
 	margin: 0px;
 }
+
+/* =CSS3 Animations
+----------------------------------------------- */
+
+@keyframes proyecto_over
+{
+from {opacity: 0; -moz-transform: scale(0.7,0.7);}
+to {opacity: 1; -moz-transform: scale(1, 1); }
+}
+
+@-moz-keyframes proyecto_over /* Firefox */
+{
+from {opacity: 0; -moz-transform: scale(0.7,0.7); }
+to {opacity: 1; -moz-transform: scale(1, 1);}
+}
+
+@-webkit-keyframes proyecto_over /* Safari and Chrome */
+{
+from {opacity: 0; -moz-transform: scale(0.7,0.7);}
+to {opacity: 1; -moz-transform: scale(1, 1); }
+} 
 
 /* =Comments
 ----------------------------------------------- */
@@ -860,7 +1071,7 @@ footer#footer a:hover {
 
 
 
-/* non-semantic helper classes
+/* non-semantic Helpers classes
    Please define your styles before this section.
 ------------------------------------------------------------*/
 
@@ -886,9 +1097,12 @@ footer#footer a:hover {
 .clearfix { *zoom: 1; }
 
 .strong {font-weight: bold;}
-.alert { background:red; color:white; } /* 'alert' has a basic style, since it's useful to have it standing out for testing purposes.
+.bold {font-family: "museosans-500"  !important;;}
+.alert { background:red; color:white; } /* 'alert' has a basic style, since it's useful to have it standing out for testing purposes.*/
 
-
+.mar-right-0 {
+	margin-right: 0;
+}
 
 /* Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r

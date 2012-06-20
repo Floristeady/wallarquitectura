@@ -235,6 +235,8 @@ function boilerplate_gallery_shortcode($attr) {
  
     return $output;
 }
+// End Gallery   
+
 
 // Insertar Breadcrumb    
 function the_breadcrumb() {
@@ -256,7 +258,8 @@ function the_breadcrumb() {
 		}
 	}
 }    
-// fin breadcrumb
+// end breadcrumb
+
 
 if ( ! function_exists( 'boilerplate_admin_header_style' ) ) :
 /**
@@ -643,5 +646,4 @@ endif;
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 }
-
 ?>

@@ -673,4 +673,56 @@ endif;
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 }
+
+
+add_action("admin_init", "admin_init");
+ 
+function admin_init(){
+  add_meta_box("credits_meta", "Información del Proyectos", "credits_meta", "post", "normal", "low");
+}
+ 
+function credits_meta() {
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $year = $custom["year"][0];
+  $superficie = $custom["superficie"][0];
+  $lugar = $custom["lugar"][0];
+  
+  $mapa = $custom["mapa"][0];
+  $direccion = $custom["direccion"][0];
+  $telefono = $custom["telefono"][0];
+  ?>
+  	<p><label style="width: 80px; float:left">Ubicación:</label>
+	<input size="30" name="lugar" value="<?php echo $lugar; ?>" /></p>
+	<p><label style="width: 80px; float:left">Año:</label>
+	<input size="30"  name="year" value="<?php echo $year; ?>" /></p>
+	<p><label style="width: 80px; float:left">Superficie:</label>
+	<input size="30"  name="superficie" value="<?php echo $superficie; ?>" /></p>
+
+	<br />
+	<h3>Información Inmobiliaria</h3>
+	<p><label style="width: 80px; float:left">Dirección:</label>
+	<input size="30"  name="direccion" value="<?php echo $direccion; ?>" /></p>
+	<p><label style="width: 80px; float:left">Mapa Google URL:</label>
+	<input size="30"  name="mapa" value="<?php echo $mapa; ?>" /></p>
+	<p><label style="width: 80px; float:left">Teléfono(s):</label>
+	<input size="30"  name="telefono" value="<?php echo $telefono; ?>" /></p>
+
+	<?php
+	}
+
+add_action('save_post', 'save_details');
+
+function save_details(){
+  global $post;
+
+  update_post_meta($post->ID, "year", $_POST["year"]);
+  update_post_meta($post->ID, "superficie", $_POST["superficie"]);
+  update_post_meta($post->ID, "lugar", $_POST["lugar"]);
+  
+  update_post_meta($post->ID, "direccion", $_POST["direccion"]);
+  update_post_meta($post->ID, "mapa", $_POST["mapa"]);
+  update_post_meta($post->ID, "telefono", $_POST["telefono"]);
+  
+}
 ?>

@@ -41,10 +41,10 @@
 							<?php } ?>
 
 						
-							<?php  if((get_post_meta($post->ID, 'año', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'year', true))) { ?>
 							<div class="data">
 								<span>Año</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'año', true); ?></span>
+								<span class="bold"><?php echo get_post_meta($post->ID, 'year', true); ?></span>
 							</div>
 							<?php } ?>
 							

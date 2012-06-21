@@ -32,10 +32,10 @@
 						</div>
 						
 						<div class="entry-content">
-							<?php  if((get_post_meta($post->ID, 'año', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'year', true))) { ?>
 							<div class="data">
 								<span>Año</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'año', true); ?></span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'year', true); ?></span>
 							</div>
 							<?php } ?>
 							

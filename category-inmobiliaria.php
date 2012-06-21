@@ -34,7 +34,11 @@ get_header(); ?>
 
 		        		<span class="info">
 		        			<span class="h2"><?php the_title() ?></span>
-		        			<span class="h4"><span class="bold">Ubicación: </span>Xalapa, Ver.</span>
+		        			<?php  if((get_post_meta($post->ID, 'ubicacion', true))) { ?>
+		        			<span class="h4"><span class="bold">Ubicación: </span>
+		        				<?php echo get_post_meta($post->ID, 'ubicacion', true); ?>
+							</span>
+							<?php } ?>
 		        			<span class="btn_ver" href="#">Ver Más</span>
 		        		</span>
 		        		

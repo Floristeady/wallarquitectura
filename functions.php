@@ -246,7 +246,34 @@ function the_breadcrumb() {
 	        echo '">';
 		echo "Inicio";
 		echo "</a>    /   ";
-		if (is_category() || is_single()) {
+		
+		//Display breadcrumb for single post
+        if (is_single()) { //check if any single post is being displayed.
+            //Returns an array of objects, one object for each category assigned to the post.
+            //This code does not work well (wrong delimiters) if a single post is listed
+            //at the same time in a top category AND in a sub-category. But this is highly unlikely.
+            $category = get_the_category();
+            $delimiter = ' / ';
+            $num_cat = count($category); //counts the number of categories the post is listed in.
+ 
+            //If you have a single post assigned to one category.
+            //If you don't set a post to a category, WordPress will assign it a default category.
+            if ($num_cat = 1)  //I put less or equal than 1 just in case the variable is not set (a catch all).
+            {
+                echo get_category_parents($category[0],  true,' ' . $delimiter . ' ');
+                echo "<span>";
+                //Display the full post title.
+                echo ' ' . get_the_title();
+                echo "</span> ";
+            }
+            //then the post is listed in more than 1 category.
+            else {
+                //Put bullets between categories, since they are at the same level in the hierarchy.
+                echo the_category( $delimiter1, multiple);
+                    //Display partial post title, in order to save space.
+            }
+        }
+		/*if (is_category() || is_single()) {
 			the_category('   /   ', 'single');
 			if (is_single()) {
 				echo "   /   <span>";
@@ -255,7 +282,7 @@ function the_breadcrumb() {
 			}
 		} elseif (is_page()) {
 			the_title();
-		}
+		}*/
 	}
 }    
 // end breadcrumb

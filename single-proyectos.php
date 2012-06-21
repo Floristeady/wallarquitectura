@@ -5,6 +5,14 @@
 	<div id="breadcrumbs">
 	<?php the_breadcrumb(); ?>
 	</div>
+	
+	<nav id="nav-below" class="navigation">
+			<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'boilerplate' ) . '</span> %title' , TRUE, $excluded_categories = '7' ); ?></div>
+			<?php  $category = get_category_by_slug('proyectos');
+            echo '<a class="btn_all" title="Ver todos los proyectos" href="'.get_category_link($category).'"></a>' ?>
+		    <div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'boilerplate' ) . '</span>', TRUE, $excluded_categories = '7' ); ?></div>
+		    
+	</nav><!-- #nav-below -->
 
 
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -14,12 +22,13 @@
 					<div class="col_IZ">
 						
 						<div class="entry-top">
+							<span class="info_dot"></span>
 							<h1><?php the_title(); ?></h1>
 							<?php  if((get_post_meta($post->ID, 'lugar', true))) { ?>
 							<h4><?php echo get_post_meta($post->ID, 'lugar', true); ?></h4>
 							<?php } ?>
 							
-							<a href="#" class="btn_info">INFO</a>
+							<a href="#" class="btn_info">+INFO</a>
 						</div>
 						
 						<div class="entry-content">
@@ -57,14 +66,8 @@
 				</article><!-- #post-## -->
 				
 				<div class="clearfix"></div>
+			
 				
-				<nav id="nav-below" class="navigation">
-					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'boilerplate' ) . '</span> %title' ); ?></div>
-					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'boilerplate' ) . '</span>' ); ?></div>
-				</nav><!-- #nav-below -->
-				<div id="comments">
-					<?php comments_template( '', true ); ?>
-				</div>
 	<?php endwhile; // end of the loop. ?>
 
 </div>

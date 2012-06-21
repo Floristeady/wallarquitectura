@@ -43,10 +43,7 @@ $(function() {
 /*----Listado de proyectos----*/
 $(function () {
 	
-	/* Nth Child effect*/
-	function nthchild() {
-		$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
-	}
+	$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
 
 	// Fade del load project and filter tag
 	$(function () {
@@ -68,59 +65,32 @@ $(function () {
 		    $('.project-item:hidden').eq(0).fadeIn(200); //fades in the hidden images one by one
 		    i++;//add 1 to the count
 		}
-	
-	
-	
-	    // filterByHash filters the list of Portfolio Items using a passed-in tag, if available, or the hash-tag in the url
-		filterByHash = function(tag) {
-	        // Cache the portfolio items
-	        var portfolioItems = $('#projects li');
-	        // And the tag links
-	        var portfolioFilters = $('.tag a');
-	
-	        // De-select all the filter links
-	        portfolioFilters.removeClass('current');
-	
-	        if (tag) {
-	            if (tag == 'all' || tag == '') {
-	                // Show all the items
-	                portfolioItems.animate({ width: 'show', opacity: 'show' });
-	                // Highlight the 'All' tag
-	               // $('.all', portfolioFilters).addClass('current');
-	                $(portfolioFilters).filter('.all').addClass('current');
-	            } else {
-	                // Show the desired items and hide the rest
-	                $('#projects li.' + tag).animate({ width: 'show', opacity: 'show' });
-	                $('#projects li:not(.' + tag + ')').animate({ width: 'hide', opacity: 'hide' });
-	                // Highlight the tag
-	                portfolioFilters.filter('a[href$=' + tag + ']').addClass('current');
-	            }
-	        } else {
-	            // Use the url hash if a tag wasn't passed in
-	            tag = location.hash.substr(1);
-	
-	            if (tag == 'all' || tag == '') {
-	                // Highlight the 'All' tag
-	                $(portfolioFilters).filter('.all').addClass('current');
-	                nthchild();
-	            } else {
-	                // Hide the undesired ones
-	                $('#projects li.:not(.' + tag + ')').hide();
-	                // Highlight the tag
-	                portfolioFilters.filter('a[href$=' + tag + ']').addClass('current');
-	                nthchild();
-	            }
-	        }
-	    }
-	
-		// Filter initiall on pageload
-	    filterByHash();
-	
-	  // Re-filter when a tag is selected
-	    $('.tag a').click(function(){
-			filterByHash($(this).attr('href').substr(1));
-			return false;
-		});
-	
+
+		
+		var findcat =  $('.submenu-cat li').hasClass('current-cat');
+		
+		//console.log(findcat);
+		
+		if (findcat == false) {
+			$('li.all').addClass('current-cat');
+		} else {
+			$('li.all').removeClass('current-cat');
+		}
 	
 });
+
+/*----Desplegar cuadro proyecto entry-content----*/
+
+	$("a.btn_info").toggle(
+	function(){
+		$(this).addClass('arrow_down');
+		$('.entry-content').slideDown();
+	}, function(){
+		$(this).removeClass('arrow_down');
+		$('.entry-content').slideUp();
+	});
+	
+
+
+
+

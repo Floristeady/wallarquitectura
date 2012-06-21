@@ -6,50 +6,20 @@
 
 get_header(); ?>
 		
-		
 		<?php include (TEMPLATEPATH . '/include/submenu.php'); ?>
-
-		
-		<div class="tag">
-		<?php  query_posts('category_name=proyectos');
-			    if (have_posts()) : while (have_posts()) : the_post();
-			        $posttags = get_the_tags();
-			        if ($posttags) {
-			            foreach($posttags as $tag) {
-			                $all_tags_arr[] = $tag -> name;
-			            }
-			        }
-			    endwhile; endif; 
-			    $tags_arr = array_unique($all_tags_arr);
-			?>
-
-			<a href="#all" rel="todos" class="all" title="Ver todos los proyectos">Todos</a>
-			<?php
-			    foreach($tags_arr as $tag){
-			        echo '<a rel="'. $tag. '" href="#'. $tag. '">'. $tag. '</a>';
-			    }
-			?>
-			<?php wp_reset_query(); ?>
-		</div>
-		
-		
-		<!--Para obtener el ID de la categoria-->
-		<?php $post_categories = wp_get_post_categories( $post_id );
-			$cats = array();
-		?>
 
 		<!--PHP para dividir proyecto por post-->
 		<?php	
 		 $my_query = new WP_Query( array( 
 		    'post_type' => 'post', 
+		    'paged' => $paged,
 		    'posts_per_page' => 12, 
 		    'order' => 'DESC',
-		    'cat' => $cat 
+		    'cat' => $cat
 		) );
-		
+
 		echo '<ul id="projects">';
-		
-		while ( $my_query->have_posts() ) : $my_query->the_post();
+		if ($my_query ->have_posts()) : while ( $my_query->have_posts() ) : $my_query->the_post();
 		
 		    if (  $my_query->current_post == 1  ||  $my_query->current_post == 5 ||  $my_query->current_post == 7 ||  $my_query->current_post == 9 ){ ?>
 		        <li class="project-item <?php $posttags = get_the_tags(); if ($posttags) {
@@ -74,8 +44,7 @@ get_header(); ?>
 					 
 		    <?php /* Los otros proyectos  */
 		    } else  { ?>
-		       <li class="project-item <?php $posttags = get_the_tags(); if ($posttags) {
-                      foreach($posttags as $tag) { echo $tag->name . ' '; } } ?>">
+		       <li class="project-item">
 		        	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 		        		<span class="over_title_small"><h4><?php the_title() ?></h4></span>
 		            	<?php //Obtenemos la url de la imagen destacada
@@ -93,13 +62,20 @@ get_header(); ?>
 			 			
 			 	</li>
 
-		  <?php   }
+		  <?php } endwhile;   echo '</ul>';
+			  		/* Display navigation to next/previous pages when applicable */ 
+					if(function_exists('wp_pagenavi')) { 
+							wp_pagenavi( array(
+							'query' =>$my_query 
+						)); 
+					}
+				endif; ?>
+				
+		  
+		<?php //wp_pagenavi( array( 'type' => 'multipart' ) ); ?>
+
 		
-		endwhile;
-		
-		echo '</ul>';
-		?>
 		<?php wp_reset_query(); ?>
-		
+				
 
 <?php get_footer(); ?>

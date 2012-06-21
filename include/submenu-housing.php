@@ -1,4 +1,4 @@
-<ul class="list-categories">
+<ul class="submenu-cat">
 	
 	<?php
 	

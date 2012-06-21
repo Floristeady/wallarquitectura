@@ -25,10 +25,10 @@
 							<?php } ?>
 							
 							
-							<?php  if((get_post_meta($post->ID, 'ubicacion', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'direccion', true))) { ?>
 							<div class="data">
 								<span>Ubicación</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'ubicacion', true); ?></span>							<a class="btn_mapa" target="_blank" href="<?php echo get_post_meta($post->ID, 'mapa', true); ?>">Ver mapa</a>
+								<span class="bold"><?php echo get_post_meta($post->ID, 'direccion', true); ?></span>							<a class="btn_mapa" target="_blank" href="<?php echo get_post_meta($post->ID, 'mapa', true); ?>">Ver mapa</a>
 							</div>
 							<?php } ?>
 							

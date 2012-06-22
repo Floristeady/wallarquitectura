@@ -81,16 +81,44 @@ $(function () {
 
 /*----Desplegar cuadro proyecto entry-content----*/
 
-	$("a.btn_info").toggle(
+$("a.btn_info").toggle(
 	function(){
 		$(this).addClass('arrow_down');
 		$('.entry-content').slideDown();
 	}, function(){
 		$(this).removeClass('arrow_down');
 		$('.entry-content').slideUp();
-	});
+});
 	
 
+/*----Cambio de color por class template----*/
+$(function () {
 
+     var colorgray= $('body').hasClass('category');
+     
+     if (colorgray == true) {
+	 	$('body').css({'background-color' : '#242424', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+	 } else {
+		 $('body').css({'background-color' : '#ffffff', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+	 }
+	
+	$(window).bind("load", function() { //The load event will only fire if the entire page or document is fully loaded
+		  int = setInterval(changecolor, 200); //200 is the fade in speed in milliseconds
+    });
+    
+    function changecolor() {
+     	var classwhite = $('body').hasClass('category');
+     	var colorgreen = $('body').hasClass('page-id-2');
+	     
+	     if (classwhite == true) {
+				$('body').attr('id', 'white');	
+			    clearInterval(int);
+		} else if (colorgreen == true) {
+				$('body').css({'background-color' : '#669700', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+				$('body').attr('id', 'white');	
+				clearInterval(int);
+		}
+	}
+});
 
 

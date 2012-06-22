@@ -22,8 +22,7 @@ get_header(); ?>
 		if ($my_query ->have_posts()) : while ( $my_query->have_posts() ) : $my_query->the_post();
 		
 		    if (  $my_query->current_post == 1  ||  $my_query->current_post == 5 ||  $my_query->current_post == 7 ||  $my_query->current_post == 9 ){ ?>
-		        <li class="project-item <?php $posttags = get_the_tags(); if ($posttags) {
-                      foreach($posttags as $tag) { echo $tag->name . ' '; } } ?>">
+		        <li class="project-item large">
 		        	<a class="btn_proyecto" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 		        		<span class="over_title_large"><h4><?php the_title() ?></h4></span>
 		            	<?php //Obtenemos la url de la imagen destacada

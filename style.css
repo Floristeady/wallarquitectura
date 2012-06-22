@@ -246,7 +246,7 @@ body {
 }
 
 #container {
-	width: 960px;
+	max-width: 960px;
 	margin: auto;
 }
 
@@ -388,7 +388,7 @@ input#submit:hover {
 
 header {
 	border-top: 6px solid #333333;
-	width: 100%;
+	/*width: 100%;*/
 	position: relative;
 }
 
@@ -407,6 +407,28 @@ a#logo {
 	height: 64px;
 	text-indent: -999px;
 	width: 176px;
+}
+
+#white header{
+	border-top: 6px solid #ffffff;
+}
+
+#white a#logo {
+	background-position: -300px -50px;
+}
+
+#white #access a, #white #menu-secondary a {
+	border-left: 1px dotted #fff;
+	color: #fff;
+}
+
+#white #access  li.current-menu-item a, 
+#white #menu-secondary li.current-menu-item a {
+	color: #9ac247;
+}
+
+#white p {
+	color: #ffffff !important;
 }
 
 a#skip { display: none;}
@@ -461,6 +483,8 @@ a#skip { display: none;}
 
 #menu-secondary li {
 	float: left;
+	display: inline-block;
+	vertical-align: top;
 }
 
 #menu-secondary li a {
@@ -672,7 +696,8 @@ h2.entry-title a {
 }
 
 #single-proyectos .gallery-item img {
-	width: 714px;
+	/*width: 714px;*/
+	max-width: 100%;
 }
 
 #single-proyectos .entry-top {
@@ -854,6 +879,7 @@ a.btn_all:hover {
 	float: left;
 	margin-right: 12px;
 	margin-bottom: 12px;
+	display: inline-block;
 }
 
 #projects li:nth-child(3n+3) {
@@ -878,6 +904,7 @@ a.btn_all:hover {
 	animation: proyecto_over 500ms ease-in-out;
 	-moz-animation: proyecto_over 500ms ease-in-out; /* Firefox */
 	-webkit-animation: proyecto_over 500ms ease-in-out; /* Safari and Chrome */
+	z-index: 10;
 }
 
 #projects li a span.over_title_large {
@@ -893,6 +920,7 @@ a.btn_all:hover {
 	animation: proyecto_over 500ms ease-in-out;
 	-moz-animation: proyecto_over 500ms ease-in-out; /* Firefox */
 	-webkit-animation: proyecto_over 500ms ease-in-out; /* Safari and Chrome */
+	z-index: 10;
 	
 }
 
@@ -1156,7 +1184,7 @@ footer#footer {
 
 footer #first.widget-area {
 	float: left;
-	width: 348px;
+	max-width: 348px;
 }
 
 footer #second.widget-area {
@@ -1228,17 +1256,317 @@ footer#footer a:hover {
 /* --- iPad Portrait --- */
 @media screen and (max-width: 880px) {
 
+  header{
+	  	display:block;
+	  	text-align:center;
+   }
+	
+  header hgroup h1 {
+	  margin: 16px 10px 0;
+  }
+  
+  #access li a, #access a,  #access li.current-menu-item,
+  #white #access li a, #white  #access a, #white #access li.current-menu-item  {
+   	border: none;
+  }
+  
+  #access {
+    top: 34px;
+  }
 
+  #access li.current-menu-item a {
+	  margin-top: 6px;
+  }
+  
+  #access a {
+	  padding: 0 10% 0 0;
+	  font-size: 0.95em;
+  }
+  
+  #nav-2 { 
+  	padding-right: 10px;
+  }
+  
+  #slideshow {
+	 width: 840px;
+	 box-shadow: none; 
+	 overflow: hidden;
+	 margin: 0px 20px;
+  }
+  
+  #slideshow li { 
+	  width: 840px;
+	  overflow: hidden;
+  }
+  
+  footer #first.widget-area {
+	  margin-left: 10px;
+  }
+    
+  footer #second.widget-area {
+  	margin-right: 10px;
+  }
+  
+  .submenu-cat, #breadcrumbs {
+	  width: 98%;
+	  margin: 0px 10px 34px;
+  }
+  
+  #nav-below {
+	  right: 10px;
+  }
+  
+  #projects {
+	  margin: 0px 10px;
+  }
+  
+  #projects li:nth-child(odd) {
+  	 margin-right: 10px;
+  }
+  
+  #single-proyectos .col_IZ,  #single-proyectos .col_DE {
+	  float: none;
+	  width: 840px;
+	  margin: 0px 10px;
+  }
+  
+  #single-proyectos .col_DE {
+	  min-height: 270px;
+  }
+ 
+  #single-proyectos .col_IZ {
+    padding-top: 50px;
+  }
+  
+  #single-proyectos .entry-top {
+	  width: 95%;
+  }
+  
+  #single-proyectos .entry-content { 
+	   width: 96.5%;
+  }
+  
+  #single-proyectos .gallery-item img {
+    max-width: 100%;
+  }
+  
+  #single-proyectos .gallery-item {
+    position: absolute;
+    width: 840px;
+  }
+  
+  
 }
 
 
 /* --- Smartphones and small Tablet PCs --- */
-@media screen and (max-width : 620px) { 
-	
-	  #slideshow {
-	  width: 480px;
+@media screen and (max-width: 620px) { 
+
+  header{
+	  height: 110px;
   }
-	
+  
+  header hgroup h1 {
+	  margin: 16px 10px 0;
+  }
+  
+  #access {
+    left: 20px;
+    top:60px;
+  }
+
+  #access a {
+	  padding: 41px 30% 0px 0px;
+	  font-size: 0.95em;
+  }
+  
+  #slideshow {
+	 width: 600px;
+	 overflow: hidden;
+	 margin: 0px 10px;
+  }
+  
+  #slideshow li { 
+	  width: 600px;
+	  overflow: hidden;
+  }
+  
+  .submenu-cat, #breadcrumbs {
+	  width: 98%;
+	  margin: 0px 10px 34px;
+  }
+  
+  #projects li .img{
+	  width: 236px;
+	  height:236px;
+	  float: left;
+	  overflow: hidden;
+	  display: table-cell;
+	  margin-right: 0px;
+	  position: relative;
+  }
+  
+  #projects li:nth-child(odd) {
+  	 	margin-right: 10px;
+  }
+  
+  #projects li a span.over_title_large, #projects li a span.over_title_small  {
+	height:236px;
+	width: 236px;
+  }
+  
+  #projects li.large img {
+  	position: absolute;
+  	left: -50%; /* Change this */
+  	top: 0px;  /* Change this */
+  	z-index: 0;
+  }
+  
+  #single-proyectos .col_IZ,  #single-proyectos .col_DE {
+	  float: none;
+	  width: 590px;
+	  margin: 0px 10px;
+  }
+  
+  #single-proyectos .gallery-item a {
+    width: 600px;
+    overflow: hidden;
+  }
+ 
+   #single-proyectos .gallery-item img {
+  	position: absolute;
+  	left: -18%; /* Change this */
+  	top: 0px;  /* Change this */
+  	z-index: 0;
+  }
+
+
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ 
+   max-device-width: 480px*/
+@media screen and (max-width: 480px) {
+
+  /* Prevent iOS, WinMobile from adjusting font size */
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
+  
+  header{
+	  	display:block;
+	  	text-align:center;
+   }
+   
+  #access {
+    left: 12px;
+    top: 65px;
+  }
+  
+  #access a {
+	  padding: 41px 20% 0px 0px;
+	  font-size: 0.95em;
+  }
+  
+  #access #menu-item-16 a {
+	   padding-right: 10px;
+  }
+  
+  #menu-secondary li a {
+	  padding: 20px 10px 10px;
+  }
+  
+  #slideshow {
+	 width: 450px;
+	 overflow: hidden;
+	 margin: 0px 10px;
+  }
+  
+  #slideshow li { 
+	  width: 440px;
+	  overflow: hidden;
+  }
+
+  footer #first.widget-area {
+    float: left;
+    width: 248px;
+  }
+  
+  .submenu-cat, #breadcrumbs, #nav-below {
+	  display: none;
+  }
+  
+  #projects li a span.over_title_large, #projects li a span.over_title_small  {
+	height:217px;
+	width: 217px;
+  }
+  
+  #projects li {
+	  width: 217px;
+	  height: 217px;
+	  float: left;
+	  overflow: hidden;
+	  display: table-cell;
+	  margin-right: 0px;
+  }
+  
+  #projects li:nth-child(odd) {
+  	 margin-right: 10px;
+  }
+  
+  #projects li img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #single-proyectos .col_IZ,  #single-proyectos .col_DE {
+	  float: none;
+	  width: 430px;
+	  margin: 0px 10px;
+  }
+  
+  #single-proyectos .col_IZ {
+    padding-top: 0px;
+  }
+  
+  #single-proyectos .gallery {
+  	min-height: 230px;
+  	height: 240px;
+  	width: 450px;
+  }
+  
+  #single-proyectos .gallery-item {
+    width: 450px;
+  }
+ 
+  #single-proyectos .gallery-item img {
+  	max-width: 100%;
+  	height: auto;
+  	left: 0px;
+  	position: relative;
+  }
+  
+   #single-proyectos  .entry-content {
+	   display: block;
+	   width: 98%;
+   }
+   
+  #single-proyectos .entry-top {
+	  width: 96%;
+  }
+   
+   a.btn_info {
+	   display: none;
+   }
+  
+}
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+  
+}
+
+/*Between 600px and 900px */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
 }
 
 @media all and (orientation:portrait) { 
@@ -1249,25 +1577,6 @@ footer#footer a:hover {
 @media all and (orientation:landscape) { 
   /* Style adjustments for landscape mode goes here */
   
-}
-
-/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
-   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
-@media screen and (max-device-width: 480px) {
-
-  /* Prevent iOS, WinMobile from adjusting font size */
-  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
-}
-
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-
-}
-
-/*Between 600px and 900px */
-@media screen and (min-width: 600px) and (max-width: 900px) {
-
 }
 
 

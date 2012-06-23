@@ -21,7 +21,7 @@
 	//	Add option if in Admin Page
 	if ( ! function_exists( 'create_boilerplate_admin_page' ) ):
 		function create_boilerplate_admin_page() {
-			add_theme_page('Boilerplate Admin', 'Boilerplate Admin', 'administrator', 'boilerplate-admin', 'build_boilerplate_admin_page');
+			add_theme_page('Wall Admin', 'Wall Admin', 'administrator', 'boilerplate-admin', 'build_boilerplate_admin_page');
 		}
 		add_action('admin_menu', 'create_boilerplate_admin_page');
 	endif; // create_boilerplate_admin_page
@@ -32,8 +32,7 @@
 		?>
 			<div id="boilerplate-options-wrap">
 				<div class="icon32" id="icon-tools"><br /></div>
-				<h2>Boilerplate Admin</h2>
-				<p>So, there's actually a tremendous amount going on here.  If you're not familiar with <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> or the <a href="http://starkerstheme.com/">Starkers theme</a> (upon which this theme is based) you should check them out.</p>
+				<h2>Wall Admin (based on Boilerplate admin)</h2
 				<p>Choose below which options you want included in your site.</p>
 				<p>The clumsiest part of this plug-in is dealing with the CSS files.  Check the <a href="<?php echo BP_THEME_URL ?>/readme.txt">Read Me file</a> for details on how I suggest handling them.</p>
 				<form method="post" action="options.php" enctype="multipart/form-data">

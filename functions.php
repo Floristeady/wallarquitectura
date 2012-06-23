@@ -66,7 +66,6 @@ if ( ! function_exists( 'boilerplate_setup' ) ):
  * @uses add_custom_background() To add support for a custom background.
  * @uses add_editor_style() To style the visual editor.
  * @uses load_theme_textdomain() For translation/localization support.
- * @uses add_custom_image_header() To add support for a custom header.
  * @uses register_default_headers() To register the default custom header images provided with the theme.
  * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
  *
@@ -126,21 +125,6 @@ function boilerplate_setup() {
 	// Don't support text inside the header image.
 	define( 'NO_HEADER_TEXT', true );
 
-	// Add a way for the custom header to be styled in the admin panel that controls
-	// custom headers. See boilerplate_admin_header_style(), below.
-	add_custom_image_header( '', 'boilerplate_admin_header_style' );
-
-	// ... and thus ends the changeable header business.
-
-	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-	register_default_headers( array(
-		'berries' => array(
-			'url' => '%s/images/headers/starkers.png',
-			'thumbnail_url' => '%s/images/headers/starkers-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'Boilerplate', 'boilerplate' )
-		)
-	) );
 }
 endif;
 
@@ -270,48 +254,26 @@ function the_breadcrumb() {
             else {
                 //Put bullets between categories, since they are at the same level in the hierarchy.
                 echo the_category( $delimiter1, multiple);
-                    //Display partial post title, in order to save space.
             }
         }
-		/*if (is_category() || is_single()) {
+		/*Codigo anterior---respaldo
+		if (is_category() || is_single()) {
 			the_category('   /   ', 'single');
 			if (is_single()) {
 				echo "   /   <span>";
 				the_title();
 				echo "</span> ";
-			}
-		} elseif (is_page()) {
+			}*/
+		elseif (is_page()) {
+		    echo " <span>";
 			the_title();
-		}*/
+			echo "</span> ";
+		}
 	}
 }    
 // end breadcrumb
 
 
-if ( ! function_exists( 'boilerplate_admin_header_style' ) ) :
-/**
- * Styles the header image displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in boilerplate_setup().
- *
- * @since Twenty Ten 1.0
- */
-function boilerplate_admin_header_style() {
-?>
-<style type="text/css">
-/* Shows the same border as on front end */
-#headimg {
-	border-bottom: 1px solid #000;
-	border-top: 4px solid #000;
-}
-/* If NO_HEADER_TEXT is false, you would style the text with these selectors:
-	#headimg #name { }
-	#headimg #desc { }
-*/
-</style>
-<?php
-}
-endif;
 
 /**
  * Makes some changes to the <title> tag, by filtering the output of wp_title().
@@ -406,7 +368,7 @@ add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
  * @return string "Continue Reading" link
  */
 function boilerplate_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'boilerplate' ) . '</a>';
+	return ' <a href="'. get_permalink() . '">' . __( 'Continuar leyendo <span class="meta-nav">&rarr;</span>', 'boilerplate' ) . '</a>';
 }
 
 /**
@@ -524,18 +486,7 @@ function boilerplate_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
-	register_sidebar( array(
-		'name' => __( 'Secondary Widget Area', 'boilerplate' ),
-		'id' => 'secondary-widget-area',
-		'description' => __( 'The secondary widget area', 'boilerplate' ),
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	// Area 3, located in the footer. Empty by default.
+	// Area 2, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'First Footer Widget Area', 'boilerplate' ),
 		'id' => 'first-footer-widget-area',
@@ -546,7 +497,7 @@ function boilerplate_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 4, located in the footer. Empty by default.
+	// Area 3, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Second Footer Widget Area', 'boilerplate' ),
 		'id' => 'second-footer-widget-area',
@@ -669,12 +620,14 @@ endif;
 	}
 	add_filter( 'get_search_form', 'boilerplate_search_form' );
 
-// added per WP upload process request
+// added per WP upload process request post-thumbnails
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 }
 
 
+
+// Custom Field para Proyecto y Inmobiliaria
 add_action("admin_init", "admin_init");
  
 function admin_init(){

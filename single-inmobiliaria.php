@@ -8,7 +8,7 @@
 			
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
-					<div class="col_DE">
+					<div class="column-half space-left f-right">
 						
 						<div class="entry-top">
 							<h1><?php the_title(); ?></h1>
@@ -55,7 +55,8 @@
 					</div>
 					<!--fin col_DE-->
 					
-					<div class="col_IZ">
+									
+				    <div class="column-half space-right f-left">
 						<?php
 					    	$gallery_shortcode = '[gallery id=post_ID"' . intval( $post->post_parent ) . '"]';
 					    	print apply_filters( 'the_content', $gallery_shortcode );
@@ -63,6 +64,7 @@
 					 
 					</div>
 					<!--fin col_IZ-->
+					
 
 					<footer class="entry-utility">
 						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>

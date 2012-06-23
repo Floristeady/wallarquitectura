@@ -6,6 +6,21 @@
 	Note that if you are using Modernizr, it already does this for you. :-)
 */
 
+/*----Menu dropdown----*/
+$(function(){
+	$("ul.sub-menu").parents().addClass('sub-menu-parent');
+	// Oculto los submenus
+	$("#menu-menu-principal ul.sub-menu-parent").css('display', 'none');
+	// Defino que submenus deben estar visibles cuando se pasa el mouse por encima
+	$('#menu-menu-principal li').hover(function(){
+		$(this).find('ul.sub-menu-parent:first:hidden').slideDown(400);
+		$('sub-menu').show();
+	},function(){
+		$(this).find('ul.sub-menu-parent:first').slideUp(400);
+	});
+});
+
+
 /*----Home Slideshow----*/
 $(function() {
 	$('#slideshow') 
@@ -16,7 +31,6 @@ $(function() {
 	    pager:  '#nav', 
 	    slideExpr: 'li.slide'
 	});
-
 });
 
 

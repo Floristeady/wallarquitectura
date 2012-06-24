@@ -128,6 +128,7 @@ function boilerplate_setup() {
 }
 endif;
 
+
 // Iniciar galeria personalizada para el theme single-proyectos
 function boilerplate_gallery_shortcode($attr) {
     global $post;

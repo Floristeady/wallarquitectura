@@ -509,12 +509,16 @@
 			}
 			
 			if (isset($options['cycle_js']) && $options['cycle_js']) {
-				add_action('wp_footer', 'add_cycle_script');
+				// check if should be loaded in <head> or at end of <body>
+				$hook = (isset($options['jquery_head']) && $options['jquery_head']) ? 'wp_print_styles' : 'wp_footer';
+				add_action($hook, 'add_cycle_script');
 			}
 
 
 			if (isset($options['site_js']) && $options['site_js']) {
-				add_action('wp_footer', 'add_site_script');
+				// check if should be loaded in <head> or at end of <body>
+				$hook = (isset($options['jquery_head']) && $options['jquery_head']) ? 'wp_print_styles' : 'wp_footer';
+				add_action($hook, 'add_site_script');
 			}
 			
 		

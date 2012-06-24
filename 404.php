@@ -9,9 +9,8 @@
 
 get_header(); ?>
 			<article id="post-0" class="post error404 not-found" role="main">
-				<h1><?php _e( 'Not Found', 'boilerplate' ); ?></h1>
-				<p><?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', 'boilerplate' ); ?></p>
-				<?php get_search_form(); ?>
+				<h1><?php _e( '&iexcl;Hey! Esta p&aacute;gina no existe.', 'boilerplate' ); ?></h1>
+				<p><?php _e( 'La p&aacute;gina que buscas no existe. </br>Puedes utilizar el men&uacute; de navegaci&oacute;n o volver la a <strong>p&aacute;gina de <a href="http://www.wallarquitectura.com">inicio.</a></strong>', 'boilerplate' ); ?></p>
 				<script>
 					// focus on search field after it has loaded
 					document.getElementById('s') && document.getElementById('s').focus();

@@ -8,15 +8,15 @@
 	?>
 	
 	<?php
+	$category = get_category_by_slug( 'proyectos' );
 	
 	$args = array(
 		'orderby'            => 'name', 
 		'style'              => 'list',
 		'title_li'           => '',
-		'child_of'           => 6
+		'child_of'           => $category->term_id
 		);
 
-		$category = get_category_by_slug( 'proyectos' );
 		wp_list_categories($args);
 	?>
 	

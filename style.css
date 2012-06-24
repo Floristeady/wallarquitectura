@@ -441,6 +441,16 @@ a#logo {
 	color: white;
 }
 
+#white #menu-menu-principal ul.sub-menu-parent {
+    background-color: #242424;
+    border-top: 1px solid #fff;
+}
+
+#white #menu-menu-principal ul.sub-menu-parent a {
+	color: #fff;
+	border: none;
+}
+
 a#skip { display: none;}
 
 #access {
@@ -509,7 +519,7 @@ a#skip { display: none;}
 	padding: 5px 0px;
 }
 
-#menu-menu-principal ul.sub-menu-parent a, #white #menu-menu-principal ul.sub-menu-parent a {
+#menu-menu-principal ul.sub-menu-parent a {
 	border: none;
 	padding: 0px 10px;
 	float: none;
@@ -806,7 +816,7 @@ h2.entry-title a {
 	text-align: center;
 	margin-top: 10px;
 	float: left;
-	margin-left: 50%;
+	margin-left: 47%;
 }
 
 #container-slide #nav a {
@@ -953,6 +963,7 @@ h2.entry-title a {
 	width: 216px;
 	margin-top: 1px;
 	display: none;
+	float: left;
 }
 
 #single-proyectos article.post footer {
@@ -1023,7 +1034,7 @@ h2.entry-title a {
 	float: left;
 	margin-right: 12px;
 	margin-bottom: 12px;
-	display: inline-block;
+	display: none;
 }
 
 #projects li:nth-child(3n+3) {
@@ -1564,14 +1575,6 @@ footer#footer a:hover {
 	  overflow: hidden;
   }
   
-  footer #first.widget-area {
-	margin-left: 10px;
-  }
-    
-  footer #second.widget-area {
-  	margin-right: 10px;
-  }
-  
   .submenu-cat, #breadcrumbs {
 	  width: 100%;
   }
@@ -1622,18 +1625,18 @@ footer#footer a:hover {
 	
 	#single-inmobiliaria .gallery {
 		min-height: 250px;
+		max-width: 99%;
 	}
 	
 	#single-inmobiliaria .gallery .gallery-item img {
-		max-width: 100% !important;
+		max-width: 99% !important;
 		height: auto;
 		left: 0px;
 		position: relative;
 	}
 	
 	#single-inmobiliaria .gallery .gallery-item {
-		max-width: 100% !important;
-		width: 80%;
+		max-width: 99% !important;
 	}
   
 }
@@ -1756,14 +1759,8 @@ footer#footer a:hover {
 	#single-proyectos .entry-content { 
 	   display: block;
 	   width: auto;
+	   float: none;
 	}
-	
-	#single-proyectos .gallery-item img {
-  		max-width: 100%;
-  		height: auto;
-  		left: 0px;
-  		position: relative;
-  	}
   	
   	a.btn_info {
 	   display: none;
@@ -1805,62 +1802,17 @@ footer#footer a:hover {
 	  	text-align:center;
 	}
 	
-	#access {
-	top: 65px;
-	}
-	
-	#access li {
-	  margin-right: 8%;
-	}
-	
-	#access a {
-	  font-size: 89%;
-	}
-	
 	#menu-secondary li a {
 	  padding: 20px 10px 10px;
-	}
-	
-	#slideshow {
-	 max-width: 450px;
-	 overflow: hidden;
-	}
-	
-	#slideshow li { 
-	  max-width: 450px;
-	  overflow: hidden;
-	}
-	
-	footer #first.widget-area {
-	float: left;
-	max-width: 248px;
 	}
 	
 	.submenu-cat, #breadcrumbs, #nav-below {
 	  display: none;
 	}
 	
-	#projects li a span.over_title_large, #projects li a span.over_title_small  {
-	height:217px;
-	width: 217px;
-	}
-	
-	#projects li {
-	  width: 217px;
-	  height: 217px;
-	  float: left;
-	  overflow: hidden;
-	  display: table-cell;
-	  margin-right: 0px;
-	}
-	
-	#projects li:nth-child(odd) {
-		 margin-right: 10px;
-	}
-	
 	#projects li img {
-	display: block;
-	margin: 0 auto;
+	   display: block;
+	   margin: 0 auto;
 	}
 	
 	#single-proyectos .col_IZ,  #single-proyectos .col_DE {
@@ -1873,8 +1825,8 @@ footer#footer a:hover {
 	}
 	
 	#single-proyectos .gallery {
-		min-height: 230px;
-		height: 240px;
+		min-height: 240px;
+		height: 250px;
 		width: auto;
 	}
 	
@@ -1883,19 +1835,7 @@ footer#footer a:hover {
 		max-width: 100%;
 		overflow: hidden;
 	}
-	
-	#single-proyectos .gallery-item img {
-		max-width: 100%;
-		height: auto;
-		left: 0px;
-		position: relative;
-	}
-	
-	.entry-content img {
-	  max-width: 100%;
-	  height: auto;
-	}
-	
+
 	#housing .info .h2 {
 		font-size: 1.1em;
 	}
@@ -1908,28 +1848,15 @@ footer#footer a:hover {
 	 	max-width: 100%;   
 	}
 	
-	#single-inmobiliaria .gallery{
-		width: 450px;
-	}
-	
-	#single-inmobiliaria .gallery-item {
-    	height: 314px;
-    	position: absolute;
-    	max-width: 100%;
-    }
-    
     h1.entry-title, h1 {
 	    font-size: 1.4em;
-    }
-    
-    #slideshow li .title, #slideshow li .text {
-	    font-size: 3em;
     }
 
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 621px) and (max-width: 879px) {
+
 	/* Styles */
 	#access {
 		left:0px;
@@ -1969,9 +1896,127 @@ footer#footer a:hover {
 
 }
 
-/*Between 600px and 900px */
-@media screen and (min-width: 600px) and (max-width: 900px) {
+/*Between 320px and 480px */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+	
+	/* Images */
+	.entry-content img,
+	.comment-content img,
+	.widget img,
+	.gallery-item img {
+		max-width: 97.5%; /* Fluid images for posts, comments, and widgets */
+	}
+	
+	img[class*="align"],
+	img[class*="wp-image-"] {
+		height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly 	*/
+	}
+	
+	img.size-full {
+		max-width: 97.5%;
+		width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+	}
 
+	img { 
+		-ms-interpolation-mode: bicubic; 
+	}
+	
+	#access {
+		top: 55px;
+	}
+	
+	#access li {
+	  margin-right: 4%;
+	}
+	
+	#access a {
+	  font-size: 75%;
+	  padding: 34px 0px 0px:
+	}
+	
+	#slideshow {
+	 max-width: 100%;
+	 overflow: hidden;
+	}
+	
+	#slideshow li { 
+	  max-width: 100%;
+	  overflow: hidden;
+	}
+	
+	#slideshow li .title, #slideshow li .text {
+		font-size: 200%;
+	}
+	
+	#slideshow li .text {
+		bottom: 10%;
+		z-index: 100;
+	}
+	
+	#single-inmobiliaria .gallery {
+		min-height: 230px;
+		height: 240px;
+		max-width: 99%;
+		width: 100%;
+	}
+	
+	#single-inmobiliaria .gallery-item {
+		width: 100%;
+	}
+	
+	.gallery-item img {
+		height: auto;
+		left: 0px;
+		position: relative;
+	}
+		
+	footer #first.widget-area {
+	 	float: left;
+	 	max-width: 45%;
+	}
+	
+	footer #second.widget-area {
+		float: right;
+	 	max-width: 45%;
+	}
+	
+	#projects li {
+	  width: 48%;
+	  float: left;
+	  overflow: hidden;
+	  display: table-cell;
+	  margin-right: 0px;
+	}
+	
+	#projects li:nth-child(odd) {
+		 margin-right: 2%;
+	}
+		
+	#single-proyectos #nav li, #single-inmobiliaria #nav li {
+		width: 30%;
+		height: 90px;
+	}
+	
+
+}
+
+/*Retina display */
+@media screen and (min-width: 320px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	a#logo {
+		background-image: url(images/header/logo_black.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 87px 34px;
+	}
+	
+	#white a#logo {
+		background-image: url(images/header/logo_white.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 87px 34px;
+	}
+	
 }
 
 @media all and (orientation:portrait) { 

@@ -21,6 +21,40 @@ $(function(){
 });
 
 
+/*----Cambio de color por class template----*/
+$(function () {
+	
+	 $('body').css({ 'opacity' : 0 });
+	 
+     var colorgray= $('body').hasClass('category');
+     
+     if (colorgray == true) {
+	 	$('body').css({'background-color' : '#242424', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+	 } else {
+		 $('body').css({'background-color' : '#ffffff', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+	 }
+	
+	$(window).bind("load", function() { //The load event will only fire if the entire page or document is fully loaded
+		  int = setInterval(changecolor, 200); //200 is the fade in speed in milliseconds
+    });
+    
+    function changecolor() {
+     	var classwhite = $('body').hasClass('category');
+     	var colorgreen = $('body').hasClass('page-id-2');
+        var colorgreen = $('body').hasClass('page-id-15');
+	     
+	     if (classwhite == true) {
+				$('body').attr('id', 'white');	
+			    clearInterval(int);
+		} else if (colorgreen == true) {
+				$('body').css({'background-color' : '#669700'}).animate({'opacity': 1}, 600);
+				$('body').attr('id', 'white');	
+				clearInterval(int);
+		}
+	}
+});
+
+
 /*----Home Slideshow----*/
 $(function() {
 	$('#slideshow') 
@@ -31,10 +65,11 @@ $(function() {
 	    pager:  '#nav', 
 	    slideExpr: 'li.slide'
 	});
+	
 });
 
 
-/*----Galeria single-proyectos.php----*/
+/*----Galeria single-proyectos.php y single-inmobiliaria.php----*/
 $(function() {
 	$('#gallery-1') 
 	.after('<ul id="nav">')
@@ -44,13 +79,24 @@ $(function() {
 	    timeout: 10000, 
 	    slideExpr: '.gallery-item img',
 	    pager:  '#nav', 
+	    height:  'auto',
+	    fit: 0, 
+	    after: onAfter,
      
     // callback fn that creates a thumbnail to use as pager anchor 
     pagerAnchorBuilder: function(idx, slide) { 
         return '<li><a href="#"><img src="' + slide.src + '" width="224" /></a></li>'; 
     } 
 	});
-
+	
+	function onAfter(curr, next, opts, fwd){
+		//get the height of the current slide
+		var $ht = $(this).height();
+		//set the container's height to that of the current slide
+		$(this).parent().animate({height: $ht});
+	}
+	
+	
 });
 
 
@@ -104,35 +150,4 @@ $("a.btn_info").toggle(
 		$('.entry-content').slideUp();
 });
 	
-
-/*----Cambio de color por class template----*/
-$(function () {
-
-     var colorgray= $('body').hasClass('category');
-     
-     if (colorgray == true) {
-	 	$('body').css({'background-color' : '#242424', 'opacity' : '0'}).animate({'opacity': 1}, 600);
-	 } else {
-		 $('body').css({'background-color' : '#ffffff', 'opacity' : '0'}).animate({'opacity': 1}, 600);
-	 }
-	
-	$(window).bind("load", function() { //The load event will only fire if the entire page or document is fully loaded
-		  int = setInterval(changecolor, 200); //200 is the fade in speed in milliseconds
-    });
-    
-    function changecolor() {
-     	var classwhite = $('body').hasClass('category');
-     	var colorgreen = $('body').hasClass('page-id-2');
-	     
-	     if (classwhite == true) {
-				$('body').attr('id', 'white');	
-			    clearInterval(int);
-		} else if (colorgreen == true) {
-				$('body').css({'background-color' : '#669700', 'opacity' : '0'}).animate({'opacity': 1}, 600);
-				$('body').attr('id', 'white');	
-				clearInterval(int);
-		}
-	}
-});
-
 

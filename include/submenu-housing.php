@@ -10,14 +10,16 @@
 	
 	<?php
 	
+	$category = get_category_by_slug( 'inmobiliaria' );
+
+	
 	$args = array(
 		'orderby'            => 'name', 
 		'style'              => 'list',
 		'title_li'           => '',
-		'child_of'           => 7
+		'child_of'           => $category->term_id
 		);
 
-		$category = get_category_by_slug( 'inmobiliaria' );
 		wp_list_categories($args);
 		
 	?>

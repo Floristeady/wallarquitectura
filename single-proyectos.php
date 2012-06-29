@@ -28,7 +28,7 @@
 							<h4><?php echo get_post_meta($post->ID, 'lugar', true); ?></h4>
 							<?php } ?>
 							
-							<a href="#" class="btn_info">+INFO</a>
+							<a href="javascript:void(0)" class="btn_info">+INFO</a>
 						</div>
 						
 						<div class="entry-content">
@@ -52,10 +52,9 @@
 					</div>
 					
 					<div class="col_DE">
-					<?php
-				    	$gallery_shortcode = '[gallery id=post_ID"' . intval( $post->post_parent ) . '"]';
-				    	print apply_filters( 'the_content', $gallery_shortcode );
-					 ?>
+					
+					<?php $gallery_shortcode = '[gallery id=post_ID"' . intval( $post->post_parent ) . '"]';
+				    	print apply_filters( 'the_content', $gallery_shortcode );?>
 					 
 					</div>
 					

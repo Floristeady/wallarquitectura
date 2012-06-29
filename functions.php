@@ -178,7 +178,11 @@ function boilerplate_gallery_shortcode($attr) {
     $columns = intval($columns);
     $itemwidth = $columns > 0 ? floor(100/$columns) : 100;
  
-    $selector = "gallery-{$instance}";
+    if (!is_mobile()) {
+    	$selector = "gallery-{$instance}"; } 
+    else {	$selector = "gallery-mobil{$instance}";
+	    
+    }
  
     $output = apply_filters('gallery_style', "
         <style type='text/css'>

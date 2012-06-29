@@ -137,17 +137,18 @@ $(function () {
 			$('li.all').removeClass('current-cat');
 		}
 	
-});
+
 
 /*----Desplegar cuadro proyecto entry-content----*/
 
-$("a.btn_info").toggle(
-	function(){
-		$(this).addClass('arrow_down');
-		$('.entry-content').slideDown();
-	}, function(){
-		$(this).removeClass('arrow_down');
-		$('.entry-content').slideUp();
-});
+	$("a.btn_info").toggle(
+		function(){
+			$(this).addClass('arrow_down');
+			$('.entry-content').slideDown();
+			console.log ("ok");
+		}, function(){
+			$(this).removeClass('arrow_down');
+			$('.entry-content').slideUp();
+	});
 	
-
+});

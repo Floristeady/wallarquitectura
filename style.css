@@ -1741,8 +1741,8 @@ footer#footer a:hover {
 
 	#single-proyectos .gallery-item img {
 		position: absolute;
-		left: -18%; /* Change this */
-		top: 0px;  /* Change this */
+		 /*left: -18%; Change this */
+		/*top: 0px;   Change this */
 		z-index: 0;
 	}
 	
@@ -1821,21 +1821,41 @@ footer#footer a:hover {
 	}
 	
 	#single-proyectos .col_IZ {
-	padding-top: 0px;
+		padding-top: 0px;
 	}
 	
-	#single-proyectos .gallery {
-		min-height: 240px;
-		height: 250px;
+	#single-proyectos .gallery, #single-inmobiliaria  .gallery{
+		width: auto;
+		height: auto;
+		min-height: inherit;
+	}
+	
+	#single-proyectos .gallery-icon, #single-inmobiliaria .gallery-icon  {
+		height: auto;
+		position: relative;
+	}
+	
+	#single-proyectos .gallery-item img{
+		position: relative;
+		z-index: 0;
+	}
+	
+	#single-inmobiliaria .gallery-item img {
+		width: 100%;
+	}
+	
+	#single-proyectos .gallery-item, #single-inmobiliaria  .gallery-item{
+		position: relative;
+		max-width: 100%;
+		overflow: hidden;
+		margin-bottom: 5px;
+		height: auto;
+	}
+	
+	#single-inmobiliaria  .gallery-item {
 		width: auto;
 	}
 	
-	#single-proyectos .gallery-item {
-		position: absolute;
-		max-width: 100%;
-		overflow: hidden;
-	}
-
 	#housing .info .h2 {
 		font-size: 1.1em;
 	}
@@ -1845,7 +1865,8 @@ footer#footer a:hover {
 	}
 		
 	#housing li .info  {
-	 	max-width: 100%;   
+	 	max-width: 100%;  
+	 	padding: 5px 2.15% 5px 3.23%; 
 	}
 	
     h1.entry-title, h1 {
@@ -1953,20 +1974,8 @@ footer#footer a:hover {
 		z-index: 100;
 	}
 	
-	#single-inmobiliaria .gallery {
-		min-height: 230px;
-		height: 240px;
-		max-width: 99%;
-		width: 100%;
-	}
-	
-	#single-inmobiliaria .gallery-item {
-		width: 100%;
-	}
-	
 	.gallery-item img {
 		height: auto;
-		left: 0px;
 		position: relative;
 	}
 		
@@ -1991,10 +2000,55 @@ footer#footer a:hover {
 	#projects li:nth-child(odd) {
 		 margin-right: 2%;
 	}
+	
+	#projects li .img {
+		height: 140px;
+		overflow: hidden;
+	}
+	
+	#projects li img {
+		width: 100%;
+		display: block; 
+	}
 		
 	#single-proyectos #nav li, #single-inmobiliaria #nav li {
 		width: 30%;
 		height: 90px;
+	}
+	
+	#projects li a span.over_title {
+		display: block;
+		z-index: 100;
+		padding: 4px;
+		height: auto;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 150px;
+	}
+
+	#projects li a span.over_title h4  {
+		color: #9ac247;
+		font-family: "Helvetica Neue", Helvetica, Arial;
+		text-align: left;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		font-size: 0.7em;
+	}
+	
+	a#logo {
+		background-image: url(images/header/logo_black.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 77px;
+		height: 80px;
+	}
+	
+	#white a#logo {
+		background-image: url(images/header/logo_white.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 77px;
+		height: 80px;
 	}
 	
 

@@ -34,11 +34,14 @@ get_header(); ?>
 
 		        		<span class="info">
 		        			<span class="h2"><?php the_title() ?></span>
-		        			<?php  if((get_post_meta($post->ID, 'ubicacion', true))) { ?>
+		        			
+		        			<?php if (!is_mobile()) {  
+		        			
+		        			if((get_post_meta($post->ID, 'ubicacion', true))) { ?>
 		        			<span class="h4"><span class="bold">Ubicación: </span>
 		        				<?php echo get_post_meta($post->ID, 'ubicacion', true); ?>
 							</span>
-							<?php } ?>
+							<?php } }?>
 		        			<span class="btn_ver" href="#">Ver Más</span>
 		        		</span>
 		        		

@@ -1166,6 +1166,35 @@ h2.entry-title a {
 	margin-bottom: 20px;
 }
 
+#post-social {
+	float: left;
+	margin: 20px 0px;
+	clear: left;
+}
+
+#post-social .mr_social_sharing {
+	float: left;
+	clear: left;
+	margin-bottom: 10px;
+	opacity: 0.5;
+}
+
+#post-social .mr_social_sharing:hover, #post-social-inm .mr_social_sharing:hover {
+	opacity: 1;
+}
+
+#post-social-inm {
+	float: left;
+	margin: 20px 0px;
+	
+}
+
+#post-social-inm .mr_social_sharing {
+	float: left;
+	margin-bottom: 10px;
+	opacity: 0.5;
+}
+
 /* icons */
 
 .icon_fb {
@@ -1760,6 +1789,14 @@ footer#footer a:hover {
 	   display: block;
 	   width: auto;
 	   float: none;
+	}
+	
+	#post-social .mr_social_sharing {
+		float: left;
+		margin-bottom: 10px;
+		opacity: 0.5;
+		display: inline;
+		clear: none;
 	}
   	
   	a.btn_info {

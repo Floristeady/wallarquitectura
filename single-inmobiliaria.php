@@ -66,10 +66,17 @@
 					<!--fin col_IZ-->
 					
 
-					<footer class="entry-utility">
+					<footer class="entry-utility clearfix">
 						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>
 					</footer><!-- .entry-utility -->
 				</article><!-- #post-## -->
+				
+				
+					<div id="post-social-inm" class="clearfix">
+							
+							<?php echo do_shortcode('[social_share/] '); ?>
+				   </div>
+
 				
 				<div class="clearfix"></div>
 				<div id="comments">

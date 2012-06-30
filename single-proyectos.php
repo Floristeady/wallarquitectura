@@ -48,7 +48,8 @@
 							<?php the_content(); ?>
 							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
 						</div><!-- .entry-content -->
-					
+						
+											
 					</div>
 					
 					<div class="col_DE">
@@ -58,11 +59,17 @@
 					 
 					</div>
 					
-					<footer class="entry-utility">
+					<footer class="entry-utility clearfix">
 						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>
 					</footer><!-- .entry-utility -->
 					
 				</article><!-- #post-## -->
+				
+				<div id="post-social" class="clearfix">
+							
+							<?php echo do_shortcode('[social_share/] '); ?>
+						</div>
+
 				
 				<div class="clearfix"></div>
 			

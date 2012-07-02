@@ -391,6 +391,7 @@ header {
 	/*width: 100%;*/
 	position: relative;
 	height: 80px;
+	z-index: 2;
 }
 
 header hgroup h1 {
@@ -461,6 +462,7 @@ a#skip { display: none;}
 
 #access ul, #access li {
 	float: left;
+	position: relative;
 }
 
 #access a {
@@ -511,8 +513,9 @@ a#skip { display: none;}
     padding: 5px 10px;
     position: absolute;
     top: 68px;
-    z-index: 10;
+    z-index: 1000;
     min-width: 160px;
+    left: 0px;
 }
 
 #menu-menu-principal  ul.sub-menu-parent li {
@@ -709,6 +712,7 @@ section#content {
 	clear: left;
 	/*float: left;*/
 	min-height: 520px;
+	z-index: 1px;
 }
 
 h2.entry-title a {
@@ -945,6 +949,10 @@ h2.entry-title a {
     position: relative;
 }
 
+.lte9 #single-proyectos .entry-top{
+	border: 1px solid #ccc;
+}
+
 #single-proyectos span.info_dot {
 	background-image: url(images/repeat/info_dot.png);
 	display: block;
@@ -1044,6 +1052,10 @@ h2.entry-title a {
 #projects li a {
 	position: relative;
 	height: 236px;
+}
+
+.lte8 #projects li a {
+	cursor: pointer;
 }
 
 #projects li a span.over_title_small {
@@ -1150,6 +1162,10 @@ h2.entry-title a {
 	color: #444444;
 	float: left;
 	clear: left;
+}
+
+.lte8 #housing .info .h4, .lte8 #housing .info .btn_ver{
+	width: 120px;
 }
 
 #housing .info .btn_ver {

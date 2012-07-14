@@ -19,8 +19,15 @@
 							
 							<?php  if((get_post_meta($post->ID, 'superficie', true))) { ?>
 							<div class="data">
-								<span>Superficie</span>
+								<span>Superficie Construida</span>
 								<span class="bold"><?php echo get_post_meta($post->ID, 'superficie', true); ?>m<sup>2</sup></span>
+							</div>
+							<?php } ?>
+							
+							<?php  if((get_post_meta($post->ID, 'superficie_terreno', true))) { ?>
+							<div class="data">
+								<span>Superficie Terreno</span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'superficie_terreno', true); ?>m<sup>2</sup></span>
 							</div>
 							<?php } ?>
 							

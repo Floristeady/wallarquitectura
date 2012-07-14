@@ -40,15 +40,16 @@ $(function () {
     
     function changecolor() {
      	var classwhite = $('body').hasClass('category');
-     	var colorgreen = $('body').hasClass('page-id-2');
+     	//var colorgreen = $('body').hasClass('page-id-2');
         var colorgreen = $('body').hasClass('page-id-15');
 	     
 	     if (classwhite == true) {
 				$('body').attr('id', 'white');	
 			    clearInterval(int);
 		} else if (colorgreen == true) {
-				$('body').css({'background-color' : '#669700'}).animate({'opacity': 1}, 600);
+				$('body').css({'background-color' : '#547c00'}).animate({'opacity': 1}, 600);
 				$('body').attr('id', 'white');	
+				$('body').attr('class', 'green');	
 				clearInterval(int);
 		}
 	}
@@ -104,6 +105,8 @@ $(function() {
 $(function () {
 	
 	$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
+	
+	$("#single-proyectos #nav li:nth-child(6n+6)").addClass("mar-right-0");
 
 	// Fade del load project and filter tag
 	$(function () {

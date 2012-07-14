@@ -636,7 +636,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 add_action("admin_init", "admin_init");
  
 function admin_init(){
-  add_meta_box("credits_meta", "Información del Proyectos", "credits_meta", "post", "normal", "low");
+  add_meta_box("credits_meta", "Información del Proyectos e Inmobiliaria", "credits_meta", "post", "normal", "low");
 }
  
 function credits_meta() {
@@ -644,18 +644,26 @@ function credits_meta() {
   $custom = get_post_custom($post->ID);
   $year = $custom["year"][0];
   $superficie = $custom["superficie"][0];
+  $superficieterreno = $custom["superficie_terreno"][0];
   $lugar = $custom["lugar"][0];
+  $destacada_img = $custom["destacada_img"][0];
   
   $mapa = $custom["mapa"][0];
   $direccion = $custom["direccion"][0];
   $telefono = $custom["telefono"][0];
+  
   ?>
   	<p><label style="width: 80px; float:left">Ubicación:</label>
 	<input size="30" name="lugar" value="<?php echo $lugar; ?>" /></p>
 	<p><label style="width: 80px; float:left">Año:</label>
 	<input size="30"  name="year" value="<?php echo $year; ?>" /></p>
-	<p><label style="width: 80px; float:left">Superficie:</label>
+	<p><label style="width: 80px; float:left">Superficie Construida:</label>
 	<input size="30"  name="superficie" value="<?php echo $superficie; ?>" /></p>
+	<p><label style="width: 80px; float:left">Superficie Terreno:</label>
+	<input size="30"  name="superficie_terreno" value="<?php echo $superficieterreno; ?>" /></p>
+	<p><label style="width: 80px; float:left">Imagen Destacada URL</label>
+	<input size="30"  name="destacada_img" value="<?php echo $destacada_img; ?>" /></p>
+
 
 	<br />
 	<h3>Información Inmobiliaria</h3>
@@ -676,7 +684,9 @@ function save_details(){
 
   update_post_meta($post->ID, "year", $_POST["year"]);
   update_post_meta($post->ID, "superficie", $_POST["superficie"]);
+  update_post_meta($post->ID, "superficie_terreno", $_POST["superficie_terreno"]);
   update_post_meta($post->ID, "lugar", $_POST["lugar"]);
+  update_post_meta($post->ID, "destacada_img", $_POST["destacada_img"]);
   
   update_post_meta($post->ID, "direccion", $_POST["direccion"]);
   update_post_meta($post->ID, "mapa", $_POST["mapa"]);

@@ -38,10 +38,14 @@ get_header(); ?>
 				<?php while (have_posts()) : the_post(); ?>
 			        <li class="slide">
 			           
-			            <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+			            <a href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>">
 			            <span class="text">Proyecto</span>
 			            <span class="title"><?php the_title() ?></span>
-			            <span class="img"><?php the_post_thumbnail(array(960,516));?></span>
+			            <?php //<span class="img"> the_post_thumbnail(array(960,516));</span>?>
+			            
+			            <?php  if((get_post_meta($post->ID, 'destacada_img', true))) { ?>
+								 <span class="img"><img src="<?php echo get_post_meta($post->ID, 'destacada_img', true); ?>" alt="<?php the_title() ?>"/></span>
+							<?php } ?>
 			           
 			            </a>
 			            

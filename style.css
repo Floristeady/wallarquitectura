@@ -263,6 +263,7 @@ p  {
 	font-family: "Helvetica Neue", Arial, Helvetica;
 	font-size: 0.8em;
 	color: #333;
+	line-height: 1.45em;
 }
 
 h1, h2, h3 , h4 {
@@ -273,7 +274,7 @@ h1, h2, h3 , h4 {
 h1 {
 	font-family: "museosans-300", "Helvetica Neue", Arial;
 	color: #555555;
-	font-size: 1.9em;
+	font-size: 1.7em;
 	line-height: 1.1em;
 }
 
@@ -391,7 +392,7 @@ header {
 	/*width: 100%;*/
 	position: relative;
 	height: 80px;
-	z-index: 2;
+	z-index: 10;
 }
 
 header hgroup h1 {
@@ -410,6 +411,8 @@ a#logo {
 	text-indent: -999px;
 	width: 176px;
 }
+
+/*---WHITE---*/
 
 #white header{
 	border-top: 6px solid #ffffff;
@@ -450,6 +453,28 @@ a#logo {
 #white #menu-menu-principal ul.sub-menu-parent a {
 	color: #fff;
 	border: none;
+}
+
+#white #access a:hover, 
+#white #menu-menu-principal ul.sub-menu-parent a:hover,
+#white #menu-secondary li a:hover, 
+#white #menu-secondary li.current-menu-item a {
+	color: #9ac247;
+}
+
+/*---GREEN---*/
+
+#white.green #menu-menu-principal ul.sub-menu-parent {
+    background-color: #547C00;
+    border-top: 1px solid #fff;
+}
+
+.green #breadcrumbs a, .green #breadcrumbs {
+    color: #fff;
+}
+
+.green footer#footer  {
+	border-top: 1px solid #fff;
 }
 
 a#skip { display: none;}
@@ -512,9 +537,9 @@ a#skip { display: none;}
     list-style: none outside none;
     padding: 5px 10px;
     position: absolute;
-    top: 68px;
+    top: 66px;
     z-index: 1000;
-    min-width: 160px;
+    min-width: 560px;
     left: 0px;
 }
 
@@ -537,10 +562,12 @@ a#skip { display: none;}
 
 #menu-menu-principal .sub-menu .sub-menu li {
 	padding: 0px;
+	line-height: 1.3em;
 }
 
 #access #menu-menu-principal ul.sub-menu-parent .sub-menu li a  {
 	font-family: "museosans-300", "Helvetica Neue", Arial;
+	word-wrap: break-word;
 }
 
 #menu-menu-principal ul.sub-menu-parent .sub-menu li a {
@@ -550,7 +577,8 @@ a#skip { display: none;}
 }
 
 #menu-menu-principal  ul.sub-menu-parent li, #menu-menu-principal .sub-menu  {
-	float: none;
+	float: left;
+	width: 140px;
 }
 
 
@@ -707,6 +735,11 @@ a.btn_all:hover {
 ----------------------------------------------- */
 
 /*-------Generales------- */
+
+.page img {
+	width: 100%;
+	height: auto;
+}
 
 section#content {
 	clear: left;
@@ -917,7 +950,8 @@ h2.entry-title a {
 }
 
 #single-proyectos #nav li {
-	margin-right: 10px;
+	margin-right: 8.2px;
+	margin-bottom: 8px;
 	float: left;
 	height: 112px;
 	overflow: hidden;
@@ -931,7 +965,7 @@ h2.entry-title a {
 	opacity: 1;
 }
 
-#single-proyectos #nav li:last-child {
+#single-proyectos #nav li:nth-child(6n+6) {
 	margin-right: 0px;
 }
 
@@ -1496,7 +1530,16 @@ footer#footer a:hover {
 /* =Plugins
 ----------------------------------------------- */
 
-.category .wp-pagenavi a {
+.category .wp-pagenavi a, .category .wp-pagenavi span {
+	border: none;
+}
+
+.category .nextpostslink, .category .previouspostslink {
+	font-size: 22px;
+	margin: 1px;
+}
+
+.category .wp-pagenavi a.page, .category .wp-pagenavi .current  {
 	background-image: url("images/CSS_sprite.png");
     background-position: -250px -145px;
     background-repeat: no-repeat;
@@ -1509,7 +1552,7 @@ footer#footer a:hover {
     border: none;
 }
 
-.category .wp-pagenavi .current {
+.category .wp-pagenavi span.current {
 	background-image: url("images/CSS_sprite.png");
 	background-position: -225px -145px !important;
     outline: medium none;
@@ -1521,6 +1564,10 @@ footer#footer a:hover {
     text-indent: -99999px;
     width: 12px;
     border: none;
+}
+
+.category .wp-pagenavi span.pages {
+	display: none;
 }
 
 .wpcf7 {
@@ -1661,6 +1708,10 @@ footer#footer a:hover {
     position: absolute;
     width: 840px;
   }
+  
+  #projects li:nth-child(odd), #projects li:nth-child(2n+2) {
+		 margin-right: 2% !important;
+  }
   	  
 }
 
@@ -1688,6 +1739,19 @@ footer#footer a:hover {
 
 /* --- Smartphones and small Tablet PCs --- */
 @media screen and (max-width: 620px) { 
+
+	#menu-menu-principal .sub-menu .sub-menu  {
+		display: none !important;
+	}
+	
+	#menu-menu-principal  ul.sub-menu-parent li, #menu-menu-principal .sub-menu {
+		float: none;
+		width: auto;
+	}
+	
+	#menu-menu-principal ul.sub-menu-parent  {
+		min-width: 160px;
+	}
 	
 	section#content {
     	clear: none;
@@ -1803,8 +1867,9 @@ footer#footer a:hover {
   
 	#single-proyectos .entry-content { 
 	   display: block;
-	   width: auto;
-	   float: none;
+	   width: 90%;
+	   float: left;
+	   padding: 5%;
 	}
 	
 	#post-social .mr_social_sharing {
@@ -1925,6 +1990,48 @@ footer#footer a:hover {
     h1.entry-title, h1 {
 	    font-size: 1.4em;
     }
+    
+    #projects li {
+	  width: 48%;
+	  float: left;
+	  overflow: hidden;
+	  display: table-cell;
+	  margin-right: 0px;
+	}
+	
+	#projects li .img {
+		height: 140px;
+		overflow: hidden;
+	}
+	
+	#projects li img {
+		width: 100%;
+		display: block; 
+	}
+		
+	#single-proyectos #nav li, #single-inmobiliaria #nav li {
+		width: 30%;
+		height: 90px;
+	}
+	
+	#projects li a span.over_title {
+		display: block;
+		z-index: 9;
+		padding: 4px;
+		height: auto;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 150px;
+	}
+
+	#projects li a span.over_title h4  {
+		color: #9ac247;
+		font-family: "Helvetica Neue", Helvetica, Arial;
+		text-align: left;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		font-size: 0.7em;
+	}
 
 }
 
@@ -2041,52 +2148,7 @@ footer#footer a:hover {
 		float: right;
 	 	max-width: 45%;
 	}
-	
-	#projects li {
-	  width: 48%;
-	  float: left;
-	  overflow: hidden;
-	  display: table-cell;
-	  margin-right: 0px;
-	}
-	
-	#projects li:nth-child(odd) {
-		 margin-right: 2%;
-	}
-	
-	#projects li .img {
-		height: 140px;
-		overflow: hidden;
-	}
-	
-	#projects li img {
-		width: 100%;
-		display: block; 
-	}
-		
-	#single-proyectos #nav li, #single-inmobiliaria #nav li {
-		width: 30%;
-		height: 90px;
-	}
-	
-	#projects li a span.over_title {
-		display: block;
-		z-index: 100;
-		padding: 4px;
-		height: auto;
-		position: absolute;
-		background-color: rgba(0, 0, 0, 0.5);
-		width: 150px;
-	}
 
-	#projects li a span.over_title h4  {
-		color: #9ac247;
-		font-family: "Helvetica Neue", Helvetica, Arial;
-		text-align: left;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		font-size: 0.7em;
-	}
 	
 	a#logo {
 		background-image: url(images/header/logo_black.png);

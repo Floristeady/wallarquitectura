@@ -41,10 +41,18 @@
 							
 							<?php  if((get_post_meta($post->ID, 'superficie', true))) { ?>
 							<div class="data">
-								<span>Superficie</span>
+								<span>Superficie Construida</span>
 								<span class="strong"><?php echo get_post_meta($post->ID, 'superficie', true); ?>m<sup>2</sup></span>
 							</div>
 							<?php } ?>
+							
+							<?php  if((get_post_meta($post->ID, 'superficie_terreno', true))) { ?>
+							<div class="data">
+								<span>Superficie Terreno</span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'superficie_terreno', true); ?>m<sup>2</sup></span>
+							</div>
+							<?php } ?>
+							
 							<?php the_content(); ?>
 							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
 						</div><!-- .entry-content -->

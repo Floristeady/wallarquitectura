@@ -11,7 +11,7 @@
 	$category = get_category_by_slug( 'proyectos' );
 	
 	$args = array(
-		'orderby'            => 'name', 
+		'orderby'            => 'none', 
 		'style'              => 'list',
 		'title_li'           => '',
 		'child_of'           => $category->term_id

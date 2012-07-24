@@ -62,7 +62,7 @@ $(function() {
 	.cycle({ 
 	    fx:     'fade', 
 	    speed:  'slow', 
-	    timeout: 10000, 
+	    timeout: 7000, 
 	    pager:  '#nav', 
 	    slideExpr: 'li.slide'
 	});

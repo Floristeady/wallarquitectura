@@ -880,7 +880,11 @@ h2.entry-title a {
     box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3);  */   
 }
 
-#slideshow li { display: none;}
+#slideshow li { 
+	display: none;
+	width: 960px;
+	height: 516px;
+}
 
 #slideshow li .title {
 	bottom: 10px;

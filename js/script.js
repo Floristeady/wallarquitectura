@@ -24,14 +24,14 @@ $(function(){
 /*----Cambio de color por class template----*/
 $(function () {
 	
-	 $('body').css({ 'opacity' : 0 });
+	 //$('body').css({ 'opacity' : 0 });
 	 
      var colorgray= $('body').hasClass('category');
      
      if (colorgray == true) {
-	 	$('body').css({'background-color' : '#242424', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+	 	$('body').css({'background-color' : '#242424'}).animate({'opacity': 1}, 600);
 	 } else {
-		 $('body').css({'background-color' : '#ffffff', 'opacity' : '0'}).animate({'opacity': 1}, 600);
+		 $('body').css({'background-color' : '#ffffff'}).animate({'opacity': 1}, 600);
 	 }
 	
 	$(window).bind("load", function() { //The load event will only fire if the entire page or document is fully loaded
@@ -41,7 +41,7 @@ $(function () {
     function changecolor() {
      	var classwhite = $('body').hasClass('category');
      	//var colorgreen = $('body').hasClass('page-id-2');
-        var colorgreen = $('body').hasClass('page-id-15');
+        //var colorgreen = $('body').hasClass('page-id-15');
 	     
 	     if (classwhite == true) {
 				$('body').attr('id', 'white');	
@@ -62,7 +62,7 @@ $(function() {
 	.cycle({ 
 	    fx:     'fade', 
 	    speed:  'slow', 
-	    timeout: 7000, 
+	    timeout: 5000, 
 	    pager:  '#nav', 
 	    slideExpr: 'li.slide'
 	});

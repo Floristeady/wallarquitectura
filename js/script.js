@@ -46,12 +46,12 @@ $(function () {
 	     if (classwhite == true) {
 				$('body').attr('id', 'white');	
 			    clearInterval(int);
-		} else if (colorgreen == true) {
+		} /* else if (colorgreen == true) {
 				$('body').css({'background-color' : '#547c00'}).animate({'opacity': 1}, 600);
 				$('body').attr('id', 'white');	
 				$('body').attr('class', 'green');	
 				clearInterval(int);
-		}
+		}*/
 	}
 });
 

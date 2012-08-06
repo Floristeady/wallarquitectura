@@ -800,15 +800,15 @@ h2.entry-title a {
 
 .column-half {
 	/*width: 464px;*/
-	width: 48.3%;
+	width: 46.3%;
 } 
 
 .column-three {
-	width: 32.29%;
+	width: 30.29%;
 }
 
 .column-one-two {
-	width: 64.58%;
+	width: 62.58%;
 }
 
 .column-one-three {
@@ -818,11 +818,11 @@ h2.entry-title a {
 }
 
 .space-left {
-	margin-left: 1.562%;
+	margin-left: 3.562%;
 }
 
 .space-right {
-	margin-right: 1.562%;
+	margin-right: 3.562%;
 }
 
 .f-left {

@@ -1043,11 +1043,11 @@ h2.entry-title a {
 
 #single-inmobiliaria #nav {
 	float: left;
-	margin-top: 10px;
+	width:465px;
 }
 
 #single-inmobiliaria #nav li {
-	margin-right: 10px;
+	margin-right: 0px;
 	float: left;
 	height: 75px;
 	overflow: hidden;
@@ -1724,19 +1724,24 @@ footer#footer a:hover {
 @media screen and (min-width: 630px) and (max-width: 880px)  {
 	
 	#single-inmobiliaria .gallery {
-		min-height: 250px;
+		min-height: 230px;
 		max-width: 99%;
 	}
 	
 	#single-inmobiliaria .gallery .gallery-item img {
 		max-width: 99% !important;
-		height: auto;
+		height: auto !important;
 		left: 0px;
 		position: relative;
 	}
 	
 	#single-inmobiliaria .gallery .gallery-item {
 		max-width: 99% !important;
+	}
+	
+	#single-inmobiliaria #nav {
+	float: left;
+	max-width:99% !important;
 	}
   
 }

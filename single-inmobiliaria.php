@@ -42,7 +42,7 @@
 							
 							<?php  if((get_post_meta($post->ID, 'telefono', true))) { ?>
 							<div class="data">
-								<span>Teléfono de contacto</span>
+								<span>Teléfonos ventas</span>
 								<span class="bold"><?php echo get_post_meta($post->ID, 'telefono', true); ?></span>
 							</div>
 							<?php } ?>

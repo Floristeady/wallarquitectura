@@ -6,7 +6,7 @@
 	Note that if you are using Modernizr, it already does this for you. :-)
 */
 
-/*----Menu dropdown----*/
+/*----Menu dropdown----
 $(function(){
 	$("ul.sub-menu").parents().addClass('sub-menu-parent');
 	// Oculto los submenus
@@ -18,10 +18,45 @@ $(function(){
 	},function(){
 		$(this).find('ul.sub-menu-parent:first').slideUp(400);
 	});
-});
+});*/
 
 
-/*----Cambio de color por class template----*/
+/*****Flexislider Home y Galeria paginas*****/
+$(function(){
+      $('#home-gallery').flexslider({
+        animation: "slide",
+        slideshow: false,
+        controlNav: true,
+        directionNav: false,
+		keyboardNav: true,
+		pauseOnAction: true,
+		pauseOnHover: false,	 				
+		animationLoop: true,
+		after: function(){
+		  var new_img = $('.flex-active-slide').children('img').attr('title');
+		  $.backstretch('' + new_img + '');
+		}
+      });
+      
+	    var new_img = $('.flex-active-slide').children('img').attr('title');
+		$.backstretch('' + new_img + '');
+      
+      
+     $('#page-slider').flexslider({
+        animation: "slide",
+        directionNav: false
+      });
+      
+      
+		/*$(".flex-control-nav li a").click(function(e) {
+		  e.preventDefault();
+		  var new_img = $('.flex-active-slide').children('img').attr('title');
+		  $.backstretch('' + new_img + '');
+		});*/
+}); 
+
+
+/*****Color de font en listado proyectos*****/
 $(function () {
 	
 	 //$('body').css({ 'opacity' : 0 });
@@ -41,22 +76,16 @@ $(function () {
     function changecolor() {
      	var classwhite = $('body').hasClass('category');
      	//var colorgreen = $('body').hasClass('page-id-2');
-        //var colorgreen = $('body').hasClass('page-id-15');
 	     
 	     if (classwhite == true) {
 				$('body').attr('id', 'white');	
 			    clearInterval(int);
-		} /* else if (colorgreen == true) {
-				$('body').css({'background-color' : '#547c00'}).animate({'opacity': 1}, 600);
-				$('body').attr('id', 'white');	
-				$('body').attr('class', 'green');	
-				clearInterval(int);
-		}*/
+		} 
 	}
 });
 
 
-/*----Home Slideshow----*/
+/*----Home Slideshow----
 $(function() {
 	$('#slideshow') 
 	.cycle({ 
@@ -67,7 +96,7 @@ $(function() {
 	    slideExpr: 'li.slide'
 	});
 	
-});
+});*/
 
 
 /*----Galeria single-proyectos.php y single-inmobiliaria.php----*/
@@ -101,7 +130,7 @@ $(function() {
 });
 
 
-/*----Listado de proyectos----*/
+/*****Listado de proyectos*****/
 $(function () {
 	
 	$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
@@ -141,9 +170,7 @@ $(function () {
 		}
 	
 
-
-/*----Desplegar cuadro proyecto entry-content----*/
-
+    /*----Desplegar info proyecto entry-content----*/
 	$("a.btn_info").toggle(
 		function(){
 			$(this).addClass('arrow_down');
@@ -154,7 +181,7 @@ $(function () {
 			$('.entry-content').slideUp();
 	});
 	
-/*----last child----*/
+    /*----last child----*/
 	$("#projects li.mar-right-0").css("margin-right","0");
     $("#housing li:nth-child(2n+2)").css("margin-right","0");
 

@@ -245,15 +245,42 @@ body {
 	background-repeat: repeat;
 }
 
-#container {
+#header {
 	max-width: 960px;
 	margin: auto;
 }
 
-#content {
-	margin-top: 50px;
+.home #container {
+	background-image: url(images/repeat/backbody.png);
+	background-repeat: repeat;
+	background-color: white;
+	position: relative;
+	margin: 460px 0 0 0;
+	padding: 40px 0;
+	min-height: 200px;
 }
 
+section#content {
+	max-width: 960px;
+	margin: auto;
+	padding: 0px;
+	position: relative;
+}
+
+#backstretch {
+	left: 0px; 
+	top: 0px; 
+	position: fixed; 
+	overflow: hidden; 
+	z-index: -999999;
+	margin: 0px; 
+	padding: 0px; 
+}
+
+.page img {
+	width: 100%;
+	height: auto;
+}
 
 /* =Typography
 ----------------------------------------------- */
@@ -388,7 +415,6 @@ input#submit:hover, input[type=submit]:hover {
 ----------------------------------------------- */
 
 header {
-	border-top: 6px solid #333333;
 	/*width: 100%;*/
 	position: relative;
 	height: 80px;
@@ -407,23 +433,23 @@ a#logo {
 	background-image:url(images/CSS_sprite.png);
 	background-position: -100px -50px;
 	float: left;
-	height: 64px;
+	height: 60px;
 	text-indent: -999px;
-	width: 176px;
+	width: 158px;
+	margin-top: 20px;
 }
+
+a#skip { display: none;}
 
 /*---WHITE---*/
 
-#white header{
-	border-top: 6px solid #ffffff;
-}
+#white header{}
 
 #white a#logo {
 	background-position: -300px -50px;
 }
 
 #white #access a, #white #menu-secondary a {
-	border-left: 1px dotted #fff;
 	color: #fff;
 }
 
@@ -447,7 +473,6 @@ a#logo {
 
 #white #menu-menu-principal ul.sub-menu-parent {
     background-color: #242424;
-    border-top: 1px solid #fff;
 }
 
 #white #menu-menu-principal ul.sub-menu-parent a {
@@ -459,30 +484,16 @@ a#logo {
 #white #menu-menu-principal ul.sub-menu-parent a:hover,
 #white #menu-secondary li a:hover, 
 #white #menu-secondary li.current-menu-item a {
-	color: #9ac247;
+	color: #99c248;
 }
 
-/*---GREEN---*/
-
-#white.green #menu-menu-principal ul.sub-menu-parent {
-    background-color: #547C00;
-    border-top: 1px solid #fff;
-}
-
-.green #breadcrumbs a, .green #breadcrumbs {
-    color: #fff;
-}
-
-.green footer#footer  {
-	border-top: 1px solid #fff;
-}
-
-a#skip { display: none;}
+/****#menu-primary ****/
 
 #access {
-	left: 246px;
+	left: 300px;
 	position: absolute;
-	top: -6px;
+	/*background-color: rgba(255, 255, 255, 0.4);*/
+	border-radius: 8px;
 }
 
 #access ul, #access li {
@@ -491,34 +502,30 @@ a#skip { display: none;}
 }
 
 #access a {
-	border-left: 1px dotted #acacac;
-	color: #707070;
+	color: #292525;
 	float: left;
 	font-family: "museosans-300", "Helvetica Neue", Arial;
 	font-size: 0.90em;
 	text-transform: uppercase;
-	padding: 41px 20px 0;
-	margin-top: 6px;
+	padding: 10px 17px 0;
 }
 
-#menu-primary li.current-menu-item, #white #menu-primary li.current-menu-item {
-	border-top: 6px solid #9ac247;
+#menu-primary {
+	position: relative;
+	margin-top: 48px;
 }
 
-#access li.current-menu-item a {
-	margin-top: 0;
-}
+#menu-primary li.current-menu-item, #white #menu-primary li.current-menu-item {}
+#access li.current-menu-item a {}
 
 #access a:hover, 
 #menu-secondary li a:hover, 
 #access li.current-menu-item a,
 #menu-secondary li.current-menu-item a {
-	color: #9ac247;
+	color: #99c248;
 }
 
-#menu-primary {
-	position: relative;
-}
+/****submenu****/
 
 #menu-menu-principal ul.sub-menu {
 	display: none;
@@ -527,7 +534,6 @@ a#skip { display: none;}
 #menu-menu-principal ul.sub-menu ul.sub-menu { 
 	display: block;
 }
-
 
 #menu-menu-principal ul.sub-menu-parent {
     background-color: #fff;
@@ -581,7 +587,6 @@ a#skip { display: none;}
 	width: 140px;
 }
 
-
 #white #access ul.sub-menu-parent ul.sub-menu-parent li.current-menu-item, 
 #access ul.sub-menu li.current-menu-item {
 	border: none;
@@ -596,12 +601,13 @@ a#skip { display: none;}
 	border: none;
 }
 
+/****#menu-secondary ****/
+
 #nav-2 {
-	border-top: 6px solid #898989;
     float: right;
     position: absolute;
     right: 0;
-    top: -6px;
+    top: 49px;
 }
 
 #menu-secondary {
@@ -615,13 +621,15 @@ a#skip { display: none;}
 }
 
 #menu-secondary li a {
-	border-left: 1px dotted #acacac;
-	color: #707070;
+	color: #292525;
 	float: left;
-	font-size: 0.85em;
+	font-size: 0.8em;
 	font-family: "museosans-300", "Helvetica Neue", Arial;
-	padding: 41px 10px 0;
+	padding: 10px 10px 0;
+	text-transform: uppercase;
 }
+
+/****#breadcrumbs ****/
 
 #breadcrumbs {
 	border-top: 1px solid #9ac247;
@@ -642,6 +650,8 @@ a#skip { display: none;}
 #breadcrumbs span {
 	color: #9ac247;
 }
+
+/****submenu ****/
 
 .submenu-cat {
 	border-top:  1px solid #a1a1a1;
@@ -732,121 +742,94 @@ a.btn_all:hover {
 
 
 /* =Content and Edit
------------------------------------------------ */
+------------------------------------------------------------ */
 
-/*-------Generales------- */
 
-.page img {
+/****index*****/
+
+#home-gallery {
+	position: absolute;
+	width: 960px;
+	top:-180px;
+	z-index: 100000;
+}
+
+#home-gallery .slides img {
+	display: none;
+}
+
+#home-gallery ol li {
+	list-style: none;
+	display: inline;
+}
+
+#home-gallery .flex-control-nav {
+	margin-top: 100px;
 	width: 100%;
-	height: auto;
+	text-align: center;
+	border-bottom: 1px solid #d8d8d8;
+	padding-bottom: 5px;
 }
 
-section#content {
-	clear: left;
-	/*float: left;*/
-	min-height: 520px;
-	z-index: 1px;
+#home-gallery .flex-control-nav li {
+     padding: 0px 5px;
+     border-right: solid #d8d8d8 1px;
 }
 
-h2.entry-title a {
-	font-family: "museosans-300", "Helvetica Neue", Arial;
-	font-weight: normal;
-	color: #333333;
+#home-gallery .flex-control-nav li:last-child{
+	border: none;
 }
 
-.entry-meta, footer.entry-utility {
-	font-size: 0.8em;
+#home-gallery .flex-control-nav li a {
+	cursor: pointer;
+	font-family: 'museosans-300';
+	font-style: italic;
+	font-weight: 300px;
+	color: #756c66;
+	font-size: 0.9em;
 }
 
-.entry-content p {
-	margin: 0 0 4px;
+#home-gallery .flex-control-nav .flex-active {
+	color:#67c200;
 }
 
-.entry-content h2 {
-	color: #333;
-    font-family: "museosans-300", "Helvetica Neue", Arial;
-    text-transform: uppercase;
-    font-size: 1.05em;
-    margin-bottom: 0.5em;
-}
-
-.entry-content h3 {
-	color: #444;
-	font-size: 1em;
-	font-family: "museosans-300", "Helvetica Neue", Arial;
-	line-height: 1.3em;
-	margin-bottom: 0.5em;
-}
-
-.post-edit-link {
+#home-items {
 	float: left;
-	clear: left;
+	margin-top: 40px;
 }
 
-.data span {
-	color: #333333;
-    font-family: "Helvetica Neue",Arial,Helvetica;
-    font-size: 0.8em;
-    float: left;
-    clear: left;
-}
-
-.data {
-	width: 100%;
+.home-project {
+	display: block;
+	padding: 0px 1.78%;
+	border-right: 1px solid #d7d7d7;
 	float: left;
-	clear: left;
-	margin-bottom: 10px;
+	min-height: 100px;
 }
 
-.column-half {
-	/*width: 464px;*/
-	width: 46.3%;
-} 
-
-.column-three {
-	width: 30.29%;
+.home-project:last-child {
+	padding-right: 0px;
+	border-right: 0px;
 }
 
-.column-one-two {
-	width: 62.58%;
+.home-project .title-featured {
+	color: #332f2e;
+	font-size: 23px;
+	clear: both;
+	font-family: "museosans-500";
 }
 
-.column-one-three {
-	/*width: 590px;*/
-	width: 61.45%;
-	margin-left: 6.25%;
+.home-project p {
+	margin-top: 0px;
 }
 
-.space-left {
-	margin-left: 3.562%;
-}
-
-.space-right {
-	margin-right: 3.562%;
-}
-
-.f-left {
-	float: left;
-}
-
-.f-right {
-	float: right;
-}
-
-.line-top {
-	border-top: 1px solid #9AC247;
-	padding-top: 20px;
+.home-project .btn-more {
+	color: #343434;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 
-/*---Page----*/
-
-.page .entry-title {
-	margin-bottom: 0.5em;
-}
-
-
-/*----index.php----*/
+/****slider reaponsive*****/
 
 #container-slide #nav {
 	width: auto;
@@ -911,7 +894,7 @@ h2.entry-title a {
 	z-index: 10;
 }
 
-/*----Single-proyectos.php----*/
+/****proyectos*****/
 
 #single-proyectos {
 	position: relative;
@@ -1018,7 +1001,7 @@ h2.entry-title a {
 	margin-top: 20px;
 }
 
-/*----Single-inmobiliaria.php----*/
+/****inmobiliaria*****/
 
 #single-inmobiliaria .gallery {
 	position: relative;
@@ -1073,7 +1056,7 @@ h2.entry-title a {
 }
 
 
-/*----Category-proyectos.php----*/
+/****listado proyectos*****/
 
 
 #projects li {
@@ -1138,7 +1121,7 @@ h2.entry-title a {
 	padding-top:110px;
 }
 
-/*----Category-inmobiliaria.php----*/
+/****listado inmobiliaria*****/
 
 #housing li {
 	float: left;
@@ -1249,7 +1232,111 @@ h2.entry-title a {
 	opacity: 0.5;
 }
 
-/* icons */
+
+
+/****generales entry*****/
+
+h2.entry-title a {
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	font-weight: normal;
+	color: #333333;
+}
+
+.entry-meta, footer.entry-utility {
+	font-size: 0.8em;
+}
+
+.entry-content p {
+	margin: 0 0 4px;
+}
+
+.entry-content h2 {
+	color: #333;
+    font-family: "museosans-300", "Helvetica Neue", Arial;
+    text-transform: uppercase;
+    font-size: 1.05em;
+    margin-bottom: 0.5em;
+}
+
+.entry-content h3 {
+	color: #444;
+	font-size: 1em;
+	font-family: "museosans-300", "Helvetica Neue", Arial;
+	line-height: 1.3em;
+	margin-bottom: 0.5em;
+}
+
+.post-edit-link {
+	float: left;
+	clear: left;
+}
+
+.data span {
+	color: #333333;
+    font-family: "Helvetica Neue",Arial,Helvetica;
+    font-size: 0.8em;
+    float: left;
+    clear: left;
+}
+
+.data {
+	width: 100%;
+	float: left;
+	clear: left;
+	margin-bottom: 10px;
+}
+
+/****columnas*****/
+
+.column-half {
+	/*width: 464px;*/
+	width: 46.3%;
+} 
+
+.column-three {
+	width: 30.29%;
+}
+
+.column-one-two {
+	width: 62.58%;
+}
+
+.column-one-three {
+	/*width: 590px;*/
+	width: 61.45%;
+	margin-left: 6.25%;
+}
+
+.space-left {
+	margin-left: 3.562%;
+}
+
+.space-right {
+	margin-right: 3.562%;
+}
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+
+.line-top {
+	border-top: 1px solid #9AC247;
+	padding-top: 20px;
+}
+
+
+/****page*****/
+
+.page .entry-title {
+	margin-bottom: 0.5em;
+}
+
+
+/****iconos*****/
 
 .icon_fb {
 	background-image: url(images/CSS_sprite.png);
@@ -1483,21 +1570,23 @@ a.comment-reply-link {
 
 
 /* =Footer
------------------------------------------------ */
+--------------------------------------------------------- */
 
-footer#footer {
-	background-image: url(images/CSS_sprite.png);
-	background-repeat: no-repeat;
-	background-position: -0px -310px;
+#footer {
+	background-color: #f4f4f4;
 	display: block;
 	height: 100px;
 	max-width: 100%;
-	border-top: 1px #898989 solid;
 	clear: left;
 	float: left;
 	margin-top: 30px;
 	padding: 6px 0px 10px;
 	width: 100%;
+}
+
+#content-footer{
+	max-width: 960px;
+	margin: auto;
 }
 
 footer #first.widget-area {
@@ -1531,8 +1620,9 @@ footer#footer a:hover {
 	text-decoration: underline;
 }
 
+
 /* =Plugins
------------------------------------------------ */
+----------------------------------------------------------- */
 
 .category .wp-pagenavi a, .category .wp-pagenavi span {
 	border: none;
@@ -1607,7 +1697,7 @@ footer#footer a:hover {
 
 
 /* Media queries for responsive design
---------------------------------------------- */
+----------------------------------------------------------------- */
 
 /* --- iPad Landscape --- */
 @media screen and (max-width: 1024px) {

@@ -105,28 +105,64 @@ function boilerplate_setup() {
 	) );
 
 	// This theme allows users to set a custom background
-	add_custom_background();
+	global $wp_version;
+	if ( version_compare( $wp_version, '3.4', '>=' ) ) 
+     	add_theme_support( 'custom-background' ); 
+    else
+	add_custom_background( $args );
+	
+	// This theme allows users to set a custom header
+	global $wp_version;
+	if ( version_compare( $wp_version, '3.4', '>=' ) )
+		add_theme_support( 'custom-header' );
+	else
+		add_custom_image_header( $args );
+		
+	$defaults = array(
+	'default-image'          => get_template_directory_uri() . '/images/headers/logo_white.png',
+	'random-default'         => false,
+	'width'                  => 970,
+	'height'                 => 220,
+	'flex-height'            => false,
+	'flex-width'             => false,
+	'default-text-color'     => '',
+	'header-text'            => false,
+	'uploads'                => true,
+	'wp-head-callback'       => '',
+	'admin-head-callback'    => '',
+	'admin-preview-callback' => '',
+	);
+	add_theme_support( 'custom-header', $defaults );
 
-	// Your changeable header business starts here
-	define( 'HEADER_TEXTCOLOR', '' );
-	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-	define( 'HEADER_IMAGE', '%s/images/headers/path.jpg' );
 
-	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
-	// Add a filter to boilerplate_header_image_width and boilerplate_header_image_height to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'boilerplate_header_image_width', 940 ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'boilerplate_header_image_height', 198 ) );
+	}
+endif;
 
-	// We'll be using post thumbnails for custom header images on posts and pages.
-	// We want them to be 940 pixels wide by 198 pixels tall.
-	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
-
-	// Don't support text inside the header image.
-	define( 'NO_HEADER_TEXT', true );
-
+if ( ! function_exists( 'steady_admin_header_style' ) ) :
+/**
+ * Styles the header image displayed on the Appearance > Header admin panel.
+ *
+ * Referenced via add_custom_image_header() in steady_setup().
+ *
+ * @since Twenty Ten 1.0
+ */
+function steady_admin_header_style() {
+?>
+<style type="text/css">
+/* Shows the same border as on front end */
+#headimg {
+	border-bottom: 1px solid #000;
+	border-top: 4px solid #000;
+}
+/* If NO_HEADER_TEXT is false, you would style the text with these selectors:
+	#headimg #name { }
+	#headimg #desc { }
+*/
+</style>
+<?php
 }
 endif;
+
 
 
 // Iniciar galeria personalizada para el theme single-proyectos

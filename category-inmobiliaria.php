@@ -12,7 +12,7 @@ get_header(); ?>
 				<?php include (TEMPLATEPATH . '/include/submenu-housing.php'); ?>
 
 				<!--Para obtener el ID de la categoria-->
-				<?php $post_categories = wp_get_post_categories( $post_id );
+				<?php $post_categories = wp_get_post_categories(!wp_verify_nonce(isset($post_id)));
 					$cats = array();
 				?>
 				
@@ -32,19 +32,7 @@ get_header(); ?>
 				<li class="housing-item">
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 
-		        		<span class="info">
-		        			<span class="h2"><?php the_title() ?></span>
-		        			
-		        			<?php if (!is_mobile()) {  
-		        			
-		        			if((get_post_meta($post->ID, 'ubicacion', true))) { ?>
-		        			<span class="h4"><span class="bold">Ubicación: </span>
-		        				<?php echo get_post_meta($post->ID, 'ubicacion', true); ?>
-							</span>
-							<?php } }?>
-		        			<span class="btn_ver" href="#">Ver Más</span>
-		        		</span>
-		        		
+		        				        		
 		            	<?php //Obtenemos la url de la imagen destacada
     					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
     					$thumbnailsrc = "";
@@ -52,10 +40,24 @@ get_header(); ?>
 							$thumbnailsrc = $domsxe->attributes()->src;
 						if (!empty($thumbnailsrc)):
 						?>
-			 			<span class='img'><img src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=230&h=164' border=0 /></span>
+			 			<span class='img'><img src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=456' border=0 /></span>
 			 			<?php
 			 			endif;
 			 			?>  
+			 			
+			 			<span class="info">
+		        			<span class="h2"><?php the_title() ?></span>
+		        			
+		        			<?php if (!is_mobile()) {  
+		        			
+		        			if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
+		        			<span class="h4"><span class="bold">Ubicación: </span>
+		        				<?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?>
+							</span>
+							<?php } }?>
+							
+		        		</span>
+
 			 			
 			 			 	
 					 </a>

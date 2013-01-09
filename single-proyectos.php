@@ -19,53 +19,90 @@
 			
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
+				
+				
+				  <div id="proyect-gallery" class="gallery">
+				   <div class="slides"> 
+				  	
+                    
+				    	<?php
+						$args = array(
+						    'post_type' => 'attachment',
+						    'numberposts' => null,
+						    'post_parent' => $post->ID,
+						    'post_mime_type' => 'image',
+						    'orderby'    => 'title',
+						    'order'    => 'ASC',
+						    'exclude' => get_post_thumbnail_id($post->ID)
+						);
+						$attachments = get_posts($args);
+						if ($attachments) {
+						    foreach ($attachments as $attachment) {
+						        //Tamaños: "thumbnail", "medium", "large", "full"
+						        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'full' ); 
+						        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
+						        
+					 
+						       <img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>
+" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" />
+						    <?php
+						    }
+						}
+						?>
+
+					</div>
+					</div><!--/gallery -->
+					 
+
+				
 					<div class="col_IZ">
 						
 						<div class="entry-top">
-							<span class="info_dot"></span>
+							
+							<?php //the_meta() ?>
+							
 							<h1><?php the_title(); ?></h1>
-							<?php  if((get_post_meta($post->ID, 'lugar', true))) { ?>
-							<h4><?php echo get_post_meta($post->ID, 'lugar', true); ?></h4>
+							<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
+							<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
 							<?php } ?>
 							
-							<a href="javascript:void(0)" class="btn_info">+INFO</a>
 						</div>
 						
 						<div class="entry-content">
-							<?php  if((get_post_meta($post->ID, 'year', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'custom_select', true))) { ?>
 							<div class="data">
 								<span>Año</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'year', true); ?></span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_select', true); ?></span>
 							</div>
 							<?php } ?>
 							
-							<?php  if((get_post_meta($post->ID, 'superficie', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'custom_superficie', true))) { ?>
 							<div class="data">
 								<span>Superficie Construida</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'superficie', true); ?>m<sup>2</sup></span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie', true); ?>m<sup>2</sup></span>
 							</div>
 							<?php } ?>
 							
-							<?php  if((get_post_meta($post->ID, 'superficie_terreno', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'custom_superficie_terreno', true))) { ?>
 							<div class="data">
 								<span>Superficie Terreno</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'superficie_terreno', true); ?>m<sup>2</sup></span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie_terreno', true); ?>m<sup>2</sup></span>
 							</div>
 							<?php } ?>
 							
-							<?php the_content(); ?>
-							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
-						</div><!-- .entry-content -->
+													</div><!-- .entry-content -->
 						
 											
 					</div>
 					
 					<div class="col_DE">
 					
-					<?php $gallery_shortcode = '[gallery id=post_ID"' . intval( $post->post_parent ) . '"]';
-				    	print apply_filters( 'the_content', $gallery_shortcode );?>
-					 
-					</div>
+						<div class="content">
+						<?php the_content(); ?>
+							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
+						</div>
+
+				    </div>
 					
 					<footer class="entry-utility clearfix">
 						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>

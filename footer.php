@@ -23,7 +23,7 @@
 		</footer><!-- footer -->
 		
 	<?php wp_reset_query(); ?>
-    <?php  if (is_home()) { ?>	
+    <?php  if (!is_home()) { ?>	
 		<?php query_posts('showposts=1&category_name=slogan'); ?> 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		

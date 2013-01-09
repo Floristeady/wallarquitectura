@@ -258,13 +258,22 @@ body {
 	margin: 460px 0 0 0;
 	padding: 40px 0;
 	min-height: 200px;
+	width: 100%;
 }
 
 section#content {
 	max-width: 960px;
 	margin: auto;
-	padding: 0px;
+	padding: 0px 0px;
 	position: relative;
+}
+
+.home section#content {
+	margin-top: -410px;
+}
+
+.category section#content {
+	min-height: 500px;
 }
 
 #backstretch {
@@ -489,11 +498,17 @@ a#skip { display: none;}
 
 /****#menu-primary ****/
 
+.home #access  {
+	background-color: rgba(255,255,255,0.3);
+	border-radius: 6px;
+	width: 660px;
+}
+
 #access {
 	left: 300px;
 	position: absolute;
-	/*background-color: rgba(255, 255, 255, 0.4);*/
 	border-radius: 8px;
+	margin-top: 48px;
 }
 
 #access ul, #access li {
@@ -507,22 +522,18 @@ a#skip { display: none;}
 	font-family: "museosans-300", "Helvetica Neue", Arial;
 	font-size: 0.90em;
 	text-transform: uppercase;
-	padding: 10px 17px 0;
+	padding: 8px 17px 4px;
 }
 
 #menu-primary {
 	position: relative;
-	margin-top: 48px;
 }
-
-#menu-primary li.current-menu-item, #white #menu-primary li.current-menu-item {}
-#access li.current-menu-item a {}
 
 #access a:hover, 
 #menu-secondary li a:hover, 
 #access li.current-menu-item a,
 #menu-secondary li.current-menu-item a {
-	color: #99c248;
+	color: #688734;
 }
 
 /****submenu****/
@@ -603,11 +614,17 @@ a#skip { display: none;}
 
 /****#menu-secondary ****/
 
+.home #nav-2 {
+  /*  background-color: rgba(255,255,255,0.3);
+	border-radius: 6px;*/
+}
+
 #nav-2 {
     float: right;
     position: absolute;
     right: 0;
     top: 49px;
+    z-index: 2;
 }
 
 #menu-secondary {
@@ -625,7 +642,7 @@ a#skip { display: none;}
 	float: left;
 	font-size: 0.8em;
 	font-family: "museosans-300", "Helvetica Neue", Arial;
-	padding: 10px 10px 0;
+	padding: 8px 10px 4px;
 	text-transform: uppercase;
 }
 
@@ -641,6 +658,7 @@ a#skip { display: none;}
 	text-transform: uppercase;
 	width: 100%;
 	margin-bottom: 40px;
+	margin-top: 40px;
 }
 
 #breadcrumbs a {
@@ -658,6 +676,7 @@ a#skip { display: none;}
 	margin-bottom: 34px;
 	width: 960px;
 	float: left;
+	margin-top: 40px;
 }
 
 .submenu-cat li {
@@ -688,7 +707,7 @@ a#skip { display: none;}
 #nav-below {
 	position: absolute;
 	right: 0px;
-	top: 10px;	
+	top: 66px;	
 }
 
 .nav-previous, .nav-next, .btn_all {
@@ -748,22 +767,134 @@ a.btn_all:hover {
 /****index*****/
 
 #home-gallery {
-	position: absolute;
-	width: 960px;
-	top:-180px;
+	position: relative;
+	max-width: 960px;
+	/*top:-410px;*/
 	z-index: 100000;
+	zoom: 1;
 }
 
-#home-gallery .slides img {
+.flex-viewport {
+	max-height: 2000px;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.flexslider .slides img {
+	width: 100%;
+	display: block;
+}
+
+.flexslider .slides > li {
+	display: none;
+	-webkit-backface-visibility: hidden;
+}
+
+.slides, .flex-control-nav, .flex-direction-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#home-gallery h1 {
+	text-align: center;
+	color: #434040;
+	text-transform: uppercase;
+	font-size: 2.8em;
+	font-family: 'museosans-500';
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.33);
+	letter-spacing: -0.03em;
+}
+
+#home-gallery h4 {
+	text-align: center;
+	color: #434040;
+	font-size: 1.16em;
+	line-height: 1.2em;
+	padding: 0px 180px;
+	margin-top: 10px;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#home-gallery .slides img.this {
 	display: none;
 }
 
 #home-gallery ol li {
 	list-style: none;
 	display: inline;
+	max-width: 960px;
 }
 
-#home-gallery .flex-control-nav {
+#home-gallery ul.slides li {
+	text-align: center;
+	position: relative;
+	max-width: 960px;
+}
+
+#home-gallery  a.btn_more {
+	color: white;
+	background-color: #93bd4c;
+	border-radius: 4px;
+	padding: 12px 12px 8px;
+	font-size: 0.76em;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 7em;
+	box-shadow: inset 1px 1px 1px #c7e19a;
+	border-right: solid #8d826f 1px;
+	border-bottom: solid #8d826f 1px;
+}
+
+#home-gallery  a.btn_more:hover {
+	background-color: #789b3d;
+}
+
+#home-gallery .icono {
+	margin-bottom: 20px;
+}
+
+#home-gallery .line {
+	background-image: url(images/repeat/line.png);
+	background-repeat: repeat-x;
+	width: 200px;
+	height: 2px;
+	display: block;
+	position: absolute;
+	top: 30px;
+}
+
+#home-gallery .l-left {
+	left: 130px;
+	padding-left: 70px;
+}
+
+#home-gallery .l-right {
+	right: 130px;
+	padding-right: 70px;
+}
+
+#home-gallery .line-two {
+	background-image: url(images/repeat/line.png);
+	background-repeat: repeat-x;
+	width: 352px;
+	height: 2px;
+	display: block;
+	position: absolute;
+	top: 235px;
+	padding: 0px;
+}
+
+#home-gallery .l2-left {
+	left: 0px;
+}
+
+#home-gallery .l2-right {
+	right: 0px;
+}
+
+.flex-control-nav {
 	margin-top: 100px;
 	width: 100%;
 	text-align: center;
@@ -771,7 +902,11 @@ a.btn_all:hover {
 	padding-bottom: 5px;
 }
 
-#home-gallery .flex-control-nav li {
+.flexslider .slides {
+zoom: 1;
+}
+
+.flex-control-nav li {
      padding: 0px 5px;
      border-right: solid #d8d8d8 1px;
 }
@@ -796,6 +931,8 @@ a.btn_all:hover {
 #home-items {
 	float: left;
 	margin-top: 40px;
+    max-width: 960px;
+    width: 100%;
 }
 
 .home-project {
@@ -804,6 +941,40 @@ a.btn_all:hover {
 	border-right: 1px solid #d7d7d7;
 	float: left;
 	min-height: 100px;
+	position: relative;
+	height: 160px;
+	overflow: hidden;
+}
+
+.home-project .item-project {
+	min-height: 160px;
+	float: left;
+	position: absolute;
+	left: 4%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.home-project .item-project .cat {
+	font-size: 0.7em;
+	text-transform: uppercase;
+	color: #726c67;
+}
+
+.home-project .item-project .sale {
+	background-color: #93bd4c;
+	padding: 4px 8px 2px;
+	font-size: 0.7em;
+	color: white;
+	text-shadow: 1px 1px 5px #1c6d0e;
+	border: #e4e4e4 solid 3px;
+	margin-left: 10px;
+}
+
+.home-project a.img {
+	top: 160px;
+	position: absolute;
+	left: 8px;
 }
 
 .home-project:last-child {
@@ -816,16 +987,25 @@ a.btn_all:hover {
 	font-size: 23px;
 	clear: both;
 	font-family: "museosans-500";
+    width: 100%;
+	display: block;
 }
 
 .home-project p {
 	margin-top: 0px;
+	margin-bottom: 4px;
+	margin-right: 4%;
 }
 
 .home-project .btn-more {
 	color: #343434;
 	font-size: 12px;
 	font-weight: bold;
+}
+
+.home-project .arrow {
+	padding-left: 5px;
+	color: #86bf25;
 }
 
 
@@ -902,72 +1082,87 @@ a.btn_all:hover {
 
 #single-proyectos .col_IZ {
 	float: left;
-	width: 246px;
+	width: 218px;
+	margin-right: 32px;
+	clear: left;
 } 
+
+#single-proyectos .col_IZ h1 {
+	font-family: "museosans-100", "Helvetica Neue", Arial;
+	margin-bottom: 5px;
+}
 
 #single-proyectos .col_DE {
 	float: right;
-	width: 714px;
+	width: 670px;
+	background-color: #eeeeee;
+	background-image: url(images/repeat/backtext.png);
+	background-repeat: repeat;
+	padding: 15px 20px;
 }
 
 #single-proyectos .gallery {
 	position: relative;
 	display: block;
     float: left;
-    min-height: 426px;
-    position: relative;
-    width: 714px;
+    min-height: 596px;
+    max-width: 960px;
+    margin-bottom: 30px;
 }
 
-#single-proyectos .gallery-item {
+#single-proyectos .flex-direction-nav {
 	position: absolute;
-	height: 426px;
-	width: 714px;
+	z-index: 1000;
+	top: 50%;
+	left: 5px;
+	width: 99%;
 }
 
-#single-proyectos .gallery-icon {
-	overflow: hidden;
-	height: 426px;
-	position: relative;
+#single-proyectos .flex-direction-nav a {
+	background-image: url(images/CSS_sprite.png);
+	width: 44px;
+	height: 44px;
+	display: block;	
 }
 
-#single-proyectos #nav {
+
+#single-proyectos .flex-direction-nav li {
 	float: left;
-	margin-top: 10px;
 }
 
-#single-proyectos #nav li {
-	margin-right: 8.2px;
-	margin-bottom: 8px;
-	float: left;
-	height: 112px;
-	overflow: hidden;
-	display: block;
-	position: relative;
-	width: 112px;
-	opacity: 0.5;
+#single-proyectos .flex-direction-nav .flex-prev {
+	left: 5px;
+	background-position: -650px -175px;
+	text-indent: -9999em;
 }
 
-#single-proyectos #nav li.activeSlide {
-	opacity: 1;
+#single-proyectos .flex-direction-nav .flex-prev:hover {
+	background-position: -650px -225px;
 }
 
-#single-proyectos #nav li:nth-child(6n+6) {
-	margin-right: 0px;
+#single-proyectos .flex-direction-nav .flex-next {
+	right: 5px;
+	background-position: -725px -175px;
+    text-indent: -9999em;
+    position: absolute;
 }
 
-#single-proyectos .gallery-item img {
-	/*width: 714px;*/
+#single-proyectos .flex-direction-nav .flex-next:hover {
+	background-position: -725px -225px;
+}
+
+
+#single-proyectos .gallery img {
 	max-width: 100%;
+	height: auto;
 }
 
 #single-proyectos .entry-top {
 	background-color: #fff;
-	-webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3);
-    box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.3); 
-    padding: 20px 20px;
+    padding: 10px 0px;
     width: 206px;
     position: relative;
+    border-bottom: 1px solid #756c66;
 }
 
 .lte9 #single-proyectos .entry-top{
@@ -985,13 +1180,8 @@ a.btn_all:hover {
 }
 
 #single-proyectos .entry-content {
-	background-color: #eeeeee;
-	background-image: url(images/repeat/backtext.png);
-	background-repeat: repeat;
-	padding: 15px 15px;
-	width: 216px;
-	margin-top: 1px;
-	display: none;
+	width: 218px;
+	margin-top: 10px;
 	float: left;
 }
 
@@ -1113,22 +1303,27 @@ a.btn_all:hover {
 }
 
 #projects li a span.over_title_small h4, #projects li a span.over_title_large h4  {
-	color: #9ac247;
+	color: #fff;
 	font-family: "museosans-700", "Helvetica Neue", Arial;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 	padding-top:110px;
+	font-weight: lighter;
 }
 
 /****listado inmobiliaria*****/
 
+#housing {
+	clear: both;
+}
+
 #housing li {
 	float: left;
 	/*width: 462px;*/
-	width: 48.12%;
-    margin-right: 2.08%;
-    margin-bottom: 20px;
+	width: 48%;
+    margin-right: 4%;
+    margin-bottom: 40px;
 }
 
 #housing li:nth-child(2n+2){
@@ -1136,45 +1331,37 @@ a.btn_all:hover {
 }
 
 #housing a {
-	background-image: url("images/repeat/backtext.png");
-    background-repeat: repeat;
     float: left;
-    padding: 1%;
-    width: 98%;
-}
-
-#housing li a:hover {
-	background-image: url("images/repeat/backoverhousing.png");
-	background-repeat: repeat;
-}
-
-#housing a:hover .h2, #housing a:hover .h4 {
-	color: #fff;
 }
 
 #housing li .info {
-	float: right;
-	width: 44.6%;
-	padding: 20px 2.15% 20px 3.23%;
+	float: left;
+	width: 100%;
+	padding: 10px 0px 10px;
+	border-bottom: 1px solid #c7c4c4;
 }
 
 #housing li .img {
 	float: left;
-	width: 48%;
-}
-
-#housing li img {
-	max-width: 100%;
+	opacity: 0.9;
 }
 
 #housing .info .h2 {
-	font-family: 'museosans-300';
+	font-family: 'museosans-100';
 	font-size: 1.3em;
 	color: #333;
 	float: left;
 	clear: left;
 	line-height: 1.1em;
 	margin-bottom: 5px;
+}
+
+#housing a:hover .h2 {
+	color: #669700;
+}
+
+#housing a:hover .img {
+	opacity: 1;
 }
 
 #housing .info .h4 {
@@ -1194,8 +1381,8 @@ a.btn_all:hover {
 	color: #669700;
 	float: left;
 	font-family: 'museosans-300';
-	font-size: 0.9em;
-	margin-top: 20px;
+	font-size: 0.8em;
+	margin-top: 4px;
 	text-transform: uppercase;
 }
 
@@ -1283,7 +1470,7 @@ h2.entry-title a {
 	width: 100%;
 	float: left;
 	clear: left;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 }
 
 /****columnas*****/
@@ -1294,7 +1481,7 @@ h2.entry-title a {
 } 
 
 .column-three {
-	width: 30.29%;
+	width: 30%;
 }
 
 .column-one-two {
@@ -1333,6 +1520,9 @@ h2.entry-title a {
 
 .page .entry-title {
 	margin-bottom: 0.5em;
+	display: block;
+	float: left;
+	width: 100%;
 }
 
 
@@ -1575,7 +1765,7 @@ a.comment-reply-link {
 #footer {
 	background-color: #f4f4f4;
 	display: block;
-	height: 100px;
+	min-height: 160px;
 	max-width: 100%;
 	clear: left;
 	float: left;
@@ -1586,24 +1776,39 @@ a.comment-reply-link {
 
 #content-footer{
 	max-width: 960px;
-	margin: auto;
+	margin: 20px auto;
 }
 
-footer #first.widget-area {
+footer .widget-area h3 {
+	color: #85807b;
+	font-size: 0.86em;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight: 500;
+}
+
+#first.widget-area ul,  #second.widget-area  ul{
+	width: 90%;
+	margin-right: 10%;
+}
+
+footer #first.widget-area, footer #second.widget-area {
 	float: left;
-	max-width: 348px;
+	width: 38%;
+	padding-left: 2%;
 }
 
-footer #second.widget-area {
+footer #third.widget-area {
 	float: right;
+	width: 18%;
+	padding-left: 2%;
 }
 
-footer #second.widget-area li {
+footer #third.widget-area li {
 	float: left;
 	margin-right: 6px;
 }
 
-footer #second.widget-area li:last-child {
+footer #third.widget-area li:last-child {
 	margin-right: 0px;
 }
 
@@ -1612,14 +1817,57 @@ footer .widget-area ul {
 	margin: 0px;
 }
 
-footer#footer a {
+#footer a {
 	color: #9ac247;
-}
-
-footer#footer a:hover {
 	text-decoration: underline;
 }
 
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer p ,#footer li{
+	color:#726c67;
+}
+
+footer form#w_esu_widget label {
+	font-size: 0.75em;
+	text-align: right;
+	width: 36%;
+	margin-left: 2%;
+}
+
+.easysignup input[type="text"] {
+	border: 1px solid #b6aca4;
+	border-radius: 2px;
+	max-width: 190px;
+	font-size: 0.75em;
+	padding: 2px 0px;
+	float: right !important;
+	width: 56%;
+}
+
+footer form#w_esu_widget label em {
+	color: #93bd4c !important;
+}
+
+footer form#w_esu_widget  input[type="submit"] {
+	font-size: 0.8em;
+	padding: 4px 10px;
+	float: right;
+}
+
+.easysignup form, #third .textwidget ul {
+	margin-top: 10px;
+}
+
+#white footer {
+	background-color: #1f1f1f;
+}
+
+#white #footer p {
+	color:#726c67 !important;
+}
 
 /* =Plugins
 ----------------------------------------------------------- */
@@ -1700,13 +1948,55 @@ footer#footer a:hover {
 ----------------------------------------------------------------- */
 
 /* --- iPad Landscape --- */
-@media screen and (max-width: 1024px) {
-/* --- General --- */
+@media screen and (min-width: 881px) and (max-width: 940px) {
 
+	#access li a {
+		padding: 8px 15% 4px;
+	}
+	
+	#menu-secondary li a {
+		padding: 8px 5% 4px;
+	}
 }
 
 /* --- iPad Portrait --- */
 @media screen and (max-width: 880px) {
+
+ a#logo {
+	 margin-left: 20px;
+ }
+ 
+ .home #access  {
+	 max-width: 660px;
+	 width: auto;
+	 background: none;
+	 width: 96%;
+ }
+ 
+ .home section#content {
+	 margin-top: -400px;
+ }
+ 
+ #home-gallery {
+	 max-width: 100%;
+ }
+	
+	#home-gallery h1 {
+	    font-size: 2.3em;
+	}
+	
+	#home-gallery h4 {
+		padding: 0px 10%;
+		font-size: 1em;
+	}
+	
+	#home-gallery .line {
+		width: 10%;
+	}
+	
+	#home-gallery .line-two {
+		display: none;
+	}
 
   #container {
 	  padding: 0 2%;
@@ -1721,22 +2011,15 @@ footer#footer a:hover {
 	  margin: 16px 0px 0;
   }
   
-  #access li a, #access a,  #access li.current-menu-item,
-  #white #access li a, #white  #access a, #white #access li.current-menu-item  {
-   	border: none;
-  }
-  
-  #access {
+  home #access, #access {
     top: 34px;
     left: 226px;
-  }
-
-  #access li.current-menu-item a {
-	  margin-top: 6px;
+    max-width: 879px;
+	width: 96%;
+	margin: 0px 4%;
   }
   
   #access a {
-	  padding: 0 20px 0 0;
 	  font-size: 0.95em;
   }
   
@@ -1763,6 +2046,7 @@ footer#footer a:hover {
   
   .submenu-cat, #breadcrumbs {
 	  width: 100%;
+	  margin-top: 50px;
   }
   
   #nav-below {
@@ -1778,35 +2062,34 @@ footer#footer a:hover {
 	  width: 99%;
   }
   
-  #single-proyectos .col_DE {
-	  min-height: 270px;
-  }
- 
-  #single-proyectos .col_IZ {
-    padding-top: 50px;
-  }
-  
   #single-proyectos .entry-top {
-	  width: 96%;
+	  width: 98%;
   }
   
   #single-proyectos .entry-content { 
-	   width: 97.5%;
+	   width: 98%;
   }
   
-  #single-proyectos .gallery-item img {
-    max-width: 99%;
-  }
-  
-  #single-proyectos .gallery-item {
-    position: absolute;
-    width: 840px;
+  #single-proyectos .gallery {
+	  min-height: inherit;
   }
   
   #projects li:nth-child(odd), #projects li:nth-child(2n+2) {
 		 margin-right: 2% !important;
   }
-  	  
+  
+ footer form#w_esu_widget label {
+	font-size: 0.7em;
+ }
+
+ .easysignup input[type="text"] {
+	font-size: 0.7em;
+	} 
+	 
+  #housing li img {
+	width: 100%;
+ }
+ 
 }
 
 
@@ -1833,7 +2116,57 @@ footer#footer a:hover {
 	float: left;
 	max-width:99% !important;
 	}
+	
+	#single-proyectos .col_DE {
+		clear: left;
+		width: 90%;
+		padding: 10px 5%;
+		min-height: inherit;
+	}
   
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 621px) and (max-width: 879px) {
+
+	/* Styles */
+	#access {
+		left:0px;
+		top:120px;
+	}
+	
+	#access li {
+	   margin-right: 11%;
+	}
+	
+	#menu-menu-principal ul.sub-menu-parent {
+	  top: 68px;
+	  text-align: left;
+	}
+	
+	#menu-menu-principal {
+		width: 100%;
+	}
+	
+	#access li:last-child {
+		margin-right: 0px;
+	}
+	
+	#access a {
+	  padding: 8px 0px 0px 0px;
+	  font-size: 0.95em;
+	}
+	
+	header {
+    	height: 110px;
+    }
+    
+    #single-proyectos .col_DE {
+		clear: left;
+		width: 90%;
+		padding: 10px 5%;
+	}
+
 }
 
 /* --- Smartphones and small Tablet PCs --- */
@@ -1857,6 +2190,10 @@ footer#footer a:hover {
     	float: none;
     	min-height: auto;
     }
+    
+    .home #container { 
+        float: left;
+    }
 
 	header{
 	  height: 110px;
@@ -1868,12 +2205,7 @@ footer#footer a:hover {
 	
 	#access {
 		left:0px;
-		top:60px;
-	}
-	
-	#access {
-	   max-width: 620px;
-	   width: 100%;
+		top:120px;
 	}
 	
 	#access li {
@@ -1894,21 +2226,34 @@ footer#footer a:hover {
 	}
 	
 	#access a {
-	  padding: 41px 0px 0px 0px;
+	  padding: 8px 0px 0px 0px;
 	  font-size: 0.95em;
 	}
 
-	#slideshow {
-	 	max-width: 586px;
-	 	overflow: hidden;
-	 	margin: 0px 0px;
+	#home-items li.home-project {
+		margin: 0px 0px 20px;
+		width: 94%;
+		border: none;
 	}
 	
-	#slideshow li { 
-	  width: 100%;
-	  overflow: hidden;
+	.home-project a.img {
+		float: right;
+		position: relative;
+		top: 0px !important;
+		right: 0px;
+		width: 46%;
 	}
 	
+	.home-project a.img img {
+		width: 100%;
+		height: auto;
+	}
+	
+	.home-project .item-project {
+		float: left;
+		width: 45%;
+	}
+		
 	#projects li .img{
 	  width: 236px;
 	  height:236px;
@@ -1935,30 +2280,25 @@ footer#footer a:hover {
 		z-index: 0;
 	}
 	
-	#single-proyectos .col_IZ,  #single-proyectos .col_DE {
+	#single-proyectos .col_IZ {
 	  float: none;
 	  width: 100%;
+	  clear: left;
+	}
+	
+	#single-proyectos .col_DE {
+		width: 90%;
+		padding: 10px 5%;
+		clear: left;
+		float: none;
+		min-height: inherit;
 	}
 	
 	#single-proyectos .gallery {
-  		min-height: 330px;
-  		height: 320px;
-  		width:auto;
-  		float: none;
-  	}
-
-	#single-proyectos .gallery-item img {
-		position: absolute;
-		 /*left: -18%; Change this */
-		/*top: 0px;   Change this */
-		z-index: 0;
+		margin-top: 30px;
+		min-height: inherit;
+		height: auto;
 	}
-	
-	#single-proyectos .gallery-item {
-    	position: absolute;
-    	max-width: 584px;
-    	overflow: hidden;
-    }
 	
 	#single-proyectos .entry-top {
 	  width: auto;
@@ -1966,9 +2306,7 @@ footer#footer a:hover {
   
 	#single-proyectos .entry-content { 
 	   display: block;
-	   width: 90%;
 	   float: left;
-	   padding: 5%;
 	}
 	
 	#post-social .mr_social_sharing {
@@ -1992,10 +2330,11 @@ footer#footer a:hover {
     
     #housing li {
 	  width: 100%;
+	  margin-right: 0px;
     }
     
     #housing li .info  {
-	 	max-width: 100%;   
+	 	max-width: 90%;   
     }
     
     #housing li img {
@@ -2003,7 +2342,17 @@ footer#footer a:hover {
 		display: block;
 		margin: auto;
 	}
+	
+	footer .widget-area h3 {
+		font-size: 0.8em;
+	}
 
+}
+
+@media screen and (max-width: 518px) {
+	#home-gallery .flex-control-nav {
+		margin-top: 60px;
+	}
 }
 
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
@@ -2019,8 +2368,24 @@ footer#footer a:hover {
 	  	text-align:center;
 	}
 	
+	.home section#content {
+	 	margin-top: -400px;
+	}
+	
+	#home-gallery .line {
+		display: none;
+	}
+	
+	#home-gallery .flex-control-nav {
+		margin-top: 40px;
+	}
+	
+	.home-project .title-featured {
+		font-size: 1em;
+	}
+	
 	#menu-secondary li a {
-	  padding: 20px 10px 10px;
+	  padding: 8px 10px 10px;
 	}
 	
 	.submenu-cat, #breadcrumbs, #nav-below {
@@ -2032,13 +2397,9 @@ footer#footer a:hover {
 	   margin: 0 auto;
 	}
 	
-	#single-proyectos .col_IZ,  #single-proyectos .col_DE {
+	#single-proyectos .col_IZ {
 	  float: none;
 	  width: 100%;
-	}
-	
-	#single-proyectos .col_IZ {
-		padding-top: 0px;
 	}
 	
 	#single-proyectos .gallery, #single-inmobiliaria  .gallery{
@@ -2051,17 +2412,8 @@ footer#footer a:hover {
 		height: auto;
 		position: relative;
 	}
-	
-	#single-proyectos .gallery-item img{
-		position: relative;
-		z-index: 0;
-	}
-	
-	#single-inmobiliaria .gallery-item img {
-		width: 100%;
-	}
-	
-	#single-proyectos .gallery-item, #single-inmobiliaria  .gallery-item{
+
+	#single-proyectos .gallery-item, #single-inmobiliaria .gallery-item {
 		position: relative;
 		max-width: 100%;
 		overflow: hidden;
@@ -2077,13 +2429,17 @@ footer#footer a:hover {
 		font-size: 1.1em;
 	}
 	
+	#housing {
+		margin-top: 40px;
+	}
+	
 	#housing li {
 	   width: 100%;
+	   margin-bottom: 30px;
 	}
 		
 	#housing li .info  {
 	 	max-width: 100%;  
-	 	padding: 5px 2.15% 5px 3.23%; 
 	}
 	
     h1.entry-title, h1 {
@@ -2131,48 +2487,15 @@ footer#footer a:hover {
 		letter-spacing: 0.04em;
 		font-size: 0.7em;
 	}
-
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-width: 621px) and (max-width: 879px) {
-
-	/* Styles */
-	#access {
-		left:0px;
-		top:60px;
+	
+	footer #second.widget-area {
+		display: none;
 	}
 	
-	#access {
-	   max-width: 879px;
-	   width: 100%;
+	footer #first.widget-area, footer #third.widget-area  {
+		width: 46%;
+		padding-left:2%;
 	}
-	
-	#access li {
-	   margin-right: 11%;
-	}
-	
-	#menu-menu-principal ul.sub-menu-parent {
-	  top: 68px;
-	  text-align: left;
-	}
-	
-	#menu-menu-principal {
-		width: 100%;
-	}
-	
-	#access li:last-child {
-		margin-right: 0px;
-	}
-	
-	#access a {
-	  padding: 41px 0px 0px 0px;
-	  font-size: 0.95em;
-	}
-	
-	header {
-    	height: 110px;
-    }
 
 }
 
@@ -2202,7 +2525,7 @@ footer#footer a:hover {
 	}
 	
 	#access {
-		top: 55px;
+		top: 100px;
 	}
 	
 	#access li {

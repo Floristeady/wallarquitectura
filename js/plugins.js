@@ -63,3 +63,71 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
  a.slides.eq(b).remove();a.doMath();a.update(e,"remove");a.slides=d(c.selector+":not(.clone)",a);a.setup();c.removed(a)};f.init()};d.flexslider.defaults={namespace:"flex-",selector:".slides > li",animation:"fade",easing:"swing",direction:"horizontal",reverse:!1,animationLoop:!0,smoothHeight:!1,startAt:0,slideshow:!0,slideshowSpeed:7E3,animationSpeed:600,initDelay:0,randomize:!1,pauseOnAction:!0,pauseOnHover:!1,useCSS:!0,touch:!0,video:!1,controlNav:!0,directionNav:!0,prevText:"Previous",nextText:"Next",
  keyboard:!0,multipleKeyboard:!1,mousewheel:!1,pausePlay:!1,pauseText:"Pause",playText:"Play",controlsContainer:"",manualControls:"",sync:"",asNavFor:"",itemWidth:0,itemMargin:0,minItems:0,maxItems:0,move:0,start:function(){},before:function(){},after:function(){},end:function(){},added:function(){},removed:function(){}};d.fn.flexslider=function(i){void 0===i&&(i={});if("object"===typeof i)return this.each(function(){var a=d(this),c=a.find(i.selector?i.selector:".slides > li");1===c.length?(c.fadeIn(400),
  i.start&&i.start(a)):void 0==a.data("flexslider")&&new d.flexslider(this,i)});var k=d(this).data("flexslider");switch(i){case "play":k.play();break;case "pause":k.pause();break;case "next":k.flexAnimate(k.getTarget("next"),!0);break;case "prev":case "previous":k.flexAnimate(k.getTarget("prev"),!0);break;default:"number"===typeof i&&k.flexAnimate(i,!0)}}})(jQuery);
+
+
+/*
+ * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+ *
+ * Uses the built in easing capabilities added In jQuery 1.1
+ * to offer multiple easing options
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright © 2001 Robert Penner
+ * All rights reserved.
+ *
+ * TERMS OF USE - jQuery Easing
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright © 2008 George McGinley Smith
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+*/
+jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
+
+
+/**
+ * jQuery VGrid v0.1.9 - variable grid layout plugin
+ *
+ * Terms of Use - jQuery VGrid
+ * under the MIT (http://www.opensource.org/licenses/mit-license.php) License.
+ *
+ * Copyright 2009-2012 xlune.com All rights reserved.
+ * (http://blog.xlune.com/2009/09/jqueryvgrid.html)
+ */
+(function(g){function j(a){var b=a.data("_vgchild"),f=[[0,a.width(),0]],i=0,e,c,h;b.each(function(){e=g(this);if("none"==e.css("display"))return!0;var a=e.width(),d=e.height(),a=a+(Number(e.css("margin-left").replace("px",""))+Number(e.css("padding-left").replace("px",""))+Number(e.get(0).style.borderLeftWidth.replace("px",""))+Number(e.css("margin-right").replace("px",""))+Number(e.css("padding-right").replace("px",""))+Number(e.get(0).style.borderRightWidth.replace("px",""))),d=d+(Number(e.css("margin-top").replace("px",
+""))+Number(e.css("padding-top").replace("px",""))+Number(e.get(0).style.borderTopWidth.replace("px",""))+Number(e.css("margin-bottom").replace("px",""))+Number(e.css("padding-bottom").replace("px",""))+Number(e.get(0).style.borderBottomWidth.replace("px","")));c=[a,d];a:{for(var a=c[0],d=f.concat().sort(q),b=d[d.length-1][2],k=0,o=d.length;k<o&&!(d[k][2]>=b);k++)if(d[k][1]-d[k][0]>=a){h=[d[k][0],d[k][2]];break a}h=[0,b]}d=h;a=f.concat().sort(q);d=[d[0],d[0]+c[0],d[1]+c[1]];b=0;for(k=a.length;b<k;b++)if(d[0]<=
+a[b][0]&&a[b][1]<=d[1])delete a[b];else{var o=a,j=b,l=a[b],m=d;if(l[0]>=m[0]&&l[0]<m[1]||l[1]>=m[0]&&l[1]<m[1])l[0]>=m[0]&&l[0]<m[1]?l[0]=m[1]:l[1]=m[0];o[j]=l}a=a.concat([d]).sort(s);d=[];b=0;for(k=a.length;b<k;b++)a[b]&&(0<d.length&&d[d.length-1][1]==a[b][0]&&d[d.length-1][2]==a[b][2]?d[d.length-1][1]=a[b][1]:d.push(a[b]));f=d;i=Math.max(i,h[1]+c[1]);e.data("_vgleft",h[0]);e.data("_vgtop",h[1])});a.data("_vgwrapheight",i);b=a.data("_vgchild").length*(a.data("_vgopt").delay||0)+a.data("_vgopt").time||
+500;a.stop();a.height()<a.data("_vgwrapheight")?g.browser.msie?a.height(a.data("_vgwrapheight")):a.animate({height:a.data("_vgwrapheight")+"px"},a.data("_vgopt").time||500,"easeOutQuart"):(clearTimeout(a.data("_vgwraptimeout")),a.data("_vgwraptimeout",setTimeout(function(){g.browser.msie?a.height(a.data("_vgwrapheight")):a.animate({height:a.data("_vgwrapheight")+"px"},a.data("_vgopt").time||500,"easeOutQuart")},b)))}function q(a,b){return!a||!b?0:a[2]==b[2]&&a[0]>b[0]||a[2]>b[2]?1:-1}function s(a,
+b){return!a||!b?0:a[0]>b[0]?1:-1}function p(a,b,f,i){var e=g(a).parent(),c=!1,h=a.length,j,d,n;for(j=0;j<h;j++)if(d=g(a[j]),n=d.position(),n.left!=d.data("_vgleft")||n.top!=d.data("_vgtop"))c=!0;if(c){if("function"==typeof e.data("_vgopt").onStart)e.data("_vgopt").onStart();a.each(function(d){var c=g(this),h={duration:f,easing:b};a.size()-1==d&&(h.complete=e.data("_vgopt").onFinish||null);clearTimeout(c.data("_vgtimeout"));c.data("_vgtimeout",setTimeout(function(){c.animate({left:c.data("_vgleft")+
+"px",top:c.data("_vgtop")+"px"},h)},d*i))})}}function n(a){a.each(function(){var a=g(this);clearTimeout(a.data("_vgtimeout"));a.data("_vgtimeout",setTimeout(function(){j(a);p(a.data("_vgchild"),a.data("_vgopt").easing||"linear",a.data("_vgopt").time||500,a.data("_vgopt").delay||0)},500))})}function r(a,b){a.data("vgrid-image-event-added")||(a.data("vgrid-image-event-added",1),a.bind("vgrid-added",function(){a.find("img").each(function(){var e=g(this);e.data("vgrid-image-handler")||(e.data("vgrid-image-handler",
+1),e.bind("load",function(){b(a)}))})}));a.trigger("vgrid-added");var f=a.append,i=a.prepend;a.append=function(){f.apply(a,arguments);a.trigger("vgrid-added")};a.prepend=function(){i.apply(a,arguments);a.trigger("vgrid-added")}}g.fn.extend({vgrid:function(a){var b=g(this),f=a||{};f.easeing&&(f.easing=f.easeing);b.each(function(){var a=g(this);a.data("_vgopt",f);a.data("_vgchild",a.find("> *"));a.data("_vgdefchild",a.data("_vgchild"));a.css({position:"relative",width:"auto"});a.data("_vgchild").css("position",
+"absolute");j(a);var b;a.data("_vgchild").each(function(){b=g(this);b.css("left",b.data("_vgleft")+"px");b.css("top",b.data("_vgtop")+"px")});if(a.data("_vgopt").fadeIn){var c=typeof a.data("_vgopt").fadeIn=="object"?a.data("_vgopt").fadeIn:{time:a.data("_vgopt").fadeIn};a.data("_vgchild").each(function(a){var b=g(this);if(b.css("display")=="none")return true;b.stop().css({opacity:0});setTimeout(function(){b.stop().fadeTo(c.time||250,1)},a*(c.delay||0))})}g(window).resize(function(){n(a)});f.useLoadImageEvent&&
+r(a,n);if(f.useFontSizeListener){var h=g("<span />").text(" ").attr("id","_vgridspan").hide().appendTo("body");h.data("size",h.css("font-size"));h.data("timer",setInterval(function(){if(h.css("font-size")!=h.data("size")){h.data("size",h.css("font-size"));n(a)}},1E3))}});return b},vgrefresh:function(a,b,f,i){var e=g(this);e.each(function(){var c=g(this),e=c.data("_vgopt")||{};c.data("_vgchild")&&(c.data("_vgchild",c.find("> *")),c.data("_vgchild").css("position","absolute"),j(c),b="number"==typeof b?
+b:c.data("_vgopt").time||500,f="number"==typeof f?f:c.data("_vgopt").delay||0,p(c.data("_vgchild"),a||c.data("_vgopt").easing||"linear",b,f),"function"==typeof i&&setTimeout(i,c.data("_vgchild").length*f+b));e.useLoadImageEvent&&r(c,n)});return e},vgsort:function(a,b,f,i){var e=g(this);e.each(function(){var c=g(this);c.data("_vgchild")&&(c.data("_vgchild",c.data("_vgchild").sort(a)),c.data("_vgchild").each(function(){g(this).appendTo(c)}),j(c),p(c.data("_vgchild"),b||c.data("_vgopt").easing||"linear",
+"number"==typeof f?f:c.data("_vgopt").time||500,"number"==typeof i?i:c.data("_vgopt").delay||0))});return e}})})(jQuery);

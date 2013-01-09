@@ -548,6 +548,17 @@ function boilerplate_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
+	
+	// Area 4, located in the footer. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Third Footer Widget Area', 'boilerplate' ),
+		'id' => 'third-footer-widget-area',
+		'description' => __( 'The third footer widget area', 'boilerplate' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
 
 }
 /** Register sidebars by running boilerplate_widgets_init() on the widgets_init hook. */
@@ -664,69 +675,228 @@ endif;
 // added per WP upload process request post-thumbnails
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions   
 }
 
 
-
-// Custom Field para Proyecto y Inmobiliaria
-add_action("admin_init", "admin_init");
- 
-function admin_init(){
-  add_meta_box("credits_meta", "Información del Proyectos e Inmobiliaria", "credits_meta", "post", "normal", "low");
+//----------------- Custom Meta Box para Proyecto y Inmobiliaria ---------------------//
+// Add the Meta Box
+function add_custom_meta_box() {
+    add_meta_box(
+		'custom_meta_box', // $id
+		'Información de Proyectos e Inmobiliaria', // $title
+		'show_custom_meta_box', // $callback
+		'post', // $page
+		'normal', // $context
+		'high'); // $priority
 }
- 
-function credits_meta() {
-  global $post;
-  $custom = get_post_custom($post->ID);
-  $year = $custom["year"][0];
-  $superficie = $custom["superficie"][0];
-  $superficieterreno = $custom["superficie_terreno"][0];
-  $lugar = $custom["lugar"][0];
-  $destacada_img = $custom["destacada_img"][0];
+
+add_action('add_meta_boxes', 'add_custom_meta_box');
   
-  $mapa = $custom["mapa"][0];
-  $direccion = $custom["direccion"][0];
-  $telefono = $custom["telefono"][0];
+
+// Field Array
+$prefix = 'custom_';
+$custom_meta_fields = array(
+	array(
+		'label'=> 'Año del proyecto',
+		'desc'	=> 'Seleccionar año del proyecto.',
+		'id'	=> $prefix.'select',
+		'type'	=> 'select',
+		'options' => array (
+			'one' => array (
+				'label' => '2010',
+				'value'	=> '2010'
+			),
+			'two' => array (
+				'label' => '2011',
+				'value'	=> '2011'
+			),
+			'three' => array (
+				'label' => '2012',
+				'value'	=> '2012'
+			),
+			'four' => array (
+				'label' => '2013',
+				'value'	=> '2013'
+			)
+		)
+	),
+	array(
+		'label'=> 'Ubicación',
+		'desc'	=> 'Ciudad y estado donde se realizó el proyecto',
+		'id'	=> $prefix.'ubicacion',
+		'type'	=> 'text'
+	),
+	array(
+		'label'=> 'Superficie Construida',
+		'desc'	=> 'Superficie construida del proyecto.',
+		'id'	=> $prefix.'superficie',
+		'type'	=> 'text'
+	),
+	array(
+		'label'=> 'Superficie Terreno',
+		'desc'	=> 'Superficie de terreno del proyecto.',
+		'id'	=> $prefix.'superficie_terreno',
+		'type'	=> 'text'
+	),
+	array(
+		'label'=> 'Dirección (Sección Inmobiliaria)',
+		'desc'	=> 'Dirección de la propiedad.',
+		'id'	=> $prefix.'direccion',
+		'type'	=> 'text'
+	),
+	
+	array(
+		'label'=> 'Mapa de Google (Sección Inmobiliaria)',
+		'desc'	=> 'Escribir URL del mapa',
+		'id'	=> $prefix.'mapa_google',
+		'type'	=> 'textarea'
+	),
+	array(
+		'label'=> 'Teléfono(s) (Sección Inmobiliaria)',
+		'desc'	=> 'Escribir teléfonos de contacto para venta.',
+		'id'	=> $prefix.'telefono',
+		'type'	=> 'text'
+	)
+
+);
+
+// The Callback
+function show_custom_meta_box() {
+	global $custom_meta_fields, $post;
+	// Use nonce for verification
+	echo '<input type="hidden" name="custom_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
+		// Begin the field table and loop
+		echo '<table class="form-table">';
+		foreach ($custom_meta_fields as $field) {
+			// get value of this field if it exists for this post
+			$meta = get_post_meta($post->ID, $field['id'], true);
+			// begin a table row with
+			echo '<tr>
+					<th><label style="font-size:13px;" for="'.$field['id'].'">'.$field['label'].'</label></th>
+					<td>';
+					switch($field['type']) {
+					
+					// text
+					case 'text':
+						echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" size="30" />
+							<br /><span class="description">'.$field['desc'].'</span>';
+					break;						
+					
+					// textarea
+					case 'textarea':
+						echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="60" rows="4">'.$meta.'</textarea>
+							<br /><span class="description">'.$field['desc'].'</span>';
+					break;
+					
+					// select
+					case 'select':
+					echo '<select name="'.$field['id'].'" id="'.$field['id'].'">';
+					foreach ($field['options'] as $option) {
+						echo '<option', $meta == $option['value'] ? ' selected=""' : '', ' value="'.$option['value'].'">'.			$option['label'].'</option>';
+					}
+					echo '</select><br /><span class="description">'.$field['desc'].'</span>';
+					break;
+
+					
+					} //end switch
+			echo '</td></tr>';
+		} // end foreach
+		echo '</table>'; // end table
+		
+	
+}
+
+
+// Save the Data
+function save_custom_meta($post_id) {
+    global $custom_meta_fields;
+	// verify nonce
+	if (!wp_verify_nonce(isset($_POST['custom_meta_box_nonce']), basename(__FILE__)))
+		return $post_id;
+	// check autosave
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+		return $post_id;
+	// check permissions
+	if ('page' == $_POST['post_type']) {
+		if (!current_user_can('edit_page', $post_id))
+			return $post_id;
+		} elseif (!current_user_can('edit_post', $post_id)) {
+			return $post_id;
+	}
+	// loop through fields and save the data
+	foreach ($custom_meta_fields as $field) {
+		$old = get_post_meta($post_id, $field['id'], true);
+		$new = $_POST[$field['id']];
+		if ($new && $new != $old) {
+			update_post_meta($post_id, $field['id'], $new);
+		} elseif ('' == $new && $old) {
+			delete_post_meta($post_id, $field['id'], $old);
+		}
+	} // end foreach
+}
+add_action('save_post', 'save_custom_meta');  
+
+
+//----------------- Custom Field para Slogan Inicio---------------------//
+
+function admin_init(){
+  add_meta_box("credits_meta", 
+  "Información Slogan Inicio", 
+  "show_credits_meta", 
+  "post", 
+  "normal", 
+  "low");
+}
+
+add_action("add_meta_boxes", "admin_init");
+
+function show_credits_meta() {
+  global $post, $custom; 
+  
+   if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return $post_id;  
+	  $custom = get_post_custom($post->ID);
+	  
+	  $url = $custom["url"][0];
+	  $btn_titulo = $custom["btn_titulo"][0];
+	  $icon_slogan = $custom["icon_slogan"][0];
   
   ?>
-  	<p><label style="width: 80px; float:left">Ubicación:</label>
-	<input size="30" name="lugar" value="<?php echo $lugar; ?>" /></p>
-	<p><label style="width: 80px; float:left">Año:</label>
-	<input size="30"  name="year" value="<?php echo $year; ?>" /></p>
-	<p><label style="width: 80px; float:left">Superficie Construida:</label>
-	<input size="30"  name="superficie" value="<?php echo $superficie; ?>" /></p>
-	<p><label style="width: 80px; float:left">Superficie Terreno:</label>
-	<input size="30"  name="superficie_terreno" value="<?php echo $superficieterreno; ?>" /></p>
-	<p><label style="width: 80px; float:left">Imagen Destacada URL</label>
-	<input size="30"  name="destacada_img" value="<?php echo $destacada_img; ?>" /></p>
-
 
 	<br />
-	<h3>Información Inmobiliaria</h3>
-	<p><label style="width: 80px; float:left">Dirección:</label>
-	<input size="30"  name="direccion" value="<?php echo $direccion; ?>" /></p>
-	<p><label style="width: 80px; float:left">Mapa Google URL:</label>
-	<input size="30"  name="mapa" value="<?php echo $mapa; ?>" /></p>
-	<p><label style="width: 80px; float:left">Teléfono(s):</label>
-	<input size="30"  name="telefono" value="<?php echo $telefono; ?>" /></p>
+	<p><label style="width: 200px; float:left">Título botón:</label>
+	<input size="30"  name="btn_titulo" value="<?php echo $btn_titulo; ?>" /></p>
+	<p><label style="width: 200px; float:left">Dirección URL:</label>
+	<input size="30"  name="url" value="<?php echo $url; ?>" /></p>
+	<p><label style="width: 200px; float:left">Icono Slogan URL:</label>
+	<input size="30"  name="icon_slogan" value="<?php echo $icon_slogan; ?>" /></p>
+
 
 	<?php
 	}
 
+function save_details($post_id){
+  global $post;
+  	// verify nonce
+	if (!wp_verify_nonce(isset($_POST['btn_titulo']), basename(__FILE__)))
+		return $post_id;
+
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ){  
+        return $post_id;  
+    } else {  
+	  
+	  update_post_meta($post->ID, "btn_titulo", $_POST["btn_titulo"]);
+	  update_post_meta($post->ID, "url", $_POST["url"]);
+	  update_post_meta($post->ID, "icon_slogan", $_POST["icon_slogan"]);
+  }
+}
+
 add_action('save_post', 'save_details');
 
-function save_details(){
-  global $post;
 
-  update_post_meta($post->ID, "year", $_POST["year"]);
-  update_post_meta($post->ID, "superficie", $_POST["superficie"]);
-  update_post_meta($post->ID, "superficie_terreno", $_POST["superficie_terreno"]);
-  update_post_meta($post->ID, "lugar", $_POST["lugar"]);
-  update_post_meta($post->ID, "destacada_img", $_POST["destacada_img"]);
-  
-  update_post_meta($post->ID, "direccion", $_POST["direccion"]);
-  update_post_meta($post->ID, "mapa", $_POST["mapa"]);
-  update_post_meta($post->ID, "telefono", $_POST["telefono"]);
-  
+
+//image size thumbnaisl
+if ( function_exists( 'add_image_size' ) ) { 
+	add_image_size( 'featured-thumb', 310, 9999, true); //300 pixels wide (and unlimited height)
 }
 ?>

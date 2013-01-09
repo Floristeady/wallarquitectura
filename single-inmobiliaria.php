@@ -17,17 +17,17 @@
 						<div class="entry-content">
 							<?php the_content(); ?>
 							
-							<?php  if((get_post_meta($post->ID, 'superficie', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'custom_superficie', true))) { ?>
 							<div class="data">
 								<span>Superficie Construida</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'superficie', true); ?>m<sup>2</sup></span>
+								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_superficie', true); ?>m<sup>2</sup></span>
 							</div>
 							<?php } ?>
 							
-							<?php  if((get_post_meta($post->ID, 'superficie_terreno', true))) { ?>
+							<?php  if((get_post_meta($post->ID, 'custom_superficie_terreno', true))) { ?>
 							<div class="data">
 								<span>Superficie Terreno</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'superficie_terreno', true); ?>m<sup>2</sup></span>
+								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie_terreno', true); ?>m<sup>2</sup></span>
 							</div>
 							<?php } ?>
 							
@@ -35,7 +35,7 @@
 							<?php  if((get_post_meta($post->ID, 'direccion', true))) { ?>
 							<div class="data">
 								<span>Ubicación</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'direccion', true); ?></span>							<a class="btn_mapa" target="_blank" href="<?php echo get_post_meta($post->ID, 'mapa', true); ?>">Ver mapa</a>
+								<span class="bold"><?php echo get_post_meta($post->ID, 'direccion', true); ?></span>							<a class="btn_mapa" target="_blank" href="<?php echo get_post_meta($post->ID, 'custom_textarea', true); ?>">Ver mapa</a>
 							</div>
 							<?php } ?>
 							
@@ -51,7 +51,7 @@
 							<?php  if((get_post_meta($post->ID, 'year', true))) { ?>
 							<div class="data">
 								<span>Año</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'year', true); ?></span>
+								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_select', true); ?></span>
 							</div>
 							<?php } ?>
 							

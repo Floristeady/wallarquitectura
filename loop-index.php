@@ -9,7 +9,7 @@
 	<div id="home-gallery" class="">
 	
 		<ul class="slides">
-			<?php query_posts('showposts=2&category_name=slogan'); ?> 
+			<?php query_posts('showposts=3&category_name=slogan'); ?> 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		    <li>
 				    
@@ -87,7 +87,11 @@
 		      </div>
 		      
 		            <a href="<?php the_permalink();?>" class="img" title="Ver m&aacute;s del proyecto">
-						<?php  if ( has_post_thumbnail() ) { the_post_thumbnail( 'featured-thumb' ); } ?>
+					<?php $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
+					if ( ! is_array($attachments) ) continue;
+					$count = count($attachments);
+					$first_attachment = array_shift($attachments);?>
+				    <?php echo wp_get_attachment_image($first_attachment->ID, "medium"); ?>
 					</a>
 		     
 		 </li>

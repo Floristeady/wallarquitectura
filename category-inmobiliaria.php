@@ -48,13 +48,9 @@ get_header(); ?>
 			 			<span class="info">
 		        			<span class="h2"><?php the_title() ?></span>
 		        			
-		        			<?php if (!is_mobile()) {  
-		        			
-		        			if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
 		        			<span class="h4"><span class="bold">Ubicación: </span>
 		        				<?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?>
 							</span>
-							<?php } }?>
 							
 		        		</span>
 

@@ -1,11 +1,11 @@
 /*
 	Theme Name: Theme for Wall Arquitectura & Diseno
 	Theme URI: https://github.com/Floristeady/wallarquitectura
-	Description: Based on Boilerplate Theme by Aaron T. Grogg (<a href="http://aarontgrogg.com/">http://aarontgrogg.com/</a>), HTML5 Boilerplate (<a href="http://html5boilerplate.com/">http://html5boilerplate.com/</a>) and the Starkers theme.
+	Description: Theme to show Wall Arquitectura & Diseno projects. Responsive Web Design based on Boilerplate Theme by Aaron T. Grogg (<a href="http://aarontgrogg.com/">http://aarontgrogg.com/</a>), HTML5 Boilerplate (<a href="http://html5boilerplate.com/">http://html5boilerplate.com/</a>) and the Starkers theme.
 		
 	Author: Florencia Rosenfeld
 	Author URI:http://floristeady.com
-	Version: 1.0
+	Version: 2.0
 	Tags: custom-menu, editor-style, theme-options, one-column, etc.
 
 	License: GNU General Public License v2.0
@@ -286,11 +286,6 @@ section#content {
 	padding: 0px; 
 }
 
-.page img {
-	width: 100%;
-	height: auto;
-}
-
 /* =Typography
 ----------------------------------------------- */
 
@@ -383,12 +378,18 @@ a.arrow_down {
 }
 
 a.btn_mapa {
-	color: #9ac247;
+	color: #303030;
 	clear: left;
 	float: left;
 	font-family: 'museosans-500';
-	font-size: 0.8em;
-	text-transform: uppercase;
+	font-size: 0.75em;
+	background-color: #ebebeb;
+	padding: 3px 8px;
+	margin: 5px 0px 10px;
+}
+
+a.btn_mapa:hover {
+	background-color: #9ac247;
 }
 
 input#submit, input[type=submit]  {
@@ -428,6 +429,10 @@ header {
 	position: relative;
 	height: 80px;
 	z-index: 10;
+}
+
+.home header {
+	z-index: 9000000;
 }
 
 header hgroup h1 {
@@ -499,7 +504,7 @@ a#skip { display: none;}
 /****#menu-primary ****/
 
 .home #access  {
-	background-color: rgba(255,255,255,0.3);
+	background-color: rgba(255,255,255,0.4);
 	border-radius: 6px;
 	width: 660px;
 }
@@ -547,17 +552,23 @@ a#skip { display: none;}
 }
 
 #menu-menu-principal ul.sub-menu-parent {
-    background-color: #fff;
-    border-top: 1px solid #898989;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    border-top: 1px solid rgba(138,138,138,0.3);
     box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
     display: none;
     list-style: none outside none;
     padding: 5px 10px;
     position: absolute;
-    top: 66px;
+    top: 31px;
     z-index: 1000;
     min-width: 560px;
     left: 0px;
+}
+
+.home #menu-menu-principal ul.sub-menu-parent {
+	background-color: rgba(255, 255, 255, 0.6);
+	z-index: 1000000;
 }
 
 #menu-menu-principal  ul.sub-menu-parent li {
@@ -570,7 +581,7 @@ a#skip { display: none;}
 	float: none;
 	font-family: "museosans-500", "Helvetica Neue", Arial;
 	font-size: 0.8em;
-	color: #707070;
+	color: #606060;
 }
 
 #menu-menu-principal ul.sub-menu-parent a:hover {
@@ -590,7 +601,7 @@ a#skip { display: none;}
 #menu-menu-principal ul.sub-menu-parent .sub-menu li a {
 	font-size: 0.8em;
 	text-transform: none;
-	color: #707070;
+	color: #505050;
 }
 
 #menu-menu-principal  ul.sub-menu-parent li, #menu-menu-principal .sub-menu  {
@@ -774,6 +785,11 @@ a.btn_all:hover {
 	zoom: 1;
 }
 
+#home-gallery .flex-direction-nav a {
+	opacity: 1;
+	top: 35%;
+}
+
 .flex-viewport {
 	max-height: 2000px;
 	-webkit-transition: all 1s ease;
@@ -831,6 +847,7 @@ a.btn_all:hover {
 	text-align: center;
 	position: relative;
 	max-width: 960px;
+	display: none;
 }
 
 #home-gallery  a.btn_more {
@@ -1080,25 +1097,26 @@ zoom: 1;
 	position: relative;
 }
 
-#single-proyectos .col_IZ {
+#single-proyectos .col_IZ, #single-inmobiliaria  .col_IZ {
 	float: left;
-	width: 218px;
-	margin-right: 32px;
+	max-width: 22.70%;
+	margin-right: 3,33%;
 	clear: left;
 } 
 
-#single-proyectos .col_IZ h1 {
-	font-family: "museosans-100", "Helvetica Neue", Arial;
+#single-proyectos .col_IZ h1, #single-inmobiliaria  .col_IZ h1 {
+	font-family: "museosans-100", 'museosans-300', "Helvetica Neue", Arial;
 	margin-bottom: 5px;
+	line-height: 1em;
 }
 
 #single-proyectos .col_DE {
 	float: right;
-	width: 670px;
+	width: 69.79%;
 	background-color: #eeeeee;
 	background-image: url(images/repeat/backtext.png);
 	background-repeat: repeat;
-	padding: 15px 20px;
+	padding: 15px 2.08%;
 }
 
 #single-proyectos .gallery {
@@ -1110,57 +1128,18 @@ zoom: 1;
     margin-bottom: 30px;
 }
 
-#single-proyectos .flex-direction-nav {
-	position: absolute;
-	z-index: 1000;
-	top: 50%;
-	left: 5px;
-	width: 99%;
-}
-
 #single-proyectos .flex-direction-nav a {
-	background-image: url(images/CSS_sprite.png);
-	width: 44px;
-	height: 44px;
-	display: block;	
+	opacity: 1;
 }
-
-
-#single-proyectos .flex-direction-nav li {
-	float: left;
-}
-
-#single-proyectos .flex-direction-nav .flex-prev {
-	left: 5px;
-	background-position: -650px -175px;
-	text-indent: -9999em;
-}
-
-#single-proyectos .flex-direction-nav .flex-prev:hover {
-	background-position: -650px -225px;
-}
-
-#single-proyectos .flex-direction-nav .flex-next {
-	right: 5px;
-	background-position: -725px -175px;
-    text-indent: -9999em;
-    position: absolute;
-}
-
-#single-proyectos .flex-direction-nav .flex-next:hover {
-	background-position: -725px -225px;
-}
-
 
 #single-proyectos .gallery img {
 	max-width: 100%;
 	height: auto;
 }
 
-#single-proyectos .entry-top {
+#single-proyectos .entry-top, #single-inmobiliaria .entry-top {
 	background-color: #fff;
     padding: 10px 0px;
-    width: 206px;
     position: relative;
     border-bottom: 1px solid #756c66;
 }
@@ -1169,17 +1148,7 @@ zoom: 1;
 	border: 1px solid #ccc;
 }
 
-#single-proyectos span.info_dot {
-	background-image: url(images/repeat/info_dot.png);
-	display: block;
-	height: 25px;
-	left: -2px;
-	width: 14px;
-	top: 23px;
-	position: absolute;
-}
-
-#single-proyectos .entry-content {
+#single-proyectos .entry-content, #single-inmobiliaria .entry-content {
 	width: 218px;
 	margin-top: 10px;
 	float: left;
@@ -1191,46 +1160,74 @@ zoom: 1;
 	margin-top: 20px;
 }
 
+#single-proyectos #post-social {
+	display: none;
+	margin-top: 0px;
+}
+	
+
 /****inmobiliaria*****/
 
+#single-inmobiliaria .col_DE {
+	float: right;
+	width: 69.79%;
+	padding: 0px 2.08%;
+	clear: right;
+}
+
+#single-inmobiliaria .col_DE p {
+	margin-top: 0px;
+}
+
+#single-inmobiliaria .col_DE .content {
+	border-bottom: 1px solid #756C66;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+	min-height: 67px;
+}
+
+#single-proyectos #housing-gallery {
+	margin: 0 0 60px;
+	background: white;
+	position: relative;
+	zoom: 1;
+	clear: left;
+}
+
 #single-inmobiliaria .gallery {
-	position: relative;
-	display: block;
-    float: left;
-    min-height: 314px;
+    min-height: 400px;
     position: relative;
-    width: 465px;
+    max-width: 670px;
+    overflow: hidden;
 }
 
-#single-inmobiliaria .gallery-item {
-	position: absolute;
-	height: 314px;
-	width: 465px;
+#single-inmobiliaria .gallery img {
+	max-width: 670px;
+	height: auto;
 }
 
-#single-inmobiliaria .gallery-icon {
-	overflow: hidden;
-	height: 314px;
+#single-inmobiliaria #carousel {
+	margin: 0 0 30px;
+	background: white;
 	position: relative;
-}
-
-#single-inmobiliaria #nav {
-	float: left;
-	width:465px;
-}
-
-#single-inmobiliaria #nav li {
-	margin-right: 0px;
-	float: left;
-	height: 75px;
+	zoom: 1;
+	clear: left;
 	overflow: hidden;
-	display: block;
-	position: relative;
-	width: 75px;
-	opacity: 0.6;
 }
-#single-inmobiliaria #nav li.activeSlide {
+
+#carousel .flex-active-slide {
 	opacity: 1;
+	cursor: default;
+}
+
+#carousel img {
+	display: block;
+	opacity: .5;
+	cursor: pointer;
+	margin-right: 5px;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
 }
 
 #single-inmobiliaria .entry-top {
@@ -1243,6 +1240,7 @@ zoom: 1;
     font-size: 0.85em;
     float: left;
     clear: left;
+    line-height: 1.3em;
 }
 
 
@@ -1316,14 +1314,18 @@ zoom: 1;
 
 #housing {
 	clear: both;
+	height: 0px;
+	display: block;
+	position: relative;
+	margin-bottom: 50px;
+	min-height: 600px;
 }
 
 #housing li {
-	float: left;
-	/*width: 462px;*/
 	width: 48%;
     margin-right: 4%;
     margin-bottom: 40px;
+    height: auto;
 }
 
 #housing li:nth-child(2n+2){
@@ -1347,8 +1349,9 @@ zoom: 1;
 }
 
 #housing .info .h2 {
-	font-family: 'museosans-100';
+	font-family: 'museosans-300', Arial;
 	font-size: 1.3em;
+	font-weight: lighter;
 	color: #333;
 	float: left;
 	clear: left;
@@ -1417,11 +1420,29 @@ zoom: 1;
 	float: left;
 	margin-bottom: 10px;
 	opacity: 0.5;
+	clear: left;
+}
+
+.social-desktop {
+	display: block;
+}
+
+.social-movil {
+	display: none;
 }
 
 
-
 /****generales entry*****/
+
+article {
+	clear: both;
+}
+
+.not-found {
+	margin-top: 40px;
+	float: left;
+	min-height: 300px;
+}
 
 h2.entry-title a {
 	font-family: "museosans-300", "Helvetica Neue", Arial;
@@ -1453,6 +1474,11 @@ h2.entry-title a {
 	margin-bottom: 0.5em;
 }
 
+.page .entry-content h3 {
+	font-size: 1.1em;
+	line-height: 1.4em;
+}
+
 .post-edit-link {
 	float: left;
 	clear: left;
@@ -1470,7 +1496,7 @@ h2.entry-title a {
 	width: 100%;
 	float: left;
 	clear: left;
-	margin-bottom: 8px;
+	margin-bottom: 12px;
 }
 
 /****columnas*****/
@@ -1482,6 +1508,11 @@ h2.entry-title a {
 
 .column-three {
 	width: 30%;
+}
+
+.column-three-margin {
+	width: 30%;
+	margin-left: 16.6%;
 }
 
 .column-one-two {
@@ -1770,7 +1801,7 @@ a.comment-reply-link {
 	clear: left;
 	float: left;
 	margin-top: 30px;
-	padding: 6px 0px 10px;
+	padding: 6px 0px 30px;
 	width: 100%;
 }
 
@@ -1837,16 +1868,6 @@ footer form#w_esu_widget label {
 	margin-left: 2%;
 }
 
-.easysignup input[type="text"] {
-	border: 1px solid #b6aca4;
-	border-radius: 2px;
-	max-width: 190px;
-	font-size: 0.75em;
-	padding: 2px 0px;
-	float: right !important;
-	width: 56%;
-}
-
 footer form#w_esu_widget label em {
 	color: #93bd4c !important;
 }
@@ -1855,10 +1876,6 @@ footer form#w_esu_widget  input[type="submit"] {
 	font-size: 0.8em;
 	padding: 4px 10px;
 	float: right;
-}
-
-.easysignup form, #third .textwidget ul {
-	margin-top: 10px;
 }
 
 #white footer {
@@ -1943,6 +1960,90 @@ footer form#w_esu_widget  input[type="submit"] {
 	margin-right: 5px;
 }
 
+.widget-container input[type="text"], .widget-container input[type="email"] {
+	border: 1px solid #b6aca4;
+	border-radius: 2px;
+	padding: 2px 2px;
+	color: #626262;
+	width: 80%;
+}
+
+.widget-container .newsletter p, .widget_newsletterwidget p {
+	margin: 5px 0px;
+}
+
+.widget-container input:invalid, textarea:invalid {
+	background-color: #fff;
+}
+
+.wpcf7-form div.wpcf7-mail-sent-ok { 
+	border: 1px solid #398f14;
+	font-size: 14px;
+	color: #555;
+	padding: 10px 20px;
+	border-radius: 4px;
+}
+
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a {width: 30px; height: 30px; margin: -20px 0 0; display: block; background: url(images/repeat/bg_direction_nav.png) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.flex-direction-nav .flex-next {background-position: 100% 0; right: -36px; }
+.flex-direction-nav .flex-prev {left: -36px;}
+.flexslider:hover .flex-next {opacity: 0.8; right: 5px;}
+.flexslider:hover .flex-prev {opacity: 0.8; left: 5px;}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {opacity: 1;}
+.flex-direction-nav .flex-disabled {opacity: .3!important; filter:alpha(opacity=30); cursor: default;}
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+/*
+#single-proyectos .flex-direction-nav {
+	position: absolute;
+	z-index: 1000;
+	top: 50%;
+	left: 5px;
+	width: 99%;
+}
+
+#single-proyectos .flex-direction-nav a {
+	background-image: url(images/CSS_sprite.png);
+	width: 44px;
+	height: 44px;
+	display: block;	
+}
+
+
+#single-proyectos .flex-direction-nav li {
+	float: left;
+}
+
+#single-proyectos .flex-direction-nav .flex-prev {
+	left: 5px;
+	background-position: -650px -175px;
+	text-indent: -9999em;
+}
+
+#single-proyectos .flex-direction-nav .flex-prev:hover {
+	background-position: -650px -225px;
+}
+
+#single-proyectos .flex-direction-nav .flex-next {
+	right: 5px;
+	background-position: -725px -175px;
+    text-indent: -9999em;
+    position: absolute;
+}
+
+#single-proyectos .flex-direction-nav .flex-next:hover {
+	background-position: -725px -225px;
+}
+*/
+
 
 /* Media queries for responsive design
 ----------------------------------------------------------------- */
@@ -1971,6 +2072,15 @@ footer form#w_esu_widget  input[type="submit"] {
 	 width: auto;
 	 background: none;
 	 width: 96%;
+ }
+ 
+ iframe {
+	 width: 100%;
+ }
+ 
+ .page .entry-content  img {
+	 width: 100%;
+	 height: auto;
  }
  
  .home section#content {
@@ -2057,10 +2167,22 @@ footer form#w_esu_widget  input[type="submit"] {
   	 margin-right: 10px;
   }
   
-  #single-proyectos .col_IZ,  #single-proyectos .col_DE {
+  #single-proyectos .col_IZ,  #single-proyectos .col_DE,
+  #single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE {
 	  float: none;
 	  width: 99%;
+	  max-width: 99%;
+	  margin-right: 0px;
+	  clear: both;
   }
+  
+  .single .category-inmobiliaria {
+	  margin-top: 30px;
+  }
+  
+   #single-inmobiliaria .col_DE {
+	   padding: 0px;
+   }
   
   #single-proyectos .entry-top {
 	  width: 98%;
@@ -2081,14 +2203,28 @@ footer form#w_esu_widget  input[type="submit"] {
  footer form#w_esu_widget label {
 	font-size: 0.7em;
  }
-
- .easysignup input[type="text"] {
-	font-size: 0.7em;
-	} 
 	 
   #housing li img {
 	width: 100%;
  }
+ 
+  .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
+  .flex-direction-nav .flex-next {opacity: 1; right: 0;}
+  
+  
+  #post-social-inm .mr_social_sharing {
+		float: left;
+		margin-bottom: 10px;
+		opacity: 0.5;
+		display: inline;
+		clear: none;
+	}
+
+  .social-desktop {display: none;}
+	
+  .social-movil {display: block;}
+
+
  
 }
 
@@ -2172,6 +2308,11 @@ footer form#w_esu_widget  input[type="submit"] {
 /* --- Smartphones and small Tablet PCs --- */
 @media screen and (max-width: 620px) { 
 
+	.home #container {
+		float: left;
+		margin: 460px 0 0 0;
+	}
+
 	#menu-menu-principal .sub-menu .sub-menu  {
 		display: none !important;
 	}
@@ -2190,13 +2331,9 @@ footer form#w_esu_widget  input[type="submit"] {
     	float: none;
     	min-height: auto;
     }
-    
-    .home #container { 
-        float: left;
-    }
 
 	header{
-	  height: 110px;
+	  height: 100px;
 	}
 	
 	header hgroup h1 {
@@ -2205,7 +2342,7 @@ footer form#w_esu_widget  input[type="submit"] {
 	
 	#access {
 		left:0px;
-		top:120px;
+		top:100px;
 	}
 	
 	#access li {
@@ -2309,19 +2446,23 @@ footer form#w_esu_widget  input[type="submit"] {
 	   float: left;
 	}
 	
-	#post-social .mr_social_sharing {
+	#post-social .mr_social_sharing, #post-social-inm .mr_social_sharing {
 		float: left;
 		margin-bottom: 10px;
 		opacity: 0.5;
 		display: inline;
 		clear: none;
 	}
+	
+	#post-social-inm {
+		margin-top: 0px;
+	}
   	
   	a.btn_info {
 	   display: none;
     }
     
-    .column-half, .column-three, .column-one-two, .column-one-three  {
+    .column-half, .column-three, .column-one-two, .column-one-three, .column-three-margin  {
 	    float: none;
 	    margin: 0 auto;
 	    width: 100%;
@@ -2346,13 +2487,19 @@ footer form#w_esu_widget  input[type="submit"] {
 	footer .widget-area h3 {
 		font-size: 0.8em;
 	}
-
+	
+			
+    #home-gallery .flex-direction-nav a {
+		display: none;
+	}
+	
 }
 
 @media screen and (max-width: 518px) {
 	#home-gallery .flex-control-nav {
 		margin-top: 60px;
 	}
+
 }
 
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
@@ -2366,10 +2513,26 @@ footer form#w_esu_widget  input[type="submit"] {
 	header{
 	  	display:block;
 	  	text-align:center;
+	  	min-height: 90px;
+	  	height: 100px;
+	}
+	
+	#access {
+		margin: 0px 2%;
+		width: 98%;
+		top: 80px;
+	}
+	
+	header hgroup h1 {
+		margin: 0px 0px 0;
+	}
+	
+	#nav-2  {
+		top: 30px;
 	}
 	
 	.home section#content {
-	 	margin-top: -400px;
+	 	margin-top: -420px;
 	}
 	
 	#home-gallery .line {
@@ -2377,7 +2540,7 @@ footer form#w_esu_widget  input[type="submit"] {
 	}
 	
 	#home-gallery .flex-control-nav {
-		margin-top: 40px;
+		margin-top: 60px;
 	}
 	
 	.home-project .title-featured {
@@ -2386,10 +2549,16 @@ footer form#w_esu_widget  input[type="submit"] {
 	
 	#menu-secondary li a {
 	  padding: 8px 10px 10px;
+	  font-size: 75%;
 	}
 	
 	.submenu-cat, #breadcrumbs, #nav-below {
 	  display: none;
+	}
+	
+	#projects, .page article {
+		margin-top: 50px;
+		clear: both;
 	}
 	
 	#projects li img {
@@ -2431,6 +2600,8 @@ footer form#w_esu_widget  input[type="submit"] {
 	
 	#housing {
 		margin-top: 40px;
+		width: 100% !important;
+		float: left;
 	}
 	
 	#housing li {
@@ -2496,7 +2667,35 @@ footer form#w_esu_widget  input[type="submit"] {
 		width: 46%;
 		padding-left:2%;
 	}
-
+	
+	.home-project .item-project .cat {
+		float: left;
+		clear: left;
+		width: 100%;
+	}
+	
+	.home-project .item-project .sale {
+		clear: left;
+		margin-left: 0px;
+	}
+	
+	span.btn-more {
+		display: none;
+	}
+	
+	#home-gallery h1 {
+		font-size: 1.8em;
+	}
+	
+	#home-gallery img.icono {
+		width: 60px;
+		height: 60px;
+	}
+	
+	#footer p, #footer li {
+		font-size: 0.75em;
+	}
+	
 }
 
 /*Between 320px and 480px */
@@ -2522,10 +2721,6 @@ footer form#w_esu_widget  input[type="submit"] {
 
 	img { 
 		-ms-interpolation-mode: bicubic; 
-	}
-	
-	#access {
-		top: 100px;
 	}
 	
 	#access li {
@@ -2570,24 +2765,50 @@ footer form#w_esu_widget  input[type="submit"] {
 		float: right;
 	 	max-width: 45%;
 	}
+	
+	.home section#content {
+		margin-top: -420px;
+	}
 
 	
 	a#logo {
 		background-image: url(images/header/logo_black.png);
 		background-position: left top;
 		background-repeat: no-repeat;
-		background-size: 77px;
+		background-size: 120px;
 		height: 80px;
+		margin-left: 8px;
 	}
 	
 	#white a#logo {
 		background-image: url(images/header/logo_white.png);
 		background-position: left top;
 		background-repeat: no-repeat;
-		background-size: 77px;
+		background-size: 120px;
 		height: 80px;
+		margin-left: 8px;
 	}
 	
+	.home-project {
+		height: 180px; 
+	}
+	
+	.home-project .item-project .cat {
+		float: left;
+		clear: left;
+		width: 100%;
+	}
+	
+	.home-project .item-project .sale {
+		clear: left;
+		margin-left: 0px;
+		margin-bottom: 4px;
+		float: left;
+	}
+	
+	span.btn-more {
+		display: none;
+	}
 
 }
 
@@ -2598,15 +2819,21 @@ footer form#w_esu_widget  input[type="submit"] {
 		background-image: url(images/header/logo_black.png);
 		background-position: left top;
 		background-repeat: no-repeat;
-		background-size: 87px 34px;
+		background-size: 110px 43px;
 	}
 	
 	#white a#logo {
 		background-image: url(images/header/logo_white.png);
 		background-position: left top;
 		background-repeat: no-repeat;
-		background-size: 87px 34px;
+		background-size: 110px 43px;
 	}
+	
+	#backstretch img {
+		height: 800px !important;
+		width: auto;
+	}
+	
 	
 }
 
@@ -2615,8 +2842,13 @@ footer form#w_esu_widget  input[type="submit"] {
 
 }
 
-@media all and (orientation:landscape) { 
+@media screen and (orientation:landscape) and (max-width: 767px) { 
   /* Style adjustments for landscape mode goes here */
+	  body {
+		  margin: 0;
+		  font-size: 0.9em;
+		  line-height: 1.3em;
+	 }
   
 }
 
@@ -2645,7 +2877,7 @@ footer form#w_esu_widget  input[type="submit"] {
 /* Contain floats: h5bp.com/q */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
-.clearfix { *zoom: 1; }
+.clearfix { *zoom: 1; clear: both;}
 
 .strong {font-weight: bold;}
 .bold {font-family: "museosans-500"  !important;;}

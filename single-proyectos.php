@@ -32,8 +32,7 @@
 						    'post_parent' => $post->ID,
 						    'post_mime_type' => 'image',
 						    'orderby'    => 'title',
-						    'order'    => 'ASC',
-						    'exclude' => get_post_thumbnail_id($post->ID)
+						    'order'    => 'ASC'
 						);
 						$attachments = get_posts($args);
 						if ($attachments) {
@@ -90,7 +89,15 @@
 							</div>
 							<?php } ?>
 							
-													</div><!-- .entry-content -->
+							<a class="btn_mapa btn_share social-desktop" target="_blank" href="javascript:void(0)">compartir</a>
+							
+							<div id="post-social" class="clearfix social-desktop">
+								<?php echo do_shortcode('[social_share/] '); ?>
+							</div>
+
+
+							
+						</div><!-- .entry-content -->
 						
 											
 					</div>
@@ -98,25 +105,21 @@
 					<div class="col_DE">
 					
 						<div class="content">
-						<?php the_content(); ?>
-							<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
+							<?php the_content(); ?>
 						</div>
 
 				    </div>
-					
-					<footer class="entry-utility clearfix">
-						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>
-					</footer><!-- .entry-utility -->
-					
+				    
+				    <a class="btn_mapa btn_share social-movil" target="_blank" href="javascript:void(0)">compartir</a>
+																	
 				</article><!-- #post-## -->
-				
-				<div id="post-social" class="clearfix">
-							
-							<?php echo do_shortcode('[social_share/] '); ?>
-						</div>
-
-				
+								
 				<div class="clearfix"></div>
+				
+				<div class="entry-utility clearfix">
+						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>
+					</div><!-- .entry-utility -->
+
 			
 				
 	<?php endwhile; // end of the loop. ?>

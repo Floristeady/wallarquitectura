@@ -688,7 +688,7 @@ function add_custom_meta_box() {
 		'show_custom_meta_box', // $callback
 		'post', // $page
 		'normal', // $context
-		'high'); // $priority
+		'default'); // $priority
 }
 
 add_action('add_meta_boxes', 'add_custom_meta_box');
@@ -703,19 +703,23 @@ $custom_meta_fields = array(
 		'id'	=> $prefix.'select',
 		'type'	=> 'select',
 		'options' => array (
-			'one' => array (
+		    'one' => array (
+				'label' => '2009',
+				'value'	=> '2009'
+			),
+			'two' => array (
 				'label' => '2010',
 				'value'	=> '2010'
 			),
-			'two' => array (
+			'three' => array (
 				'label' => '2011',
 				'value'	=> '2011'
 			),
-			'three' => array (
+			'four' => array (
 				'label' => '2012',
 				'value'	=> '2012'
 			),
-			'four' => array (
+			'five' => array (
 				'label' => '2013',
 				'value'	=> '2013'
 			)

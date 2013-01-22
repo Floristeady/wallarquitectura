@@ -4,6 +4,7 @@
 	<!-- Breadcrumb -->
 	<div id="breadcrumbs">
 	<?php the_breadcrumb(); ?>
+
 	</div>
 	
 	<nav id="nav-below" class="navigation">

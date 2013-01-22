@@ -296,7 +296,9 @@ function the_breadcrumb() {
                 //Put bullets between categories, since they are at the same level in the hierarchy.
                 echo the_category( $delimiter1, multiple);
             }
+            
         }
+
 		/*Codigo anterior---respaldo
 		if (is_category() || is_single()) {
 			the_category('   /   ', 'single');

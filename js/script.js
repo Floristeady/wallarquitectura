@@ -169,6 +169,8 @@ $(function () {
     /*----last child----*/
 	$("#projects li.mar-right-0").css("margin-right","0");
     $("#housing li:nth-child(2n+2)").css("margin-right","0");
+    $(".home-project:last-child").css("padding-right", "0"); 
+    $(".home-project:last-child").css("border-right", "0"); 
 
 	
 });
@@ -197,4 +199,13 @@ $(function(){
 		}, function(){
 			$('#post-social').slideUp();
 	});
+});
+
+
+$(function(){
+	winh = $('body').width();
+	
+	if (winh < 560) {
+		$('#housing li img').removeAttr('height');
+	}
 });

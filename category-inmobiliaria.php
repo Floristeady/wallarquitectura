@@ -31,7 +31,7 @@ get_header(); ?>
 				
 				<li class="housing-item">
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-	        		
+	        		 
 		            	<?php //Obtenemos la url de la imagen destacada
 	    					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
 	    					$thumbnailsrc = "";
@@ -45,7 +45,9 @@ get_header(); ?>
 							$width=$foo[0]; 
 							$height=$foo[1];
 						?>
-			 			<span class='img'><img width="456" height="<?php echo $height ?>" src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=456' border=0 /></span>
+			 			<span class='img'>
+			 			  <span class="sale">SE VENDE</span>
+			 			<img width="456" height="<?php echo $height ?>" src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=456' border=0 /></span>
 			 			<?php
 			 			endif;
 			 			?>  

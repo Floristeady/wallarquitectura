@@ -62,7 +62,7 @@
 		   <div class="item-project">
 		   		
 		   	    <?php foreach((get_the_category()) as $category) {
-			    	if ($category->cat_name != 'Destacado' && $category->cat_name != 'Venta de Casas' && $category->cat_name != 'Comercial' && $category->cat_name != 'Residencial') {
+			    	if ($category->cat_name != 'Destacado' && $category->cat_name != 'Venta de Casas') {
 			    	echo '<a class="cat" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "Ver todos los proyectos" ), $category->name ) . '" ' . '>' . $category->name.'</a> ';} 
 			    	
 			    	if ($category->cat_name == 'Inmobiliaria'){

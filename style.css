@@ -978,7 +978,7 @@ zoom: 1;
 	color: #726c67;
 }
 
-.home-project .item-project .sale {
+.sale {
 	background-color: #93bd4c;
 	padding: 4px 8px 2px;
 	font-size: 0.7em;
@@ -1001,7 +1001,8 @@ zoom: 1;
 
 .home-project .title-featured {
 	color: #332f2e;
-	font-size: 23px;
+	font-size: 1.4em;
+	line-height: 1.6em;
 	clear: both;
 	font-family: "museosans-500";
     width: 100%;
@@ -1347,7 +1348,17 @@ zoom: 1;
 #housing li .img {
 	float: left;
 	opacity: 0.9;
+	position: relative;
 }
+
+.housing-item .sale {
+	position: absolute;
+	bottom:5px;
+	right: 5px;
+	border: #e4e4e4 solid 1px;
+	border-radius: 2px;
+}
+
 
 #housing .info .h2 {
 	font-family: 'museosans-300', Arial;
@@ -2303,6 +2314,10 @@ footer form#w_esu_widget  input[type="submit"] {
 		width: 90%;
 		padding: 10px 5%;
 	}
+	
+	.resize {display: none;}
+	.module {max-width: 90% !important; }
+	.module.f-right {float: left;}
 
 }
 
@@ -2312,6 +2327,7 @@ footer form#w_esu_widget  input[type="submit"] {
 	.home #container {
 		float: left;
 		margin: 460px 0 0 0;
+      	padding: 40px 0 0px;
 	}
 
 	#menu-menu-principal .sub-menu .sub-menu  {
@@ -2493,6 +2509,11 @@ footer form#w_esu_widget  input[type="submit"] {
     #home-gallery .flex-direction-nav a {
 		display: none;
 	}
+	
+	.resize {display: none;}
+		
+	.module {max-width: 90% !important; }
+	.module.f-right {float: left;}
 	
 }
 
@@ -2847,11 +2868,81 @@ footer form#w_esu_widget  input[type="submit"] {
   /* Style adjustments for landscape mode goes here */
 	  body {
 		  margin: 0;
+		  font-size: 0.8em;
+		  line-height: 1.2em;
+	 }
+	 
+	 #backstretch img { 
+		min-height: 320px !important;
+	 }
+	 
+	 .home-project .item-project {
+		 min-height: auto;
+	 }
+	 
+	 .home-project {
+		 height: 140px;
+		 overflow: inherit;
+		 float: left;
+		 clear: both;
+      }
+      
+      .home #container {
+      	padding: 40px 0 0px;
+      	margin: 270px 0 0 0;
+      }
+      
+      #home-gallery .flex-control-nav {
+	      margin-top: 20px;
+	  }
+	  
+	  .home section#content {
+		  margin-top: -270px;
+		}
+		
+	  #home-gallery h1 {
+			font-size: 1.6em;
+	  }
+      
+      #footer {
+	      padding: 6px 0px 10px;
+	      min-height: 120px;
+      }
+      
+      #content-footer {
+	      margin: 10px auto;
+	   }
+  
+}
+
+/* iPads (portrait) ----------- */
+@media only screen  and (min-device-width : 768px)  and (max-device-width : 1024px)  and (orientation : landscape) {
+/* Styles */
+    body {
+		  margin: 0;
 		  font-size: 0.9em;
 		  line-height: 1.3em;
 	 }
-  
+
 }
+
+@media screen and (orientation:landscape) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+ 
+	a#logo {
+		background-size: 95px 37px;
+	}
+	
+	#white a#logo {
+		background-size: 95px 37px;
+	}
+	
+	#home-gallery img.icono {
+		width: 40px;
+		height: 40px;
+	}
+	
+}
+
 
 
 

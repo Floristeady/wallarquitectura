@@ -22,7 +22,7 @@
 				     <?php  if((get_post_meta($post->ID, 'icon_slogan', true))) { ?>
 				     	<span class="line l-left"></span>
 				     	<span class="line l-right"></span>
-				     	<img class="icono" alt ="Wall Arquitectura" src="<?php echo get_post_meta($post->ID, 'icon_slogan', true); ?>">
+				     	<img class="icono" alt ="<?php the_title();?>" src="<?php echo get_post_meta($post->ID, 'icon_slogan', true); ?>">
 				     <?php } ?>
 				      
 			         <h1><?php the_title();?></h1>
@@ -42,7 +42,7 @@
 
 				      <?php } ?>
 				      
-				      <img class="this" title="<?php print $thumbnailsrc; ?>">
+				      <img class="this" alt="<?php the_title();?>" title="<?php print $thumbnailsrc; ?>">
 			</li>	
 							            
 			<?php endwhile; endif; ?>

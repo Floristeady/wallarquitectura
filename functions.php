@@ -905,4 +905,33 @@ add_action('save_post', 'save_details');
 if ( function_exists( 'add_image_size' ) ) { 
 	add_image_size( 'featured-thumb', 310, 9999, true); //300 pixels wide (and unlimited height)
 }
+
+
+/**
+** Admin menu custom**********************************************************************
+**/
+
+function edit_admin_menus() {
+	global $menu;
+
+	remove_menu_page('edit-comments.php'); // Remove the Tools Menu
+	//remove_menu_page('edit.php'); // Remove the Tools Menu
+	remove_menu_page('link-manager.php'); // Remove the Tools Menu
+	//remove_menu_page('edit.php'); // Remove the Tools Menu
+}
+
+add_action( 'admin_menu', 'edit_admin_menus' );
+
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Proyectos';
+    $submenu['edit.php'][5][0] = 'Todos los Proyectos';
+    $submenu['edit.php'][10][0] = 'Agregar proyecto';
+    echo '';
+}
+
+add_action( 'admin_menu', 'change_post_menu_label' );
+
+
 ?>

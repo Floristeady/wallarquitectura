@@ -15,10 +15,10 @@ $(function(){
 		$("#menu-menu-principal ul.sub-menu-parent").css('display', 'none');
 		// Defino que submenus deben estar visibles cuando se pasa el mouse por encima
 		$('#menu-menu-principal li').hover(function(){
-			$(this).find('ul.sub-menu-parent:first:hidden').slideDown(400);
+			$(this).find('ul.sub-menu:first:hidden').slideDown(400);
 			$('sub-menu').show();
 		},function(){
-			$(this).find('ul.sub-menu-parent:first').slideUp(400);
+			$(this).find('ul.sub-menu:first').slideUp(400);
 		});
 	 }
 });
@@ -177,7 +177,7 @@ $(function () {
 
 /*****Listado de inmobiliaria*****/
 $(function(){
-    $("#housing").vgrid({
+    $("").vgrid({
         easing: "easeOutQuint",
         time: 500,
         delay: 20,

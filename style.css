@@ -551,40 +551,41 @@ a#skip { display: none;}
 	display: block;
 }
 
-#menu-menu-principal ul.sub-menu-parent {
+#menu-menu-principal  ul.sub-menu {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
     border-top: 1px solid rgba(138,138,138,0.3);
     box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
     display: none;
     list-style: none outside none;
-    padding: 5px 10px;
+    padding: 15px 10px 5px;
     position: absolute;
     top: 31px;
     z-index: 1000;
-    min-width: 560px;
+    min-width: 160px;
     left: 0px;
 }
 
-.home #menu-menu-principal ul.sub-menu-parent {
+.home #menu-menu-principal  ul.sub-menu {
 	background-color: rgba(255, 255, 255, 0.6);
 	z-index: 1000000;
 }
 
-#menu-menu-principal  ul.sub-menu-parent li {
+#menu-menu-principal   ul.sub-menu li {
 	padding: 5px 0px;
 }
 
-#menu-menu-principal ul.sub-menu-parent a {
+#menu-menu-principal ul.sub-menu a {
 	border: none;
 	padding: 0px 10px;
-	float: none;
+	float: left;
+	width:100%;
 	font-family: "museosans-500", "Helvetica Neue", Arial;
 	font-size: 0.8em;
 	color: #606060;
 }
 
-#menu-menu-principal ul.sub-menu-parent a:hover {
+#menu-menu-principal  ul.sub-menu a:hover {
 	text-decoration: underline;
 }
 
@@ -605,8 +606,8 @@ a#skip { display: none;}
 }
 
 #menu-menu-principal  ul.sub-menu-parent li, #menu-menu-principal .sub-menu  {
-	float: left;
-	width: 140px;
+	float: none;
+	margin-bottom: 5px;
 }
 
 #white #access ul.sub-menu-parent ul.sub-menu-parent li.current-menu-item, 
@@ -1328,6 +1329,7 @@ zoom: 1;
     margin-right: 4%;
     margin-bottom: 40px;
     height: auto;
+    float: left;
 }
 
 #housing li:nth-child(2n+2){
@@ -1509,6 +1511,21 @@ h2.entry-title a {
 	float: left;
 	clear: left;
 	margin-bottom: 12px;
+}
+
+.two-column {
+	-moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+	column-count:2;
+	-moz-column-gap:40px; /* Firefox */
+	-webkit-column-gap:40px; /* Safari and Chrome */
+	column-gap:40px;
+}
+
+h1.title-two-column {
+	display: block;
+	clear: left;
+	margin-bottom: 1em;
 }
 
 /****columnas*****/
@@ -2271,6 +2288,8 @@ footer form#w_esu_widget  input[type="submit"] {
 		padding: 10px 5%;
 		min-height: inherit;
 	}
+	
+	#housing li img {height: auto;}
   
 }
 
@@ -2515,6 +2534,14 @@ footer form#w_esu_widget  input[type="submit"] {
 	.module {max-width: 90% !important; }
 	.module.f-right {float: left;}
 	
+   .two-column {
+	-moz-column-count:1; /* Firefox */
+	-webkit-column-count:1; /* Safari and Chrome */
+	column-count:1;
+	}
+	h1.title-two-column  {
+		margin-top: 2em;
+	}
 }
 
 @media screen and (max-width: 518px) {

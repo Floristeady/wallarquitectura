@@ -17,6 +17,7 @@
 
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta name="description" content="Empresa de arquitectura, diseño, construcción y proyectos inmobiliarios en Xalapa, Veracruz. México." >
 		<title><?php
 			/*
 			 * Print the <title> tag based on what is being viewed.

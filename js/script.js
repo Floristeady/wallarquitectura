@@ -38,14 +38,14 @@ $(function() {
 		animationLoop: true,
 		after: function(){
 		  var new_img = $('.flex-active-slide').children('img.this').attr('title');
-		  $.backstretch('' + new_img + '');
+		  $.backstretch(new_img, {duration: 3000, fade: 750});
 		}
       });
       
       // Home
 	  if ($('body').hasClass('home')) {
 	    var new_img = $('.flex-active-slide').children('img.this').attr('title');
-		$.backstretch('' + new_img + '');
+		$.backstretch(new_img, {duration: 3000, fade: 750});
       }
      
      // Proyecto 

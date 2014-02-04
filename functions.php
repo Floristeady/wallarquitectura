@@ -724,6 +724,14 @@ $custom_meta_fields = array(
 			'five' => array (
 				'label' => '2013',
 				'value'	=> '2013'
+			),
+			'six' => array (
+				'label' => '2014',
+				'value'	=> '2014'
+			),
+			'seven' => array (
+				'label' => '2015',
+				'value'	=> '2015'
 			)
 		)
 	),

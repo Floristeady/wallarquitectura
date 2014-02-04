@@ -21,7 +21,9 @@
 					<div class="col_IZ">
 						
 						<div class="entry-top">
+						    <span class="sale">SE VENDE</span>
 							<h1><?php the_title(); ?></h1>
+							
 							<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
 							<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
 							<?php } ?>

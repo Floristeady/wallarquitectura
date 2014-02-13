@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-				<?php include (TEMPLATEPATH . '/include/submenu-housing.php'); ?>
+<div class="submenu-cat"></div>
 
 				<!--Para obtener el ID de la categoria-->
 				<?php $post_categories = wp_get_post_categories(!wp_verify_nonce(isset($post_id)));
@@ -46,7 +46,6 @@ get_header(); ?>
 							$height=$foo[1];
 						?>
 			 			<span class='img'>
-			 			  <span class="sale">SE VENDE</span>
 			 			<img width="456" height="<?php echo $height ?>" src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=456' border=0 /></span>
 			 			<?php
 			 			endif;

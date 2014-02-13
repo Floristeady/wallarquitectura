@@ -17,6 +17,7 @@
 
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta name="description" content="Empresa de arquitectura, diseño, construcción y proyectos inmobiliarios en Xalapa, Veracruz. México." >
 		<title><?php
 			/*
 			 * Print the <title> tag based on what is being viewed.
@@ -56,25 +57,27 @@
 		</script>
 	</head>
 	<body <?php body_class(); ?>>
-		<div id="container">
-			<header role="banner">
-				<hgroup>
-				<h1><a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<h2><?php bloginfo( 'description' ); ?></h2>
-				</hgroup>
-				
-				<nav id="nav-2">
-					<?php wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
-				</nav>
+			<div id="masterheader">
+				<header id="header" role="banner">
+					<hgroup>
+					<h1><a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h2><?php bloginfo( 'description' ); ?></h2>
+					</hgroup>
 					
-					
-				<nav id="access" role="navigation">
-				  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
-					<a id="skip" href="#content" title="<?php esc_attr_e( 'Skip to content', 'boilerplate' ); ?>"><?php _e( 'Skip to content', 'boilerplate' ); ?></a>
-					<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-					<?php wp_nav_menu( array( 'container_id' => 'menu-primary', 'theme_location' => 'primary') ); ?>
-				</nav><!-- #access -->
+					<nav id="nav-2">
+						<?php wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
+					</nav>
+						
+						
+					<nav id="access" role="navigation">
+					  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
+						<a id="skip" href="#content" title="<?php esc_attr_e( 'Skip to content', 'boilerplate' ); ?>"><?php _e( 'Skip to content', 'boilerplate' ); ?></a>
+						<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
+						<?php wp_nav_menu( array( 'container_id' => 'menu-primary', 'theme_location' => 'primary') ); ?>
+					</nav><!-- #access -->
 				
-			</header>
+				</header>
+			</div>
 			
-			<section id="content" role="main">
+		    <div id="container">
+				<section id="content" role="main">

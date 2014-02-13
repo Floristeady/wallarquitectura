@@ -18,7 +18,10 @@
 		);
 
 		wp_list_categories($args);
+				
 	?>
+	
+	
 	
 		
 </ul>

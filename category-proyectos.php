@@ -9,6 +9,8 @@ get_header(); ?>
 		<?php include (TEMPLATEPATH . '/include/submenu.php'); ?>
 
 		<!--PHP para dividir proyecto por post-->
+		
+		
 		<?php	
 		 $my_query = new WP_Query( array( 
 		    'post_type' => 'post', 

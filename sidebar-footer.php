@@ -16,6 +16,7 @@
 	 */
 	if (   ! is_active_sidebar( 'first-footer-widget-area'  )
 		&& ! is_active_sidebar( 'second-footer-widget-area' )
+		&& ! is_active_sidebar( 'third-footer-widget-area' )
 	)
 		return;
 	// If we get this far, we have widgets. Let do this. 
@@ -38,5 +39,15 @@
 					</ul>
 				</div>
 <?php endif; ?>
+
+<?php if ( is_active_sidebar( 'third-footer-widget-area' ) ) : ?>
+				<div id="third" class="widget-area">
+					<ul class="widget-list">
+						<?php dynamic_sidebar( 'third-footer-widget-area' ); ?>
+					</ul>
+				</div>
+<?php endif; ?>
+
+
 
 

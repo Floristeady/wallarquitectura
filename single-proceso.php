@@ -7,7 +7,7 @@
 		
 		<nav id="nav-below" class="navigation">
 			<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'boilerplate' ) . '</span> %title' , TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
-			<?php  $category = get_category_by_slug('inmobiliaria');
+			<?php  $category = get_category_by_slug('proceso');
             echo '<a class="btn_all" title="Ver todos los proyectos" href="'.get_category_link($category).'"></a>' ?>
 		    <div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'boilerplate' ) . '</span>', TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
 		    
@@ -21,9 +21,7 @@
 					<div class="col_IZ">
 						
 						<div class="entry-top">
-						    <span class="sale">SE VENDE</span>
 							<h1><?php the_title(); ?></h1>
-							
 							<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
 							<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
 							<?php } ?>
@@ -45,26 +43,7 @@
 							</div>
 							<?php } ?>
 							
-							
-							<?php  if((get_post_meta($post->ID, 'custom_direccion', true))) { ?>
-							<div class="data">
-								<span>Ubicación</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_direccion', true); ?></span>							
-								<?php  if((get_post_meta($post->ID, 'custom_mapa_google', true))) { ?>
-								<a class="btn_mapa" target="_blank" href="<?php echo get_post_meta($post->ID, 'custom_mapa_google', true); ?>">ver mapa</a>
-							    <?php } ?>
-							</div>
-							<?php } ?>
-							
-							
-							<?php  if((get_post_meta($post->ID, 'custom_telefono', true))) { ?>
-							<div class="data">
-								<span>Teléfonos ventas</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_telefono', true); ?></span>
-							</div>
-							<?php } ?>
-
-						
+													
 							<?php  if((get_post_meta($post->ID, 'custom_select', true))) { ?>
 							<div class="data">
 								<span>Año</span>

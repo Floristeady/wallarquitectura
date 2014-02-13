@@ -15,7 +15,11 @@ if ( in_category ('Proyectos')  ) {
     include(TEMPLATEPATH . '/single-proyectos.php');
 } else if ( in_category('Inmobiliaria') || in_category('Lotificaciones') || in_category('Venta de Casas')) {
     include(TEMPLATEPATH . '/single-inmobiliaria.php');
-} else {
+    
+}  else if ( in_category('Proceso')) {
+    include(TEMPLATEPATH . '/single-proceso.php');
+    
+}else {
 	include(TEMPLATEPATH . '/single-proyectos.php');
 }
 

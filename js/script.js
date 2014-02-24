@@ -38,14 +38,14 @@ $(function() {
 		animationLoop: true,
 		after: function(){
 		  var new_img = $('.flex-active-slide').children('img.this').attr('title');
-		  $.backstretch(new_img, {duration: 3000, fade: 750});
+		  $.backstretch('' + new_img + '');
 		}
       });
       
       // Home
 	  if ($('body').hasClass('home')) {
 	    var new_img = $('.flex-active-slide').children('img.this').attr('title');
-		$.backstretch(new_img, {duration: 3000, fade: 750});
+		$.backstretch(new_img, {duration: 2000, fade: 750});
       }
      
      // Proyecto 
@@ -129,7 +129,7 @@ $(function () {
 /*****Listado de proyectos*****/
 $(function () {
 	
-	$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
+	//$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
 	
 	$("#single-proyectos #nav li:nth-child(6n+6)").addClass("mar-right-0");
 

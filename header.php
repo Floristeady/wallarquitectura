@@ -5,8 +5,8 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 ?><!DOCTYPE html>
 <!--[if lt IE 7 ]><html <?php language_attributes(); ?> class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
@@ -17,12 +17,12 @@
 
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="description" content="Empresa de arquitectura, diseño, construcción y proyectos inmobiliarios en Xalapa, Veracruz. México." >
+		<meta name="description" content="Empresa de arquitectura, diseÃ±o, construcciÃ³n y proyectos inmobiliarios en Xalapa, Veracruz. MÃ©xico." >
 		<title><?php
 			/*
 			 * Print the <title> tag based on what is being viewed.
 			 * We filter the output of wp_title() a bit -- see
-			 * boilerplate_filter_wp_title() in functions.php.
+			 * wallarquitectura_filter_wp_title() in functions.php.
 			 */
 			wp_title( '|', true, 'right' );
 		?></title>
@@ -71,7 +71,7 @@
 						
 					<nav id="access" role="navigation">
 					  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
-						<a id="skip" href="#content" title="<?php esc_attr_e( 'Skip to content', 'boilerplate' ); ?>"><?php _e( 'Skip to content', 'boilerplate' ); ?></a>
+						<a id="skip" href="#content" title="<?php esc_attr_e( 'Skip to content', 'wallarquitectura' ); ?>"><?php _e( 'Skip to content', 'wallarquitectura' ); ?></a>
 						<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
 						<?php wp_nav_menu( array( 'container_id' => 'menu-primary', 'theme_location' => 'primary') ); ?>
 					</nav><!-- #access -->

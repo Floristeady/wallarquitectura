@@ -1,21 +1,19 @@
 /*
 	Theme Name: Theme for Wall Arquitectura & Diseno
 	Theme URI: https://github.com/Floristeady/wallarquitectura
-	Description: Theme to show Wall Arquitectura & Diseno projects. Responsive Web Design based on Boilerplate Theme by Aaron T. Grogg (<a href="http://aarontgrogg.com/">http://aarontgrogg.com/</a>), HTML5 Boilerplate (<a href="http://html5boilerplate.com/">http://html5boilerplate.com/</a>) and the Starkers theme.
+	Description: Wordpress Theme for projects of Wall Arquitectura & Diseno.
 		
 	Author: Florencia Rosenfeld
 	Author URI:http://floristeady.com
-	Version: 2.0
-	Tags: custom-menu, editor-style, theme-options, one-column, etc.
+	Version: 3.0
+	Tags: custom-menu, html5, css3, responsive, editor-style, theme-options, one-column, projects.
 
 	License: GNU General Public License v2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
-
-
-/** START HTML5 Boilerplate CSS 
+/** START HTML5 wallarquitectura CSS 
 *
 *Detailed information about this CSS: h5bp.com/css
 **/
@@ -246,7 +244,7 @@ body {
 }
 
 #header {
-	max-width: 960px;
+	max-width: 1024px;
 	margin: auto;
 }
 
@@ -255,35 +253,45 @@ body {
 	background-repeat: repeat;
 	background-color: white;
 	position: relative;
-	margin: 460px 0 0 0;
+	margin: 520px 0 0 0;
 	padding: 40px 0;
-	min-height: 200px;
+	/*min-height: 800px;*/
 	width: 100%;
+	float: left;
 }
 
 section#content {
-	max-width: 960px;
+	max-width: 100%;
 	margin: auto;
 	padding: 0px 0px;
 	position: relative;
 }
 
+.page section#content {
+	width: 1024px;
+}
+
 .home section#content {
-	margin-top: -410px;
+	margin-top: -445px;
+	width: 100% !important;
 }
 
 .category section#content {
 	min-height: 500px;
 }
 
-#backstretch {
-	left: 0px; 
-	top: 0px; 
-	position: fixed; 
-	overflow: hidden; 
+.backstretch {
+	left: 0px;
+	top: 0px;
+	position: fixed;
+	overflow: hidden;
 	z-index: -999999;
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
+}
+
+.backstretch img {
+	margin-top: -7em !important;  
 }
 
 /* =Typography
@@ -463,6 +471,10 @@ a#skip { display: none;}
 	background-position: -300px -50px;
 }
 
+.home a#logo {
+	background-position: -300px -50px;
+}
+
 #white #access a, #white #menu-secondary a {
 	color: #fff;
 }
@@ -506,7 +518,7 @@ a#skip { display: none;}
 .home #access  {
 	background-color: rgba(255,255,255,0.4);
 	border-radius: 6px;
-	width: 660px;
+	width: 730px;
 }
 
 #access {
@@ -685,10 +697,10 @@ a#skip { display: none;}
 
 .submenu-cat {
 	border-top:  1px solid #a1a1a1;
-	margin-bottom: 34px;
-	width: 960px;
-	float: left;
-	margin-top: 40px;
+	margin-bottom: 3em;
+	width: 70%;
+	float: right;
+	margin-top: 5em;
 }
 
 .submenu-cat li {
@@ -780,10 +792,10 @@ a.btn_all:hover {
 
 #home-gallery {
 	position: relative;
-	max-width: 960px;
-	/*top:-410px;*/
+	max-width: 1024px;
 	z-index: 100000;
 	zoom: 1;
+	margin: 0 auto;
 }
 
 #home-gallery .flex-direction-nav a {
@@ -816,7 +828,7 @@ a.btn_all:hover {
 
 #home-gallery h1 {
 	text-align: center;
-	color: #434040;
+	color: #fff;
 	text-transform: uppercase;
 	font-size: 2.8em;
 	font-family: 'museosans-500';
@@ -826,7 +838,7 @@ a.btn_all:hover {
 
 #home-gallery h4 {
 	text-align: center;
-	color: #434040;
+	color: #fff;
 	font-size: 1.16em;
 	line-height: 1.2em;
 	padding: 0px 180px;
@@ -847,7 +859,7 @@ a.btn_all:hover {
 #home-gallery ul.slides li {
 	text-align: center;
 	position: relative;
-	max-width: 960px;
+	max-width: 1024px;
 	display: none;
 }
 
@@ -913,15 +925,14 @@ a.btn_all:hover {
 }
 
 .flex-control-nav {
-	margin-top: 100px;
+	margin-top: 80px;
 	width: 100%;
 	text-align: center;
-	border-bottom: 1px solid #d8d8d8;
 	padding-bottom: 5px;
 }
 
 .flexslider .slides {
-zoom: 1;
+	zoom: 1;
 }
 
 .flex-control-nav li {
@@ -938,7 +949,7 @@ zoom: 1;
 	font-family: 'museosans-300';
 	font-style: italic;
 	font-weight: 300px;
-	color: #756c66;
+	color: #fff;
 	font-size: 0.9em;
 }
 
@@ -946,37 +957,73 @@ zoom: 1;
 	color:#67c200;
 }
 
-#home-items {
-	float: left;
-	margin-top: 40px;
-    max-width: 960px;
+#home-projects {
+	margin: 2em auto 2em;
+    max-width: 1024px;
     width: 100%;
 }
 
+#home-projects h2.title {
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 0.6em;
+}
+
+#home-projects h2.title:before {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-top: 3px;
+	width: 30%;
+	float: left;
+	content: '';
+}
+
+#home-projects h2.title:after {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-top: 3px;
+	width: 30%;
+	float: right;
+	content: '';
+}
+
 .home-project {
-	display: block;
+	display: inline-block;
 	padding: 0px 1.78%;
 	border-right: 1px solid #d7d7d7;
 	float: left;
 	min-height: 100px;
 	position: relative;
-	height: 160px;
-	overflow: hidden;
+	width: 30%;
+	margin: 2em 0 2em;
+	position: relative;
 }
 
 .home-project .item-project {
-	min-height: 160px;
 	float: left;
-	position: absolute;
-	left: 4%;
 	display: inline-block;
-	cursor: pointer;
+	position: relative;
 }
 
-.home-project .item-project .cat {
+.home-project .allcats {
+	background-color: rgba(0, 0, 0, 0.8);
+	left: 0px;
+	top: -24px;
+	width:auto;
+	float: left;
+	padding: 0 2%;
+	position: absolute;
+	border-radius:  0px 2px 2px 0px
+}
+
+.home-project .cat {
 	font-size: 0.7em;
 	text-transform: uppercase;
-	color: #726c67;
+	color: #fff;
+}
+
+.home-project .allcats:hover {
+	background-color: #86bf25;
 }
 
 .sale {
@@ -990,9 +1037,18 @@ zoom: 1;
 }
 
 .home-project a.img {
-	top: 160px;
-	position: absolute;
-	left: 8px;
+	height: 180px;
+	overflow: hidden;
+	float: left;
+	background-color: #000;
+}
+
+.home-project a.img img {
+	opacity: 0.8;
+}
+
+.home-project:hover a.img img {
+	opacity: 1;
 }
 
 .home-project:last-child {
@@ -1008,6 +1064,11 @@ zoom: 1;
 	font-family: "museosans-500";
     width: 100%;
 	display: block;
+	margin-top: 0.5em;
+}
+
+.home-project:hover .title-featured {
+	opacity: 0.8;
 }
 
 .home-project p {
@@ -1027,6 +1088,123 @@ zoom: 1;
 	color: #86bf25;
 }
 
+#home-housing {
+	position: relative;
+	padding: 4em 0;
+	clear: both;
+	background-color: rgba(0,0,0,0.8);
+}
+
+#home-housing:after {
+	background-image: url(images/header/texture01.jpg);
+	content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1600px;
+    height: 630px;
+    opacity : 0.6;
+    z-index: 0;
+}
+
+.content-center {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+#home-housing span {
+	width: 20%;
+	border-top: 1px solid #86bf25;
+	height: 1px;
+	display: block;
+	text-align: center;
+	margin: 2em auto 3em;
+}
+
+#home-housing h1, #home-housing h2 {
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	position: relative;
+	z-index: 1;
+}
+
+#home-housing h1 {
+	font-size:1.4em;
+	letter-spacing: 0.03em;
+}
+
+#home-housing h2 {
+	margin-bottom: 2em;
+	font-size: 1.6em;
+	line-height: 120%;
+}
+
+#home-housing a {
+	color: #86bf25;
+}
+
+#home-featured {
+	display: block;
+	list-style: none;
+}
+
+#home-featured li {
+	display: inline-block;
+	width: 25%;
+	list-style: none;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+	margin: 0 4%;
+	perspective: 1000;
+	width: 250px;
+	height: 250px;
+}
+
+#home-featured li a {
+	border-radius: 300px;
+	width: 100%;
+  height: 100%;
+  -webkit-transition: all .3s linear;
+  display: block;
+}
+
+#home-featured li a img {
+	border-radius: 300px;
+}
+
+#home-featured li a span {
+	position: absolute;
+	top: 20%;
+	width: 100%;
+	color: #fff;
+	border: none;
+	text-transform: uppercase;
+	font-family: 'museosans-300';
+	opacity: 0;
+	font-size: 1.2em;
+}
+
+#home-featured li:hover span {
+	opacity: 1;
+}
+
+#home-featured li:hover a {
+	background-color: #444;
+}
+
+#home-featured li:hover a img {
+	opacity: 0;
+}
+
+#home-featured div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
 
 /****slider reaponsive*****/
 
@@ -1250,16 +1428,17 @@ zoom: 1;
 
 /****listado proyectos*****/
 
+#projects {
+	display: block;
+	clear: both;
+}
 
 #projects li {
 	float: left;
-	margin-right: 12px;
+	margin-right: 6px;
+	margin-left: 6px;
 	margin-bottom: 12px;
 	display: none;
-}
-
-#projects li:nth-child(3n+3) {
-	margin-right: 0px;
 }
 
 #projects li a {
@@ -1846,8 +2025,12 @@ a.comment-reply-link {
 	width: 100%;
 }
 
+.home #footer {
+	margin-top: 0px;
+}
+
 #content-footer{
-	max-width: 960px;
+	max-width: 1024px;
 	margin: 20px auto;
 }
 
@@ -3046,7 +3229,7 @@ footer form#w_esu_widget  input[type="submit"] {
 	background-image: url(images/repeat/repeat_white-translucent.png); 
 }
 
-/** END HTML5 Boilerplate CSS **/
+/** END HTML5 wallarquitectura CSS **/
 
 
 /** START Starkers CSS **/

@@ -6,10 +6,10 @@
 		</div>
 		
 		<nav id="nav-below" class="navigation">
-			<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'boilerplate' ) . '</span> %title' , TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
+			<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'wallarquitectura' ) . '</span> %title' , TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
 			<?php  $category = get_category_by_slug('inmobiliaria');
             echo '<a class="btn_all" title="Ver todos los proyectos" href="'.get_category_link($category).'"></a>' ?>
-		    <div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'boilerplate' ) . '</span>', TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
+		    <div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'wallarquitectura' ) . '</span>', TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
 		    
 	</nav><!-- #nav-below -->
 
@@ -168,7 +168,7 @@
 				<div class="clearfix"></div>
 				
 				<div class="entry-utility clearfix">
-						<?php edit_post_link( __( 'Editar', 'boilerplate' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php edit_post_link( __( 'Editar', 'wallarquitectura' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-utility -->
 
 	<?php endwhile; // end of the loop. ?>

@@ -8,8 +8,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 
 get_header(); ?>
@@ -25,13 +25,13 @@ get_header(); ?>
 ?>
 					<h1 class="page-title"><?php
 						if ( is_day() ) :
-							printf( __( 'Daily Archives: %s', 'boilerplate' ), get_the_date() );
+							printf( __( 'Daily Archives: %s', 'wallarquitectura' ), get_the_date() );
 						elseif ( is_month() ) :
-							printf( __( 'Monthly Archives: %s', 'boilerplate' ), get_the_date('F Y') );
+							printf( __( 'Monthly Archives: %s', 'wallarquitectura' ), get_the_date('F Y') );
 						elseif ( is_year() ) :
-							printf( __( 'Yearly Archives: %s', 'boilerplate' ), get_the_date('Y') );
+							printf( __( 'Yearly Archives: %s', 'wallarquitectura' ), get_the_date('Y') );
 						else :
-							_e( 'Blog Archives', 'boilerplate' );
+							_e( 'Blog Archives', 'wallarquitectura' );
 						endif;
 					?></h1>
 <?php

@@ -3,8 +3,8 @@
  * The template for displaying Category Archive pages.
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 
 get_header(); ?>

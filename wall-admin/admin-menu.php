@@ -1,78 +1,75 @@
 <?php
 
 /*
-	Begin Boilerplate Admin panel.
+	Begin wall Admin panel.
 */
 
-/*	Define Boilerplate URI */
+/*	Define wall URI */
 	define('BP_THEME_URL', get_template_directory_uri());
 
 /*
 	There are essentially 5 sections to this:
-	1)	Add "Boilerplate Admin" link to left-nav Admin Menu & callback function for clicking that menu link
+	1)	Add "wall Admin" link to left-nav Admin Menu & callback function for clicking that menu link
 	2)	Add Admin Page CSS if on the Admin Page
-	3)	Add "Boilerplate Admin" Page options
+	3)	Add "wall Admin" Page options
 	4)	Create functions to add above elements to pages
-	5)	Add Boilerplate options to page as requested
+	5)	Add wall options to page as requested
 */
 
-/*	1)	Add "Boilerplate Admin" link to left-nav Admin Menu & callback function for clicking that menu link */
+/*	1)	Add "wall Admin" link to left-nav Admin Menu & callback function for clicking that menu link */
 
 	//	Add option if in Admin Page
-	if ( ! function_exists( 'create_boilerplate_admin_page' ) ):
-		function create_boilerplate_admin_page() {
-			add_theme_page('Wall Admin', 'Wall Admin', 'administrator', 'boilerplate-admin', 'build_boilerplate_admin_page');
+	if ( ! function_exists( 'create_wall_admin_page' ) ):
+		function create_wall_admin_page() {
+			add_theme_page('Wall Admin', 'Wall Admin', 'administrator', 'wall-admin', 'build_wall_admin_page');
 		}
-		add_action('admin_menu', 'create_boilerplate_admin_page');
-	endif; // create_boilerplate_admin_page
+		add_action('admin_menu', 'create_wall_admin_page');
+	endif; // create_wall_admin_page
 
-	//	You get this if you click the left-column "Boilerplate Admin" (added above)
-	if ( ! function_exists( 'build_boilerplate_admin_page' ) ):
-		function build_boilerplate_admin_page() {
+	//	You get this if you click the left-column "wall Admin" (added above)
+	if ( ! function_exists( 'build_wall_admin_page' ) ):
+		function build_wall_admin_page() {
 		?>
 			<div id="boilerplate-options-wrap">
 				<div class="icon32" id="icon-tools"><br /></div>
-				<h2>Wall Admin (based on Boilerplate admin)</h2
+				<h2>Wall Admin</h2
 				<p>Choose below which options you want included in your site.</p>
 				<p>The clumsiest part of this plug-in is dealing with the CSS files.  Check the <a href="<?php echo BP_THEME_URL ?>/readme.txt">Read Me file</a> for details on how I suggest handling them.</p>
 				<form method="post" action="options.php" enctype="multipart/form-data">
 					<?php settings_fields('plugin_options'); /* very last function on this page... */ ?>
-					<?php do_settings_sections('boilerplate-admin'); /* let's get started! */?>
+					<?php do_settings_sections('wall-admin'); /* let's get started! */?>
 					<p class="submit"><input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>"></p>
 				</form>
 			</div>
 		<?php
 		}
-	endif; // build_boilerplate_admin_page
+	endif; // build_wall_admin_page
 
 /*	2)	Add Admin Page CSS if on the Admin Page */
 	if ( ! function_exists( 'admin_register_head' ) ):
 		function admin_register_head() {
-			echo '<link rel="stylesheet" href="' .BP_THEME_URL. '/boilerplate-admin/admin-style.css">'.PHP_EOL;
+			echo '<link rel="stylesheet" href="' .BP_THEME_URL. '/wall-admin/admin-style.css">'.PHP_EOL;
 		}
 		add_action('admin_head', 'admin_register_head');
 	endif; // admin_register_head
 
-/*	3)	Add "Boilerplate Admin" Page options */
+/*	3)	Add "wall Admin" Page options */
 	//	Register form elements
 	if ( ! function_exists( 'register_and_build_fields' ) ):
 		function register_and_build_fields() {
 			register_setting('plugin_options', 'plugin_options', 'validate_setting');
-			add_settings_section('main_section', '', 'section_cb', 'boilerplate-admin');
-			add_settings_field('toolbar', 'IE6 Image Toolbar?:', 'toolbar_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('google_chrome', 'IE-edge / Google Chrome?:', 'google_chrome_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('google_verification', 'Google Verification?:', 'google_verification_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('viewport', '<em><abbr title="iPhone, iTouch, iPad...">iThings</abbr></em> use full zoom?:', 'viewport_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('favicon', 'Got Favicon?:', 'favicon_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('favicon_ithing', 'Got <em><abbr title="iPhone, iTouch, iPad...">iThing</abbr></em> Favicon?', 'favicon_ithing_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('ie_css', 'IE CSS?:', 'ie_css_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('modernizr_js', 'Modernizr JS?:', 'modernizr_js_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('respond_js', 'Respond JS?:', 'respond_js_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('jquery_js', 'jQuery JS?:', 'jquery_js_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('plugins_js', 'jQuery Plug-ins JS?:', 'plugins_js_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('site_js', 'Site-specific JS?:', 'site_js_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('cycle_js', 'Cycle-JS?:', 'cycle_js_setting', 'boilerplate-admin', 'main_section');
-			add_settings_field('cache_buster', 'Cache-Buster?:', 'cache_buster_setting', 'boilerplate-admin', 'main_section');
+			add_settings_section('main_section', '', 'section_cb', 'wall-admin');
+			add_settings_field('google_verification', 'Google Verification?:', 'google_verification_setting', 'wall-admin', 'main_section');
+			add_settings_field('viewport', '<em><abbr title="iPhone, iTouch, iPad...">iThings</abbr></em> use full zoom?:', 'viewport_setting', 'wall-admin', 'main_section');
+			add_settings_field('favicon', 'Got Favicon?:', 'favicon_setting', 'wall-admin', 'main_section');
+			add_settings_field('favicon_ithing', 'Got <em><abbr title="iPhone, iTouch, iPad...">iThing</abbr></em> Favicon?', 'favicon_ithing_setting', 'wall-admin', 'main_section');
+			add_settings_field('ie_css', 'IE CSS?:', 'ie_css_setting', 'wall-admin', 'main_section');
+			add_settings_field('modernizr_js', 'Modernizr JS?:', 'modernizr_js_setting', 'wall-admin', 'main_section');
+			add_settings_field('respond_js', 'Respond JS?:', 'respond_js_setting', 'wall-admin', 'main_section');
+			add_settings_field('jquery_js', 'jQuery JS?:', 'jquery_js_setting', 'wall-admin', 'main_section');
+			add_settings_field('plugins_js', 'jQuery Plug-ins JS?:', 'plugins_js_setting', 'wall-admin', 'main_section');
+			add_settings_field('site_js', 'Site-specific JS?:', 'site_js_setting', 'wall-admin', 'main_section');
+			add_settings_field('cache_buster', 'Cache-Buster?:', 'cache_buster_setting', 'wall-admin', 'main_section');
 		}
 		add_action('admin_init', 'register_and_build_fields');
 	endif; // register_and_build_fields
@@ -114,30 +111,6 @@
 	if ( ! function_exists( 'section_cb' ) ):
 		function section_cb() {}
 	endif; // section_cb
-
-	//	callback fn for toolbar
-	if ( ! function_exists( 'toolbar_setting' ) ):
-		function toolbar_setting() {
-			$options = get_option('plugin_options');
-			$checked = (isset($options['toolbar']) && $options['toolbar']) ? 'checked="checked" ' : '';
-			echo '<input class="check-field" type="checkbox" name="plugin_options[toolbar]" value="true" ' .$checked. '/>';
-			echo '<p>Kill the IE6 Image Toolbar that appears when users hover over images on your site.</p>';
-			echo '<p>Selecting this option will add the following code to the <code>&lt;head&gt;</code> of your pages:</p>';
-			echo '<code>&lt;meta http-equiv="imagetoolbar" content="false"&gt;</code>';
-		}
-	endif; // toolbar_setting
-
-	//	callback fn for google_chrome
-	if ( ! function_exists( 'google_chrome_setting' ) ):
-		function google_chrome_setting() {
-			$options = get_option('plugin_options');
-			$checked = (isset($options['google_chrome']) && $options['google_chrome']) ? 'checked="checked" ' : '';
-			echo '<input class="check-field" type="checkbox" name="plugin_options[google_chrome]" value="true" ' .$checked. '/>';
-			echo '<p>Force the most-recent IE rendering engine or users with <a href="http://www.chromium.org/developers/how-tos/chrome-frame-getting-started">Google Chrome Frame</a> installed to see your site using Google Frame.</p>';
-			echo '<p>Selecting this option will add the following code to the <code>&lt;head&gt;</code> of your pages:</p>';
-			echo '<code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;</code>';
-		}
-	endif; // google_chrome_setting
 
 	//	callback fn for google_verification
 	if ( ! function_exists( 'google_verification_setting' ) ):
@@ -202,7 +175,7 @@
 			$options = get_option('plugin_options');
 			$checked = (isset($options['ie_css']) && $options['ie_css']) ? 'checked="checked" ' : '';
 			echo '<input class="check-field" type="checkbox" name="plugin_options[ie_css]" value="true" ' .$checked. '/>';
-			echo '<p>If you would like to add a IE-specific CSS file, Boilerplate provides a starter file located in:</p>';
+			echo '<p>If you would like to add a IE-specific CSS file, wall provides a starter file located in:</p>';
 			echo '<code>' .BP_THEME_URL. '/css/ie-starter.css</code>';
 			echo '<p><strong>I recommend adding any custom IE-specific CSS to this file and either copying from the starter file or using an <code>@import</code> to add the starter file rather than editing the starter file itself.  This will help to avoid your changes being overwritten during upgrades.</strong></p>';
 			echo '<p><strong>And remember</strong>, you don\'t need IE-specific hacks if you activate the IE-Conditional <code>&lt;html&gt;</code> above, because you can target IE specifically by using the IE classes that are being added to <code>&lt;html&gt;</code>.  Sweet!</p>';
@@ -220,7 +193,7 @@
 			echo '<p><a href="http://modernizr.com/">Modernizr</a> is a JS library that appends classes to the <code>&lt;html&gt;</code> that indicate whether the user\'s browser is capable of handling advanced CSS, like "cssreflections" or "no-cssreflections".  It\'s a really handy way to apply varying CSS techniques, depending on the user\'s browser\'s abilities, without resorting to CSS hacks.</p>';
 			echo '<p>Selecting this option will add the following code to the <code>&lt;head&gt;</code> of your pages (note the lack of a version, when you\'re ready to upgrade, simply copy/paste the new version into the file below, and your site is ready to go!):</p>';
 			echo '<code>&lt;script src="' .BP_THEME_URL. '/js/modernizr.js"&gt;&lt;/script&gt;</code>';
-			echo '<p><strong>Note: If you do <em>not</em> include Modernizr, the IEShiv JS <em>will</em> be added to accommodate the HTML5 elements used in Boilerplate in weaker browsers:</strong></p>';
+			echo '<p><strong>Note: If you do <em>not</em> include Modernizr, the IEShiv JS <em>will</em> be added to accommodate the HTML5 elements used in wall in weaker browsers:</strong></p>';
 			echo '<code>&lt;!--[if lt IE 9]&gt;</code>';
 			echo '<code>	&lt;script src="//html5shiv.googlecode.com/svn/trunk/html5.js" onload="window.ieshiv=true;"&gt;&lt;/script&gt;</code>';
 			echo '<code>	&lt;script&gt;!window.ieshiv && document.write(unescape(\'%3Cscript src="' .BP_THEME_URL. '/js/ieshiv.js"%3E%3C/script%3E\'))&lt;/script&gt;</code>';
@@ -245,7 +218,7 @@
 		function jquery_js_setting() {
 			$options = get_option('plugin_options');
 			$checked = (isset($options['jquery_js']) && $options['jquery_js']) ? 'checked="checked" ' : '';
-			$version = (isset($options['jquery_version']) && $options['jquery_version'] && $options['jquery_version'] !== '') ? $options['jquery_version'] : '1.7.1';
+			$version = (isset($options['jquery_version']) && $options['jquery_version'] && $options['jquery_version'] !== '') ? $options['jquery_version'] : '1.10.2';
 			$inhead = (isset($options['jquery_head']) && $options['jquery_head']) ? 'checked="checked" ' : '';
 			echo '<input class="check-field" type="checkbox" name="plugin_options[jquery_js]" value="true" ' .$checked. '/>';
 			echo '<p><a href="http://jquery.com/">jQuery</a> is a JS library that aids greatly in developing high-quality JavaScript quickly and efficiently.</p>';
@@ -280,7 +253,7 @@
 			$options = get_option('plugin_options');
 			$checked = (isset($options['site_js']) && $options['site_js']) ? 'checked="checked" ' : '';
 			echo '<input class="check-field" type="checkbox" name="plugin_options[site_js]" value="true" ' .$checked. '/>';
-			echo '<p>If you would like to add your own site JavaScript file, Boilerplate provides a starter file located in:</p>';
+			echo '<p>If you would like to add your own site JavaScript file, wall provides a starter file located in:</p>';
 			echo '<code>' .BP_THEME_URL. '/js/script-starter.js</code>';
 			echo '<p>Add what you want to that file and select this option.</p>';
 			echo '<p>Selecting this option will add the following code to your pages just before the <code>&lt;/body&gt;</code>:</p>';
@@ -319,20 +292,6 @@
 
 
 /*	4)	Create functions to add above elements to pages */
-
-	//	$options['toolbar']
-	if ( ! function_exists( 'add_toolbar' ) ):
-		function add_toolbar() {
-			echo '<meta http-equiv="imagetoolbar" content="false">'.PHP_EOL;
-		}
-	endif; // add_toolbar
-
-	//	$options['google_chrome']
-	if ( ! function_exists( 'add_google_chrome' ) ):
-		function add_google_chrome() {
-			echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">'.PHP_EOL;
-		}
-	endif; // add_google_chrome
 
 	//	$options['google_verification']
 	if ( ! function_exists( 'add_google_verification' ) ):
@@ -409,7 +368,7 @@
 		function add_jquery_script() {
 			$cache = cache_buster();
 			$options = get_option('plugin_options');
-			$version = ($options['jquery_version']) ? $options['jquery_version'] : '1.7.1';
+			$version = ($options['jquery_version']) ? $options['jquery_version'] : '1.10.2';
 			wp_deregister_script( 'jquery' ); // get rid of WP's jQuery
 			echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/'.$version.'/jquery.min.js"></script>'.PHP_EOL; // try getting from CDN
 			echo '<script>window.jQuery || document.write(unescape(\'%3Cscript src="' .BP_THEME_URL. '/js/jquery.js'.$cache.'"%3E%3C/script%3E\'))</script>'.PHP_EOL; // fallback to local if CDN fails
@@ -432,14 +391,6 @@
 		}
 	endif; // add_site_script
 	
-	//	$options['cycle_js']
-	if ( ! function_exists( 'add_cycle_script' ) ):
-		function add_cycle_script() {
-			$cache = cache_buster();
-			echo '<script src="' .BP_THEME_URL. '/js/jquery.cycle.all.js'.$cache.'"></script>'.PHP_EOL;
-		}
-	endif; // add_site_script
-
 	//	$options['cache_buster']
 	if ( ! function_exists( 'cache_buster' ) ):
 		function cache_buster() {
@@ -449,21 +400,11 @@
 	endif; // cache_buster
 
 
-/*	5)	Add Boilerplate options to page as requested */
+/*	5)	Add wall options to page as requested */
 		if (!is_admin() ) {
 
 			// get the options
 			$options = get_option('plugin_options');
-
-			// check if each option is set (meaning it exists) and check if it is true (meaning it was checked)
-			if (isset($options['toolbar']) && $options['toolbar']) {
-				// if yes to both, apply option
-				add_action('wp_print_styles', 'add_toolbar');
-			}
-
-			if (isset($options['google_chrome']) && $options['google_chrome']) {
-				add_action('wp_print_styles', 'add_google_chrome');
-			}
 
 			if (isset($options['google_verification']) && $options['google_verification'] && $options['google_verification_account'] && $options['google_verification_account'] !== 'XXXXXXXXX...') {
 				add_action('wp_print_styles', 'add_google_verification');
@@ -507,13 +448,6 @@
 				$hook = (isset($options['jquery_head']) && $options['jquery_head']) ? 'wp_print_styles' : 'wp_footer';
 				add_action($hook, 'add_plugin_script');
 			}
-			
-			if (isset($options['cycle_js']) && $options['cycle_js']) {
-				// check if should be loaded in <head> or at end of <body>
-				$hook = (isset($options['jquery_head']) && $options['jquery_head']) ? 'wp_print_styles' : 'wp_footer';
-				add_action($hook, 'add_cycle_script');
-			}
-
 
 			if (isset($options['site_js']) && $options['site_js']) {
 				// check if should be loaded in <head> or at end of <body>

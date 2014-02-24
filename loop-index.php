@@ -52,16 +52,24 @@
 		
 	</div>
 			
-	<ul id="home-items">	
+	<ul id="home-projects">	
 	<?php query_posts('showposts=3&category_name=destacado'); ?> 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
 	 <li class="home-project column-three">
-		   
-		
+	 
+		   <a href="<?php the_permalink();?>" class="img" title="">
+					<?php $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
+					if ( ! is_array($attachments) ) continue;
+					$count = count($attachments);
+					$first_attachment = array_shift($attachments);?>
+				    <?php echo wp_get_attachment_image($first_attachment->ID, "medium"); ?>
+			</a>
+			
 		   <div class="item-project">
-		   		
-		   	    <?php foreach((get_the_category()) as $category) {
+		   
+		   		<div class="allcats">
+			<?php foreach((get_the_category()) as $category) {
 			    	if ($category->cat_name != 'Destacado' && $category->cat_name != 'Venta de Casas') {
 			    	echo '<a class="cat" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "Ver todos los proyectos" ), $category->name ) . '" ' . '>' . $category->name.'</a> ';} 
 			    	
@@ -69,7 +77,9 @@
 				    	echo '<span class="sale">SE VENDE</span>';
 			    	}
 			    } ?>
-		   		
+			   </div>
+		
+
 				<a href="<?php the_permalink();?>" title="Ver m&aacute;s del proyecto" class="title-featured"><?php the_title();?></a>
 
 				<?php if (!empty($post->post_excerpt)){ ?>
@@ -85,18 +95,40 @@
 		            				
 		           <span class="btn-more">conoce el proyecto<span class="arrow">></span> 
 		      </div>
-		      
-		            <a href="<?php the_permalink();?>" class="img" title="Ver m&aacute;s del proyecto">
-					<?php $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
-					if ( ! is_array($attachments) ) continue;
-					$count = count($attachments);
-					$first_attachment = array_shift($attachments);?>
-				    <?php echo wp_get_attachment_image($first_attachment->ID, "medium"); ?>
-					</a>
-		     
+	     
 		 </li>
 
 	<?php endwhile; endif; ?>
 	<!--#end-->
 	 </ul>
 	
+<div id="home-housing">
+		<div class="content-center">
+			<h1>Venta de Casa</h1>
+			<span class="line"></span>
+			<h2>También hacemos proyectos inmobiliarios. <br/>Revisa nuestros <a href="">proyectos en venta</a>, contáctanos para más información. </h2>
+		
+		<?php query_posts('showposts=3&category_name=destacado'); ?> 
+	    <?php if (have_posts()) : ?>
+	    <ul id="home-featured">
+	    <?php while (have_posts()) : the_post(); ?>
+	
+			<li>
+				 <a href="<?php the_permalink();?>" title="">
+				  <?php $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
+					if ( ! is_array($attachments) ) continue;
+					$count = count($attachments);
+					$first_attachment = array_shift($attachments);
+					$attachment_id = $first_attachment->ID; // attachment ID
+					$image_attributes = wp_get_attachment_image_src( $attachment_id ); // returns an array?> 
+					<div class="front"><img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>"></div>
+				 	<div class="back"><span><?php the_title();?></span></div>
+					
+			    </a>
+			</li>
+			
+		
+		<?php endwhile; ?> </ul> <?php endif; ?>
+		
+		</div>
+	</div>

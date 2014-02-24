@@ -3,16 +3,16 @@
  * The template for displaying attachments.
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 
 get_header(); ?>
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<?php if ( ! empty( $post->post_parent ) ) : ?>
-					<p class="page-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>" title="<?php esc_attr( printf( __( 'Return to %s', 'boilerplate' ), get_the_title( $post->post_parent ) ) ); ?>" rel="gallery"><?php
+					<p class="page-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>" title="<?php esc_attr( printf( __( 'Return to %s', 'wallarquitectura' ), get_the_title( $post->post_parent ) ) ); ?>" rel="gallery"><?php
 						/* translators: %s - title of parent post */
-						printf( __( '<span class="meta-nav">&larr; Volver </span> %s', 'boilerplate' ), get_the_title( $post->post_parent ) );
+						printf( __( '<span class="meta-nav">&larr; Volver </span> %s', 'wallarquitectura' ), get_the_title( $post->post_parent ) );
 					?></a></p>
 				<?php endif; ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -41,7 +41,7 @@ get_header(); ?>
 	}
 ?>
 							<p><a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php
-								$attachment_size = apply_filters( 'boilerplate_attachment_size', 900 );
+								$attachment_size = apply_filters( 'wallarquitectura_attachment_size', 900 );
 								echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); // filterable image width with, essentially, no limit for image height.
 							?></a></p>
 							<nav id="nav-below" class="navigation">
@@ -53,8 +53,8 @@ get_header(); ?>
 <?php endif; ?>
 						</div><!-- .entry-attachment -->
 						<div class="entry-caption"><?php if ( !empty( $post->post_excerpt ) ) the_excerpt(); ?></div>
-<?php the_content( __( 'Continue reading &rarr;', 'boilerplate' ) ); ?>
-<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
+<?php the_content( __( 'Continue reading &rarr;', 'wallarquitectura' ) ); ?>
+<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'wallarquitectura' ), 'after' => '' ) ); ?>
 						
 					</div><!-- .entry-content -->
 				</article>

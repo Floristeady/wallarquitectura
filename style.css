@@ -55,8 +55,8 @@ body { margin: 0; font-size: 1em; line-height: 1.4em; }
 /* Links
 ------------------------------------------------------------------------------ */
 
-a { color: #707070; text-decoration: none;}
-a:visited { color: #707070; }
+a { color: #9ac247; text-decoration: none;}
+a:visited { color: #9ac247; }
 a:hover { color: #9ac247; }
 a:focus { outline: none; }
 
@@ -254,26 +254,22 @@ body {
 	background-color: white;
 	position: relative;
 	margin: 520px 0 0 0;
-	padding: 40px 0;
-	/*min-height: 800px;*/
+	padding: 2.7em 0 0;
 	width: 100%;
 	float: left;
 }
 
-section#content {
-	max-width: 100%;
-	margin: auto;
+#content {
+	max-width: 1024px;
+	margin: 0 auto;
 	padding: 0px 0px;
 	position: relative;
 }
 
-.page section#content {
-	width: 1024px;
-}
-
-.home section#content {
+.home #content {
 	margin-top: -445px;
 	width: 100% !important;
+	max-width: 100%;
 }
 
 .category section#content {
@@ -393,11 +389,12 @@ a.btn_mapa {
 	font-size: 0.75em;
 	background-color: #ebebeb;
 	padding: 3px 8px;
-	margin: 5px 0px 10px;
+	margin: 1em 0px 1em;
 }
 
 a.btn_mapa:hover {
 	background-color: #9ac247;
+	text-decoration: none;
 }
 
 input#submit, input[type=submit]  {
@@ -443,21 +440,27 @@ header {
 	z-index: 9000000;
 }
 
+header hgroup { 
+	float: left;
+	width: 20%;
+}
+
 header hgroup h1 {
 	margin: 16px 0px 0px;
 }
 
-header hgroup h2 {display: none;}
-
-header hgroup { float: left;}
+header hgroup h2 {
+	display: none;
+}
 
 a#logo {
-	background-image:url(images/CSS_sprite.png);
-	background-position: -100px -50px;
+	background-image:url(images/elements/logoblack.svg);
+	background-repeat: no-repeat;
+	background-position: left center;
 	float: left;
-	height: 60px;
+	height: 65px;
 	text-indent: -999px;
-	width: 158px;
+	width: 168px;
 	margin-top: 20px;
 }
 
@@ -467,19 +470,15 @@ a#skip { display: none;}
 
 #white header{}
 
-#white a#logo {
-	background-position: -300px -50px;
-}
-
-.home a#logo {
-	background-position: -300px -50px;
+#white a#logo, .home a#logo {
+	background-image:url(images/elements/logowhite.svg);
 }
 
 #white #access a, #white #menu-secondary a {
 	color: #fff;
 }
 
-#white #access  li.current-menu-item a, 
+#white #access  li.current-menu-item > a, 
 #white #menu-secondary li.current-menu-item a {
 	color: #9ac247;
 }
@@ -509,27 +508,37 @@ a#skip { display: none;}
 #white #access a:hover, 
 #white #menu-menu-principal ul.sub-menu-parent a:hover,
 #white #menu-secondary li a:hover, 
-#white #menu-secondary li.current-menu-item a {
+#white #menu-secondary li.current-menu-item > a {
 	color: #99c248;
+}
+
+#white #menu-menu-principal  ul.sub-menu {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /****#menu-primary ****/
 
 .home #access  {
-	background-color: rgba(255,255,255,0.4);
 	border-radius: 6px;
-	width: 730px;
 }
 
 #access {
-	left: 300px;
-	position: absolute;
-	border-radius: 8px;
-	margin-top: 48px;
+	border-radius: 6px;
+	margin-top: 2.5em;
+	width: 53%;
+	margin-left: 5%;
+	float: left;
 }
 
-#access ul, #access li {
+#access ul {
 	float: left;
+	position: relative;
+	width: 100%;
+}
+
+#access li {
+	padding: 1em 3% 1em; 
+	display: inline-block;
 	position: relative;
 }
 
@@ -539,8 +548,9 @@ a#skip { display: none;}
 	font-family: "museosans-300", "Helvetica Neue", Arial;
 	font-size: 0.90em;
 	text-transform: uppercase;
-	padding: 8px 17px 4px;
 }
+
+.home #access a {color: white;}
 
 #menu-primary {
 	position: relative;
@@ -548,9 +558,9 @@ a#skip { display: none;}
 
 #access a:hover, 
 #menu-secondary li a:hover, 
-#access li.current-menu-item a,
+#access li.current-menu-item > a,
 #menu-secondary li.current-menu-item a {
-	color: #688734;
+	color: #9ac247;
 }
 
 /****submenu****/
@@ -565,14 +575,14 @@ a#skip { display: none;}
 
 #menu-menu-principal  ul.sub-menu {
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 4px;
+    border-radius: 0px 0px 4px 4px;
     border-top: 1px solid rgba(138,138,138,0.3);
     box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
     display: none;
     list-style: none outside none;
     padding: 15px 10px 5px;
     position: absolute;
-    top: 31px;
+    top: 34px;
     z-index: 1000;
     min-width: 160px;
     left: 0px;
@@ -583,7 +593,7 @@ a#skip { display: none;}
 	z-index: 1000000;
 }
 
-#menu-menu-principal   ul.sub-menu li {
+#menu-menu-principal  ul.sub-menu li {
 	padding: 5px 0px;
 }
 
@@ -627,8 +637,8 @@ a#skip { display: none;}
 	border: none;
 }
 
-#access .sub-menu .sub-menu li.current-menu-item a, #access  .sub-menu .sub-menu a:hover {
-	color: #9AC247;
+#access .sub-menu .sub-menu li.current-menu-item > a, #access  .sub-menu .sub-menu a:hover {
+	color: #9ac247;
 }
 
 .sub-menu-parent .sub-menu li {
@@ -638,37 +648,36 @@ a#skip { display: none;}
 
 /****#menu-secondary ****/
 
-.home #nav-2 {
-  /*  background-color: rgba(255,255,255,0.3);
-	border-radius: 6px;*/
-}
-
 #nav-2 {
-    float: right;
-    position: absolute;
-    right: 0;
-    top: 49px;
-    z-index: 2;
+	float: right; 
+	width: 22%;
+	margin-top: 2.5em;
 }
 
 #menu-secondary {
+	width: 100%;
 	float: right;
+}
+
+#menu-secondary ul {
+	float: right;
+	width: 100%;
 }
 
 #menu-secondary li {
 	float: left;
 	display: inline-block;
-	vertical-align: top;
+	padding: 1em 3% 1em; 
 }
 
 #menu-secondary li a {
 	color: #292525;
-	float: left;
 	font-size: 0.8em;
 	font-family: "museosans-300", "Helvetica Neue", Arial;
-	padding: 8px 10px 4px;
 	text-transform: uppercase;
 }
+
+.home #menu-secondary a {color: white;}
 
 /****#breadcrumbs ****/
 
@@ -698,8 +707,8 @@ a#skip { display: none;}
 .submenu-cat {
 	border-top:  1px solid #a1a1a1;
 	margin-bottom: 3em;
-	width: 70%;
-	float: right;
+	width: 100%;
+	float: left;
 	margin-top: 5em;
 }
 
@@ -743,45 +752,53 @@ a#skip { display: none;}
 }
 
 .nav-previous a {
-	background-image: url(images/CSS_sprite.png);
-	background-position: -325px -150px;
+	background-image: url(images/elements/direction_nav.svg);
+	background-position: right top;
 	display: block;
-	height: 18px;
-	width: 9px;
+	height: 19px;
+	width: 11px;
 	text-indent: -9999em;
 }
 
 .nav-previous a:hover {
-	background-position: -350px -150px;
+	background-position: left top;
 }
 
 .nav-next a {
-	background-image: url(images/CSS_sprite.png);
-	background-position: -325px -175px;
+	background-image: url(images/elements/direction_nav.svg);
+	background-position: right bottom;
 	display: block;
-	height: 18px;
-	width: 9px;
+	height: 19px;
+	width: 11px;
 	text-indent: -9999em;
 }
 
 .nav-next a:hover {
-	background-position: -350px -175px;
+	background-position: left bottom;
 }
 
 a.btn_all {
-	background-image: url(images/CSS_sprite.png);
-	background-position: -375px -150px;
+	background-image: url(images/elements/all_nav.svg);
+	background-position: left center;
 	display: block;
-	height: 12px;
-	width: 22px;
+	height: 13px;
+	width: 26px;
 	text-indent: -9999em;
 	margin-top: 3px;
 }
 
 a.btn_all:hover {
-	background-position: -400px -150px;
+	background-position: right center;
 }
 
+.sale {
+	background-color: #93bd4c;
+	padding: 4px 8px 2px;
+	font-size: 0.7em;
+	color: white;
+	text-shadow: 1px 1px 5px #1c6d0e;
+	margin-left: 10px;
+}
 
 
 /* =Content and Edit
@@ -799,7 +816,6 @@ a.btn_all:hover {
 }
 
 #home-gallery .flex-direction-nav a {
-	opacity: 1;
 	top: 35%;
 }
 
@@ -1023,28 +1039,20 @@ a.btn_all:hover {
 }
 
 .home-project .allcats:hover {
-	background-color: #86bf25;
-}
-
-.sale {
-	background-color: #93bd4c;
-	padding: 4px 8px 2px;
-	font-size: 0.7em;
-	color: white;
-	text-shadow: 1px 1px 5px #1c6d0e;
-	border: #e4e4e4 solid 3px;
-	margin-left: 10px;
+	background-color: #9ac247;
 }
 
 .home-project a.img {
-	height: 180px;
 	overflow: hidden;
 	float: left;
-	background-color: #000;
+	background-color: #666;
+	max-width: 300px;
 }
 
 .home-project a.img img {
 	opacity: 0.8;
+	max-width: 300px;
+	width: 100%;
 }
 
 .home-project:hover a.img img {
@@ -1085,12 +1093,12 @@ a.btn_all:hover {
 
 .home-project .arrow {
 	padding-left: 5px;
-	color: #86bf25;
+	color: #9ac247;
 }
 
 #home-housing {
 	position: relative;
-	padding: 4em 0;
+	padding: 4em 0 3.5em;
 	clear: both;
 	background-color: rgba(0,0,0,0.8);
 }
@@ -1102,20 +1110,20 @@ a.btn_all:hover {
     position: absolute;
     top: 0;
     left: 0;
-    width: 1600px;
-    height: 630px;
+    width: 100%;
+    height: 100%;
     opacity : 0.6;
     z-index: 0;
 }
 
 .content-center {
-	width: 1024px;
+	max-width: 1024px;
 	margin: 0 auto;
 }
 
-#home-housing span {
+#home-housing span.line {
 	width: 20%;
-	border-top: 1px solid #86bf25;
+	border-top: 1px solid #9ac247;
 	height: 1px;
 	display: block;
 	text-align: center;
@@ -1142,7 +1150,7 @@ a.btn_all:hover {
 }
 
 #home-housing a {
-	color: #86bf25;
+	color: #9ac247;
 }
 
 #home-featured {
@@ -1152,42 +1160,41 @@ a.btn_all:hover {
 
 #home-featured li {
 	display: inline-block;
-	width: 25%;
+	width: 24%;
 	list-style: none;
 	position: relative;
 	text-align: center;
 	z-index: 1;
 	margin: 0 4%;
-	perspective: 1000;
-	width: 250px;
 	height: 250px;
+	overflow: hidden;
+	border-radius: 300px;
+	border: 3px solid rgba(255, 255, 255,0.2);
 }
 
 #home-featured li a {
-	border-radius: 300px;
 	width: 100%;
-  height: 100%;
-  -webkit-transition: all .3s linear;
-  display: block;
+    height: 100%;
+	-webkit-transition: all .3s linear;
+	display: block;
 }
 
 #home-featured li a img {
-	border-radius: 300px;
+	/*border-radius: 300px;*/
 }
 
-#home-featured li a span {
+#home-featured li .text-container {
 	position: absolute;
-	top: 20%;
+	top: 23%;
 	width: 100%;
 	color: #fff;
 	border: none;
-	text-transform: uppercase;
 	font-family: 'museosans-300';
 	opacity: 0;
-	font-size: 1.2em;
+	margin: 0 auto;
 }
 
-#home-featured li:hover span {
+#home-featured li:hover .text-container {
 	opacity: 1;
 }
 
@@ -1199,12 +1206,61 @@ a.btn_all:hover {
 	opacity: 0;
 }
 
-#home-featured div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+#home-featured li h3 {
+	color: #9ac247;
 }
+
+#home-featured li p {
+	font-size: 0.8em;
+	color: #fff;
+	font-weight: 200;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+#home-featured li span:before {
+	font-size: 1.2em;
+	color: #d5d5d5;
+}
+
+#home-featured li p span {
+	display: inline-block;
+	margin-top: 0.3em;
+	width: 100%;
+}
+
+#home-featured li .button {
+	font-size: 0.8em;
+	border: 1px solid rgba(255, 255, 255,0.2);
+	padding: 0.2em 0.1em 0.1em;
+	width: auto;
+	color: rgba(255, 255, 255,0.2);
+	width: 10em;
+	margin: 1.5em auto 0;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+
+#home-featured li .button:hover  {
+	color:#9ac247;
+	border-color:#9ac247; 
+}
+
+.home .icon-dollar {
+	position: absolute;
+	z-index: 3;
+	background-color: #9ac247;
+	color: #fff;
+	padding: 0.6em 0.1em 0.4em;
+	top: -0.1em;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	text-align: center;
+	width: 2em;
+}
+
+.icon-dollar:before {color: #fff !important;}
 
 /****slider reaponsive*****/
 
@@ -1277,10 +1333,10 @@ a.btn_all:hover {
 	position: relative;
 }
 
-#single-proyectos .col_IZ, #single-inmobiliaria  .col_IZ {
+#single-proyectos .col_IZ {
 	float: left;
-	max-width: 22.70%;
-	margin-right: 3,33%;
+    width: 22%;
+	margin-right: 3%;
 	clear: left;
 } 
 
@@ -1294,11 +1350,11 @@ a.btn_all:hover {
 
 #single-proyectos .col_DE {
 	float: right;
-	width: 69.79%;
+	width: 70%;
 	background-color: #eeeeee;
 	background-image: url(images/repeat/backtext.png);
 	background-repeat: repeat;
-	padding: 15px 2.08%;
+	padding: 15px 2%;
 }
 
 #single-proyectos .gallery {
@@ -1306,17 +1362,33 @@ a.btn_all:hover {
 	display: block;
     float: left;
     min-height: 596px;
-    max-width: 960px;
-    margin-bottom: 30px;
+    max-width: 1024px;
+    margin: 0 0px 30px;
+    width: 100%;
 }
 
-#single-proyectos .flex-direction-nav a {
-	opacity: 1;
+#single-proyectos .flex-direction-nav .flex-next {
+	right: -36px;
+}
+
+#single-proyectos .flex-direction-nav .flex-prev {
+	left: -36px;
+}
+
+#single-proyectos .slides li {
+	background: #b2b2b2 url(images/repeat/pattern-light.svg) repeat;
+	display: block;
+	position: relative;
+	z-index: 0;
+	max-height:620px;
+	overflow: hidden;
 }
 
 #single-proyectos .gallery img {
-	max-width: 100%;
+	display: block;
+	width: auto;
 	height: auto;
+	margin: 0 auto;
 }
 
 #single-proyectos .entry-top, #single-inmobiliaria .entry-top {
@@ -1330,8 +1402,8 @@ a.btn_all:hover {
 	border: 1px solid #ccc;
 }
 
-#single-proyectos .entry-content, #single-inmobiliaria .entry-content {
-	width: 218px;
+#single-proyectos .entry-content {
+	width: 100%;
 	margin-top: 10px;
 	float: left;
 }
@@ -1350,74 +1422,25 @@ a.btn_all:hover {
 
 /****inmobiliaria*****/
 
-#single-inmobiliaria .col_DE {
+#single-inmobiliaria .col_IZ {
+	float: left;
+	width: 75%;
+	padding: 0;
+}
+
+#single-inmobiliaria  .col_DE {
+	width: 22%;
+	margin-left: 3%;
 	float: right;
-	width: 69.79%;
-	padding: 0px 2.08%;
-	clear: right;
 }
 
-#single-inmobiliaria .col_DE p {
-	margin-top: 0px;
-}
-
-#single-inmobiliaria .col_DE .content {
-	border-bottom: 1px solid #756C66;
-	padding-bottom: 5px;
-	margin-bottom: 15px;
-	min-height: 67px;
-}
-
-#single-proyectos #housing-gallery {
-	margin: 0 0 60px;
-	background: white;
-	position: relative;
-	zoom: 1;
-	clear: left;
-}
-
-#single-inmobiliaria .gallery {
-    min-height: 400px;
-    position: relative;
-    max-width: 670px;
-    overflow: hidden;
-}
-
-#single-inmobiliaria .gallery img {
-	max-width: 670px;
-	height: auto;
-}
-
-#single-inmobiliaria #carousel {
-	margin: 0 0 30px;
-	background: white;
-	position: relative;
-	zoom: 1;
-	clear: left;
-	overflow: hidden;
-}
-
-#carousel .flex-active-slide {
-	opacity: 1;
-	cursor: default;
-}
-
-#carousel img {
-	display: inline-block !important;
-	opacity: .5;
-	cursor: pointer;
-	margin-right: 5px;
-	width: 100px;
-	height: 100px;
-	overflow: hidden;
-}
-
-#single-inmobiliaria .entry-top {
-	margin-bottom: 10px;
+#single-inmobiliaria .col_IZ .entry-content {
+	float: left;
+	width: 100%;
 }
 
 #single-inmobiliaria .data span {
-	color: #333333;
+	color: #555;
     font-family:"museosans-300", "Helvetica Neue",Arial,Helvetica;
     font-size: 0.85em;
     float: left;
@@ -1425,6 +1448,90 @@ a.btn_all:hover {
     line-height: 1.3em;
 }
 
+#single-inmobiliaria .info {
+	background-color: #444;
+	color: #fff;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	z-index: 2;
+	padding: 0.3em 1em 0em;
+}
+
+#single-inmobiliaria .info span {
+	color: #fff;
+	letter-spacing: 0.05em;
+}
+
+#single-inmobiliaria .content p {
+	margin-top: 0px;
+}
+
+#single-inmobiliaria .content {
+	border-bottom: 1px solid #756C66;
+	padding:0em 0 1em;
+	margin: 1em 0;
+	float: left;
+	width: 100%;
+}
+
+#single-inmobiliaria #housing-gallery {
+	margin: 0 0 1em;
+	background: white;
+	position: relative;
+	zoom: 1;
+	float: left;
+	width: 100%;
+}
+
+#single-inmobiliaria .slides li {
+	background: #b2b2b2 url(images/repeat/pattern-light.svg) repeat;
+	display: block;
+	position: relative;
+	max-height: 460px;
+}
+
+#single-inmobiliaria .gallery img {
+	height: auto;
+	display: block;
+	width: auto;
+	margin: 0 auto;
+}
+
+#single-inmobiliaria .flex-direction-nav a.flex-next {
+	right: 5px;
+}
+
+#single-inmobiliaria .flex-direction-nav a.flex-prev {
+	left: 5px;
+}
+
+#single-inmobiliaria .entry-top {
+	margin-bottom: 0.5em;
+}
+
+#single-inmobiliaria .sale {
+	margin-left: 0px;
+	margin-bottom: 5px;
+	font-size: 0.8em;
+	float: left;
+	padding-top: 0.6em;
+	display: block;
+	clear: both;
+	position: absolute;
+	right: 1em;
+	top:0px;
+	z-index: 2;
+	border: none;
+}
+
+#single-inmobiliaria .form .wpcf7 {
+	padding: 1em  0 0;
+}
+
+#single-inmobiliaria .form .wpcf7-form input[type=submit] {
+	float: left;
+}
 
 /****listado proyectos*****/
 
@@ -1500,21 +1607,19 @@ a.btn_all:hover {
 	height: 0px;
 	display: block;
 	position: relative;
-	margin-bottom: 20px;
-	min-height: 600px;
-	max-width: 960px;
+	margin-bottom: 2em;
+	width: 100%;
 }
 
 #housing li {
 	width: 48%;
-    margin-right: 4%;
-    margin-bottom: 40px;
+    margin: 0 1.9% 2em 0;
     height: auto;
     float: left;
 }
 
-#housing li:nth-child(2n+2){
-	 margin-right: 0px;
+#housing li:nth-child(2n+2) {
+	margin-left: 1.9%;
 }
 
 #housing a {
@@ -1528,6 +1633,10 @@ a.btn_all:hover {
 	border-bottom: 1px solid #c7c4c4;
 }
 
+#housing li img {
+	width: 100%;
+}	
+
 #housing li .img {
 	float: left;
 	opacity: 0.9;
@@ -1536,21 +1645,12 @@ a.btn_all:hover {
 
 .housing-item .sale {
 	position: absolute;
-	top:5px;
-	left: 5px;
+	top:0px;
+	padding-top: 0.5em;
+	right: 1em;
 	font-size: 0.8em;
-	border: #e4e4e4 solid 1px;
-	border-radius: 2px;
+	border-radius: 0px 0px 2px 2px;
 	margin-left: 0px;
-}
-
-#single-inmobiliaria .sale {
-	margin-left: 0px;
-	margin-bottom: 5px;
-	font-size: 0.8em;
-	float: left;
-	display: block;
-	clear: both;
 }
 
 #housing .info .h2 {
@@ -1562,6 +1662,18 @@ a.btn_all:hover {
 	clear: left;
 	line-height: 1.1em;
 	margin-bottom: 5px;
+}
+
+#housing .more-info {
+	position: absolute;
+	bottom: 0px;
+	background: #444;
+	padding: 0.3em 1em;
+}
+
+#housing .more-info p {
+	color: #fff;
+	letter-spacing: 0.05em;
 }
 
 #housing a:hover .h2 {
@@ -2009,6 +2121,73 @@ a.comment-reply-link {
 	font-size: 0.7em;
 }
 
+/* =Icons
+--------------------------------------------------------- */
+
+@font-face {
+  font-family: 'fontello';
+  src: url('fonts/fontello.eot?30579662');
+  src: url('fonts/fontello.eot?30579662#iefix') format('embedded-opentype'),
+       url('fonts/fontello.woff?30579662') format('woff'),
+       url('fonts/fontello.ttf?30579662') format('truetype'),
+       url('fonts/fontello.svg?30579662#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/**/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('fonts/fontello.svg?30579662#fontello') format('svg');
+  }
+}
+
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-classic2:before { content: '\e806'; } /* '' */
+.icon-gplus-circled:before { content: '\e803'; } /* '' */
+.icon-protractor1:before { content: '\e80a'; } /* '' */
+.icon-spin2:before { content: '\e802'; } /* '' */
+.icon-home:before { content: '\e804'; } /* '' */
+.icon-person193:before { content: '\e808'; } /* '' */
+.icon-dollar:before { content: '\e807'; } /* '' */
+.icon-ruler:before { content: '\e805'; } /* '' */
+.icon-twitter-circled:before { content: '\e801'; } /* '' */
+.icon-facebook-circled:before { content: '\e800'; } /* '' */
+.icon-location:before { content: '\e809'; } /* '' */
+
 
 /* =Footer
 --------------------------------------------------------- */
@@ -2166,13 +2345,14 @@ footer form#w_esu_widget  input[type="submit"] {
 	margin: 0px 5.93%;
 }
 
-.wpcf7-form input[type=text], .wpcf7-form textarea, .wpcf7-form input[type=email] {
+.wpcf7-form input[type=text], .wpcf7-form textarea, .wpcf7-form input[type=email],
+.wpcf7-form input[type=tel]  {
 	border: none;
 	-webkit-border-radius: 4px;
 	border-radius: 4px; 
 	padding: 5px;
 	margin-top: 4px;
-	width: 97%;
+	width: 96%;
 }
 
 .wpcf7-form input[type=submit] {
@@ -2211,7 +2391,8 @@ footer form#w_esu_widget  input[type="submit"] {
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a {width: 30px; height: 30px; margin: -20px 0 0; display: block; background: url(images/repeat/bg_direction_nav.png) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.flex-direction-nav a {width: 30px; height: 30px; margin: -20px 0 0; display: block; background: url(images/repeat/bg_direction_nav.svg) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0.7; -webkit-transition: all .3s ease;}
+.flex-direction-nav a:hover {opacity: 1;}
 .flex-direction-nav .flex-next {background-position: 100% 0; right: -36px; }
 .flex-direction-nav .flex-prev {left: -36px;}
 .flexslider:hover .flex-next {opacity: 0.8; right: 5px;}
@@ -2225,235 +2406,457 @@ footer form#w_esu_widget  input[type="submit"] {
 .flex-control-thumbs img:hover {opacity: 1;}
 .flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
 
-/*
-#single-proyectos .flex-direction-nav {
-	position: absolute;
-	z-index: 1000;
-	top: 50%;
-	left: 5px;
-	width: 99%;
-}
-
-#single-proyectos .flex-direction-nav a {
-	background-image: url(images/CSS_sprite.png);
-	width: 44px;
-	height: 44px;
-	display: block;	
-}
-
-
-#single-proyectos .flex-direction-nav li {
-	float: left;
-}
-
-#single-proyectos .flex-direction-nav .flex-prev {
-	left: 5px;
-	background-position: -650px -175px;
-	text-indent: -9999em;
-}
-
-#single-proyectos .flex-direction-nav .flex-prev:hover {
-	background-position: -650px -225px;
-}
-
-#single-proyectos .flex-direction-nav .flex-next {
-	right: 5px;
-	background-position: -725px -175px;
-    text-indent: -9999em;
-    position: absolute;
-}
-
-#single-proyectos .flex-direction-nav .flex-next:hover {
-	background-position: -725px -225px;
-}
-*/
-
 
 /* Media queries for responsive design
 ----------------------------------------------------------------- */
 
-/* --- iPad Landscape --- */
-@media screen and (min-width: 881px) and (max-width: 940px) {
+.hidden-desktop {display: none;}
 
-	#access li a {
-		padding: 8px 15% 4px;
-	}
-	
-	#menu-secondary li a {
-		padding: 8px 5% 4px;
-	}
-}
+/*Retina display */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5){}
 
-/* --- iPad Portrait --- */
-@media screen and (max-width: 880px) {
-
- a#logo {
-	 margin-left: 20px;
- }
- 
- .home #access  {
-	 max-width: 660px;
-	 width: auto;
-	 background: none;
-	 width: 96%;
- }
- 
- iframe {
-	 width: 100%;
- }
- 
- .page .entry-content  img {
-	 width: 100%;
-	 height: auto;
- }
- 
- .home section#content {
-	 margin-top: -400px;
- }
- 
- #home-gallery {
-	 max-width: 100%;
- }
-	
-	#home-gallery h1 {
-	    font-size: 2.3em;
-	}
-	
-	#home-gallery h4 {
-		padding: 0px 10%;
-		font-size: 1em;
-	}
-	
-	#home-gallery .line {
-		width: 10%;
-	}
-	
-	#home-gallery .line-two {
-		display: none;
-	}
-
-  #container {
-	  padding: 0 2%;
-  }
-
-  header{
-	  	display:block;
-	  	text-align:center;
-   }
-	
-  header hgroup h1 {
-	  margin: 16px 0px 0;
-  }
-  
-  home #access, #access {
-    top: 34px;
-    left: 226px;
-    max-width: 879px;
-	width: 96%;
-	margin: 0px 4%;
-  }
-  
-  #access a {
-	  font-size: 0.95em;
-  }
-  
-  #menu-menu-principal ul.sub-menu-parent {
-	  top: 30px;
-	  text-align: left;
-  }
-  
-  #nav-2 { 
-  	padding-right: 10px;
-  }
-  
-  #slideshow {
-	 max-width: 100%;
-	 box-shadow: none; 
-	 overflow: hidden;
-	 margin: 0px 0px;
-  }
-  
-  #slideshow li { 
-	  max-width: 840px;
-	  overflow: hidden;
-  }
-  
-  .submenu-cat, #breadcrumbs {
-	  width: 100%;
-	  margin-top: 50px;
-  }
-  
-  #nav-below {
-	  right: 2%;
-  }
-  
-  #projects li:nth-child(odd) {
-  	 margin-right: 10px;
-  }
-  
-  #single-proyectos .col_IZ,  #single-proyectos .col_DE,
-  #single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE {
-	  float: none;
-	  width: 99%;
-	  max-width: 99%;
-	  margin-right: 0px;
-	  clear: both;
-  }
-  
-  .single .category-inmobiliaria {
-	  margin-top: 30px;
-  }
-  
-   #single-inmobiliaria .col_DE {
-	   padding: 0px;
-   }
-  
-  #single-proyectos .entry-top {
-	  width: 98%;
-  }
-  
-  #single-proyectos .entry-content { 
-	   width: 98%;
-  }
-  
-  #single-proyectos .gallery {
-	  min-height: inherit;
-  }
-  
-  #projects li:nth-child(odd), #projects li:nth-child(2n+2) {
-		 margin-right: 2% !important;
-  }
-  
- footer form#w_esu_widget label {
-	font-size: 0.7em;
- }
+/* Tablet (Portrait) Note: Design for a width of 768px */
+@media only screen and (min-width: 768px) and (max-width: 969px) { 
 	 
-  #housing li img {
-	width: 100%;
- }
- 
-  .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
-  .flex-direction-nav .flex-next {opacity: 1; right: 0;}
-  
-  
-  #post-social-inm .mr_social_sharing {
+	.hidden-tablet {display: none;}
+	#access {margin-left: 2%; width: 56%;}
+	#access li {padding: 1em 2% 1em;}
+	
+	iframe {width: 100%;}
+	#container {padding: 0 2%;}
+	
+	.page .entry-content  img {width: 100%;height: auto;}
+	.home section#content {margin-top: -420px; padding: 0;}
+	
+	#home-gallery {max-width: 100%;}
+	#home-gallery h1 {font-size: 2.3em;}
+	#home-gallery h4 {padding: 0px 10%;font-size: 1em;}
+	
+	#home-gallery .line {width: 10%;}
+	#home-gallery .line-two {display: none;}
+	
+	#home-projects h2.title:before, #home-projects h2.title:after {width: 20%;}
+	
+	
+	#slideshow {max-width: 100%;box-shadow: none; overflow: hidden;margin: 0px 0px;}
+	
+	#slideshow li { max-width: 840px;overflow: hidden;}
+	
+	.submenu-cat, #breadcrumbs {width: 100%;margin-top: 3em;}
+	
+	#single-proyectos .col_IZ,  #single-proyectos .col_DE,
+	#single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE {
+		float: none;
+		width: 99%;
+		max-width: 99%;
+		margin: 0px;
+		clear: both;
+	}
+	
+	#single-proyectos .entry-top,
+	#single-proyectos .entry-content {width: 98%;}
+	
+	#single-proyectos .gallery {min-height: inherit;}
+	
+	#projects li:nth-child(odd), #projects li:nth-child(2n+2) {
+		margin-right: 2% !important;
+	}
+	
+	footer form#w_esu_widget label {font-size: 0.7em;}
+	
+	#housing li img {width: 100%;}
+	
+	.flex-direction-nav .flex-prev {opacity: 1; left: 0 !important;}
+	.flex-direction-nav .flex-next {opacity: 1; right: 0 !important;}
+	
+	
+	#post-social-inm .mr_social_sharing {
 		float: left;
 		margin-bottom: 10px;
 		opacity: 0.5;
 		display: inline;
 		clear: none;
 	}
-
-  .social-desktop {display: none;}
 	
-  .social-movil {display: block;}
+	.social-desktop {display: none;}
+	
+	.social-movil {display: block;}
+}
 
+/* iPads (landscape) ----------- */
+@media all and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) { 
 
- 
+	#access {margin-left: 2%; width: 56%;}
+	#access li {padding: 1em 2% 1em;}
+	
+	/* Styles */
+	#menu-menu-principal ul.sub-menu-parent {top: 68px;text-align: left;}	
+	#menu-menu-principal {width: 100%;}	
+	#access li:last-child {margin-right: 0px;}
+	
+	#single-proyectos .col_DE {
+		clear: left;
+		width: 90%;
+		padding: 10px 5%;
+	}
+	
+	.resize {display: none;}
+	.module {max-width: 90% !important; }
+	.module.f-right {float: left;}
 }
 
 
-/* --- Smartphones and small Tablet PCs --- */
+/* Note: Design for a width of 320px */
+@media only screen and (max-width: 767px) { 
+
+	/* Prevent iOS, WinMobile from adjusting font size */
+	html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
+	.hidden-phone {display: none;}
+	.hidden-desktop {display: block;}
+
+	header hgroup h1 {margin: 0px 2% 0;}
+
+	#btn-menu-movil { float: right;margin: 1.5em 1em 1em; color: white; text-transform: uppercase; border: 1px solid #fff; border-radius: 4px; padding: 0.4em 1em 0.3em;}
+	
+	#nav-mobile {display: none; float: left;width: 96%;background-color: #3a3a3a; padding: 2%; margin:0;}
+	#nav-mobile ul {width: 80%;padding: 0 1%;text-align: left;}
+	#nav-mobile ul li {padding: 0.4em 0.5em; border-bottom: 1px solid #717171;}
+	#nav-mobile ul li:last-child {border: none;}
+	#nav-mobile ul a {color: #fff; text-transform: uppercase;font-weight: normal; font-size: 0.9em;}
+	
+	.home section#content {margin-top: -420px;}
+	
+	#home-gallery .line,#home-gallery .line-two {display: none;}
+	#home-gallery .flex-control-nav {margin-top: 1.5em;}
+	#home-featured li {width: 50%;margin: 1em auto;display: block;}
+	
+	#home-projects h2.title:before, #home-projects h2.title:after {width: 15%;}
+	
+	.home-project .title-featured {
+		font-size: 1em;
+	}
+	
+	#menu-secondary li a {
+	  padding: 8px 10px 10px;
+	  font-size: 75%;
+	}
+	
+	.submenu-cat, #breadcrumbs, #nav-below {
+	  display: none;
+	}
+	
+	#projects, .page article {
+		margin-top: 50px;
+		clear: both;
+	}
+	
+	#projects li img {
+	   display: block;
+	   margin: 0 auto;
+	}
+	
+	#single-proyectos .col_IZ {
+	  float: none;
+	  width: 100%;
+	}
+	
+	#single-proyectos .gallery, #single-inmobiliaria  .gallery{
+		width: auto;
+		height: auto;
+		min-height: inherit;
+	}
+	
+	#single-proyectos .gallery-icon, #single-inmobiliaria .gallery-icon  {
+		height: auto;
+		position: relative;
+	}
+
+	#single-proyectos .gallery-item, #single-inmobiliaria .gallery-item {
+		position: relative;
+		max-width: 100%;
+		overflow: hidden;
+		margin-bottom: 5px;
+		height: auto;
+	}
+	
+	#single-inmobiliaria  .gallery-item {
+		width: auto;
+	}
+	
+	#single-proyectos .col_IZ,  #single-proyectos .col_DE,
+	#single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE {
+		  float: none;
+		  width: 99%;
+		  max-width: 99%;
+		  margin: 0px;
+		  clear: both;
+	}
+	
+	#housing .info .h2 {
+		font-size: 1.1em;
+	}
+	
+	#housing {
+		margin-top: 40px;
+		width: 100% !important;
+		float: left;
+	}
+	
+	#housing li {
+	   width: 100%;
+	   margin-bottom: 30px;
+	}
+		
+	#housing li .info  {
+	 	max-width: 100%;  
+	}
+	
+    h1.entry-title, h1 {
+	    font-size: 1.4em;
+    }
+    
+    #projects li {
+	  width: 48%;
+	  float: left;
+	  overflow: hidden;
+	  display: table-cell;
+	  margin-right: 0px;
+	}
+	
+	#projects li .img {
+		height: 140px;
+		overflow: hidden;
+	}
+	
+	#projects li img {
+		width: 100%;
+		display: block; 
+	}
+		
+	#single-proyectos #nav li, #single-inmobiliaria #nav li {
+		width: 30%;
+		height: 90px;
+	}
+	
+	#projects li a span.over_title {
+		display: block;
+		z-index: 9;
+		padding: 4px;
+		height: auto;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 150px;
+	}
+
+	#projects li a span.over_title h4  {
+		color: #9ac247;
+		font-family: "Helvetica Neue", Helvetica, Arial;
+		text-align: left;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		font-size: 0.7em;
+	}
+	
+	footer #second.widget-area {
+		display: none;
+	}
+	
+	footer #first.widget-area, footer #third.widget-area  {
+		width: 46%;
+		padding-left:2%;
+	}
+	
+	.home-project .item-project .cat {
+		float: left;
+		clear: left;
+		width: 100%;
+	}
+	
+	.home-project .item-project .sale {
+		clear: left;
+		margin-left: 0px;
+	}
+	
+	span.btn-more {
+		display: none;
+	}
+	
+	#home-gallery h1 {
+		font-size: 1.8em;
+	}
+	
+	#home-gallery img.icono {
+		width: 60px;
+		height: 60px;
+	}
+	
+	#footer p, #footer li {
+		font-size: 0.75em;
+	}
+	
+}
+
+/*#Mobile (Small Size)*/
+@media only screen and (max-width: 480px) { 
+	
+	/* Images */
+	.entry-content img,
+	.comment-content img,
+	.widget img,
+	.gallery-item img {
+		max-width: 97.5%; /* Fluid images for posts, comments, and widgets */
+	}
+	
+	img[class*="align"],
+	img[class*="wp-image-"] {
+		height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly 	*/
+	}
+	
+	img.size-full {
+		max-width: 97.5%;
+		width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+	}
+
+	img { 
+		-ms-interpolation-mode: bicubic; 
+	}
+	
+	#home-featured li {width: 60%;}
+	
+	#slideshow {
+	 max-width: 100%;
+	 overflow: hidden;
+	}
+	
+	#slideshow li { 
+	  max-width: 100%;
+	  overflow: hidden;
+	}
+	
+	#slideshow li .title, #slideshow li .text {
+		font-size: 200%;
+	}
+	
+	#slideshow li .text {
+		bottom: 10%;
+		z-index: 100;
+	}
+	
+	.gallery-item img {
+		height: auto;
+		position: relative;
+	}
+		
+	footer #first.widget-area {
+	 	float: left;
+	 	max-width: 45%;
+	}
+	
+	footer #second.widget-area {
+		float: right;
+	 	max-width: 45%;
+	}
+	
+	.home section#content {
+		margin-top: -420px;
+	}
+
+	
+	a#logo {
+		background-image: url(images/header/logo_black.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 120px;
+		height: 80px;
+		margin-left: 8px;
+	}
+	
+	#white a#logo {
+		background-image: url(images/header/logo_white.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 120px;
+		height: 80px;
+		margin-left: 8px;
+	}
+	
+	.home-project {
+		height: 180px; 
+	}
+	
+	.home-project .item-project .cat {
+		float: left;
+		clear: left;
+		width: 100%;
+	}
+	
+	.home-project .item-project .sale {
+		clear: left;
+		margin-left: 0px;
+		margin-bottom: 4px;
+		float: left;
+	}
+	
+	span.btn-more {
+		display: none;
+	}
+
+}
+
+/* Note: Design for a width of 320px and landscape */
+@media all and (orientation:landscape) and (max-width: 767px)  {
+  /* Style adjustments for landscape mode goes here */
+	  body {
+		  margin: 0;
+		  font-size: 0.8em;
+		  line-height: 1.2em;
+	 }
+	 
+	 #backstretch img { 
+		min-height: 320px !important;
+	 }
+	 
+	 .home-project .item-project {
+		 min-height: auto;
+	 }
+	 
+	 .home-project {
+		 height: 140px;
+		 overflow: inherit;
+		 float: left;
+		 clear: both;
+      }
+      
+      .home #container {
+      	padding: 40px 0 0px;
+      	margin: 270px 0 0 0;
+      }
+      
+      #home-gallery .flex-control-nav {
+	      margin-top: 20px;
+	  }
+	  
+	  .home section#content {
+		  margin-top: -270px;
+		}
+		
+	  #home-gallery h1 {
+			font-size: 1.6em;
+	  }
+      
+      #footer {
+	      padding: 6px 0px 10px;
+	      min-height: 120px;
+      }
+      
+      #content-footer {
+	      margin: 10px auto;
+	   }
+  
+}
+
+
+/* --- Smartphones and small Tablet PCs --- 
 @media screen and (min-width: 630px) and (max-width: 880px)  {
 	
 	#single-inmobiliaria .gallery {
@@ -2486,56 +2889,9 @@ footer form#w_esu_widget  input[type="submit"] {
 	
 	#housing li img {height: auto;}
   
-}
+}*/
 
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-width: 621px) and (max-width: 879px) {
-
-	/* Styles */
-	#access {
-		left:0px;
-		top:120px;
-	}
-	
-	#access li {
-	   margin-right: 11%;
-	}
-	
-	#menu-menu-principal ul.sub-menu-parent {
-	  top: 68px;
-	  text-align: left;
-	}
-	
-	#menu-menu-principal {
-		width: 100%;
-	}
-	
-	#access li:last-child {
-		margin-right: 0px;
-	}
-	
-	#access a {
-	  padding: 8px 0px 0px 0px;
-	  font-size: 0.95em;
-	}
-	
-	header {
-    	height: 110px;
-    }
-    
-    #single-proyectos .col_DE {
-		clear: left;
-		width: 90%;
-		padding: 10px 5%;
-	}
-	
-	.resize {display: none;}
-	.module {max-width: 90% !important; }
-	.module.f-right {float: left;}
-
-}
-
-/* --- Smartphones and small Tablet PCs --- */
+/* --- Smartphones and small Tablet PCs ---
 @media screen and (max-width: 620px) { 
 
 	.home #container {
@@ -2643,8 +2999,8 @@ footer form#w_esu_widget  input[type="submit"] {
 	
 	#projects li.large img {
 		position: absolute;
-		left: -50%; /* Change this */
-		top: 0px;  /* Change this */
+		left: -50%; 
+		top: 0px;  
 		z-index: 0;
 	}
 	
@@ -2730,442 +3086,15 @@ footer form#w_esu_widget  input[type="submit"] {
 	.module.f-right {float: left;}
 	
    .two-column {
-	-moz-column-count:1; /* Firefox */
-	-webkit-column-count:1; /* Safari and Chrome */
+	-moz-column-count:1; 
+	-webkit-column-count:1;
 	column-count:1;
 	}
 	h1.title-two-column  {
 		margin-top: 2em;
 	}
 }
-
-@media screen and (max-width: 518px) {
-	#home-gallery .flex-control-nav {
-		margin-top: 60px;
-	}
-
-}
-
-/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
-   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ 
-   max-device-width: 480px*/
-@media screen and (max-width: 480px) {
-
-	/* Prevent iOS, WinMobile from adjusting font size */
-	html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
-	
-	header{
-	  	display:block;
-	  	text-align:center;
-	  	min-height: 90px;
-	  	height: 100px;
-	}
-	
-	#access {
-		margin: 0px 2%;
-		width: 98%;
-		top: 80px;
-	}
-	
-	header hgroup h1 {
-		margin: 0px 0px 0;
-	}
-	
-	#nav-2  {
-		top: 30px;
-	}
-	
-	.home section#content {
-	 	margin-top: -420px;
-	}
-	
-	#home-gallery .line {
-		display: none;
-	}
-	
-	#home-gallery .flex-control-nav {
-		margin-top: 60px;
-	}
-	
-	.home-project .title-featured {
-		font-size: 1em;
-	}
-	
-	#menu-secondary li a {
-	  padding: 8px 10px 10px;
-	  font-size: 75%;
-	}
-	
-	.submenu-cat, #breadcrumbs, #nav-below {
-	  display: none;
-	}
-	
-	#projects, .page article {
-		margin-top: 50px;
-		clear: both;
-	}
-	
-	#projects li img {
-	   display: block;
-	   margin: 0 auto;
-	}
-	
-	#single-proyectos .col_IZ {
-	  float: none;
-	  width: 100%;
-	}
-	
-	#single-proyectos .gallery, #single-inmobiliaria  .gallery{
-		width: auto;
-		height: auto;
-		min-height: inherit;
-	}
-	
-	#single-proyectos .gallery-icon, #single-inmobiliaria .gallery-icon  {
-		height: auto;
-		position: relative;
-	}
-
-	#single-proyectos .gallery-item, #single-inmobiliaria .gallery-item {
-		position: relative;
-		max-width: 100%;
-		overflow: hidden;
-		margin-bottom: 5px;
-		height: auto;
-	}
-	
-	#single-inmobiliaria  .gallery-item {
-		width: auto;
-	}
-	
-	#housing .info .h2 {
-		font-size: 1.1em;
-	}
-	
-	#housing {
-		margin-top: 40px;
-		width: 100% !important;
-		float: left;
-	}
-	
-	#housing li {
-	   width: 100%;
-	   margin-bottom: 30px;
-	}
-		
-	#housing li .info  {
-	 	max-width: 100%;  
-	}
-	
-    h1.entry-title, h1 {
-	    font-size: 1.4em;
-    }
-    
-    #projects li {
-	  width: 48%;
-	  float: left;
-	  overflow: hidden;
-	  display: table-cell;
-	  margin-right: 0px;
-	}
-	
-	#projects li .img {
-		height: 140px;
-		overflow: hidden;
-	}
-	
-	#projects li img {
-		width: 100%;
-		display: block; 
-	}
-		
-	#single-proyectos #nav li, #single-inmobiliaria #nav li {
-		width: 30%;
-		height: 90px;
-	}
-	
-	#projects li a span.over_title {
-		display: block;
-		z-index: 9;
-		padding: 4px;
-		height: auto;
-		position: absolute;
-		background-color: rgba(0, 0, 0, 0.5);
-		width: 150px;
-	}
-
-	#projects li a span.over_title h4  {
-		color: #9ac247;
-		font-family: "Helvetica Neue", Helvetica, Arial;
-		text-align: left;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		font-size: 0.7em;
-	}
-	
-	footer #second.widget-area {
-		display: none;
-	}
-	
-	footer #first.widget-area, footer #third.widget-area  {
-		width: 46%;
-		padding-left:2%;
-	}
-	
-	.home-project .item-project .cat {
-		float: left;
-		clear: left;
-		width: 100%;
-	}
-	
-	.home-project .item-project .sale {
-		clear: left;
-		margin-left: 0px;
-	}
-	
-	span.btn-more {
-		display: none;
-	}
-	
-	#home-gallery h1 {
-		font-size: 1.8em;
-	}
-	
-	#home-gallery img.icono {
-		width: 60px;
-		height: 60px;
-	}
-	
-	#footer p, #footer li {
-		font-size: 0.75em;
-	}
-	
-}
-
-/*Between 320px and 480px */
-@media screen and (min-width: 320px) and (max-width: 480px) {
-	
-	/* Images */
-	.entry-content img,
-	.comment-content img,
-	.widget img,
-	.gallery-item img {
-		max-width: 97.5%; /* Fluid images for posts, comments, and widgets */
-	}
-	
-	img[class*="align"],
-	img[class*="wp-image-"] {
-		height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly 	*/
-	}
-	
-	img.size-full {
-		max-width: 97.5%;
-		width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
-	}
-
-	img { 
-		-ms-interpolation-mode: bicubic; 
-	}
-	
-	#access li {
-	  margin-right: 4%;
-	}
-	
-	#access a {
-	  font-size: 75%;
-	  padding: 34px 0px 0px:
-	}
-	
-	#slideshow {
-	 max-width: 100%;
-	 overflow: hidden;
-	}
-	
-	#slideshow li { 
-	  max-width: 100%;
-	  overflow: hidden;
-	}
-	
-	#slideshow li .title, #slideshow li .text {
-		font-size: 200%;
-	}
-	
-	#slideshow li .text {
-		bottom: 10%;
-		z-index: 100;
-	}
-	
-	.gallery-item img {
-		height: auto;
-		position: relative;
-	}
-		
-	footer #first.widget-area {
-	 	float: left;
-	 	max-width: 45%;
-	}
-	
-	footer #second.widget-area {
-		float: right;
-	 	max-width: 45%;
-	}
-	
-	.home section#content {
-		margin-top: -420px;
-	}
-
-	
-	a#logo {
-		background-image: url(images/header/logo_black.png);
-		background-position: left top;
-		background-repeat: no-repeat;
-		background-size: 120px;
-		height: 80px;
-		margin-left: 8px;
-	}
-	
-	#white a#logo {
-		background-image: url(images/header/logo_white.png);
-		background-position: left top;
-		background-repeat: no-repeat;
-		background-size: 120px;
-		height: 80px;
-		margin-left: 8px;
-	}
-	
-	.home-project {
-		height: 180px; 
-	}
-	
-	.home-project .item-project .cat {
-		float: left;
-		clear: left;
-		width: 100%;
-	}
-	
-	.home-project .item-project .sale {
-		clear: left;
-		margin-left: 0px;
-		margin-bottom: 4px;
-		float: left;
-	}
-	
-	span.btn-more {
-		display: none;
-	}
-
-}
-
-/*Retina display */
-@media screen and (min-width: 320px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-
-	a#logo {
-		background-image: url(images/header/logo_black.png);
-		background-position: left top;
-		background-repeat: no-repeat;
-		background-size: 110px 43px;
-	}
-	
-	#white a#logo {
-		background-image: url(images/header/logo_white.png);
-		background-position: left top;
-		background-repeat: no-repeat;
-		background-size: 110px 43px;
-	}
-	
-	#backstretch img {
-		height: 800px !important;
-		width: auto;
-	}
-	
-	
-}
-
-@media all and (orientation:portrait) { 
-  /* Style adjustments for portrait mode goes here */
-
-}
-
-@media screen and (orientation:landscape) and (max-width: 767px) { 
-  /* Style adjustments for landscape mode goes here */
-	  body {
-		  margin: 0;
-		  font-size: 0.8em;
-		  line-height: 1.2em;
-	 }
-	 
-	 #backstretch img { 
-		min-height: 320px !important;
-	 }
-	 
-	 .home-project .item-project {
-		 min-height: auto;
-	 }
-	 
-	 .home-project {
-		 height: 140px;
-		 overflow: inherit;
-		 float: left;
-		 clear: both;
-      }
-      
-      .home #container {
-      	padding: 40px 0 0px;
-      	margin: 270px 0 0 0;
-      }
-      
-      #home-gallery .flex-control-nav {
-	      margin-top: 20px;
-	  }
-	  
-	  .home section#content {
-		  margin-top: -270px;
-		}
-		
-	  #home-gallery h1 {
-			font-size: 1.6em;
-	  }
-      
-      #footer {
-	      padding: 6px 0px 10px;
-	      min-height: 120px;
-      }
-      
-      #content-footer {
-	      margin: 10px auto;
-	   }
-  
-}
-
-/* iPads (portrait) ----------- */
-@media only screen  and (min-device-width : 768px)  and (max-device-width : 1024px)  and (orientation : landscape) {
-/* Styles */
-    body {
-		  margin: 0;
-		  font-size: 0.9em;
-		  line-height: 1.3em;
-	 }
-
-}
-
-@media screen and (orientation:landscape) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
- 
-	a#logo {
-		background-size: 95px 37px;
-	}
-	
-	#white a#logo {
-		background-size: 95px 37px;
-	}
-	
-	#home-gallery img.icono {
-		width: 40px;
-		height: 40px;
-	}
-	
-}
-
-
+ */
 
 
 /* non-semantic Helpers classes

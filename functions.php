@@ -96,13 +96,11 @@ function wallarquitectura_setup() {
 		require_once( $locale_file );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'wallarquitectura' ),
-	) );
+	register_nav_menus( array('primary' => __( 'Primary Navigation', 'wallarquitectura' ),) );
 	
-	register_nav_menus( array(
-		'secondary' => __( 'Secondary Navigation', 'wallarquitectura' ),
-	) );
+	register_nav_menus( array('secondary' => __( 'Secondary Navigation', 'wallarquitectura' ),) );
+	
+	register_nav_menus( array('third' => __( 'Third Navigation', 'wallarquitectura' ),) );
 
 	}
 endif;

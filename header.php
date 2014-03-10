@@ -29,6 +29,7 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php
 		/* We add some JavaScript to pages with the comment form
 		 * to support sites with threaded comments (when in use).
@@ -59,22 +60,26 @@
 	<body <?php body_class(); ?>>
 			<div id="masterheader">
 				<header id="header" role="banner">
+										
+					<div id="nav-mobile" class="hidden-desktop hidden-tablet">
+					    <?php wp_nav_menu( array( 'container_id' => 'menu-third', 'theme_location' => 'third', 'sort_column' => 'menu_order' ) ); ?>
+			        </div><!-- /mobile menu -->  
+			        
 					<hgroup>
-					<h1><a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<h2><?php bloginfo( 'description' ); ?></h2>
+						<h1><a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h2><?php bloginfo( 'description' ); ?></h2>
 					</hgroup>
 					
-					<nav id="nav-2">
+					<nav id="access" role="navigation" class="hidden-phone">
+						<a id="skip" href="#content" title="<?php esc_attr_e( 'Skip to content', 'wallarquitectura' ); ?>"><?php _e( 'Skip to content', 'wallarquitectura' ); ?></a>
+						<?php wp_nav_menu( array( 'container_id' => 'menu-primary', 'theme_location' => 'primary') ); ?>
+					</nav>
+					
+					<nav id="nav-2" class="hidden-phone">
 						<?php wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
 					</nav>
-						
-						
-					<nav id="access" role="navigation">
-					  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
-						<a id="skip" href="#content" title="<?php esc_attr_e( 'Skip to content', 'wallarquitectura' ); ?>"><?php _e( 'Skip to content', 'wallarquitectura' ); ?></a>
-						<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-						<?php wp_nav_menu( array( 'container_id' => 'menu-primary', 'theme_location' => 'primary') ); ?>
-					</nav><!-- #access -->
+					
+					<a href="#" id="btn-menu-movil" class=" hidden-desktop hidden-tablet menu-trigger"><span></span>Menú</a>      
 				
 				</header>
 			</div>

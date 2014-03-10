@@ -1,7 +1,6 @@
 
 <div id="single-proyectos">
 
-	<!-- Breadcrumb -->
 	<div id="breadcrumbs">
 	<?php the_breadcrumb(); ?>
 
@@ -18,14 +17,12 @@
 
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				
-				
-				
-				  <div id="proyect-gallery" class="gallery">
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+			<!--BORRAR-->
+			  <div id="proyect-gallery" class="gallery">
 				   <div class="slides"> 
-				  	
-                    
+	                
 				    	<?php
 						$args = array(
 						    'post_type' => 'attachment',
@@ -39,89 +36,134 @@
 						if ($attachments) {
 						    foreach ($attachments as $attachment) {
 						        //Tamaños: "thumbnail", "medium", "large", "full"
-						        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'full' ); 
+						        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'large' ); 
 						        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
-						        
-					 
-						       <img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>
-" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" />
+	
+						       <li><img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" /></li>
 						    <?php
 						    }
 						}
 						?>
-
+	
 					</div>
-					</div><!--/gallery -->
-					 
+				</div>
+				<!--/////BORRAR-->
+				
+				<div style="display:none;">	
+				<?php  $rows = get_field('galeria_proyecto');  ?>
+				<?php if($rows) { ?>
+			    <div id="proyect-gallery-two" class="gallery flexslider">
+				   <ul class="slides"> 
+				   	<?php foreach($rows as $row) { ?>
+				   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=460"/> </li>
+				   	<?php	} ?>
+				   	</ul>
+				</div>
+				<?php } ?>
+				</div>
 
 				
-					<div class="col_IZ">
-						
-						<div class="entry-top">
-							
-							<?php //the_meta() ?>
-							
-							<h1><?php the_title(); ?></h1>
-							<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
-							<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
-							<?php } ?>
-							
-						</div>
-						
-						<div class="entry-content">
-							<?php  if((get_post_meta($post->ID, 'custom_select', true))) { ?>
-							<div class="data">
-								<span>Año</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_select', true); ?></span>
-							</div>
-							<?php } ?>
-							
-							<?php  if((get_post_meta($post->ID, 'custom_superficie', true))) { ?>
-							<div class="data">
-								<span>Superficie Construida</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie', true); ?>m<sup>2</sup></span>
-							</div>
-							<?php } ?>
-							
-							<?php  if((get_post_meta($post->ID, 'custom_superficie_terreno', true))) { ?>
-							<div class="data">
-								<span>Superficie Terreno</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie_terreno', true); ?>m<sup>2</sup></span>
-							</div>
-							<?php } ?>
-							
-							<a class="btn_mapa btn_share social-desktop" target="_blank" href="javascript:void(0)">compartir</a>
-							
-							<div id="post-social" class="clearfix social-desktop">
-								<?php echo do_shortcode('[social_share/] '); ?>
-							</div>
-
-
-							
-						</div><!-- .entry-content -->
-						
-											
+			<div class="col_IZ">
+				
+				<div class="entry-top">
+					
+					<?php //the_meta() ?>
+					
+					<h1><?php the_title(); ?></h1>
+					<!--BORRAR-->
+					<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
+					<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
+					<?php } ?>
+					<!--////BORRAR-->
+					
+					<div style="display:none;">
+					<?php if( get_field('ubicacion') ) { ?>
+					<h4><?php the_field('ubicacion'); ?></h4>
+					<?php } ?>
 					</div>
 					
-					<div class="col_DE">
-					
-						<div class="content">
-							<?php the_content(); ?>
-						</div>
-
-				    </div>
-				    
-				    <a class="btn_mapa btn_share social-movil" target="_blank" href="javascript:void(0)">compartir</a>
-																	
-				</article><!-- #post-## -->
-								
-				<div class="clearfix"></div>
+				</div>
 				
-				<div class="entry-utility clearfix">
-						<?php edit_post_link( __( 'Editar', 'wallarquitectura' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .entry-utility -->
+				<div class="entry-content">
+					
+					<!--BORRAR-->
+					<?php  if((get_post_meta($post->ID, 'custom_select', true))) { ?>
+					<div class="data">
+						<span>Año</span>
+						<span class="strong"><?php echo get_post_meta($post->ID, 'custom_select', true); ?></span>
+					</div>
+					<?php } ?>
+					
+					<?php  if((get_post_meta($post->ID, 'custom_superficie', true))) { ?>
+					<div class="data">
+						<span>Superficie Construida</span>
+						<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie', true); ?>m<sup>2</sup></span>
+					</div>
+					<?php } ?>
+					
+					<?php  if((get_post_meta($post->ID, 'custom_superficie_terreno', true))) { ?>
+					<div class="data">
+						<span>Superficie Terreno</span>
+						<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie_terreno', true); ?>m<sup>2</sup></span>
+					</div>
+					<?php } ?>
+					<!--////BORRAR-->
+					
+					<div style="display:none;">
+					<?php if( get_field('ano_del_proyecto') ) { ?>
+					<div class="data">
+						<span><?php _e('Año','wallarquitectura') ?></span>
+						<span class="strong"><?php the_field('ano_del_proyecto'); ?></span>
+					</div>
+					<?php } ?>
+					
+					<?php if( get_field('superficie_construida') ) { ?>
+					<div class="data">
+						<span><?php _e('Superficie Construida','wallarquitectura') ?></span>
+						<span class="strong"><?php the_field('superficie_construida'); ?>m<sup>2</sup></span>
+					</div>
+					<?php } ?>
+					
+					<?php if( get_field('superficie_terreno') ) { ?>
+					<div class="data">
+						<span><?php _e('Superficie Terreno','wallarquitectura') ?></span>
+						<span class="strong"><?php the_field('superficie_terreno'); ?>m<sup>2</sup></span>
+					</div>
+					<?php } ?>
+					</div>
+					
+					
+					
+					<a class="btn_mapa btn_share social-desktop" target="_blank" href="javascript:void(0)">compartir</a>
+					
+					<div id="post-social" class="clearfix social-desktop">
+						<?php echo do_shortcode('[social_share/] '); ?>
+					</div>
 
+				</div><!-- .entry-content -->
+				
+									
+			</div>
 			
+			<div class="col_DE">
+			
+				<div class="content">
+					<?php the_content(); ?>
+				</div>
+
+		    </div>
+		    
+		    <a class="btn_mapa btn_share social-movil" target="_blank" href="javascript:void(0)">compartir</a>
+															
+		</article><!-- #post-## -->
+						
+		<div class="clearfix"></div>
+		
+		<div class="entry-utility clearfix">
+				<?php edit_post_link( __( 'Editar', 'wallarquitectura' ), '<span class="edit-link">', '</span>' ); ?>
+	</div><!-- .entry-utility -->
+
+	
 				
 	<?php endwhile; // end of the loop. ?>
 

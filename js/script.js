@@ -52,7 +52,17 @@ $(function() {
      $('#proyect-gallery').flexslider({
         animation: "slide",
         slideshow: false,
-        selector: ".slides > img",
+        selector: ".slides > li",
+	    directionNav: true,
+	    keyboardNav: true,
+	    controlNav: false
+      });
+      
+      // Proyecto BORRAR
+     $('#proyect-gallery-two').flexslider({
+        animation: "slide",
+        slideshow: false,
+        selector: ".slides > li",
 	    directionNav: true,
 	    keyboardNav: true,
 	    controlNav: false
@@ -65,21 +75,8 @@ $(function() {
 	       controlNav: false,
 	       animationLoop: false,
 	       slideshow: false,
-	       selector: ".slides > img",
-	       sync: "#carousel"
+	       selector: ".slides > li"
 	    });
-      
-       $('#carousel').flexslider({
-		    animation: "slide",
-		    controlNav: false,
-		    animationLoop: false,
-		    slideshow: false,
-		    selector: ".slides > img",
-		    itemWidth: 100,
-		    itemMargin: 5,
-		    asNavFor: '#housing-gallery'
-		  });
-      
 }); 
 
 
@@ -89,11 +86,9 @@ $(function(){
 		function(i,content){
 			$(content).hover(
 				function(){
-					$(this).find('.item-proyect').stop().animate({top:'-160px', opacity:'0'},{duration:400});
-					$(this).find('a.img').delay(500).stop().animate({top:'0px'},{duration:400});	
+					$(this).find('a.img img').animate({scale: 1.4},{duration:200});	
 				}, function(){
-					$(this).find('.item-proyect').stop().animate({top:'0px', opacity:'1'},{duration:200});
-					$(this).find('a.img').delay(400).stop().animate({top:'160px'},{duration:200});	
+					$(this).find('a.img img').animate({scale: 1},{duration:200});	
 			}); }
 	  );
 }); 				
@@ -177,15 +172,18 @@ $(function () {
 
 /*****Listado de inmobiliaria*****/
 $(function(){
-    $("").vgrid({
-        easing: "easeOutQuint",
-        time: 500,
-        delay: 20,
-        fadeIn: {
-            time: 300,
-            delay: 50
-        }
-    });
+  if ( $('#housing').length) {
+	var $container = $('#housing');
+	
+	$container.imagesLoaded( function(){
+	  $container.isotope({
+	        // options
+		    //itemSelector : 'article',
+		    layoutMode : 'masonry',
+		    itemPositionDataEnabled: true
+	  });
+	});
+}
 });
 
 
@@ -208,4 +206,14 @@ $(function(){
 	if (winh < 560) {
 		$('#housing li img').removeAttr('height');
 	}
+});
+
+/***** Menu mobile *****/
+$(function($){
+
+ $('#btn-menu-movil')
+   .bind('click focus', function(){
+     $('#nav-mobile').slideToggle();
+  }); 
+  
 });

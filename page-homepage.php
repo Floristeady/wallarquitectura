@@ -75,11 +75,13 @@ get_header(); ?>
 		   <li class="home-project column-three">
 		 
 			   <a href="<?php the_permalink();?>" class="img" title="">
-						<?php $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
-						if ( ! is_array($attachments) ) continue;
-						$count = count($attachments);
-						$first_attachment = array_shift($attachments);?>
-					    <?php echo wp_get_attachment_image($first_attachment->ID, "medium"); ?>
+					<?php 
+					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'big'));
+					$thumbnailsrc = "";
+					if (!empty($domsxe))
+						$thumbnailsrc = $domsxe->attributes()->src;
+				?>
+					<img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=400&h=240"> 
 				</a>
 				
 			   <div class="item-project">
@@ -119,7 +121,20 @@ get_header(); ?>
 	<?php endif; ?>
 	
 	 
-   <?php $args = array(
+   <div id="home-housing">
+   	 <div class="content-center">
+	   	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+			<?php if( get_field('titulo_seccion_inmobiliaria') ) { ?>
+				<h1><?php the_field('titulo_seccion_inmobiliaria'); ?></h1>
+				<span class="line"></span>
+			<?php } ?>
+			
+			<?php if( get_field('texto_seccion_inmobiliaria') ) { ?>
+				<h2><?php the_field('texto_seccion_inmobiliaria'); ?></h2>
+			<?php } ?>
+		<?php endwhile; // end of the loop. ?>
+
+		<?php $args = array(
 			'post_type'	=> 'post',
 			'posts_per_page' => 3,
 			'meta_query' => array(
@@ -128,25 +143,37 @@ get_header(); ?>
 		$featured_sale = new WP_Query( $args ); ?>
 		
 	<?php if ( $featured_sale->have_posts() ) : ?>	
-	<div id="home-housing">
-		<div class="content-center">
-			<h1>Venta de Casa</h1>
-			<span class="line"></span>
-			<h2>También hacemos proyectos inmobiliarios. <br/>Revisa nuestros <a href="">proyectos en venta</a>, contáctanos para más información. </h2>
 
 	    <ul id="home-featured">
 	    <?php while ( $featured_sale->have_posts() ) : $featured_sale->the_post(); ?>
 	
 			<li>
 				 <a href="<?php the_permalink();?>" title="">
+				 <span class="icon-dollar"></span>
 				  <?php 
 					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'thumbnail'));
 					$thumbnailsrc = "";
 					if (!empty($domsxe))
 						$thumbnailsrc = $domsxe->attributes()->src;?> 
 					<div class="front"><img src="<?php print $thumbnailsrc; ?>"></div>
-				 	<div class="back"><span><?php the_title();?></span></div>
 					
+				 	<div class="text-container">
+					 	<h3><?php the_title();?></h3>
+					 	<?php if( get_field('superficie_construida') ) { ?>
+					 	<p><span class="icon-home"><?php the_field('superficie_construida'); ?>m<sup>2</sup></span>
+					 	<?php } ?>
+					 	
+					 	<?php if( get_field('numero_habitaciones') ) { ?>
+						<span class="icon-person193"><?php the_field('numero_habitaciones'); ?> <?php _e('Habitaciones', 'wallarquitectura') ?></span> 
+						<?php } ?>
+						
+						<?php if( get_field('numero_de_banos') ) { ?>
+						<span class="icon-classic2"><?php the_field('numero_de_banos'); ?> <?php _e('Baños', 'wallarquitectura') ?></span></p>
+						<?php } ?>
+						
+						<div class="button"> <?php _e('Más detalles', 'wallarquitectura') ?> </div>
+					</div>
+				
 			    </a>
 			</li>
 			

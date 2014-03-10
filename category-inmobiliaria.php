@@ -11,12 +11,10 @@ get_header(); ?>
 
 				<?php include (TEMPLATEPATH . '/include/submenu-housing.php'); ?>
 
-				<!--Para obtener el ID de la categoria-->
 				<?php $post_categories = wp_get_post_categories(!wp_verify_nonce(isset($post_id)));
 					$cats = array();
 				?>
 				
-				<!--PHP para dividir proyecto por post-->
 				<?php	
 				 $my_query = new WP_Query( array( 
 				    'post_type' => 'post', 
@@ -46,8 +44,24 @@ get_header(); ?>
 							$height=$foo[1];
 						?>
 			 			<span class='img'>
-			 			  <span class="sale">SE VENDE</span>
-			 			<img width="456" height="<?php echo $height ?>" src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=456' border=0 /></span>
+			 			  <span class="sale"><?php _e('SE VENDE /', 'wallarquitectura')?><span class="icon-dollar"></span></span>
+			 			  <div class="more-info">
+			 			  	   <p>
+			 			  	  <?php if( get_field('superficie_construida') ) { ?>
+				 			   <span class="icon-home"><?php the_field('superficie_construida'); ?>m<sup>2</sup></span>
+				 			  <?php } ?>
+				 			  
+				 			  <?php if( get_field('numero_habitaciones') ) { ?>
+					 		  <span class="icon-person193"><?php the_field('numero_habitaciones'); ?> <?php _e('Habitaciones','wallarquitectura') ?></span> 
+					 		  <?php } ?>
+					 		  
+					 		  <?php if( get_field('numero_de_banos') ) { ?>
+					 		  <span class="icon-classic2"><?php the_field('numero_de_banos'); ?> <?php _e('Baños','wallarquitectura') ?></span></p>
+					 		  <?php } ?>
+					 		  </p>
+			 			  </div>
+			 			  
+			 			<img src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=490' border=0 /></span>
 			 			<?php
 			 			endif;
 			 			?>  
@@ -55,9 +69,17 @@ get_header(); ?>
 			 			<span class="info">
 		        			<span class="h2"><?php the_title() ?></span>
 		        			
+		        			<!--BORRAR-->
 		        			<span class="h4"><span class="bold">Ubicación: </span>
 		        				<?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?>
 							</span>
+							<!--/BORRAR-->
+							
+							<?php if( get_field('ubicacion') ) { ?>	
+							<span class="h4">
+							<span class="bold"><?php _e('Ubicación:','wallarquitectura') ?></span>
+							<?php the_field('ubicacion'); ?></span>
+							<?php } ?>
 							
 		        		</span>
 

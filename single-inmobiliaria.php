@@ -1,6 +1,6 @@
 
 <div id="single-inmobiliaria">
-		<!-- Breadcrumb -->
+
 		<div id="breadcrumbs">
 		<?php the_breadcrumb(); ?>
 		</div>
@@ -16,85 +16,47 @@
 
 		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				
-					<div class="col_IZ">
-						
-						<div class="entry-top">
-						    <span class="sale">SE VENDE</span>
-							<h1><?php the_title(); ?></h1>
-							
-							<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
-							<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
-							<?php } ?>
-						</div>
-						
-						<div class="entry-content">
-							
-							<?php  if((get_post_meta($post->ID, 'custom_superficie', true))) { ?>
-							<div class="data">
-								<span>Superficie Construida</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_superficie', true); ?>m<sup>2</sup></span>
-							</div>
-							<?php } ?>
-							
-							<?php  if((get_post_meta($post->ID, 'custom_superficie_terreno', true))) { ?>
-							<div class="data">
-								<span>Superficie Terreno</span>
-								<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie_terreno', true); ?>m<sup>2</sup></span>
-							</div>
-							<?php } ?>
-							
-							
-							<?php  if((get_post_meta($post->ID, 'custom_direccion', true))) { ?>
-							<div class="data">
-								<span>Ubicación</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_direccion', true); ?></span>							
-								<?php  if((get_post_meta($post->ID, 'custom_mapa_google', true))) { ?>
-								<a class="btn_mapa" target="_blank" href="<?php echo get_post_meta($post->ID, 'custom_mapa_google', true); ?>">ver mapa</a>
-							    <?php } ?>
-							</div>
-							<?php } ?>
-							
-							
-							<?php  if((get_post_meta($post->ID, 'custom_telefono', true))) { ?>
-							<div class="data">
-								<span>Teléfonos ventas</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_telefono', true); ?></span>
-							</div>
-							<?php } ?>
-
-						
-							<?php  if((get_post_meta($post->ID, 'custom_select', true))) { ?>
-							<div class="data">
-								<span>Año</span>
-								<span class="bold"><?php echo get_post_meta($post->ID, 'custom_select', true); ?></span>
-							</div>
-							<?php } ?>
-							
-							<div id="post-social-inm" class="clearfix social-desktop">
-							
-								<?php echo do_shortcode('[social_share/] '); ?>
-							</div>
-				 
-							
-														
-						</div><!-- .entry-content -->
-					
-					</div>
-					<!--fin col_DE-->
-					
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>					
 									
-				    <div class="col_DE">
-				    
-				    	<div class="content">
-							<?php the_content(); ?>
-						</div>
+				    <div class="col_IZ">   
 						
-						<div id="housing-gallery" class="gallery flexslider">
-						   <div class="slides"> 
-						  	
-		                    
+						<?php  $rows = get_field('galeria_proyecto');  ?>
+						<?php if($rows) { ?>
+						 <div id="housing-gallery" class="gallery flexslider">
+						    
+						    <span class="sale">SE VENDE /<span class="icon-dollar"></span></span>
+						  
+						    <div class="info">
+						    	<p>						  											
+								<?php if( get_field('numero_habitaciones') ) { ?>
+								<span class="icon-person193"> <?php the_field('numero_habitaciones'); ?>     <?php _e(' Habitaciones', 'wallarquitectura') ?> / </span> 							
+								<?php } ?>
+								
+								<?php if( get_field('numero_de_banos') ) { ?>
+							    <span class="icon-classic2"> <?php the_field('numero_de_banos'); ?><?php _e(' Baños', 'wallarquitectura') ?> / </span>
+							    <?php } ?>
+							    
+							     <?php if( get_field('superficie_construida') ) { ?>
+						 	<span class="icon-home"><?php the_field('superficie_construida'); ?>m<sup>2</sup> Construido /</span>
+						 	  <?php } ?>
+						 	  
+						 	  <?php if( get_field('superficie_terreno') ) { ?>
+						 	<span class="icon-protractor1"><?php the_field('superficie_terreno'); ?>m<sup>2</sup> Terreno</span>
+						 	  <?php } ?>
+							   </p>
+							   
+							 </div>
+	
+							  <ul class="slides" style="display:none;"> 
+							   	<?php foreach($rows as $row) { ?>
+							   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=520"/> </li>
+							   	<?php	} ?>
+							 </ul>
+
+							<?php } ?>
+					
+							<!--/BORRAR -->
+						   <ul class="slides"  > 
 						    	<?php
 								$args = array(
 								    'post_type' => 'attachment',
@@ -111,65 +73,74 @@
 								        //Tamaños: "thumbnail", "medium", "large", "full"
 								        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'full' ); 
 								        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
-								        
-							 
-								      <img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" />
+								      <li><img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" /></li>
 								    <?php
 								    }
 								}
 								?>
 		
-							</div>
-						</div><!--/gallery -->
+							</ul>
+							<!--/BORRAR -->
+							
+						</div>
+						<!--housing-gallery-->
+
+						<div class="content">
+							<?php the_content(); ?>
+						</div>
+							
+				   </div>
+				   <!--fin col_IZ-->
+				   
+				   
+				   <div class="col_DE">
 						
-						<div id="carousel" class="flexslider">
-						   <div class="slides"> 
-						  	
-		                    
-						    	<?php
-								$args = array(
-								    'post_type' => 'attachment',
-								    'numberposts' => null,
-								    'post_parent' => $post->ID,
-								    'post_mime_type' => 'image',
-								    'orderby'    => 'title',
-								    'order'    => 'ASC',
-								    'exclude' => get_post_thumbnail_id($post->ID)
-								);
-								$attachments = get_posts($args);
-								if ($attachments) {
-								    foreach ($attachments as $attachment) {
-								        //Tamaños: "thumbnail", "medium", "large", "full"
-								        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'thumbnail' ); 
-								        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
-								        
-							 
-								      <img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" />
-								    <?php
-								    }
-								}
-								?>
-								
+						<div class="entry-top">
+							<h1><?php the_title(); ?></h1>
+							
+							<?php if( get_field('ubicacion') ) { ?>																	<h4><?php the_field('ubicacion'); ?></h4>
+							<?php } ?>
+						</div>
+						
+						<div class="entry-content">
+							
+							<?php if( get_field('telefonos') ) { ?>
+							<div class="data">
+								<span><?php _e('Teléfono(s) Ventas','wallarquitectura') ?></span>
+								<span class="bold"><?php the_field('telefonos'); ?></span>
 							</div>
-						</div><!--/gallery -->
-
-					</div>
-					<!--fin col_IZ-->
-					
-					
-					<div id="post-social-inm" class="clearfix social-movil">
+							<?php } ?>
+							
+							
+							<?php if( get_field('direccion') ) { ?>	
+							<div class="data">
+								<span><?php _e('Ubicación','wallarquitectura') ?></span>
+								<span class="bold"><?php the_field('direccion'); ?></span>							
+							<?php if( get_field('mapa_de_google') ) { ?>	
+								<a class="btn_mapa icon-location" target="_blank" href="<?php the_field('mapa_de_google'); ?>"><?php _e('ver mapa ubicación','wallarquitectura') ?></a>
+							    <?php } ?>
+							</div>
+							<?php } ?>
+							
+							
+							<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
+							<?php if (is_plugin_active('contact-form-7/wp-contact-form-7.php')) { ?>
+							   <div class="form">
+							     <?php echo do_shortcode('[contact-form-7 id="365" title="Formulario Inmobiliaria"]'); ?>
+							   </div>
+							<?php } ?>
+							
+							
+							<div id="post-social-inm" class="clearfix social-desktop">	
 								<?php echo do_shortcode('[social_share/] '); ?>
-					</div>
+							</div>
+														
+						</div>
 					
+					</div>
+					<!--fin col_DE-->
 
-					</article><!-- #post-## -->
-				
-				
-				<div class="clearfix"></div>
-				
-				<div class="entry-utility clearfix">
-						<?php edit_post_link( __( 'Editar', 'wallarquitectura' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .entry-utility -->
+			</article>
 
-	<?php endwhile; // end of the loop. ?>
+		<?php endwhile; // end of the loop. ?>
 </div>

@@ -79,7 +79,7 @@
 						<?php wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
 					</nav>
 					
-					<a href="#" id="btn-menu-movil" class=" hidden-desktop hidden-tablet menu-trigger"><span></span>Menú</a>      
+					<a href="#" id="btn-menu-movil" class=" hidden-desktop hidden-tablet menu-trigger"><span class="icon"></span>Menú</a>      
 				
 				</header>
 			</div>

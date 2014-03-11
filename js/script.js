@@ -214,6 +214,8 @@ $(function($){
  $('#btn-menu-movil')
    .bind('click focus', function(){
      $('#nav-mobile').slideToggle();
+     $('#btn-menu-movil').toggleClass('active');
+     $('.backstretch').toggleClass('active');
   }); 
   
 });

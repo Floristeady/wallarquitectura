@@ -27,7 +27,7 @@ $(function(){
 /*****Flexislider Home y Galería Proyectos*****/
 $(function() {
 	  
-	  if ($(window).width() <= 767) {
+	//  if ($(window).width() <= 767) {
 	      $('#home-gallery').flexslider({
 	        animation: "slide",
 	        slideshow: false,
@@ -43,7 +43,7 @@ $(function() {
 			  $.backstretch('' + new_img + '');
 			}
 	      });
-      } else {
+      //} else {
 	      $('#home-gallery').flexslider({
 	        animation: "fade",
 	        slideshow: true,
@@ -55,7 +55,7 @@ $(function() {
 			  $.backstretch('' + new_img + '');
 			}
 	      });
-      }
+      //}
       
       // Home
 	  if ($('body').hasClass('home')) {

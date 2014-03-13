@@ -27,20 +27,35 @@ $(function(){
 /*****Flexislider Home y Galería Proyectos*****/
 $(function() {
 	  
-      $('#home-gallery').flexslider({
-        animation: "slide",
-        slideshow: false,
-        controlNav: true,
-        directionNav: true,
-		keyboardNav: true,
-		pauseOnAction: true,
-		pauseOnHover: false,	 				
-		animationLoop: true,
-		after: function(){
-		  var new_img = $('.flex-active-slide').children('img.this').attr('title');
-		  $.backstretch('' + new_img + '');
-		}
-      });
+	  if ($(window).width() <= 767) {
+	      $('#home-gallery').flexslider({
+	        animation: "slide",
+	        slideshow: false,
+	        controlNav: true,
+	        directionNav: true,
+			keyboardNav: true,
+			pauseOnAction: true,
+			pauseOnHover: false,
+			touch: true,	 				
+			animationLoop: true,
+			after: function(){
+			  var new_img = $('.flex-active-slide').children('img.this').attr('title');
+			  $.backstretch('' + new_img + '');
+			}
+	      });
+      } else {
+	      $('#home-gallery').flexslider({
+	        animation: "fade",
+	        slideshow: true,
+	        controlNav: true,
+	        directionNav: false,
+			touch: true,	 				
+			after: function(){
+			  var new_img = $('.flex-active-slide').children('img.this').attr('title');
+			  $.backstretch('' + new_img + '');
+			}
+	      });
+      }
       
       // Home
 	  if ($('body').hasClass('home')) {
@@ -57,17 +72,6 @@ $(function() {
 	    keyboardNav: true,
 	    controlNav: false
       });
-      
-      // Proyecto BORRAR
-     $('#proyect-gallery-two').flexslider({
-        animation: "slide",
-        slideshow: false,
-        selector: ".slides > li",
-	    directionNav: true,
-	    keyboardNav: true,
-	    controlNav: false
-      });
-
 
       // Inmobiliaria
        $('#housing-gallery').flexslider({
@@ -81,18 +85,19 @@ $(function() {
 
 
 /*****Proyectos Pag Inicio muestra img*****/
-$(function(){
-	$('.home-project').each(
-		function(i,content){
-			$(content).hover(
-				function(){
-					$(this).find('a.img img').animate({scale: 1.4},{duration:200});	
-				}, function(){
-					$(this).find('a.img img').animate({scale: 1},{duration:200});	
-			}); }
-	  );
-}); 				
-
+if (!$(window).width() <= 767) {
+	$(function(){
+		$('.home-project').each(
+			function(i,content){
+				$(content).hover(
+					function(){
+						$(this).find('a.img img').animate({scale: 1.4},{duration:200});	
+					}, function(){
+						$(this).find('a.img img').animate({scale: 1},{duration:200});	
+				}); }
+		  );  
+	}); 				
+} 
 
 /*****Color de font en listado proyectos*****/
 $(function () {
@@ -111,7 +116,6 @@ $(function () {
     
     function changecolor() {
      	var classwhite = $('body').hasClass('category-proyectos');
-     	//var colorgreen = $('body').hasClass('page-id-2');
 	     
 	     if (classwhite == true) {
 				$('body').attr('id', 'white');	
@@ -123,9 +127,7 @@ $(function () {
 
 /*****Listado de proyectos*****/
 $(function () {
-	
-	//$("#projects li:nth-child(3n+3)").addClass("mar-right-0");
-	
+
 	$("#single-proyectos #nav li:nth-child(6n+6)").addClass("mar-right-0");
 
 	// Fade del load project and filter tag
@@ -190,13 +192,9 @@ $(function(){
 /*****Mostrar Compartir Botones Sociales*****/
 
 $(function(){
-	$("a.btn_share").toggle(
-		function(){
-			$('#post-social').slideDown();
-			console.log ("ok");
-		}, function(){
-			$('#post-social').slideUp();
-	});
+	$("a.btn_share").bind('click focus', function(){
+		$('#single-proyectos #post-social').toggleClass('show');
+	}); 
 });
 
 
@@ -212,6 +210,13 @@ $(function(){
 $(function($){
 
  $('#btn-menu-movil')
+   .bind('click focus', function(){
+     $('#nav-mobile').slideToggle();
+     $('#btn-menu-movil').toggleClass('active');
+     $('.backstretch').toggleClass('active');
+  }); 
+  
+  $('#nav-mobile span')
    .bind('click focus', function(){
      $('#nav-mobile').slideToggle();
      $('#btn-menu-movil').toggleClass('active');

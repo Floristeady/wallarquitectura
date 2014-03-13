@@ -63,6 +63,7 @@
 										
 					<div id="nav-mobile" class="hidden-desktop hidden-tablet">
 					    <?php wp_nav_menu( array( 'container_id' => 'menu-third', 'theme_location' => 'third', 'sort_column' => 'menu_order' ) ); ?>
+					    <span>X</span>
 			        </div><!-- /mobile menu -->  
 			        
 					<hgroup>

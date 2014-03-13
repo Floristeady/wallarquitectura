@@ -6,10 +6,10 @@
 		</div>
 		
 		<nav id="nav-below" class="navigation">
-			<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'wallarquitectura' ) . '</span> %title' , TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
+			<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Ir proyecto anterior', 'wallarquitectura' ) . '</span> %title' , TRUE ); ?></div>
 			<?php  $category = get_category_by_slug('inmobiliaria');
             echo '<a class="btn_all" title="Ver todos los proyectos" href="'.get_category_link($category).'"></a>' ?>
-		    <div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'wallarquitectura' ) . '</span>', TRUE, $excluded_categories = '6', '11', '12' ); ?></div>
+		    <div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Ir al siguiente proyecto', 'wallarquitectura' ) . '</span>', TRUE); ?></div>
 		    
 	</nav><!-- #nav-below -->
 
@@ -47,50 +47,21 @@
 							   
 							 </div>
 	
-							  <ul class="slides" > 
+							 <ul class="slides"> 
 							   	<?php foreach($rows as $row) { ?>
 							   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=520"/> </li>
 							   	<?php	} ?>
 							 </ul>
 
 							<?php } ?>
-					
-							<!--/BORRAR -->
-						   <ul class="slides" style="display:none;" > 
-						    	<?php
-								$args = array(
-								    'post_type' => 'attachment',
-								    'numberposts' => null,
-								    'post_parent' => $post->ID,
-								    'post_mime_type' => 'image',
-								    'orderby'    => 'title',
-								    'order'    => 'ASC',
-								    'exclude' => get_post_thumbnail_id($post->ID)
-								);
-								$attachments = get_posts($args);
-								if ($attachments) {
-								    foreach ($attachments as $attachment) {
-								        //Tamaños: "thumbnail", "medium", "large", "full"
-								        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'full' ); 
-								        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
-								      <li><img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" /></li>
-								    <?php
-								    }
-								}
-								?>
-		
-							</ul>
-							<!--/BORRAR -->
-							
 						</div>
-						<!--housing-gallery-->
+						
 
 						<div class="content">
 							<?php the_content(); ?>
 						</div>
 							
 				   </div>
-				   <!--fin col_IZ-->
 				   
 				   
 				   <div class="col_DE">
@@ -126,7 +97,7 @@
 							<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
 							<?php if (is_plugin_active('contact-form-7/wp-contact-form-7.php')) { ?>
 							   <div class="form">
-							     <?php echo do_shortcode('[contact-form-7 id="365" title="Formulario Inmobiliaria"]'); ?>
+							     <?php echo do_shortcode('[contact-form-7 id="647" title="Formulario Inmobiliaria"]'); ?>
 							   </div>
 							<?php } ?>
 							

@@ -52,11 +52,11 @@ get_header(); ?>
 				 			  <?php } ?>
 				 			  
 				 			  <?php if( get_field('numero_habitaciones') ) { ?>
-					 		  <span class="icon-person193"><?php the_field('numero_habitaciones'); ?> <?php _e('Habitaciones','wallarquitectura') ?></span> 
+					 		  <span class="icon-person193"> <?php the_field('numero_habitaciones'); ?> <?php _e('Habitaciones','wallarquitectura') ?></span> 
 					 		  <?php } ?>
 					 		  
 					 		  <?php if( get_field('numero_de_banos') ) { ?>
-					 		  <span class="icon-classic2"><?php the_field('numero_de_banos'); ?> <?php _e('Baños','wallarquitectura') ?></span></p>
+					 		  <span class="icon-classic2"> <?php the_field('numero_de_banos'); ?> <?php _e('Baños','wallarquitectura') ?></span></p>
 					 		  <?php } ?>
 					 		  </p>
 			 			  </div>
@@ -68,12 +68,6 @@ get_header(); ?>
 			 			
 			 			<span class="info">
 		        			<span class="h2"><?php the_title() ?></span>
-		        			
-		        			<!--BORRAR-->
-		        			<span class="h4"><span class="bold">Ubicación: </span>
-		        				<?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?>
-							</span>
-							<!--/BORRAR-->
 							
 							<?php if( get_field('ubicacion') ) { ?>	
 							<span class="h4">

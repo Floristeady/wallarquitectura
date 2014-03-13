@@ -19,49 +19,16 @@
 			
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-			<!--BORRAR-->
-			  <div id="proyect-gallery" class="gallery">
-				   <div class="slides"> 
-	                
-				    	<?php
-						$args = array(
-						    'post_type' => 'attachment',
-						    'numberposts' => null,
-						    'post_parent' => $post->ID,
-						    'post_mime_type' => 'image',
-						    'orderby'    => 'title',
-						    'order'    => 'ASC'
-						);
-						$attachments = get_posts($args);
-						if ($attachments) {
-						    foreach ($attachments as $attachment) {
-						        //Tamaños: "thumbnail", "medium", "large", "full"
-						        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'large' ); 
-						        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
-	
-						       <li><img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" /></li>
-						    <?php
-						    }
-						}
-						?>
-	
-					</div>
-				</div>
-				<!--/////BORRAR-->
-				
-				<div style="display:none;">	
-				<?php  $rows = get_field('galeria_proyecto');  ?>
-				<?php if($rows) { ?>
-			    <div id="proyect-gallery-two" class="gallery flexslider">
-				   <ul class="slides"> 
-				   	<?php foreach($rows as $row) { ?>
-				   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=460"/> </li>
-				   	<?php	} ?>
-				   	</ul>
-				</div>
-				<?php } ?>
-				</div>
-
+			<?php  $rows = get_field('galeria_proyecto');  ?>
+			<?php if($rows) { ?>
+		    <div id="proyect-gallery" class="gallery flexslider">
+			   <ul class="slides"> 
+			   	<?php foreach($rows as $row) { ?>
+			   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=480"/> </li>
+			   	<?php	} ?>
+			   	</ul>
+			</div>
+			<?php } ?>
 				
 			<div class="col_IZ">
 				
@@ -70,46 +37,15 @@
 					<?php //the_meta() ?>
 					
 					<h1><?php the_title(); ?></h1>
-					<!--BORRAR-->
-					<?php  if((get_post_meta($post->ID, 'custom_ubicacion', true))) { ?>
-					<h4><?php echo get_post_meta($post->ID, 'custom_ubicacion', true); ?></h4>
-					<?php } ?>
-					<!--////BORRAR-->
-					
-					<div style="display:none;">
+
 					<?php if( get_field('ubicacion') ) { ?>
 					<h4><?php the_field('ubicacion'); ?></h4>
 					<?php } ?>
-					</div>
 					
 				</div>
 				
 				<div class="entry-content">
-					
-					<!--BORRAR-->
-					<?php  if((get_post_meta($post->ID, 'custom_select', true))) { ?>
-					<div class="data">
-						<span>Año</span>
-						<span class="strong"><?php echo get_post_meta($post->ID, 'custom_select', true); ?></span>
-					</div>
-					<?php } ?>
-					
-					<?php  if((get_post_meta($post->ID, 'custom_superficie', true))) { ?>
-					<div class="data">
-						<span>Superficie Construida</span>
-						<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie', true); ?>m<sup>2</sup></span>
-					</div>
-					<?php } ?>
-					
-					<?php  if((get_post_meta($post->ID, 'custom_superficie_terreno', true))) { ?>
-					<div class="data">
-						<span>Superficie Terreno</span>
-						<span class="strong"><?php echo get_post_meta($post->ID, 'custom_superficie_terreno', true); ?>m<sup>2</sup></span>
-					</div>
-					<?php } ?>
-					<!--////BORRAR-->
-					
-					<div style="display:none;">
+
 					<?php if( get_field('ano_del_proyecto') ) { ?>
 					<div class="data">
 						<span><?php _e('Año','wallarquitectura') ?></span>
@@ -129,9 +65,7 @@
 						<span><?php _e('Superficie Terreno','wallarquitectura') ?></span>
 						<span class="strong"><?php the_field('superficie_terreno'); ?>m<sup>2</sup></span>
 					</div>
-					<?php } ?>
-					</div>
-					
+					<?php } ?>					
 					
 					
 					<a class="btn_mapa btn_share social-desktop" target="_blank" href="javascript:void(0)">compartir</a>

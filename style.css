@@ -40,7 +40,7 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-body { margin: 0; font-size: 1em; line-height: 1.4em; }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -468,8 +468,6 @@ a#skip { display: none;}
 
 /*---WHITE---*/
 
-#white header{}
-
 #white a#logo, .home a#logo {
 	background-image:url(images/elements/logowhite.svg);
 }
@@ -709,7 +707,7 @@ a#skip { display: none;}
 	margin-bottom: 3em;
 	width: 100%;
 	float: left;
-	margin-top: 5em;
+	margin-top: 3em;
 }
 
 .submenu-cat li {
@@ -833,7 +831,7 @@ a.btn_all:hover {
 
 .flexslider .slides > li {
 	display: none;
-	-webkit-backface-visibility: hidden;
+	/*-webkit-backface-visibility: hidden;*/
 }
 
 .slides, .flex-control-nav, .flex-direction-nav {
@@ -948,7 +946,7 @@ a.btn_all:hover {
 }
 
 .flexslider .slides {
-	zoom: 1;
+	/*zoom: 1;*/
 }
 
 .flex-control-nav li {
@@ -974,7 +972,7 @@ a.btn_all:hover {
 }
 
 #home-projects {
-	margin: 2em auto 2em;
+	margin: 3em auto 2em;
     max-width: 1024px;
     width: 100%;
 }
@@ -1323,7 +1321,7 @@ a.btn_all:hover {
 	position: relative;
 	display: block;
     float: left;
-    min-height: 596px;
+    min-height: 480px;
     max-width: 1024px;
     margin: 0 0px 30px;
     width: 100%;
@@ -1339,7 +1337,7 @@ a.btn_all:hover {
 
 #single-proyectos .slides li {
 	background: #b2b2b2 url(images/repeat/pattern-light.svg) repeat;
-	display: block;
+	display: none;
 	position: relative;
 	z-index: 0;
 	max-height:620px;
@@ -1379,6 +1377,14 @@ a.btn_all:hover {
 #single-proyectos #post-social {
 	display: none;
 	margin-top: 0px;
+}
+
+#single-proyectos #post-social .mr_social_sharing  {
+	opacity: 1;
+}
+
+#single-proyectos #post-social.show {
+	display: block;
 }
 	
 
@@ -1448,7 +1454,7 @@ a.btn_all:hover {
 
 #single-inmobiliaria .slides li {
 	background: #b2b2b2 url(images/repeat/pattern-light.svg) repeat;
-	display: block;
+	display: none;
 	position: relative;
 	max-height: 460px;
 }
@@ -1508,11 +1514,17 @@ a.btn_all:hover {
 	margin-left: 6px;
 	margin-bottom: 12px;
 	display: none;
+	position: relative;
+}
+
+#projects li .img {
+	display: block;
 }
 
 #projects li a {
 	position: relative;
 	height: 236px;
+	display: inline-block;
 }
 
 .lte8 #projects li a {
@@ -1522,7 +1534,10 @@ a.btn_all:hover {
 #projects li a span.over_title_small {
 	height: 236px;
 	position: absolute;
+	top:0px;
+	left: 0px;
 	width: 236px;
+	z-index: 1;
 	display: none;
 	background-image: url(images/repeat/hover_project.png);
 }
@@ -1538,6 +1553,9 @@ a.btn_all:hover {
 #projects li a span.over_title_large {
 	height:236px;
 	position: absolute;
+		top:0px;
+	left: 0px;
+	z-index: 1;
 	width: 464px;
 	background-image: url(images/repeat/hover_project.png);
 	display: none;
@@ -2148,6 +2166,9 @@ a.comment-reply-link {
 .icon-facebook-circled:before { content: '\e800'; } /* '' */
 .icon-location:before { content: '\e809'; } /* '' */
 
+.wpcf7-response-output {
+	clear: both;
+}
 
 /* =Footer
 --------------------------------------------------------- */
@@ -2262,34 +2283,39 @@ footer form#w_esu_widget  input[type="submit"] {
 }
 
 .category .wp-pagenavi a.page, .category .wp-pagenavi .current  {
-	background-image: url("images/CSS_sprite.png");
-    background-position: -250px -145px;
-    background-repeat: no-repeat;
     display: block;
     float: left;
     height: 12px;
     margin-right: 2px;
-    text-indent: -99999px;
     width: 12px;
     border: none;
+    color: #fff;
 }
 
 .category .wp-pagenavi span.current {
-	background-image: url("images/CSS_sprite.png");
-	background-position: -225px -145px !important;
     outline: medium none;
-    background-repeat: no-repeat;
     display: block;
     float: left;
     height: 12px;
     margin-right: 2px;
-    text-indent: -99999px;
     width: 12px;
     border: none;
+    color: #9ac247 !important;
+}
+
+.category .wp-pagenavi a:hover {
+	color: #9ac247;
 }
 
 .category .wp-pagenavi span.pages {
 	display: none;
+}
+
+.category .nextpostslink, .category .previouspostslink {
+	font-size: 24px;
+	margin: 1px;
+	line-height: 1.3em;
+	color: #fff;
 }
 
 .wpcf7 {
@@ -2373,7 +2399,8 @@ footer form#w_esu_widget  input[type="submit"] {
 .hidden-desktop {display: none;}
 
 /*Retina display */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5){}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5){
+}
 
 /* Tablet (Portrait) Note: Design for a width of 768px */
 @media only screen and (min-width: 768px) and (max-width: 969px) { 
@@ -2399,6 +2426,10 @@ footer form#w_esu_widget  input[type="submit"] {
 	#home-projects h2.title:before, #home-projects h2.title:after {width: 20%;}
 	
 	.submenu-cat, #breadcrumbs {width: 100%;margin-top: 3em;}
+	
+	#projects li {width: 30%; float: left;overflow: hidden; display: inline-block;margin-right: 0px;}
+	#projects li a span.over_title_large {display: block; position: relative; height: auto; background: none; width: auto;}
+	#projects li a span.over_title_small {display: block; position: relative;height: auto;  background: none; width: auto;}
 	
 	#single-proyectos .col_IZ,  #single-proyectos .col_DE,
 	#single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE {
@@ -2432,15 +2463,16 @@ footer form#w_esu_widget  input[type="submit"] {
 		display: inline;
 		clear: none;
 	}
-	
-	.social-desktop {display: none;}
-	
+
+	.social-desktop {display: none;}	
 	.social-movil {display: block;}
 }
 
 /* iPads (landscape) ----------- */
-@media all and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) { 
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) { 
+	
+	body {font-size: 0.8em;}
+	
 	#access {margin-left: 2%; width: 56%;}
 	#access li {padding: 1em 2% 1em;}
 	
@@ -2471,8 +2503,10 @@ footer form#w_esu_widget  input[type="submit"] {
 	iframe {width: 100%;}
 	section#content {padding: 0 1%;}
 	.home section#content {padding: 0 0%;}
+	#nav-below {display: none;}
+	.home #container {margin: 440px 0 0 0;}
 	
-	.column-three, .column-one-three, .column-one-two, .column-half {width: 96%;padding: 0px 2%;}
+	.column-three, .column-one-three, .column-one-two, .column-half, .column-three-margin {width: 95.5%;padding: 0px 2%; margin: 0;}
 	
 	a#logo {margin-left: 1em;}
 	
@@ -2482,17 +2516,18 @@ footer form#w_esu_widget  input[type="submit"] {
 
 	#btn-menu-movil { float: right;margin: 1.5em 1em 1em; color: #333; text-transform: uppercase; border: 1px solid #333; border-radius: 4px; padding: 0.4em 1em 0.3em 0.5em;}
 	#btn-menu-movil span.icon {background-image: url(images/elements/icon_nav_gray.svg); background-repeat: no-repeat;width: 28px; height: 13px; padding: 2px 0 3px; display: inline-block; margin-right: 0.5em;background-position: left bottom;}
-	.home #btn-menu-movil, #white #btn-menu-movil, #btn-menu-movil.active { color: white; border: 1px solid #fff;} 
-	.home #btn-menu-movil span.icon, #white #btn-menu-movil span.icon, #btn-menu-movil.active span.icon {background-image: url(images/elements/icon_nav.svg);}
+	.home #btn-menu-movil, #white #btn-menu-movil { color: white; border: 1px solid #fff;} 
+	.home #btn-menu-movil span.icon, #white #btn-menu-movil span.icon {background-image: url(images/elements/icon_nav.svg);}
 	.backstretch.active img {margin-top: 0px !important;}
+	#home-housing span.line {margin: 1em auto 1.5em;}
+	#home-housing h2 {font-size: 1.2em;}
 	
-	#btn-menu-movil.active {position: absolute; top:0em; right:0;}
-	
-	#nav-mobile {display: none; float: left;width: 96%;background-color: #3a3a3a; padding: 2%; margin:0;}
+	#nav-mobile {display: none; float: left; position:relative; width: 96%;background-color: #3a3a3a; padding: 2%; margin:0;}
 	#nav-mobile ul {width: 80%;padding: 0 1%;text-align: left;}
 	#nav-mobile ul li {padding: 0.4em 0.5em; border-bottom: 1px solid #717171;}
 	#nav-mobile ul li:last-child {border: none;}
 	#nav-mobile ul a {color: #fff; text-transform: uppercase;font-weight: normal; font-size: 0.9em;}
+	#nav-mobile span {color: #fff; position: absolute; right: 1em; top:1em; cursor: pointer; font-size: 1.4em;}
 	
 	.home section#content {margin-top: -380px;}
 	
@@ -2505,28 +2540,39 @@ footer form#w_esu_widget  input[type="submit"] {
 	
 	#home-featured li {width: 50%;margin: 1em auto;display: block;}
 	
-	.home-project {border: none;}
+	.home-project {margin-bottom: 1.5em; border: none;}
 	.home-project .item-project .cat {float: left;width: auto;}
-	.home-project a.img {width: 100%; max-width: inherit;}
-	.home-project a.img img {max-width: inherit;}
+	.home-project a.img {width: 100%; max-width: inherit; display: inline-block;}
+	.home-project a.img img {max-width: inherit; min-height: 100px;}
 	.home-project .item-project {width: 100%;}
 	
+	#home-projects h2.title {line-height: 1.4em; margin-bottom: 2em;}
 	#home-projects h2.title:before, #home-projects h2.title:after {width: 15%;}
 	.submenu-cat {margin: 2.5em 0 2em;}
 	
 	.item-project .title-featured {font-size: 1em;}
 	
-	#projects, .page article {clear: both;}
+	#projects, .page article {clear: both;}	
+	#projects li img {display: block;margin: 0 auto;width: 100%;display: block; }	    
+    #projects li {width: 48%; float: left;overflow: hidden; display: table-cell;margin-right: 0px; height: 6em;}
+	#projects li .img {height: 140px;overflow: hidden;}
+	#projects li a span.over_title {display: block;z-index: 9;padding: 4px;height: auto; position: absolute; background-color: rgba(0, 0, 0, 0.5); width: 150px;}
+	#projects li a span.over_title h4  {color: #9ac247;font-family: "Helvetica Neue", Helvetica, Arial; text-align: left; text-transform: uppercase; letter-spacing: 0.04em;font-size: 0.7em; line-height: 1.3em;}
 	
-	#projects li img {display: block;margin: 0 auto;}
-
-	#single-proyectos .gallery img {width: 100%; height: auto;}
+	#breadcrumbs {margin-top: 1em;}
 	#single-proyectos .col_IZ {float: none; width: 100%;}
 	
 	#single-proyectos .gallery, #single-inmobiliaria .gallery{width: auto;height: auto;min-height: inherit;margin: 0em 0 2em;}
+	#post-social-inm {display: none;}
 	
 	#single-proyectos .col_IZ,  #single-proyectos .col_DE,
-	#single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE { float: none; width: 100%;max-width: 99%;margin: 0px;clear: both;}
+	#single-inmobiliaria .col_IZ, #single-inmobiliaria .col_DE { float: none; width: 95%;max-width: 99%;margin: 0px;clear: both;}
+	#single-proyectos .gallery img, #single-inmobiliaria .gallery img {min-height: 200px; max-width: 500px;}
+	#single-inmobiliaria .slides li, #single-proyectos .gallery li {max-height: inherit;}
+	
+	#single-proyectos .gallery {display: block; width: 100%;}
+	#single-proyectos .gallery img {width: 100%;}
+	.btn_share {display: none;}
 	
 	#housing {margin-top: 2em;width: 100% !important;float: left;}
 	#housing li {width: 100%;margin-bottom: 1em;}
@@ -2535,20 +2581,16 @@ footer form#w_esu_widget  input[type="submit"] {
 	#housing li:nth-child(2n+2) {margin-left: 0;}
 	
     h1.entry-title, h1 {font-size: 1.4em;}
-    
-    #projects li {width: 48%; float: left;overflow: hidden; display: table-cell;margin-right: 0px;}
-	#projects li .img {height: 140px;overflow: hidden;}
-	#projects li img {width: 100%;display: block; }
-	
-	#projects li a span.over_title {display: block;z-index: 9;padding: 4px;height: auto; position: absolute; background-color: rgba(0, 0, 0, 0.5); width: 150px;}
-
-	#projects li a span.over_title h4  {color: #9ac247;font-family: "Helvetica Neue", Helvetica, Arial; text-align: left; text-transform: uppercase; letter-spacing: 0.04em;font-size: 0.7em;}
 	
 	.flex-direction-nav .flex-next {right: 1em !important;}
 	.flex-direction-nav .flex-prev {left: 1em !important;}
 	
-	footer #first.widget-area, footer #third.widget-area  {width: 46%;padding-left:2%;}
+	.page .wpcf7 {margin: 2em 0 0;}
+	.person {max-width: 100% !important;}
+	.page .img {display: none;}
 	
+	
+	#footer #first.widget-area, footer #third.widget-area  {width: 46%;padding-left:2%;}
 	#footer p, #footer li {font-size: 0.75em;}
 	
 }
@@ -2563,21 +2605,22 @@ footer form#w_esu_widget  input[type="submit"] {
 	.gallery-item img {
 		max-width: 97.5%; /* Fluid images for posts, comments, and widgets */
 	}
+	.backstretch img {margin: 0 !important;}
 	
 	img[class*="align"],
 	img[class*="wp-image-"] {height: auto;}
 	
 	img.size-full { max-width: 97.5%;width: auto;}
 	
-	.home section#content {margin-top: -420px;}
+	.home section#content {margin-top: -450px;}
 
 	img { 
 		-ms-interpolation-mode: bicubic; 
 	}
 	
-	#home-featured li {width: 60%;}
+	#home-featured li {width: 75%;}
 	.home-project .item-project .cat {float: left;}
-	#home-projects h2.title:before, #home-projects h2.title:after {width: 5%;}
+	#home-projects h2.title:before, #home-projects h2.title:after {display: none;}
 	
 	.gallery-item img {height: auto;position: relative;}
 	
@@ -2591,7 +2634,7 @@ footer form#w_esu_widget  input[type="submit"] {
 	}
 	
 	#white a#logo {
-		background-image: url(images/header/logowhite.svg);
+		background-image: url(images/elements/logowhite.svg);
 		background-position: left top;
 		background-repeat: no-repeat;
 		background-size: 120px;
@@ -2602,14 +2645,27 @@ footer form#w_esu_widget  input[type="submit"] {
 }
 
 /* Note: Design for a width of 320px and landscape */
-@media all and (orientation:landscape) and (max-width: 767px)  {
+@media only screen and (orientation:landscape) and (max-device-width: 767px)  {
   /* Style adjustments for landscape mode goes here */
-	 body {
-	  margin: 0;
-	  font-size: 0.8em;
-	  line-height: 1.2em;
-	}
-  
+	 body {font-size: 0.7em;}
+	 
+	 #home-featured li {
+		display: inline-block;
+		width: 22%;
+		list-style: none;
+		position: relative;
+		text-align: center;
+		z-index: 1;
+		margin: 0 4%;
+		overflow: hidden;
+		height: auto;
+		border-radius: 300px;
+		border: 3px solid rgba(255, 255, 255,0.2);
+     }
+     
+     #home-featured li img {width: 100%;}
+     .home-project {width: 30%;}
+     .backstretch img {margin: 0 !important;height: 150% !important}
 }
 
 /* non-semantic Helpers classes

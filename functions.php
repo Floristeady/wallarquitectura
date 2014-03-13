@@ -554,12 +554,6 @@ if ( ! function_exists( 'wallarquitectura_posted_on' ) ) :
  * @since Twenty Ten 1.0
  */
 function wallarquitectura_posted_on() {
-	// BP: slight modification to Twenty Ten function, converting single permalink to multi-archival link
-	// Y = 2012
-	// F = September
-	// m = 01–12
-	// j = 1–31
-	// d = 01–31
 	printf( __( '<span class="%1$s">Posted on</span> <span class="entry-date">%2$s %3$s %4$s</span> <span class="meta-sep">by</span> %5$s', 'wallarquitectura' ),
 		// %1$s = container class
 		'meta-prep meta-prep-author',
@@ -644,237 +638,8 @@ endif;
 // added per WP upload process request post-thumbnails
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions   
+	set_post_thumbnail_size( 250, 250 ); // default Post Thumbnail dimensions   
 }
-
-
-//----------------- Custom Meta Box para Proyecto y Inmobiliaria ---------------------//
-// Add the Meta Box
-function add_custom_meta_box() {
-    add_meta_box(
-		'custom_meta_box', // $id
-		'Información de Proyectos e Inmobiliaria', // $title
-		'show_custom_meta_box', // $callback
-		'post', // $page
-		'normal', // $context
-		'default'); // $priority
-}
-
-add_action('add_meta_boxes', 'add_custom_meta_box');
-  
-
-// Field Array
-$prefix = 'custom_';
-$custom_meta_fields = array(
-	array(
-		'label'=> 'Año del proyecto',
-		'desc'	=> 'Seleccionar año del proyecto.',
-		'id'	=> $prefix.'select',
-		'type'	=> 'select',
-		'options' => array (
-		    'one' => array (
-				'label' => '2009',
-				'value'	=> '2009'
-			),
-			'two' => array (
-				'label' => '2010',
-				'value'	=> '2010'
-			),
-			'three' => array (
-				'label' => '2011',
-				'value'	=> '2011'
-			),
-			'four' => array (
-				'label' => '2012',
-				'value'	=> '2012'
-			),
-			'five' => array (
-				'label' => '2013',
-				'value'	=> '2013'
-			),
-			'six' => array (
-				'label' => '2014',
-				'value'	=> '2014'
-			),
-			'seven' => array (
-				'label' => '2015',
-				'value'	=> '2015'
-			)
-		)
-	),
-	array(
-		'label'=> 'Ubicación',
-		'desc'	=> 'Ciudad y estado donde se realizó el proyecto',
-		'id'	=> $prefix.'ubicacion',
-		'type'	=> 'text'
-	),
-	array(
-		'label'=> 'Superficie Construida',
-		'desc'	=> 'Superficie construida del proyecto.',
-		'id'	=> $prefix.'superficie',
-		'type'	=> 'text'
-	),
-	array(
-		'label'=> 'Superficie Terreno',
-		'desc'	=> 'Superficie de terreno del proyecto.',
-		'id'	=> $prefix.'superficie_terreno',
-		'type'	=> 'text'
-	),
-	array(
-		'label'=> 'Dirección (Sección Inmobiliaria)',
-		'desc'	=> 'Dirección de la propiedad.',
-		'id'	=> $prefix.'direccion',
-		'type'	=> 'text'
-	),
-	
-	array(
-		'label'=> 'Mapa de Google (Sección Inmobiliaria)',
-		'desc'	=> 'Escribir URL del mapa',
-		'id'	=> $prefix.'mapa_google',
-		'type'	=> 'textarea'
-	),
-	array(
-		'label'=> 'Teléfono(s) (Sección Inmobiliaria)',
-		'desc'	=> 'Escribir teléfonos de contacto para venta.',
-		'id'	=> $prefix.'telefono',
-		'type'	=> 'text'
-	)
-
-);
-
-// The Callback
-function show_custom_meta_box() {
-	global $custom_meta_fields, $post;
-	// Use nonce for verification
-	echo '<input type="hidden" name="custom_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
-		// Begin the field table and loop
-		echo '<table class="form-table">';
-		foreach ($custom_meta_fields as $field) {
-			// get value of this field if it exists for this post
-			$meta = get_post_meta($post->ID, $field['id'], true);
-			// begin a table row with
-			echo '<tr>
-					<th><label style="font-size:13px;" for="'.$field['id'].'">'.$field['label'].'</label></th>
-					<td>';
-					switch($field['type']) {
-					
-					// text
-					case 'text':
-						echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" size="30" />
-							<br /><span class="description">'.$field['desc'].'</span>';
-					break;						
-					
-					// textarea
-					case 'textarea':
-						echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="60" rows="4">'.$meta.'</textarea>
-							<br /><span class="description">'.$field['desc'].'</span>';
-					break;
-					
-					// select
-					case 'select':
-					echo '<select name="'.$field['id'].'" id="'.$field['id'].'">';
-					foreach ($field['options'] as $option) {
-						echo '<option', $meta == $option['value'] ? ' selected=""' : '', ' value="'.$option['value'].'">'.			$option['label'].'</option>';
-					}
-					echo '</select><br /><span class="description">'.$field['desc'].'</span>';
-					break;
-
-					
-					} //end switch
-			echo '</td></tr>';
-		} // end foreach
-		echo '</table>'; // end table
-		
-	
-}
-
-
-// Save the Data
-function save_custom_meta($post_id) {
-    global $custom_meta_fields;
-	// verify nonce
-	if (!wp_verify_nonce(isset($_POST['custom_meta_box_nonce']), basename(__FILE__)))
-		return $post_id;
-	// check autosave
-	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-		return $post_id;
-	// check permissions
-	if ('page' == $_POST['post_type']) {
-		if (!current_user_can('edit_page', $post_id))
-			return $post_id;
-		} elseif (!current_user_can('edit_post', $post_id)) {
-			return $post_id;
-	}
-	// loop through fields and save the data
-	foreach ($custom_meta_fields as $field) {
-		$old = get_post_meta($post_id, $field['id'], true);
-		$new = $_POST[$field['id']];
-		if ($new && $new != $old) {
-			update_post_meta($post_id, $field['id'], $new);
-		} elseif ('' == $new && $old) {
-			delete_post_meta($post_id, $field['id'], $old);
-		}
-	} // end foreach
-}
-add_action('save_post', 'save_custom_meta');  
-
-
-//----------------- Custom Field para Slogan Inicio---------------------//
-
-function admin_init(){
-  add_meta_box("credits_meta", 
-  "Información Slogan Inicio", 
-  "show_credits_meta", 
-  "post", 
-  "normal", 
-  "low");
-}
-
-add_action("add_meta_boxes", "admin_init");
-
-function show_credits_meta() {
-  global $post, $custom; 
-  
-   if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return $post_id;  
-	  $custom = get_post_custom($post->ID);
-	  
-	  $url = $custom["url"][0];
-	  $btn_titulo = $custom["btn_titulo"][0];
-	  $icon_slogan = $custom["icon_slogan"][0];
-  
-  ?>
-
-	<br />
-	<p><label style="width: 200px; float:left">Título botón:</label>
-	<input size="30"  name="btn_titulo" value="<?php echo $btn_titulo; ?>" /></p>
-	<p><label style="width: 200px; float:left">Dirección URL:</label>
-	<input size="30"  name="url" value="<?php echo $url; ?>" /></p>
-	<p><label style="width: 200px; float:left">Icono Slogan URL:</label>
-	<input size="30"  name="icon_slogan" value="<?php echo $icon_slogan; ?>" /></p>
-
-
-	<?php
-	}
-
-function save_details($post_id){
-  global $post;
-  	// verify nonce
-	if (!wp_verify_nonce(isset($_POST['btn_titulo']), basename(__FILE__)))
-		return $post_id;
-
-    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ){  
-        return $post_id;  
-    } else {  
-	  
-	  update_post_meta($post->ID, "btn_titulo", $_POST["btn_titulo"]);
-	  update_post_meta($post->ID, "url", $_POST["url"]);
-	  update_post_meta($post->ID, "icon_slogan", $_POST["icon_slogan"]);
-  }
-}
-
-add_action('save_post', 'save_details');
-
-
 
 //image size thumbnaisl
 if ( function_exists( 'add_image_size' ) ) { 
@@ -890,9 +655,7 @@ function edit_admin_menus() {
 	global $menu;
 
 	remove_menu_page('edit-comments.php'); // Remove the Tools Menu
-	//remove_menu_page('edit.php'); // Remove the Tools Menu
 	remove_menu_page('link-manager.php'); // Remove the Tools Menu
-	//remove_menu_page('edit.php'); // Remove the Tools Menu
 }
 
 add_action( 'admin_menu', 'edit_admin_menus' );
@@ -907,6 +670,48 @@ function change_post_menu_label() {
 }
 
 add_action( 'admin_menu', 'change_post_menu_label' );
+
+/**
+********************* Contact function*****************
+*/
+
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+if (is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
+//get the name "[posttitle mypagelink] en mensaje [_post_title]"
+	function wpcf7_postlink_shortcode_handler( $tag ) {
+		global $wpcf7_contact_form;
+		global $wpdb;
+		
+		if ( ! is_array( $tag ) )
+			return '';
+			
+			$type = $tag['type'];
+			$name = $tag['name'];
+			
+			$post = get_the_ID();
+			
+			$querystr = "SELECT * FROM $wpdb->posts WHERE ID = $post ";
+			$pageposts = $wpdb->get_row($querystr, ARRAY_A);
+			
+			$html = '<input type="text" name="'. $name .'" value="'.$pageposts['post_title'].'" />';
+			
+			$html = $pageposts['post_title'];
+			return $html;
+	}
+	
+	wpcf7_add_shortcode( 'posttitle', 'wpcf7_postlink_shortcode_handler', true );
+	
+	function wpcf7_postlink_validation_filter( $result, $tag ) {
+		global $wpcf7_contact_form;
+		
+		$type = $tag['type'];
+		$name = $tag['name'];
+		
+		return $result;
+	}
+	
+	add_filter( 'wpcf7_validate_pagelink', 'wpcf7_pagelink_validation_filter', 10, 2 );
+}
 
 
 ?>

@@ -47,7 +47,7 @@
 							   
 							 </div>
 	
-							  <ul class="slides" style="display:none;"> 
+							  <ul class="slides" > 
 							   	<?php foreach($rows as $row) { ?>
 							   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=520"/> </li>
 							   	<?php	} ?>
@@ -56,7 +56,7 @@
 							<?php } ?>
 					
 							<!--/BORRAR -->
-						   <ul class="slides"  > 
+						   <ul class="slides" style="display:none;" > 
 						    	<?php
 								$args = array(
 								    'post_type' => 'attachment',

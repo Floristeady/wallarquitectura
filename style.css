@@ -1419,11 +1419,10 @@ a.btn_all:hover {
 #single-inmobiliaria .info {
 	background-color: #444;
 	color: #fff;
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
 	z-index: 2;
-	padding: 0.3em 1em 0em;
+	padding: 0.1em 2% 0em;
+	float: left;
+	width: 96%;
 }
 
 #single-inmobiliaria .info span {
@@ -1444,7 +1443,7 @@ a.btn_all:hover {
 }
 
 #single-inmobiliaria #housing-gallery {
-	margin: 0 0 1em;
+	margin: 0 0 0em;
 	background: white;
 	position: relative;
 	zoom: 1;
@@ -1648,7 +1647,7 @@ a.btn_all:hover {
 	position: absolute;
 	bottom: 0px;
 	background: #444;
-	padding: 0.3em 1em;
+	padding: 0em 1em;
 }
 
 #housing .more-info p {

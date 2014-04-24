@@ -25,8 +25,17 @@
 						 <div id="housing-gallery" class="gallery flexslider">
 						    
 						    <span class="sale">SE VENDE /<span class="icon-dollar"></span></span>
-						  
-						    <div class="info">
+
+							 <ul class="slides"> 
+							   	<?php foreach($rows as $row) { ?>
+							   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=520"/> </li>
+							   	<?php	} ?>
+							 </ul>
+
+							<?php } ?>
+						</div>
+						
+						 <div class="info">
 						    	<p>						  											
 								<?php if( get_field('numero_habitaciones') ) { ?>
 								<span class="icon-person193"> <?php the_field('numero_habitaciones'); ?>     <?php _e(' Habitaciones', 'wallarquitectura') ?> / </span> 							
@@ -45,17 +54,8 @@
 						 	  <?php } ?>
 							   </p>
 							   
-							 </div>
-	
-							 <ul class="slides"> 
-							   	<?php foreach($rows as $row) { ?>
-							   	 <li> <img src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php echo $row['imagen_proyecto'] ?>&h=520"/> </li>
-							   	<?php	} ?>
-							 </ul>
+					    </div>
 
-							<?php } ?>
-						</div>
-						
 
 						<div class="content">
 							<?php the_content(); ?>

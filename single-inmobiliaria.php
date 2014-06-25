@@ -24,7 +24,7 @@
 						<?php if($rows) { ?>
 						 <div id="housing-gallery" class="gallery flexslider">
 						    
-						    <span class="sale">SE VENDE /<span class="icon-dollar"></span></span>
+						    <span class="sale">EN VENTA /<span class="icon-dollar"></span></span>
 
 							 <ul class="slides"> 
 							   	<?php foreach($rows as $row) { ?>

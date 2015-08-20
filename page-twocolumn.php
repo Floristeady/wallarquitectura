@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: Two column, no sidebar
+ * Template Name: P&aacute;gina dos columnas
  *
  * A custom page template without sidebar.
  *
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 
 get_header(); ?>
@@ -23,8 +23,8 @@ get_header(); ?>
 				<div class="two-column">
 				<?php the_content(); ?>
 				</div>
-				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
-				<?php edit_post_link( __( 'Edit', 'boilerplate' ), '', '' ); ?>
+				<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'wallarquitectura' ), 'after' => '' ) ); ?>
+				<?php edit_post_link( __( 'Edit', 'wallarquitectura' ), '', '' ); ?>
 
 <?php endwhile; ?>
 

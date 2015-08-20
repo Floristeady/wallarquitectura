@@ -32,7 +32,7 @@ get_header(); ?>
 			    if (  $my_query->current_post == 1  ||  $my_query->current_post == 5 ||  $my_query->current_post == 7 ||  $my_query->current_post == 9 ){ ?>
 			        <li class="project-item large">
 			        	<a class="btn_proyecto" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-			        		<span class="over_title_large"><h4><?php the_title() ?></h4></span>
+			        		
 			            	<?php //Obtenemos la url de la imagen destacada
 	    					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
 	    					$thumbnailsrc = "";
@@ -41,6 +41,7 @@ get_header(); ?>
 							if (!empty($thumbnailsrc)):
 							?>
 				 			<span class='img'><img src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=464&h=236' border=0 /></span>
+				 			<span class="over_title_large"><h4><?php the_title() ?></h4></span>
 				 			<?php
 				 			endif;
 				 			?>  
@@ -53,7 +54,7 @@ get_header(); ?>
 			    } else  { ?>
 			       <li class="project-item">
 			        	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-			        		<span class="over_title_small"><h4><?php the_title() ?></h4></span>
+			        		
 			            	<?php //Obtenemos la url de la imagen destacada
 	    					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
 	    					$thumbnailsrc = "";
@@ -62,6 +63,7 @@ get_header(); ?>
 							if (!empty($thumbnailsrc)):
 							?>
 				 			<span class='img'><img src='<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=236&h=236' border=0 /></span>
+				 			<span class="over_title_small"><h4><?php the_title() ?></h4></span>
 				 			<?php
 				 			endif;
 				 			?>   
@@ -77,25 +79,22 @@ get_header(); ?>
 		 } else  { ?>  
 			 
 			 <li class="project-item">
-			        	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-			        		<span class="over_title"><h4><?php the_title() ?></h4></span>
-			            	<?php //Obtenemos la url de la imagen destacada
-	    					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
-	    					$thumbnailsrc = "";
-	    					if (!empty($domsxe))
-								$thumbnailsrc = $domsxe->attributes()->src;
-							if (!empty($thumbnailsrc)):
-							?>
-				 			<span class='img'><img src='<?php print $thumbnailsrc; ?>' border=0 /></span>
-				 			<?php
-				 			endif;
-				 			?>   
-				 			</a>
-				 			
-				 	</li>
-
-			 
-			 
+	        	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+	        		<span class="over_title"><h4><?php the_title() ?></h4></span>
+	            	<?php //Obtenemos la url de la imagen destacada
+					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
+					$thumbnailsrc = "";
+					if (!empty($domsxe))
+						$thumbnailsrc = $domsxe->attributes()->src;
+					if (!empty($thumbnailsrc)):
+					?>
+		 			<span class='img'><img src='<?php print $thumbnailsrc; ?>' border=0 /></span>
+		 			<?php
+		 			endif;
+		 			?>   
+		 			</a>
+		 			
+			</li>
 			 
 		 <?php   /*plugin Mobble*/ }	?>  
 		 

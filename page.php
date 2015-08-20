@@ -8,8 +8,8 @@
  * different template.
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 
 get_header(); ?>
@@ -24,8 +24,8 @@ get_header(); ?>
 
 					<div class="entry-content">
 						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'boilerplate' ), 'after' => '' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'boilerplate' ), '', '' ); ?>
+						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'wallarquitectura' ), 'after' => '' ) ); ?>
+						<?php edit_post_link( __( 'Edit', 'wallarquitectura' ), '', '' ); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-## -->
 				

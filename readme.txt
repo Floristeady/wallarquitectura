@@ -1,11 +1,20 @@
-=== Wall Arquitectura & Dise–o ===
+=== Wall Arquitectura & Diseno ===
 
-Contributors: Florencia Rosenfeld
+Designed and programmed by: Florencia Rosenfeld
 
-Original Author: aarontgrogg
-Tags: html5, boilerplate
+Tags: html5, css3, boilerplate, responsive web design, two menus, projects, architecture, portfolio. 
 
-Based on Boilerplate Theme for Wordpress by Aaron T. Grogg and the HTML5 Boilerplate created by Paul Irish and Divya Manian,
-this allows for easy inclusion/removal of all HTML5 Boilerplate options.
+== Description ==
 
-For more info: readme_author.txt
+Wordpress Theme for the projects works of Wall Arquitectura & Diseno. 
+
+
+=== Change Log ===
+
+= v.1.0 2013-02-02 =
+
+New theme version 2.0
+
+= v.1.0 2012-08-06 =
+
+Release theme version 1.0

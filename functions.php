@@ -1,12 +1,12 @@
 <?php
 /**
- * Boilerplate functions and definitions
+ * wallarquitectura functions and definitions
  *
  * Sets up the theme and provides some helper functions. Some helper functions
  * are used in the theme as custom template tags. Others are attached to action and
  * filter hooks in WordPress to change core functionality.
  *
- * The first function, boilerplate_setup(), sets up the theme by registering support
+ * The first function, wallarquitectura_setup(), sets up the theme by registering support
  * for various features in WordPress, such as post thumbnails, navigation menus, and the like.
  *
  * When using a child theme (see http://codex.wordpress.org/Theme_Development and
@@ -26,7 +26,7 @@
  * add_action( 'after_setup_theme', 'my_child_theme_setup' );
  * function my_child_theme_setup() {
  *     // We are providing our own filter for excerpt_length (or using the unfiltered value)
- *     remove_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
+ *     remove_filter( 'excerpt_length', 'wallarquitectura_excerpt_length' );
  *     ...
  * }
  * </code>
@@ -34,8 +34,8 @@
  * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
  *
  * @package WordPress
- * @subpackage Boilerplate
- * @since Boilerplate 1.0
+ * @subpackage wallarquitectura
+ * @since wallarquitectura 1.0
  */
 
 /**
@@ -45,12 +45,12 @@
  * is designed for, generally via the style.css stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640;
+	$content_width = 1024;
 
-/** Tell WordPress to run boilerplate_setup() when the 'after_setup_theme' hook is run. */
-add_action( 'after_setup_theme', 'boilerplate_setup' );
+/** Tell WordPress to run wallarquitectura_setup() when the 'after_setup_theme' hook is run. */
+add_action( 'after_setup_theme', 'wallarquitectura_setup' );
 
-if ( ! function_exists( 'boilerplate_setup' ) ):
+if ( ! function_exists( 'wallarquitectura_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -58,7 +58,7 @@ if ( ! function_exists( 'boilerplate_setup' ) ):
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  *
- * To override boilerplate_setup() in a child theme, add your own boilerplate_setup to your child theme's
+ * To override wallarquitectura_setup() in a child theme, add your own wallarquitectura_setup to your child theme's
  * functions.php file.
  *
  * @uses add_theme_support() To add support for post thumbnails and automatic feed links.
@@ -71,11 +71,11 @@ if ( ! function_exists( 'boilerplate_setup' ) ):
  *
  * @since Twenty Ten 1.0
  */
-function boilerplate_setup() {
+function wallarquitectura_setup() {
 
     // Add gallery custom 	
 	remove_shortcode('gallery');
-	add_shortcode('gallery', 'boilerplate_gallery_shortcode');
+	add_shortcode('gallery', 'wallarquitectura_gallery_shortcode');
 	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
@@ -88,7 +88,7 @@ function boilerplate_setup() {
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
-	load_theme_textdomain( 'boilerplate', TEMPLATEPATH . '/languages' );
+	load_theme_textdomain( 'wallarquitectura', TEMPLATEPATH . '/languages' );
 
 	$locale = get_locale();
 	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
@@ -96,44 +96,11 @@ function boilerplate_setup() {
 		require_once( $locale_file );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'boilerplate' ),
-	) );
+	register_nav_menus( array('primary' => __( 'Primary Navigation', 'wallarquitectura' ),) );
 	
-	register_nav_menus( array(
-		'secondary' => __( 'Secondary Navigation', 'boilerplate' ),
-	) );
-
-	// This theme allows users to set a custom background
-	global $wp_version;
-	if ( version_compare( $wp_version, '3.4', '>=' ) ) 
-     	add_theme_support( 'custom-background' ); 
-    else
-	add_custom_background( $args );
+	register_nav_menus( array('secondary' => __( 'Secondary Navigation', 'wallarquitectura' ),) );
 	
-	// This theme allows users to set a custom header
-	global $wp_version;
-	if ( version_compare( $wp_version, '3.4', '>=' ) )
-		add_theme_support( 'custom-header' );
-	else
-		add_custom_image_header( $args );
-		
-	$defaults = array(
-	'default-image'          => get_template_directory_uri() . '/images/headers/logo_white.png',
-	'random-default'         => false,
-	'width'                  => 970,
-	'height'                 => 220,
-	'flex-height'            => false,
-	'flex-width'             => false,
-	'default-text-color'     => '',
-	'header-text'            => false,
-	'uploads'                => true,
-	'wp-head-callback'       => '',
-	'admin-head-callback'    => '',
-	'admin-preview-callback' => '',
-	);
-	add_theme_support( 'custom-header', $defaults );
-
+	register_nav_menus( array('third' => __( 'Third Navigation', 'wallarquitectura' ),) );
 
 	}
 endif;
@@ -166,7 +133,7 @@ endif;
 
 
 // Iniciar galeria personalizada para el theme single-proyectos
-function boilerplate_gallery_shortcode($attr) {
+function wallarquitectura_gallery_shortcode($attr) {
     global $post;
  
     static $instance = 0;
@@ -337,7 +304,7 @@ function the_breadcrumb() {
  * 	vertical bar, "|", as a separator in header.php.
  * @return string The new title, ready for the <title> tag.
  */
-function boilerplate_filter_wp_title( $title, $separator ) {
+function wallarquitectura_filter_wp_title( $title, $separator ) {
 	// Don't affect wp_title() calls in feeds.
 	if ( is_feed() )
 		return $title;
@@ -349,10 +316,10 @@ function boilerplate_filter_wp_title( $title, $separator ) {
 
 	if ( is_search() ) {
 		// If we're a search, let's start over:
-		$title = sprintf( __( 'Search results for %s', 'boilerplate' ), '"' . get_search_query() . '"' );
+		$title = sprintf( __( 'Search results for %s', 'wallarquitectura' ), '"' . get_search_query() . '"' );
 		// Add a page number if we're on page 2 or more:
 		if ( $paged >= 2 )
-			$title .= " $separator " . sprintf( __( 'Page %s', 'boilerplate' ), $paged );
+			$title .= " $separator " . sprintf( __( 'Page %s', 'wallarquitectura' ), $paged );
 		// Add the site name to the end:
 		$title .= " $separator " . get_bloginfo( 'name', 'display' );
 		// We're done. Let's send the new title back to wp_title():
@@ -369,12 +336,12 @@ function boilerplate_filter_wp_title( $title, $separator ) {
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 )
-		$title .= " $separator " . sprintf( __( 'Page %s', 'boilerplate' ), max( $paged, $page ) );
+		$title .= " $separator " . sprintf( __( 'Page %s', 'wallarquitectura' ), max( $paged, $page ) );
 
 	// Return the new title to wp_title():
 	return $title;
 }
-add_filter( 'wp_title', 'boilerplate_filter_wp_title', 10, 2 );
+add_filter( 'wp_title', 'wallarquitectura_filter_wp_title', 10, 2 );
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -384,11 +351,11 @@ add_filter( 'wp_title', 'boilerplate_filter_wp_title', 10, 2 );
  *
  * @since Twenty Ten 1.0
  */
-function boilerplate_page_menu_args( $args ) {
+function wallarquitectura_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'boilerplate_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'wallarquitectura_page_menu_args' );
 
 /**
  * Sets the post excerpt length to 40 characters.
@@ -399,10 +366,10 @@ add_filter( 'wp_page_menu_args', 'boilerplate_page_menu_args' );
  * @since Twenty Ten 1.0
  * @return int
  */
-function boilerplate_excerpt_length( $length ) {
+function wallarquitectura_excerpt_length( $length ) {
 	return 40;
 }
-add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
+add_filter( 'excerpt_length', 'wallarquitectura_excerpt_length' );
 
 /**
  * Returns a "Continue Reading" link for excerpts
@@ -410,12 +377,12 @@ add_filter( 'excerpt_length', 'boilerplate_excerpt_length' );
  * @since Twenty Ten 1.0
  * @return string "Continue Reading" link
  */
-function boilerplate_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continuar leyendo <span class="meta-nav">&rarr;</span>', 'boilerplate' ) . '</a>';
+function wallarquitectura_continue_reading_link() {
+	return ' <a href="'. get_permalink() . '">' . __( 'Continuar leyendo <span class="meta-nav">&rarr;</span>', 'wallarquitectura' ) . '</a>';
 }
 
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and boilerplate_continue_reading_link().
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and wallarquitectura_continue_reading_link().
  *
  * To override this in a child theme, remove the filter and add your own
  * function tied to the excerpt_more filter hook.
@@ -423,10 +390,10 @@ function boilerplate_continue_reading_link() {
  * @since Twenty Ten 1.0
  * @return string An ellipsis
  */
-function boilerplate_auto_excerpt_more( $more ) {
-	return ' &hellip;' . boilerplate_continue_reading_link();
+function wallarquitectura_auto_excerpt_more( $more ) {
+	return ' &hellip;' . wallarquitectura_continue_reading_link();
 }
-add_filter( 'excerpt_more', 'boilerplate_auto_excerpt_more' );
+add_filter( 'excerpt_more', 'wallarquitectura_auto_excerpt_more' );
 
 /**
  * Adds a pretty "Continue Reading" link to custom post excerpts.
@@ -437,13 +404,13 @@ add_filter( 'excerpt_more', 'boilerplate_auto_excerpt_more' );
  * @since Twenty Ten 1.0
  * @return string Excerpt with a pretty "Continue Reading" link
  */
-function boilerplate_custom_excerpt_more( $output ) {
+function wallarquitectura_custom_excerpt_more( $output ) {
 	if ( has_excerpt() && ! is_attachment() ) {
-		$output .= boilerplate_continue_reading_link();
+		$output .= wallarquitectura_continue_reading_link();
 	}
 	return $output;
 }
-add_filter( 'get_the_excerpt', 'boilerplate_custom_excerpt_more' );
+add_filter( 'get_the_excerpt', 'wallarquitectura_custom_excerpt_more' );
 
 /**
  * Remove inline styles printed when the gallery shortcode is used.
@@ -453,23 +420,23 @@ add_filter( 'get_the_excerpt', 'boilerplate_custom_excerpt_more' );
  * @since Twenty Ten 1.0
  * @return string The gallery style filter, with the styles themselves removed.
  */
-function boilerplate_remove_gallery_css( $css ) {
+function wallarquitectura_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 }
-add_filter( 'gallery_style', 'boilerplate_remove_gallery_css' );
+add_filter( 'gallery_style', 'wallarquitectura_remove_gallery_css' );
 
-if ( ! function_exists( 'boilerplate_comment' ) ) :
+if ( ! function_exists( 'wallarquitectura_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
  * To override this walker in a child theme without modifying the comments template
- * simply create your own boilerplate_comment(), and that function will be used instead.
+ * simply create your own wallarquitectura_comment(), and that function will be used instead.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
  * @since Twenty Ten 1.0
  */
-function boilerplate_comment( $comment, $args, $depth ) {
+function wallarquitectura_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case '' :
@@ -478,16 +445,16 @@ function boilerplate_comment( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>">
 			<div class="comment-author vcard">
 				<?php echo get_avatar( $comment, 40 ); ?>
-				<?php printf( __( '%s <span class="says">says:</span>', 'boilerplate' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+				<?php printf( __( '%s <span class="says">says:</span>', 'wallarquitectura' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 			</div><!-- .comment-author .vcard -->
 			<?php if ( $comment->comment_approved == '0' ) : ?>
-				<em><?php _e( 'Your comment is awaiting moderation.', 'boilerplate' ); ?></em>
+				<em><?php _e( 'Your comment is awaiting moderation.', 'wallarquitectura' ); ?></em>
 				<br />
 			<?php endif; ?>
 			<footer class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 				<?php
 					/* translators: 1: date, 2: time */
-					printf( __( '%1$s at %2$s', 'boilerplate' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'boilerplate' ), ' ' );
+					printf( __( '%1$s at %2$s', 'wallarquitectura' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'wallarquitectura' ), ' ' );
 				?>
 			</footer><!-- .comment-meta .commentmetadata -->
 			<div class="comment-body"><?php comment_text(); ?></div>
@@ -501,7 +468,7 @@ function boilerplate_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'boilerplate' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'boilerplate'), ' ' ); ?></p>
+		<p><?php _e( 'Pingback:', 'wallarquitectura' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'wallarquitectura'), ' ' ); ?></p>
 	<?php
 			break;
 	endswitch;
@@ -511,18 +478,18 @@ endif;
 /**
  * Register widgetized areas, including two sidebars and four widget-ready columns in the footer.
  *
- * To override boilerplate_widgets_init() in a child theme, remove the action hook and add your own
+ * To override wallarquitectura_widgets_init() in a child theme, remove the action hook and add your own
  * function tied to the init hook.
  *
  * @since Twenty Ten 1.0
  * @uses register_sidebar
  */
-function boilerplate_widgets_init() {
+function wallarquitectura_widgets_init() {
 	// Area 1, located at the top of the sidebar.
 	register_sidebar( array(
-		'name' => __( 'Primary Widget Area', 'boilerplate' ),
+		'name' => __( 'Primary Widget Area', 'wallarquitectura' ),
 		'id' => 'primary-widget-area',
-		'description' => __( 'The primary widget area', 'boilerplate' ),
+		'description' => __( 'The primary widget area', 'wallarquitectura' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -531,9 +498,9 @@ function boilerplate_widgets_init() {
 
 	// Area 2, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'First Footer Widget Area', 'boilerplate' ),
+		'name' => __( 'First Footer Widget Area', 'wallarquitectura' ),
 		'id' => 'first-footer-widget-area',
-		'description' => __( 'The first footer widget area', 'boilerplate' ),
+		'description' => __( 'The first footer widget area', 'wallarquitectura' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -542,9 +509,9 @@ function boilerplate_widgets_init() {
 
 	// Area 3, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Second Footer Widget Area', 'boilerplate' ),
+		'name' => __( 'Second Footer Widget Area', 'wallarquitectura' ),
 		'id' => 'second-footer-widget-area',
-		'description' => __( 'The second footer widget area', 'boilerplate' ),
+		'description' => __( 'The second footer widget area', 'wallarquitectura' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -553,9 +520,9 @@ function boilerplate_widgets_init() {
 	
 	// Area 4, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Third Footer Widget Area', 'boilerplate' ),
+		'name' => __( 'Third Footer Widget Area', 'wallarquitectura' ),
 		'id' => 'third-footer-widget-area',
-		'description' => __( 'The third footer widget area', 'boilerplate' ),
+		'description' => __( 'The third footer widget area', 'wallarquitectura' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -563,8 +530,8 @@ function boilerplate_widgets_init() {
 	) );
 
 }
-/** Register sidebars by running boilerplate_widgets_init() on the widgets_init hook. */
-add_action( 'widgets_init', 'boilerplate_widgets_init' );
+/** Register sidebars by running wallarquitectura_widgets_init() on the widgets_init hook. */
+add_action( 'widgets_init', 'wallarquitectura_widgets_init' );
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
@@ -574,26 +541,20 @@ add_action( 'widgets_init', 'boilerplate_widgets_init' );
  *
  * @since Twenty Ten 1.0
  */
-function boilerplate_remove_recent_comments_style() {
+function wallarquitectura_remove_recent_comments_style() {
 	global $wp_widget_factory;
 	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 }
-add_action( 'widgets_init', 'boilerplate_remove_recent_comments_style' );
+add_action( 'widgets_init', 'wallarquitectura_remove_recent_comments_style' );
 
-if ( ! function_exists( 'boilerplate_posted_on' ) ) :
+if ( ! function_exists( 'wallarquitectura_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post—date/time and author.
  *
  * @since Twenty Ten 1.0
  */
-function boilerplate_posted_on() {
-	// BP: slight modification to Twenty Ten function, converting single permalink to multi-archival link
-	// Y = 2012
-	// F = September
-	// m = 01–12
-	// j = 1–31
-	// d = 01–31
-	printf( __( '<span class="%1$s">Posted on</span> <span class="entry-date">%2$s %3$s %4$s</span> <span class="meta-sep">by</span> %5$s', 'boilerplate' ),
+function wallarquitectura_posted_on() {
+	printf( __( '<span class="%1$s">Posted on</span> <span class="entry-date">%2$s %3$s %4$s</span> <span class="meta-sep">by</span> %5$s', 'wallarquitectura' ),
 		// %1$s = container class
 		'meta-prep meta-prep-author',
 		// %2$s = month: /yyyy/mm/
@@ -617,28 +578,28 @@ function boilerplate_posted_on() {
 		// %5$s = author vcard
 		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'boilerplate' ), get_the_author() ),
+			sprintf( esc_attr__( 'View all posts by %s', 'wallarquitectura' ), get_the_author() ),
 			get_the_author()
 		)
 	);
 }
 endif;
 
-if ( ! function_exists( 'boilerplate_posted_in' ) ) :
+if ( ! function_exists( 'wallarquitectura_posted_in' ) ) :
 /**
  * Prints HTML with meta information for the current post (category, tags and permalink).
  *
  * @since Twenty Ten 1.0
  */
-function boilerplate_posted_in() {
+function wallarquitectura_posted_in() {
 	// Retrieves tag list of current post, separated by commas.
 	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $tag_list ) {
-		$posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'boilerplate' );
+		$posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'wallarquitectura' );
 	} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-		$posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'boilerplate' );
+		$posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'wallarquitectura' );
 	} else {
-		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'boilerplate' );
+		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'wallarquitectura' );
 	}
 	// Prints the string, replacing the placeholders.
 	printf(
@@ -651,19 +612,19 @@ function boilerplate_posted_in() {
 }
 endif;
 
-/*	Begin Boilerplate */
+/*	Begin wallarquitectura */
 	// Add Admin
-		require_once(TEMPLATEPATH . '/boilerplate-admin/admin-menu.php');
+		require_once(TEMPLATEPATH . '/wall-admin/admin-menu.php');
 
 	// remove version info from head and feeds (http://digwp.com/2009/07/remove-wordpress-version-number/)
-		function boilerplate_complete_version_removal() {
+		function wallarquitectura_complete_version_removal() {
 			return '';
 		}
-		add_filter('the_generator', 'boilerplate_complete_version_removal');
-/*	End Boilerplate */
+		add_filter('the_generator', 'wallarquitectura_complete_version_removal');
+/*	End wallarquitectura */
 
 // change Search Form input type from "text" to "search" and add placeholder text
-	function boilerplate_search_form ( $form ) {
+	function wallarquitectura_search_form ( $form ) {
 		$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
 		<div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
 		<input type="search" placeholder="Search for..." value="' . get_search_query() . '" name="s" id="s" />
@@ -672,242 +633,13 @@ endif;
 		</form>';
 		return $form;
 	}
-	add_filter( 'get_search_form', 'boilerplate_search_form' );
+	add_filter( 'get_search_form', 'wallarquitectura_search_form' );
 
 // added per WP upload process request post-thumbnails
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions   
+	set_post_thumbnail_size( 250, 250 ); // default Post Thumbnail dimensions   
 }
-
-
-//----------------- Custom Meta Box para Proyecto y Inmobiliaria ---------------------//
-// Add the Meta Box
-function add_custom_meta_box() {
-    add_meta_box(
-		'custom_meta_box', // $id
-		'Información de Proyectos e Inmobiliaria', // $title
-		'show_custom_meta_box', // $callback
-		'post', // $page
-		'normal', // $context
-		'default'); // $priority
-}
-
-add_action('add_meta_boxes', 'add_custom_meta_box');
-  
-
-// Field Array
-$prefix = 'custom_';
-$custom_meta_fields = array(
-	array(
-		'label'=> 'Año del proyecto',
-		'desc'	=> 'Seleccionar año del proyecto.',
-		'id'	=> $prefix.'select',
-		'type'	=> 'select',
-		'options' => array (
-		    'one' => array (
-				'label' => '2009',
-				'value'	=> '2009'
-			),
-			'two' => array (
-				'label' => '2010',
-				'value'	=> '2010'
-			),
-			'three' => array (
-				'label' => '2011',
-				'value'	=> '2011'
-			),
-			'four' => array (
-				'label' => '2012',
-				'value'	=> '2012'
-			),
-			'five' => array (
-				'label' => '2013',
-				'value'	=> '2013'
-			),
-			'six' => array (
-				'label' => '2014',
-				'value'	=> '2014'
-			),
-			'seven' => array (
-				'label' => '2015',
-				'value'	=> '2015'
-			)
-		)
-	),
-	array(
-		'label'=> 'Ubicación',
-		'desc'	=> 'Ciudad y estado donde se realizó el proyecto',
-		'id'	=> $prefix.'ubicacion',
-		'type'	=> 'text'
-	),
-	array(
-		'label'=> 'Superficie Construida',
-		'desc'	=> 'Superficie construida del proyecto.',
-		'id'	=> $prefix.'superficie',
-		'type'	=> 'text'
-	),
-	array(
-		'label'=> 'Superficie Terreno',
-		'desc'	=> 'Superficie de terreno del proyecto.',
-		'id'	=> $prefix.'superficie_terreno',
-		'type'	=> 'text'
-	),
-	array(
-		'label'=> 'Dirección (Sección Inmobiliaria)',
-		'desc'	=> 'Dirección de la propiedad.',
-		'id'	=> $prefix.'direccion',
-		'type'	=> 'text'
-	),
-	
-	array(
-		'label'=> 'Mapa de Google (Sección Inmobiliaria)',
-		'desc'	=> 'Escribir URL del mapa',
-		'id'	=> $prefix.'mapa_google',
-		'type'	=> 'textarea'
-	),
-	array(
-		'label'=> 'Teléfono(s) (Sección Inmobiliaria)',
-		'desc'	=> 'Escribir teléfonos de contacto para venta.',
-		'id'	=> $prefix.'telefono',
-		'type'	=> 'text'
-	)
-
-);
-
-// The Callback
-function show_custom_meta_box() {
-	global $custom_meta_fields, $post;
-	// Use nonce for verification
-	echo '<input type="hidden" name="custom_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
-		// Begin the field table and loop
-		echo '<table class="form-table">';
-		foreach ($custom_meta_fields as $field) {
-			// get value of this field if it exists for this post
-			$meta = get_post_meta($post->ID, $field['id'], true);
-			// begin a table row with
-			echo '<tr>
-					<th><label style="font-size:13px;" for="'.$field['id'].'">'.$field['label'].'</label></th>
-					<td>';
-					switch($field['type']) {
-					
-					// text
-					case 'text':
-						echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" size="30" />
-							<br /><span class="description">'.$field['desc'].'</span>';
-					break;						
-					
-					// textarea
-					case 'textarea':
-						echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="60" rows="4">'.$meta.'</textarea>
-							<br /><span class="description">'.$field['desc'].'</span>';
-					break;
-					
-					// select
-					case 'select':
-					echo '<select name="'.$field['id'].'" id="'.$field['id'].'">';
-					foreach ($field['options'] as $option) {
-						echo '<option', $meta == $option['value'] ? ' selected=""' : '', ' value="'.$option['value'].'">'.			$option['label'].'</option>';
-					}
-					echo '</select><br /><span class="description">'.$field['desc'].'</span>';
-					break;
-
-					
-					} //end switch
-			echo '</td></tr>';
-		} // end foreach
-		echo '</table>'; // end table
-		
-	
-}
-
-
-// Save the Data
-function save_custom_meta($post_id) {
-    global $custom_meta_fields;
-	// verify nonce
-	if (!wp_verify_nonce(isset($_POST['custom_meta_box_nonce']), basename(__FILE__)))
-		return $post_id;
-	// check autosave
-	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-		return $post_id;
-	// check permissions
-	if ('page' == $_POST['post_type']) {
-		if (!current_user_can('edit_page', $post_id))
-			return $post_id;
-		} elseif (!current_user_can('edit_post', $post_id)) {
-			return $post_id;
-	}
-	// loop through fields and save the data
-	foreach ($custom_meta_fields as $field) {
-		$old = get_post_meta($post_id, $field['id'], true);
-		$new = $_POST[$field['id']];
-		if ($new && $new != $old) {
-			update_post_meta($post_id, $field['id'], $new);
-		} elseif ('' == $new && $old) {
-			delete_post_meta($post_id, $field['id'], $old);
-		}
-	} // end foreach
-}
-add_action('save_post', 'save_custom_meta');  
-
-
-//----------------- Custom Field para Slogan Inicio---------------------//
-
-function admin_init(){
-  add_meta_box("credits_meta", 
-  "Información Slogan Inicio", 
-  "show_credits_meta", 
-  "post", 
-  "normal", 
-  "low");
-}
-
-add_action("add_meta_boxes", "admin_init");
-
-function show_credits_meta() {
-  global $post, $custom; 
-  
-   if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return $post_id;  
-	  $custom = get_post_custom($post->ID);
-	  
-	  $url = $custom["url"][0];
-	  $btn_titulo = $custom["btn_titulo"][0];
-	  $icon_slogan = $custom["icon_slogan"][0];
-  
-  ?>
-
-	<br />
-	<p><label style="width: 200px; float:left">Título botón:</label>
-	<input size="30"  name="btn_titulo" value="<?php echo $btn_titulo; ?>" /></p>
-	<p><label style="width: 200px; float:left">Dirección URL:</label>
-	<input size="30"  name="url" value="<?php echo $url; ?>" /></p>
-	<p><label style="width: 200px; float:left">Icono Slogan URL:</label>
-	<input size="30"  name="icon_slogan" value="<?php echo $icon_slogan; ?>" /></p>
-
-
-	<?php
-	}
-
-function save_details($post_id){
-  global $post;
-  	// verify nonce
-	if (!wp_verify_nonce(isset($_POST['btn_titulo']), basename(__FILE__)))
-		return $post_id;
-
-    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ){  
-        return $post_id;  
-    } else {  
-	  
-	  update_post_meta($post->ID, "btn_titulo", $_POST["btn_titulo"]);
-	  update_post_meta($post->ID, "url", $_POST["url"]);
-	  update_post_meta($post->ID, "icon_slogan", $_POST["icon_slogan"]);
-  }
-}
-
-add_action('save_post', 'save_details');
-
-
 
 //image size thumbnaisl
 if ( function_exists( 'add_image_size' ) ) { 
@@ -923,9 +655,7 @@ function edit_admin_menus() {
 	global $menu;
 
 	remove_menu_page('edit-comments.php'); // Remove the Tools Menu
-	//remove_menu_page('edit.php'); // Remove the Tools Menu
 	remove_menu_page('link-manager.php'); // Remove the Tools Menu
-	//remove_menu_page('edit.php'); // Remove the Tools Menu
 }
 
 add_action( 'admin_menu', 'edit_admin_menus' );
@@ -940,6 +670,48 @@ function change_post_menu_label() {
 }
 
 add_action( 'admin_menu', 'change_post_menu_label' );
+
+/**
+********************* Contact function*****************
+*/
+
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+if (is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
+//get the name "[posttitle mypagelink] en mensaje [_post_title]"
+	function wpcf7_postlink_shortcode_handler( $tag ) {
+		global $wpcf7_contact_form;
+		global $wpdb;
+		
+		if ( ! is_array( $tag ) )
+			return '';
+			
+			$type = $tag['type'];
+			$name = $tag['name'];
+			
+			$post = get_the_ID();
+			
+			$querystr = "SELECT * FROM $wpdb->posts WHERE ID = $post ";
+			$pageposts = $wpdb->get_row($querystr, ARRAY_A);
+			
+			$html = '<input type="text" name="'. $name .'" value="'.$pageposts['post_title'].'" />';
+			
+			$html = $pageposts['post_title'];
+			return $html;
+	}
+	
+	wpcf7_add_shortcode( 'posttitle', 'wpcf7_postlink_shortcode_handler', true );
+	
+	function wpcf7_postlink_validation_filter( $result, $tag ) {
+		global $wpcf7_contact_form;
+		
+		$type = $tag['type'];
+		$name = $tag['name'];
+		
+		return $result;
+	}
+	
+	add_filter( 'wpcf7_validate_pagelink', 'wpcf7_pagelink_validation_filter', 10, 2 );
+}
 
 
 ?>

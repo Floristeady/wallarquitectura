@@ -149,7 +149,7 @@ get_header(); ?>
 	
 			<li>
 				 <a href="<?php the_permalink();?>" title="">
-				 <span class="icon-dollar"></span>
+				 <span style="display: none;" class="icon-dollar"></span>
 				  <?php 
 					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'thumbnail'));
 					$thumbnailsrc = "";
@@ -158,7 +158,7 @@ get_header(); ?>
 					<div class="front"><img src="<?php print $thumbnailsrc; ?>"></div>
 					
 				 	<div class="text-container">
-					 	<h3><?php the_title();?></h3>
+					 	<h3><?php the_title();?> <span>(vendida)</span></h3>
 					 	<?php if( get_field('superficie_construida') ) { ?>
 					 	<p><span class="icon-home"><?php the_field('superficie_construida'); ?>m<sup>2</sup></span>
 					 	<?php } ?>

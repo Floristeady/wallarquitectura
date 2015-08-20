@@ -44,7 +44,8 @@ get_header(); ?>
 							$height=$foo[1];
 						?>
 			 			<span class='img'>
-			 			  <span class="sale"><?php _e('EN VENTA /', 'wallarquitectura')?><span class="icon-dollar"></span></span>
+			 			  <span style="display: none;" class="sale"><?php _e('EN VENTA /', 'wallarquitectura')?><span class="icon-dollar"></span></span>
+			 			  <span class="sold"><?php _e('VENDIDO /', 'wallarquitectura')?><span class="icon-dollar"></span></span>
 			 			  <div class="more-info">
 			 			  	   <p>
 			 			  	  <?php if( get_field('superficie_construida') ) { ?>

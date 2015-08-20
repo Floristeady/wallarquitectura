@@ -798,6 +798,16 @@ a.btn_all:hover {
 	margin-left: 10px;
 }
 
+.sold {
+	background-color: #354888;
+	padding: 4px 8px 2px;
+	font-size: 0.7em;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0,0,0,.4);
+	margin-left: 10px;
+}
+
+
 
 /* =Content and Edit
 ------------------------------------------------------------ */
@@ -1192,6 +1202,12 @@ a.btn_all:hover {
 	margin: 0 auto;
 }
 
+.text-container h3 span {
+	color: #efefef;
+	font-size: .7em;
+	display: block;
+}
+
 #home-featured li:hover .text-container {
 	opacity: 1;
 }
@@ -1477,7 +1493,7 @@ a.btn_all:hover {
 	margin-bottom: 0.5em;
 }
 
-#single-inmobiliaria .sale {
+#single-inmobiliaria .sale, #single-inmobiliaria .sold  {
 	margin-left: 0px;
 	margin-bottom: 5px;
 	font-size: 0.8em;
@@ -1622,7 +1638,7 @@ a.btn_all:hover {
 	position: relative;
 }
 
-.housing-item .sale {
+.housing-item .sale, .housing-item .sold {
 	position: absolute;
 	top:0px;
 	padding-top: 0.5em;
